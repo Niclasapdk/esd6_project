@@ -3,7 +3,7 @@ function [output] = combfilter(input, fs, delay_ms, gainLP, reverbtime)
 g = 1-0.366/reverbtime;
 g2 = g*(1-gainLP);
 
-M = ceil((delay_ms / 1000) * fs);%convert delay from ms to samples
+M = ceil(delay_ms *10^-3 * fs);%convert delay from ms to samples
 output = zeros(length(input), 1); % set output to 0
 output_delayline = zeros(M, 1); % mem for delayline output
 input_delayline = zeros(M, 1); % mem for delayline input

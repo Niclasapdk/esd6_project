@@ -5,7 +5,7 @@ fs = 44100;        % Sampling rate in Hz
 duration = 2;      % Duration of the sweep in seconds
 f_start = 20;      % Start frequency of sweep (Hz)
 f_end = 20000;     % End frequency of sweep (Hz)
-delay_ms = 20;     % Delay in milliseconds
+delay_ms = 50;     % Delay in milliseconds
 gainLP = 0.46;      % Low-pass gain
 reverbtime = 2.0;  % Reverberation time in seconds
 
