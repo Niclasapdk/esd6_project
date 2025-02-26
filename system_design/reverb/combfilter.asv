@@ -1,0 +1,21 @@
+function [output] = combfilter(input, fs, delay_ms, gainLP, reverbtime)
+%gains for combfilter
+g = 1-0.366/reverbtime;
+g2 = g*(1-gainLP);
+
+%convert delay from ms to samples
+M = ceil((delay_ms / 1000) * fs);
+
+output = zeros(N, 1); % set output to 0
+output_delayline = zeros(M, 1); % mem for delay
+
+%y[n]=x[n]-g1*x[n-1]+g1*y[n-1]+g2*y[n-m]
+for n=1:length(input)
+    output(n)=input(n)-gainLP*input(n-1)+gainLP*output(n-1)+g2*output_delayline(M);
+    output_delayline = [;Delayline(1:M-1)]
+end
+
+
+    xh=x(n)+FB*Delayline(M);
+    y(n)=FF*Delayline(M)+BL*xh;
+    Delayline=[xh;Delayline(1:M-1)];
