@@ -1,13 +1,12 @@
 %% General parameters
 Fs = 44100; % sample rate (Hz)
 N = Fs*10; % number of samples to simulate
-gain = 0.7; % input signal gain parameter
+gain = 10; % gain pot (0-10)
 f0 = 100; % excitation frequency (Hz)
 t = 0:N-1; % time vector for the excitation
 tstart = 0; % for sound clip
 input = sin(2*pi*f0/Fs.*t); % the excitation signal
 [input, Fs] = audioread("2. Raw Guitar Line No Amp.mp3", [tstart*Fs+1 tstart*Fs+N+1]);
-input = input .* gain;
 output = zeros(1,length(input));
 
 %% Diode parameters
@@ -26,7 +25,7 @@ R_4 = R(4.7e3);
 lp_ser = ser(C_3, R_4);
 
 %% Diode subcircuit (blue)
-I_f = I(0, 51e3 + 250e3); % start at P1 = 250k (0-500k)
+I_f = I(0, 51e3 + (gain/10)*500e3); % (P1 = 0-500k)
 C_4 = C(51e-12, Fs);
 clip_par = par(I_f, C_4);
 r_is = clip_par.PortRes*I_S;
