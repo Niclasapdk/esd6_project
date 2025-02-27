@@ -21,7 +21,7 @@ def plot_signals(signals):
     Plots multiple signals on the same figure.
     
     Parameters:
-        signals (list of tuples): Each tuple contains (filename, label)
+        signals (list of tuples): Each tuple contains (filename, label, optional dtype)
     """
     plt.figure()
     for filename, label in signals:
@@ -37,10 +37,45 @@ def plot_signals(signals):
     plt.grid(True)
     plt.show()
 
+def block_sum(x, Fs):
+    # Ensure x's length is a multiple of Fs
+    nblocks = len(x) // Fs
+    # Reshape to a 2D array of shape (nblocks, Fs) and sum along axis 1
+    return x[:nblocks * Fs].reshape(nblocks, Fs).sum(axis=1)
+
+def plot_time_signals(signals):
+    """
+    Plots multiple signals on the same figure.
+    
+    Parameters:
+        signals (list of tuples): Each tuple contains (filename, label, optional dtype)
+    """
+    plt.figure()
+    for filename, label in signals:
+        data = load_signal(filename, np.float64)
+        if data is not None:
+            data_per_1s = block_sum(data, SAMPLE_RATE)
+            plt.plot(data_per_1s, label=label)
+    
+    plt.xlabel("Time (s)")
+    plt.ylabel("Computation time (s)")
+    plt.title("Computation time per 1 second of audio")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 if __name__ == "__main__":
     # List the files and labels you want to plot together.
     signals_to_plot = [
         ("input.bin", "input"),
-        ("v_plus.bin", "V+")
+        ("v_plus.bin", "V+"),
+        ("i_f.bin", "I_f"),
     ]
     plot_signals(signals_to_plot)
+
+    signals_to_plot = [
+        ("part1_time.bin", "part1 time"),
+        ("part2_time.bin", "part2 time"),
+        # ("part3_time.bin", "part3 time"),
+    ]
+    plot_time_signals(signals_to_plot)
