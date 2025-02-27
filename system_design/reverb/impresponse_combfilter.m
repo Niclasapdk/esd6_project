@@ -1,18 +1,36 @@
-% Author: T. Lokki
+%this script takes the impulse response of the combfilter 
+clc, clear, close all;
+
+%resolution 
+N = 2^17;
+fs = 44100;
+
 % Create an impulse
-x = zeros(1,2500); x(1) = 1;
-% Delay line and read position
-A = zeros(1,100);
-Adelay=40;
+impulse = zeros(N,1);
+impulse(1) = 1;
+
 % Output vector
-ir = zeros(1,2500);
-% Feedback gain
-g=0.7;
-% Comb-allpass filtering
-for n = 1:length(ir)
-tmp = A(Adelay) + x(n)*(-g);
-A = [(tmp*g + x(n))' A(1:length(A)-1)];
-ir(n) = tmp;
-end
-% Plot the filtering result
-plot(ir)
+ir = zeros(1,N);
+
+% Filter parameters
+delay_ms = 78; 
+gainLP = 0.55; 
+reverbtime = 1;
+
+
+ir = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+
+% Time vector in seconds
+t = (0:N-1) / fs;
+
+magnitude_dB = 20 * log10(abs(ir) + eps); % Add eps to avoid log(0)
+
+% Plot the impulse response in dB
+plot(t, magnitude_dB);
+xlabel('Time (seconds)');
+ylabel('Magnitude (dB)');
+title('Impulse Response in dB');
+grid on;
+
+hold on;
+yline(-60, '--r'); %adds line at -60 db

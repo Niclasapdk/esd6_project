@@ -1,15 +1,17 @@
+%This script takes the magnitude response of the combfilter
+clc, clear, close all;
 fs = 44100; % Sampling frequency
 N = 2^14; % FFT size for frequency resolution
 freqs = linspace(0, fs/2, N/2+1); % Frequency axis
 
 % Generate an impulse signal
 impulse = zeros(N,1);
-impulse(1) = 1; % Delta function
+impulse(1) = 1;
 
 % Filter parameters
 delay_ms = 10; 
 gainLP = 0.9; 
-reverbtime = 2;
+reverbtime = 1;
 
 % Apply the comb filter
 output = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);

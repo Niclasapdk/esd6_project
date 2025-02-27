@@ -1,6 +1,6 @@
 function [output] = combfilter(input, fs, delay_ms, gainLP, reverbtime)
 %gains for combfilter
-g = 1-0.366/reverbtime;
+g = 1-(0.366/reverbtime);
 g2 = g*(1-gainLP);
 
 M = ceil(delay_ms *10^-3 * fs);%convert delay from ms to samples
