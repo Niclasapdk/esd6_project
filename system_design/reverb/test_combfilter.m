@@ -7,8 +7,8 @@ impulse = zeros(N,1);
 impulse(1) = 1; % Delta function
 
 % Filter parameters
-delay_ms = 78; 
-gainLP = 0.55; 
+delay_ms = 10; 
+gainLP = 0.9; 
 reverbtime = 2;
 
 % Apply the comb filter
