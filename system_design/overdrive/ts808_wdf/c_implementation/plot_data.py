@@ -70,12 +70,13 @@ if __name__ == "__main__":
         ("input.bin", "input"),
         ("v_plus.bin", "V+"),
         ("i_f.bin", "I_f"),
+        ("output.bin", "output"),
     ]
     plot_signals(signals_to_plot)
 
     signals_to_plot = [
         ("part1_time.bin", "part1 time"),
         ("part2_time.bin", "part2 time"),
-        # ("part3_time.bin", "part3 time"),
+        ("part3_time.bin", "part3 time"),
     ]
     plot_time_signals(signals_to_plot)

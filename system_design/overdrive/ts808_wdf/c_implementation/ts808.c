@@ -37,6 +37,10 @@ void save_time_samples(char *filename, double *samples, size_t n_samples) {
     fclose(f);
 }
 
+inline int signum (TYPE val) {
+    return (0 < val) - (val < 0);
+}
+
 typedef struct  {
     TYPE R; // port resistance
     TYPE G; // port conductance (1/R)
@@ -122,15 +126,15 @@ TYPE part1_process(TYPE x) {
     static TYPE C_2_a = 0, C_2_b = 0; // FIXME same here wtf is going on
     C_2_b = C_2_a;
     C_2_a = C_2_b - inp_ser_reflect * (x + C_2_b - v_bias_b); // port1.b - reflect * (x + port1.b + port2.b) // port2.b is from the inner series circuit
-    TYPE inner_ser_a = - (x + C_2_a);
+    TYPE inner_ser_a = - (x + C_2_a); // b2 = - (x + b1)
     TYPE R_A_a = - inp_inner_ser_reflect * (inner_ser_a + 4.5); // port1.b - reflect * (x + port1.b + port2.b) // ser(R_A, V_bias)
-    TYPE v_bias_a = - (x + R_A_a);
+    TYPE v_bias_a = - (x + R_A_a); // b2 = - (x + b1)
     return (v_bias_a + 4.5)/2; // voltage
 }
 
 #define R_4_val (4.7e3)
 #define C_3_val (CAP_R(0.047e-6, Fs))
-// processes a sample x in part 1 circuit and outputs the current
+// processes a sample x in part 2 circuit and outputs the current
 TYPE part2_process(TYPE x) {
     static const TYPE reflect = (C_3_val)/(C_3_val+R_4_val);
     static TYPE C_3_a = 0, C_3_b = 0;
@@ -141,33 +145,79 @@ TYPE part2_process(TYPE x) {
     return b2 / (2*R_4_val);
 }
 
+#define gain ((TYPE)5) // 0-10
+#define C_4_val (CAP_R(51e-12, Fs))
+#define I_f_res_val (51e3+(gain/10)*500e3)
+#define V_T (26e-3)
+#define I_S (1e-12)
+// circuit is parallel(C_4, I_f)
+// processes a sample (current) in part 3 circuit and outputs the voltage
+TYPE part3_process(TYPE x) {
+    static const TYPE par_g = (1/C_4_val + 1/I_f_res_val);
+    static const TYPE par_r = 1/par_g;
+    static const TYPE R_Is = par_r * I_S;
+    static const TYPE R_Is_over_Vt = R_Is / V_T;
+    static const TYPE reflect = (1/C_4_val)/par_g;
+    static TYPE C_4_a = 0, C_4_b = 0;
+    // get reflected waves for C_4 and I_f and parallel circuit
+    TYPE I_f_b = x * I_f_res_val;
+    C_4_b = C_4_a;
+    TYPE bDiff = C_4_b - I_f_b;
+    TYPE b = C_4_b - reflect * bDiff;
+
+    // Model diode
+    int lambda = signum(b);
+    TYPE log_part = log_approx(R_Is_over_Vt);
+    TYPE other_part = (lambda * b)/V_T + R_Is_over_Vt;
+    TYPE wright = omega4(log_part + other_part);
+    TYPE a = b + 2 * lambda * (R_Is - V_T * wright);
+    TYPE b2 = a - I_f_b + a; // b - port2->b + x
+    C_4_a = b2 + bDiff;
+    return (a+b)/2;
+}
+
 #define clock_to_sec(t) (((double)t)/CLOCKS_PER_SEC)
 int main() {
     int N = 44100*10;
+#define FUNCTION_GENERATOR
 // #define DEBUG_PRINT
     TYPE *input = calloc(sizeof(TYPE), N);
     TYPE *v_plus = calloc(sizeof(TYPE), N);
     TYPE *i_f = calloc(sizeof(TYPE), N);
+    TYPE *output = calloc(sizeof(TYPE), N);
     double *part1_time = calloc(sizeof(double), N);
     double *part2_time = calloc(sizeof(double), N);
     double *part3_time = calloc(sizeof(double), N);
+#ifndef FUNCTION_GENERATOR
+    // read_wav("../guitar.wav", input, sizeof(input), 0);
+#endif
     clock_t t_start = clock();
     for (int t=0; t<N; t++) {
+#ifdef FUNCTION_GENERATOR
         TYPE x = sinf(2*3.14*100*t); // 100 Hz
+#else
+        TYPE x = input[t];
+#endif
         clock_t t1 = clock();
         TYPE y1 = part1_process(x);
         clock_t t2 = clock();
         TYPE y2 = part2_process(y1);
         clock_t t3 = clock();
+        TYPE y3 = part3_process(y2);
+        clock_t t4 = clock();
 #ifdef DEBUG_PRINT
         printf("x=%f, y=%f, out=%f\n", x, y, y-4.5);
 #endif
         // Save samples
+#ifdef FUNCTION_GENERATOR
         input[t] = x;
+#endif
         v_plus[t] = y1;
         i_f[t] = y2;
+        output[t] = y1 + y3 - 4.5;
         part1_time[t] = clock_to_sec(t2-t1);
         part2_time[t] = clock_to_sec(t3-t2);
+        part3_time[t] = clock_to_sec(t4-t3);
     }
     clock_t t_stop = clock();
     double t_total = clock_to_sec(t_stop-t_start);
@@ -175,6 +225,9 @@ int main() {
     save_samples("v_plus.bin", v_plus, N);
     save_samples("input.bin", input, N);
     save_samples("i_f.bin", i_f, N);
+    save_samples("output.bin", output, N);
     save_time_samples("part1_time.bin", part1_time, N);
     save_time_samples("part2_time.bin", part2_time, N);
+    save_time_samples("part3_time.bin", part3_time, N);
+    // write_wav("../output.wav", output, sizeof(output));
 }
