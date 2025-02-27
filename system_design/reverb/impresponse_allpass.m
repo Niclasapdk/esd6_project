@@ -1,8 +1,8 @@
-%this script takes the impulse response of the combfilter 
+%this script takes the impulse response of the allpass 
 clc, clear, close all;
 
 %resolution 
-N = 2^17;
+N = 2^14;
 fs = 44100;
 
 % Create an impulse
@@ -13,12 +13,11 @@ impulse(1) = 1;
 ir = zeros(1,N);
 
 % Filter parameters
-delay_ms = 78; 
-gainLP = 0.55; 
-reverbtime = 1;
+delay_ms = 6; 
+gain = 0.7; 
 
 
-ir = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+ir = allpass(impulse, fs, delay_ms, gain);
 % Time vector in seconds
 t = (0:N-1) / fs;
 
@@ -30,6 +29,3 @@ xlabel('Time (seconds)');
 ylabel('Magnitude (dB)');
 title('Impulse Response in dB');
 grid on;
-
-hold on;
-yline(-60, '--r'); %adds line at -60 db
