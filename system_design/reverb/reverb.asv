@@ -1,10 +1,7 @@
-function [reverb_out] = reverb(reverb_in,fs,reverbtime)
+function [output] = reverb(input,fs,reverbtime)
 %reverb
-fs = 441000;
-reverbtime = 1;
-
-comb_in = reverb_in;
-
+comb_in = input;
+%late decay
 %combfilters
 combfilter_delay = [50 56 61 68 72 78];
 combfilter_gain = [0.46 0.48 0.50 0.52 0.53 0.55];
@@ -16,5 +13,19 @@ comb5 = combfilter(comb_in,fs,combfilter_delay(5),combfilter_gain(5),reverbtime)
 comb6 = combfilter(comb_in,fs,combfilter_delay(6),combfilter_gain(6),reverbtime);
 
 comb_out = (comb1+comb2+comb3+comb4+comb5+comb6)*(1/6);
+
+%allpass
+all_delay_ms = 6;
+gain=0.7;
+all_input=comb_out
+M = ceil(all_delay_ms *10^-3 * fs);%convert delay from ms to samples
+output = zeros(length(input), 1); % set output to 0
+output_delayline = zeros(M, 1); % mem for delayline output
+input_delayline = zeros(M, 1); % mem for delayline input
+%y[n]=-g*x[n]+x[n-m]+g*y[n-m]
+for n=1:length(input)
+    output(n)=-gain*input(n)+input_delayline(M)+gain*output_delayline(M);
+    output_delayline = [output(n);output_delayline(1:M-1)];
+    input_delayline = [input(n);input_delayline(1:M-1)];
 
 end

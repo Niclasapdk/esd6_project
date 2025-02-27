@@ -14,6 +14,18 @@ comb6 = combfilter(comb_in,fs,combfilter_delay(6),combfilter_gain(6),reverbtime)
 
 comb_out = (comb1+comb2+comb3+comb4+comb5+comb6)*(1/6);
 
-output =comb_out;
+%allpass
+all_delay_ms = 6;
+gain=0.7;
+all_input=comb_out;
+M = ceil(all_delay_ms *10^-3 * fs);%convert delay from ms to samples
+all_output = zeros(length(all_input), 1); % set output to 0
+output_delayline = zeros(M, 1); % mem for delayline output
+input_delayline = zeros(M, 1); % mem for delayline input
+%y[n]=-g*x[n]+x[n-m]+g*y[n-m]
+for n=1:length(all_input)
+    all_output(n)=-gain*all_input(n)+input_delayline(M)+gain*output_delayline(M);
+    output_delayline = [all_output(n);output_delayline(1:M-1)];
+    input_delayline = [all_input(n);input_delayline(1:M-1)];
 
 end
