@@ -2,7 +2,7 @@
 clc, clear, close all;
 
 %resolution 
-N = 2^17;
+N = 2^14;
 fs = 44100;
 
 % Create an impulse
@@ -14,11 +14,15 @@ ir = zeros(1,N);
 
 % Filter parameters
 delay_ms = 78; 
-gainLP = 0.55; 
+gainLP = 0.5; 
 reverbtime = 1;
 
 
-ir = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+%ir = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+
+%to test reverb
+ir = reverb(impulse, fs, gainLP, reverbtime);
+
 % Time vector in seconds
 t = (0:N-1) / fs;
 

@@ -10,11 +10,14 @@ impulse(1) = 1;
 
 % Filter parameters
 delay_ms = 10; 
-gainLP = 0.9; 
+gainLP = 0.7; 
 reverbtime = 1;
 
 % Apply the comb filter
-output = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+%output = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
+
+%to test reverb
+output = reverb(impulse, fs, gainLP, reverbtime);
 
 % Compute magnitude response using FFT
 H = fft(output, N);
@@ -27,4 +30,4 @@ grid on;
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB)');
 title('Magnitude Response of Comb Filter');
-axis([20 fs/2 -10 20]); % Adjust axis for visibility
+axis([20 fs/2 -50 20]); % Adjust axis for visibility
