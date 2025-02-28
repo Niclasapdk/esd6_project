@@ -161,10 +161,18 @@ TYPE part3_process(TYPE x) {
     TYPE a = C_4_b - reflect * bDiff; // reflected from circuit (incident to diode)
 
     // Model diode
+// #define DIODE_BETTER
+#ifdef DIODE_BETTER
+    int lambda = signum(a);
+    TYPE other_part = (lambda * a)/V_T + R_Is_over_Vt;
+    TYPE lambda_a_over_vt = lambda * a / V_T;
+    TYPE b = a - 2 * V_T * lambda * (omega4(log_R_Is_over_Vt + lambda_a_over_vt) - omega4(log_R_Is_over_Vt - lambda_a_over_vt));
+#else
     int lambda = signum(a);
     TYPE other_part = (lambda * a)/V_T + R_Is_over_Vt;
     TYPE wright = omega4(log_R_Is_over_Vt + other_part);
     TYPE b = a + 2 * lambda * (R_Is - V_T * wright);
+#endif
 
     // Scatter incident to parallel circuit
     TYPE b2 = a - C_4_b + b; // reflected from circuit - port2->b + x
@@ -192,9 +200,9 @@ int main() {
     }
 #endif
     // initialization
-    for (int i=0; i<100; i++) {
-        part3_process(part2_process(part1_process(0)));
-    }
+    // for (int i=0; i<100; i++) {
+    //     part3_process(part2_process(part1_process(0)));
+    // }
     // process loop
     clock_t t_start = clock();
     for (int t=0; t<N; t++) {
