@@ -5,7 +5,7 @@ input_sound = input / max(abs(input));
 
 %reverb parameters
 gain = 0.5;
-reverb_time = 1;
+reverb_time = 0.1;
 
 %add reverb
 output_signal = reverb(input_sound,fs,gain,reverb_time);
