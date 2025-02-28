@@ -20,7 +20,7 @@ input_sound = trimmed_input / max(abs(trimmed_input));
 %impulse(1) = 1;
 
 %reverb parameters
-gain = 0.75;
+gain = 0.5;
 reverb_time = 1;
 
 %add reverb
@@ -30,4 +30,4 @@ output_signal = reverb(input_sound,fs,gain,reverb_time);
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('reverb.wav', output_signal, fs);
+audiowrite('reverb__25_1.wav', output_signal, fs);
