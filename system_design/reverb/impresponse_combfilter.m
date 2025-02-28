@@ -2,7 +2,7 @@
 clc, clear, close all;
 
 %resolution 
-N = 2^14;
+N = 2^12;
 fs = 44100;
 
 % Create an impulse
@@ -22,6 +22,9 @@ reverbtime = 1;
 
 %to test reverb
 ir = reverb(impulse, fs, gainLP, reverbtime);
+
+%to test early decay
+%ir = early_decay(impulse, fs);
 
 % Time vector in seconds
 t = (0:N-1) / fs;

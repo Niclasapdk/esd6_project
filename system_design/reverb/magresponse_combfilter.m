@@ -19,6 +19,9 @@ reverbtime = 1;
 %to test reverb
 output = reverb(impulse, fs, gainLP, reverbtime);
 
+%to test eaerly dealy
+%output = early_decay(impulse, fs);
+
 % Compute magnitude response using FFT
 H = fft(output, N);
 H_mag = abs(H(1:N/2+1)); % Take only positive frequencies
