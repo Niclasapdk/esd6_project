@@ -37,81 +37,75 @@ void save_time_samples(char *filename, double *samples, size_t n_samples) {
     fclose(f);
 }
 
-inline int signum (TYPE val) {
+#define ERR_OPEN_FILE -1
+// Reads a raw PCM file (pcm_s16le mono) into an array of floats in the range [-1, 1].
+// filename: input raw PCM file name.
+// array: destination array to store up to N float samples.
+// N: maximum number of float samples to read.
+// Returns 0 on success, or a negative error code if something fails.
+int read_pcm(char *filename, float *array, size_t N) {
+    FILE *f = fopen(filename, "rb");
+    if (!f)
+        return ERR_OPEN_FILE;
+
+    size_t count = 0;
+    unsigned char sample_bytes[2];
+
+    // Each sample is 2 bytes (16-bit)
+    while (count < N)
+    {
+        size_t nread = fread(sample_bytes, 1, 2, f);
+        if (nread < 2)
+            break; // End-of-file reached
+
+        // Reconstruct a signed 16-bit integer from little-endian bytes.
+        int16_t sample = (int16_t)(sample_bytes[0] | (sample_bytes[1] << 8));
+
+        // Map to float in range [-1, 1]. Note that -32768 maps to -1.
+        array[count++] = sample / 32768.0f;
+    }
+
+    fclose(f);
+    return 0;
+}
+
+// Writes a raw PCM file (pcm_s16le mono) from an array of floats in the range [-1, 1].
+// filename: output file name.
+// array: source array of float samples.
+// N: number of samples in the array.
+// Returns 0 on success, or a negative error code if something fails.
+int write_pcm(char *filename, float *array, size_t N) {
+    FILE *f = fopen(filename, "wb");
+    if (!f)
+        return ERR_OPEN_FILE;
+
+    for (size_t i = 0; i < N; i++)
+    {
+        float s = array[i];
+        // Clamp to avoid overflow: ensure that 1.0 doesn't map to 32768.
+        if (s > 0.999969f)
+            s = 0.999969f;
+        if (s < -1.0f)
+            s = -1.0f;
+        int16_t sample = (int16_t)(s * 32768.0f);
+        // Write sample in little-endian order.
+        unsigned char bytes[2];
+        bytes[0] = sample & 0xFF;
+        bytes[1] = (sample >> 8) & 0xFF;
+        if (fwrite(bytes, 1, 2, f) != 2)
+        {
+            fclose(f);
+            return -2; // error writing file
+        }
+    }
+
+    fclose(f);
+    return 0;
+}
+
+int signum (TYPE val) {
     return (0 < val) - (val < 0);
 }
-
-typedef struct  {
-    TYPE R; // port resistance
-    TYPE G; // port conductance (1/R)
-    TYPE a; // incident
-    TYPE b; // reflected
-} OnePort_t;
-
-typedef struct {
-    TYPE R;
-    TYPE G;
-    TYPE port1Reflect;
-    TYPE bDiff; // used for parallel
-    TYPE a; // incident
-    TYPE b; // reflected
-    OnePort_t *p1, *p2;
-} Adapter_t;
-
-inline TYPE voltage(OnePort_t *op) {
-    return (op->a+op->b)/2;
-}
-
-inline TYPE current(OnePort_t *op) {
-    return (op->a - op->b)/(2*op->R);
-}
-
-void initParallel(Adapter_t *par, OnePort_t *p1, OnePort_t *p2) {
-    par->R = p1->R*p1->R/(p1->R+p2->R);
-    par->G = 1/par->R;
-    par->port1Reflect = p1->G/par->G;
-    par->p1 = p1;
-    par->p2 = p2;
-}
-
-void initSeries(Adapter_t *ser, OnePort_t *p1, OnePort_t *p2) {
-    ser->R = p1->R + p2->R;
-    ser->G = 1/ser->R;
-    ser->port1Reflect = p1->R/ser->R;
-    ser->p1 = p1;
-    ser->p2 = p2;
-}
-
-void initOnePort(OnePort_t *op, TYPE R, TYPE a, TYPE b) {
-    op->R = R;
-    op->G = 1/R;
-    op->a = a;
-    op->b = b;
-}
-
-TYPE reflectedParallel(Adapter_t *par) {
-    par->bDiff = par->p2->b - par->p1->b;
-    TYPE b = par->p2->b - par->port1Reflect * par->bDiff;
-    return b;
-}
-
-inline TYPE reflectedSerial(Adapter_t *ser) {
-    return -(ser->p1->b + ser->p2->b);
-}
-
-void incidentParallel(Adapter_t *par, TYPE x) {
-    TYPE b2 = par->b - par->p2->b + x;
-    par->p2->a = b2;
-    par->p1->a = b2 + par->bDiff;
-    par->a = x;
-}
-
-// void incidentSeries(Adapter_t *ser, TYPE x) {
-//     TYPE b1 = ser->p1->b - ser->port1Reflect * (x + ser->p1->b + ser->p2->b);
-//     ser->p1->a = b1;
-//     ser->p2->a = - (x + b1);
-//     ser->a = x;
-// }
 
 /// Processing
 #define C_2_val (CAP_R(1e-6, Fs))
@@ -145,41 +139,43 @@ TYPE part2_process(TYPE x) {
     return b2 / (2*R_4_val);
 }
 
-#define gain ((TYPE)5) // 0-10
+#define gain ((TYPE)2) // 0-10
 #define C_4_val (CAP_R(51e-12, Fs))
 #define I_f_res_val (51e3+(gain/10)*500e3)
 #define V_T (26e-3)
 #define I_S (1e-12)
-// circuit is parallel(C_4, I_f)
+// circuit is parallel(I_f, C_4)
 // processes a sample (current) in part 3 circuit and outputs the voltage
 TYPE part3_process(TYPE x) {
     static const TYPE par_g = (1/C_4_val + 1/I_f_res_val);
     static const TYPE par_r = 1/par_g;
     static const TYPE R_Is = par_r * I_S;
     static const TYPE R_Is_over_Vt = R_Is / V_T;
-    static const TYPE reflect = (1/C_4_val)/par_g;
+    static const TYPE log_R_Is_over_Vt = -12.222595194170855;
+    static const TYPE reflect = (1/I_f_res_val)/par_g;
     static TYPE C_4_a = 0, C_4_b = 0;
     // get reflected waves for C_4 and I_f and parallel circuit
     TYPE I_f_b = x * I_f_res_val;
     C_4_b = C_4_a;
     TYPE bDiff = C_4_b - I_f_b;
-    TYPE b = C_4_b - reflect * bDiff;
+    TYPE a = C_4_b - reflect * bDiff; // reflected from circuit (incident to diode)
 
     // Model diode
-    int lambda = signum(b);
-    TYPE log_part = log_approx(R_Is_over_Vt);
-    TYPE other_part = (lambda * b)/V_T + R_Is_over_Vt;
-    TYPE wright = omega4(log_part + other_part);
-    TYPE a = b + 2 * lambda * (R_Is - V_T * wright);
-    TYPE b2 = a - I_f_b + a; // b - port2->b + x
-    C_4_a = b2 + bDiff;
-    return (a+b)/2;
+    int lambda = signum(a);
+    TYPE other_part = (lambda * a)/V_T + R_Is_over_Vt;
+    TYPE wright = omega4(log_R_Is_over_Vt + other_part);
+    TYPE b = a + 2 * lambda * (R_Is - V_T * wright);
+
+    // Scatter incident to parallel circuit
+    TYPE b2 = a - C_4_b + b; // reflected from circuit - port2->b + x
+    C_4_a = b2;
+    return (b+a)/2;
 }
 
 #define clock_to_sec(t) (((double)t)/CLOCKS_PER_SEC)
 int main() {
     int N = 44100*10;
-#define FUNCTION_GENERATOR
+// #define FUNCTION_GENERATOR
 // #define DEBUG_PRINT
     TYPE *input = calloc(sizeof(TYPE), N);
     TYPE *v_plus = calloc(sizeof(TYPE), N);
@@ -189,8 +185,17 @@ int main() {
     double *part2_time = calloc(sizeof(double), N);
     double *part3_time = calloc(sizeof(double), N);
 #ifndef FUNCTION_GENERATOR
-    // read_wav("../guitar.wav", input, sizeof(input), 0);
+    int err = read_pcm("../guitar.pcm", input, N);
+    if (err != 0) {
+        perror("file open failed");
+        exit(ERR_OPEN_FILE);
+    }
 #endif
+    // initialization
+    for (int i=0; i<100; i++) {
+        part3_process(part2_process(part1_process(0)));
+    }
+    // process loop
     clock_t t_start = clock();
     for (int t=0; t<N; t++) {
 #ifdef FUNCTION_GENERATOR
@@ -229,5 +234,5 @@ int main() {
     save_time_samples("part1_time.bin", part1_time, N);
     save_time_samples("part2_time.bin", part2_time, N);
     save_time_samples("part3_time.bin", part3_time, N);
-    // write_wav("../output.wav", output, sizeof(output));
+    write_pcm("../output.pcm", output, N);
 }
