@@ -1,4 +1,4 @@
-function [output] = reverb(input,fs,reverb_gain,reverb_time)
+function [early_decay_out] = early_decay(input,fs)
 %reverb
 %early decay
 tap_delay = [0 0.0199 0.0354 0.0389 0.0414 0.0699 0.0796];
@@ -17,11 +17,9 @@ early_delay_line = zeros(max(tap_delay_samples), 1); % mem for delayline early d
 %TDL y[n] = a0*x[n]+a1*x[n-1] . . . aN*x[n-M_N]
 for n=1:N
     for k = 1:taps
-        d = tap_delay_samples(k);  %delay in samples for kth tap
-        if (n - d) >= 1
-            early_decay_out(n) = early_decay_out(n)+tap_gain(k)*input(early_delay_line);
-        end
+        early_decay_out(n) = early_decay_out(n)+tap_gain(k)*input(early_delay_line);
+    end
         early_delay_line = [input(n);early_delay_line(1:max(tap_delay_samples)-1)];
         %if (n - d) < 1, we assume x(n-d) = 0 (causal filter)
-    end
+end
 end
