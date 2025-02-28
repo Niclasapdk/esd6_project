@@ -1,7 +1,7 @@
 %sound test of reverb
 [input, fs] = audioread('../soundclips/guitar.wav');
 
-desiredLength = 5;                        % Seconds
+desiredLength = 1;                        % Seconds
 L = fs * desiredLength;                   % Samples/sec * sec = Samples
 trimmed_input = input(1:L,:);
 
