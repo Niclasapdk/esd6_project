@@ -77,6 +77,7 @@ end
 late_M = max(tap_delay_samples);%length of late delay
 output_delayline = zeros(late_M,1);%delay line for late dealy
 late_offset = 0;%late dealy offset for ringbuf
+late_decay_out = zeros(size(input));%vector of late decay output : very impotant:)
 
 for n = 1:length(input)
     i = ceil(max(tap_delay_samples)/3);%index for ringbuf 3 because sound good? should be calcluated properly
@@ -84,7 +85,6 @@ for n = 1:length(input)
     late_offset = mod(late_offset-1,late_M);%updates late deacy offset
     output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line
 end
-late_decay_out = allpass_out;%ohh shit late delay is bypassed
 
 output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
 end

@@ -56,7 +56,7 @@ allpass_out = zeros(size(input)); % set output to 0
 all_output_delayline = zeros(M_all, 1); % mem for delayline output
 all_input_delayline = zeros(M_all, 1); % mem for delayline input
 
-allpass_inoffset = 0;%offsets for allpass filter
+allpass_inoffset = 0;%offsets for allpass filters ringbuf
 allpass_outoffset = 0;
 
 %y[n]=-g*x[n]+x[n-m]+g*y[n-m]
@@ -75,16 +75,16 @@ end
 
 %%late delay reverb
 late_M = max(tap_delay_samples);%length of late delay
-output_delayline = zeros(late_M,1);%
-late_offset = 0;
+output_delayline = zeros(late_M,1);%delay line for late dealy
+late_offset = 0;%late dealy offset for ringbuf
+late_decay_out = zeros(size(input));%vector of late decay output
 
 for n = 1:length(input)
-    i = ceil(max(tap_delay_samples)/3);
+    i = ceil(max(tap_delay_samples)/3);%index for ringbuf 3 because sound good? should be calcluated properly
     late_decay_out(n) = output_delayline(ringbuf_idx(late_offset,i,late_M));
-    late_offset = mod(late_offset-1,late_M);
-    output_delayline(late_offset+1) = allpass_out(n);
+    late_offset = mod(late_offset-1,late_M);%updates late deacy offset
+    output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line
 end
-late_decay_out = allpass_out;
 
-output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);
+output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
 end
