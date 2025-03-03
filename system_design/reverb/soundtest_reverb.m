@@ -23,4 +23,4 @@ toc(start)
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('sound_tests/reverb_test3.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('reverb_test.wav', output_signal/max(abs(output_signal)), fs);

@@ -84,7 +84,7 @@ for n = 1:length(input)
     late_offset = mod(late_offset-1,late_M);%updates late deacy offset
     output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line
 end
-late_decay_out = allpass_out;%
+late_decay_out = allpass_out;%ohh shit late delay is bypassed
 
 output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
 end
