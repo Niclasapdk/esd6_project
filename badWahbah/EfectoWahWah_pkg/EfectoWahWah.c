@@ -56,9 +56,12 @@ double EfectoWahWah(double damp, double minf, double maxf, double Fs, double Fw,
       int scalarLB;
       int vectorUB;
       /*  for constant Fc same loop as shown above for triangle */
-      y = Fw / Fs;
       /*  step size */
-      /*  vector with all possible frequencies */
+      y = Fw / Fs;
+  
+      /* Checks if (minf:y:maxf) is not a number 
+      * (rtIsNaN) found in rt_nonfinite.c
+      * vector with all possible frequencies */
       if (rtIsNaN(minf) || rtIsNaN(y) || rtIsNaN(maxf)) {
         i = freq->size[0] * freq->size[1];
         freq->size[0] = 1;

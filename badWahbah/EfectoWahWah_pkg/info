@@ -1,0 +1,8 @@
+C files are source code, containing the functionalities of the functionalities
+h files are used to declare functions, basically interface
+
+rtGetinf and rtGetNaN checks if values are (nan) Not a number and if the value is infinite(inf).
+EfectoWaHWah_types define the structure for the data used. 
+abs calculates the absolut value for every value in the input array X and stores in output array Y
+EfectoWahWah_emxutil has 3 functions resize array, free data, and create initial 2D array structure
+minOrMax findes the minimum value for x array

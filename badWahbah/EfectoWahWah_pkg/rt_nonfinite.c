@@ -22,12 +22,12 @@
 #pragma warning(disable : 264)
 #endif
 
-real_T rtNaN = (real_T)NAN;
-real_T rtInf = (real_T)INFINITY;
-real_T rtMinusInf = -(real_T)INFINITY;
-real32_T rtNaNF = (real32_T)NAN;
-real32_T rtInfF = (real32_T)INFINITY;
-real32_T rtMinusInfF = -(real32_T)INFINITY;
+real_T rtNaN = (real_T)NAN;                 /* not a number (nan)*/
+real_T rtInf = (real_T)INFINITY;            /* infinite minus check*/
+real_T rtMinusInf = -(real_T)INFINITY;      /* infinite minus check*/
+real32_T rtNaNF = (real32_T)NAN;            /* not a number (nan)*/
+real32_T rtInfF = (real32_T)INFINITY;       /* infinite check*/
+real32_T rtMinusInfF = -(real32_T)INFINITY; /* infinite minus check*/
 
 #if defined(__ICL) && __ICL == 1700
 #pragma warning(default : 264)
@@ -35,8 +35,11 @@ real32_T rtMinusInfF = -(real32_T)INFINITY;
 
 /*
  * Function: rtIsInf ==================================================
- *  Abstract:
  *  Test if value is infinite
+ *  isinf (math.h function) checks if it is infinite returns 0 if it finite isinf(5)=0
+ *  if infinite it returns number which isnt 0
+ *  !=0U checks if the value is 0, if it is 0 then returns false
+ *  double = 64 bit
  */
 boolean_T rtIsInf(real_T value)
 {
@@ -47,6 +50,10 @@ boolean_T rtIsInf(real_T value)
  * Function: rtIsInfF =================================================
  *  Abstract:
  *  Test if single-precision value is infinite
+ *  isinf (math.h function) checks if it is infinite returns 0 if it finite isinf(5)=0
+ *  if infinite it returns number which isnt 0
+ *  !=0U checks if the value is 0, if it is 0 then returns false
+ *  single = 32 bit
  */
 boolean_T rtIsInfF(real32_T value)
 {
@@ -57,6 +64,10 @@ boolean_T rtIsInfF(real32_T value)
  * Function: rtIsNaN ==================================================
  *  Abstract:
  *  Test if value is not a number
+ *  isnan (math.h function) checks if nan(not a number)
+ *  If it is a number return 0, false
+ *  if not a number then return 1, right
+ *  double = 64 bit
  */
 boolean_T rtIsNaN(real_T value)
 {
@@ -67,6 +78,10 @@ boolean_T rtIsNaN(real_T value)
  * Function: rtIsNaNF =================================================
  *  Abstract:
  *  Test if single-precision value is not a number
+ * isnan (math.h function) checks if nan(not a number)
+ * If it is a number return 0, false
+ *  if not a number then return 1, right
+ * single = 32 bit
  */
 boolean_T rtIsNaNF(real32_T value)
 {
