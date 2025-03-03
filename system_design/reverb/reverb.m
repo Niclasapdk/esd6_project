@@ -13,8 +13,6 @@ tap_delay_samples = ceil(tap_delay * fs); %convert sec to sample
 tap_delay_samples(1,1) = 1; %for at det første delay ikke er nul 
 
 
-
-
 %TDL y[n] = a0*x[n]+a1*x[n-1] . . . aN*x[n-M_N] ??early_decay_out(n) = early_decay_out(n)+tap_gain(k)*early_delayline(tap_delay_samples(k));
 early_M = max(tap_delay_samples);%M is length
 early_offset = 0;
