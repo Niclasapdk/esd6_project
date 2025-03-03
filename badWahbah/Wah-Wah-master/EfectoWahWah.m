@@ -6,6 +6,7 @@ function y=EfectoWahWah(damp,minf,maxf,Fs,Fw, x,Fc,wahType)
 if Fc > maxf | Fc < minf 
         disp('No work Fc not in value !!!!!!!!!!!!!!!!!!!!!!!!!');
         disp('You fucking dumbasss');
+        y=zeros(size(x));
         return;
 end
 
@@ -15,6 +16,7 @@ switch wahType
     % tunning coeffiecients and start Fc
     Q1 = 2*damp;
     F1 = 2*sin((pi*Fc)/Fs);
+    y=zeros(size(x));
     % first element in the vector
     y(1) = F1*x(1);
     yl = F1*y(1);
@@ -39,7 +41,7 @@ switch wahType
     % find the closest frequency to Fc
     [~, idx] = min(abs(freq - Fc));  % idx gives the index of the closest value
     Fc = freq(idx);  % This is the closest frequency to Fc (finite length)
-
+    y=zeros(size(x));
     % tunning coeffiecients and start Fc
     Q1 = 2*damp;
     F1 = 2*sin((pi*Fc)/Fs);
@@ -53,6 +55,9 @@ switch wahType
     yl=F1*y(n)+yl; % lowpass
     yaux=y(n); 
         end
+    otherwise
+            y=zeros(size(x));
+    error('Invalid wahType! Must be 1 or 2.');
 end
          % needs to do both
     % normalize the values in the vector of y
