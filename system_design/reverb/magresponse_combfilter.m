@@ -1,7 +1,7 @@
 %This script takes the magnitude response of the combfilter
 clc, clear, close all;
 fs = 44100; % Sampling frequency
-N = 2^14; % FFT size for frequency resolution
+N = 2^16; % FFT size for frequency resolution
 freqs = linspace(0, fs/2, N/2+1); % Frequency axis
 
 % Generate an impulse signal

@@ -7,11 +7,14 @@ input_length = length(input);%length of input
 M = ceil(delay_ms *10^-3 * fs);%convert delay from ms to samples
 output = zeros(length(input), 1); % set output to 0
 output_delayline = zeros(M, 1); % mem for delayline output
-input_delayline = zeros(M, 1); % mem for delayline input
+%input_delayline = zeros(M, 1); % mem for delayline input
+input_delay = 1;
 
 %y[n]=x[n]-g1*x[n-1]+g1*y[n-1]+g2*y[n-m]
 for n=1:input_length
-    output(n)=input(n)-gain_LP*input_delayline(1)+gain_LP*output_delayline(1)+g2*output_delayline(M);
+    %output(n)=input(n)-gain_LP*input_delayline(1)+gain_LP*output_delayline(1)+g2*output_delayline(M);
+    output(n)=input(n)-gain_LP*input_delay+gain_LP*output_delayline(1)+g2*output_delayline(M);
     output_delayline = [output(n);output_delayline(1:M-1)];
-    input_delayline = [input(n);input_delayline(1:M-1)];
+    %input_delayline = [input(n);input_delayline(1:M-1)];
+    input_delay = input(n);
 end

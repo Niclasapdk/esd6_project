@@ -1,7 +1,7 @@
 %sound test of reverb
 [input, fs] = audioread('../soundclips/guitar.wav');
 
-desiredLength = 1;                        % Seconds
+desiredLength = 0.05;                        % Seconds
 L = fs * desiredLength;                   % Samples/sec * sec = Samples
 trimmed_input = input(1:L,:);
 
@@ -30,4 +30,4 @@ output_signal = reverb(input_sound,fs,gain,reverb_time);
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('reverb.wav', output_signal, fs);
+audiowrite('reverb.wav', output_signal/max(abs(output_signal)), fs);
