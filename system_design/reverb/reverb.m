@@ -30,7 +30,6 @@ end
 %late decay
 comb_in = early_decay_out;
 %combfilters
-tic();
 combfilter_delay = [50 56 61 68 72 78];
 combfilter_gain = [0.46 0.48 0.50 0.52 0.53 0.55];
 comb1 = combfilter(comb_in,fs,combfilter_delay(1),combfilter_gain(1),reverb_time);
@@ -41,7 +40,6 @@ comb5 = combfilter(comb_in,fs,combfilter_delay(5),combfilter_gain(5),reverb_time
 comb6 = combfilter(comb_in,fs,combfilter_delay(6),combfilter_gain(6),reverb_time);
 
 comb_out = (comb1+comb2+comb3+comb4+comb5+comb6)*(1/6);
-combtime = toc()
 
 %allpass
 all_delay_ms = 6;

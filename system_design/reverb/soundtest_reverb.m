@@ -1,9 +1,11 @@
 %sound test of reverb
 [input, fs] = audioread('../soundclips/guitar.wav');
 
-desiredLength = 0.05;                        % Seconds
-L = fs * desiredLength;                   % Samples/sec * sec = Samples
-trimmed_input = input(1:L,:);
+starttime = 0.5;
+desiredLength = 1;                        % Seconds
+t = starttime * fs;
+L = fs * desiredLength + t;                   % Samples/sec * sec = Samples
+trimmed_input = input(t:L,:);
 
 %normalize sound because dododododo
 input_sound = trimmed_input / max(abs(trimmed_input));
