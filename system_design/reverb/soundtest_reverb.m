@@ -11,8 +11,8 @@ trimmed_input = input(t:L,:);
 input_sound = trimmed_input / max(abs(trimmed_input));
 
 %reverb parameters
-gain = 0.3;
-reverb_time = 0.2;
+gain = 0.75;
+reverb_time = 1;
 
 %add reverb
 start = tic();
