@@ -57,12 +57,17 @@ allpass_out = zeros(size(input)); % set output to 0
 all_output_delayline = zeros(M_all, 1); % mem for delayline output
 all_input_delayline = zeros(M_all, 1); % mem for delayline input
 
+allpass_inoffset = 0;
+allpass_outoffset = 0;
 
 %y[n]=-g*x[n]+x[n-m]+g*y[n-m]
 for n=1:length(allpass_in)
-    allpass_out(n) = -gain*allpass_in(n)+all_input_delayline(M_all)+gain*all_output_delayline(M_all);
-    all_output_delayline = [allpass_out(n);all_output_delayline(1:M_all-1)];
-    all_input_delayline = [allpass_in(n);all_input_delayline(1:M_all-1)];
+    allpass_out(n) = -gain*allpass_in(n)+all_input_delayline(ringbuf_idx(allpass_inoffset,M_all,M_all))+gain*all_output_delayline(ringbuf_idx(allpass_outoffset,M_all,M_all));
+    
+    allpass_inoffset = mod(allpass_inoffset-1,M_all);
+    allpass_outoffset = mod(allpass_outoffset-1,M_all);
+    all_input_delayline(allpass_inoffset+1) = allpass_in(n);
+    all_output_delayline(allpass_outoffset+1) = allpass_out(n);
 end
 
 %remember z^-d and should be a delay adjusts the last pulse from FIR

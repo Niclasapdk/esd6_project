@@ -13,8 +13,6 @@ tap_delay_samples = ceil(tap_delay * fs); %convert sec to sample
 tap_delay_samples(1,1) = 1; %for at det første delay ikke er nul 
 
 
-
-
 %TDL y[n] = a0*x[n]+a1*x[n-1] . . . aN*x[n-M_N] ??early_decay_out(n) = early_decay_out(n)+tap_gain(k)*early_delayline(tap_delay_samples(k));
 early_M = max(tap_delay_samples);%M is length
 early_offset = 0;
@@ -59,10 +57,17 @@ allpass_out = zeros(size(input)); % set output to 0
 all_output_delayline = zeros(M_all, 1); % mem for delayline output
 all_input_delayline = zeros(M_all, 1); % mem for delayline input
 
+allpass_offset = 0;
 
 %y[n]=-g*x[n]+x[n-m]+g*y[n-m]
 for n=1:length(allpass_in)
     allpass_out(n) = -gain*allpass_in(n)+all_input_delayline(M_all)+gain*all_output_delayline(M_all);
+    all_output_delayline = [allpass_out(n);all_output_delayline(1:M_all-1)];
+    all_input_delayline = [allpass_in(n);all_input_delayline(1:M_all-1)];
+end
+
+for n=1:length(allpass_in)
+    allpass_out(n) = -gain*allpass_in(n)+all_input_delayline(ringbuf_idx(allpass_offset,))+gain*all_output_delayline(M_all);
     all_output_delayline = [allpass_out(n);all_output_delayline(1:M_all-1)];
     all_input_delayline = [allpass_in(n);all_input_delayline(1:M_all-1)];
 end

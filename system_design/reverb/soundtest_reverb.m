@@ -23,7 +23,7 @@ input_sound = trimmed_input / max(abs(trimmed_input));
 
 %reverb parameters
 gain = 0.3;
-reverb_time = 3;
+reverb_time = 0.2;
 
 %add reverb
 start = tic();
@@ -33,4 +33,4 @@ toc(start)
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('reverb_long.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('sound_tests/reverb_test3.wav', output_signal/max(abs(output_signal)), fs);
