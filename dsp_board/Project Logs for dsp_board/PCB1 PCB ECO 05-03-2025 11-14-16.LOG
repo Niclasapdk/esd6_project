@@ -1,0 +1,26 @@
+Added Component: Designator=D1(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D2(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ_T Pin=D1-1
+Added Pin To Net: NetName=NetJ_T Pin=D2-2
+Change Net Name : Old Net Name=-5 New Net Name=-5V
+Change Net Name : Old Net Name=NetJ_T New Net Name=NetD1_1
+Added Pin To Net: NetName=+1.75V Pin=D1-2
+Added Net: Name=+1.75V
+Added Pin To Net: NetName=+5 Pin=U1-8
+Added Net: Name=+5
+Added Pin To Net: NetName=-1.75V Pin=D2-1
+Added Net: Name=-1.75V
+Added Pin To Net: NetName=-5 Pin=U1-4
+Added Net: Name=-5
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=NetR3_2 Pin=R4-1
+Added Pin To Net: NetName=NetR3_2 Pin=U1-6
+Added Net: Name=NetR3_2
+Added Member To Class: ClassName=amplifier_stage Member=Component D1 Diode DO-35
+Added Member To Class: ClassName=amplifier_stage Member=Component D2 Diode DO-35
+Added Rule: Name=Schematic Supply Nets_2
+Added Rule: Name=Schematic Supply Nets_4
+Added Rule: Name=Schematic Supply Nets_5
+Added Rule: Name=Schematic Supply Nets_6

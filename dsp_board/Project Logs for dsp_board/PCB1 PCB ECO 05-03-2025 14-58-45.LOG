@@ -1,0 +1,16 @@
+Change Component Designator: OldDesignator=J5 NewDesignator=J8
+Change Component Designator: OldDesignator=J NewDesignator=J5
+Added Component: Designator=J6(3.5MMJACK)
+Added Component: Designator=J7(3.5MMJACK)
+Added Pin To Net: NetName=GND Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-2
+Added Pin To Net: NetName=NetC1_2 Pin=J6-3
+Added Pin To Net: NetName=NetC1_2 Pin=J6-4
+Added Pin To Net: NetName=GND Pin=J7-1
+Added Pin To Net: NetName=GND Pin=J7-2
+Added Pin To Net: NetName=NetJ7_3 Pin=J7-3
+Added Pin To Net: NetName=NetJ7_3 Pin=J7-4
+Added Pin To Net: NetName=NetJ7_3 Pin=U1-5
+Added Net: Name=NetJ7_3
+Added Member To Class: ClassName=amplifier_stage Member=Component J6 3.5MMJACK
+Added Member To Class: ClassName=amplifier_stage Member=Component J7 3.5MMJACK

@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=GND Pin=J5-SN
+Added Pin To Net: NetName=GND Pin=J5-S
+Added Pin To Net: NetName=NetC2_2 Pin=J5-TN
+Added Pin To Net: NetName=NetC2_2 Pin=J5-T
+Change Net Name : Old Net Name=+5 New Net Name=+5V
+Change Net Name : Old Net Name=-5 New Net Name=-5V
