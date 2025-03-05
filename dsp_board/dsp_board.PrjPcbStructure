@@ -1,2 +1,3 @@
-Record=TopLevelDocument|FileName=main.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=main.SchDoc|FileName=switches_connectors.SchDoc|SheetNumber=2
+Record=TopLevelDocument|FileName=amplifier_stage.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=main.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=switches_connectors.SchDoc|SheetNumber=2
