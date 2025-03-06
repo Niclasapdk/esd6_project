@@ -11,7 +11,7 @@ trimmed_input = input(t:L,:);
 input_sound = trimmed_input / max(abs(trimmed_input));
 
 %reverb parameters
-gain = 0.3;
+gain = 0;
 reverb_time = 1;
 
 %add reverb
@@ -23,4 +23,4 @@ toc(start)
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('reverb_test.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('reverb_tap7_0_1.wav', output_signal/max(abs(output_signal)), fs);
