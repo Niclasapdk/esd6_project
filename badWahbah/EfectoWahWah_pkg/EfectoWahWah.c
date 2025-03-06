@@ -125,7 +125,7 @@ double EfectoWahWah(double damp, double minf, double maxf, double Fs, double Fw,
       /*  This is the closest frequency to Fc (finite length) */
       /*  tunning coeffiecients and start Fc */
       /*  first element in the vector */
-      y = 2.0 * sin(3.1415926535897931 * freq_data[loop_ub - 1] / Fs) * x;
+      y = 2.0 * sin(3.1415926535897931 * freq_data[loop_ub - 1]  / Fs) * x;
     } break;
     }
     /*  needs to do both */
