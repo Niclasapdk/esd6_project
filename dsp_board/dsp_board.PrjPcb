@@ -118,7 +118,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document5]
-DocumentPath=power_supply.SchDoc
+DocumentPath=shift_registers.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0

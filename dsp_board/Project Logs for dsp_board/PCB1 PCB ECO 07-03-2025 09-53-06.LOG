@@ -1,0 +1,333 @@
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=GND Pin=C2-1
+Removed Pin From Net: NetName=GND Pin=J5-S
+Removed Pin From Net: NetName=GND Pin=J5-SN
+Removed Pin From Net: NetName=GND Pin=J6-1
+Removed Pin From Net: NetName=GND Pin=J6-2
+Removed Pin From Net: NetName=GND Pin=J7-1
+Removed Pin From Net: NetName=GND Pin=J7-2
+Removed Pin From Net: NetName=GND Pin=J8-S
+Removed Pin From Net: NetName=GND Pin=J8-SN
+Removed Pin From Net: NetName=GND Pin=R2-1
+Removed Pin From Net: NetName=GND Pin=R3-1
+Change Component Designator: OldDesignator=C1 NewDesignator=C301
+Change Component Designator: OldDesignator=C2 NewDesignator=C300
+Change Component Designator: OldDesignator=D1 NewDesignator=D300
+Change Component Designator: OldDesignator=D2 NewDesignator=D301
+Change Component Designator: OldDesignator=J1 NewDesignator=J103
+Change Component Designator: OldDesignator=J2 NewDesignator=J101
+Change Component Designator: OldDesignator=J3 NewDesignator=J102
+Change Component Designator: OldDesignator=J4 NewDesignator=J100
+Change Component Designator: OldDesignator=J5 NewDesignator=J302
+Change Component Designator: OldDesignator=J6 NewDesignator=J303
+Change Component Designator: OldDesignator=J7 NewDesignator=J300
+Change Component Designator: OldDesignator=J8 NewDesignator=J301
+Change Component Designator: OldDesignator=R1 NewDesignator=R303
+Change Component Designator: OldDesignator=R2 NewDesignator=R304
+Change Component Designator: OldDesignator=R3 NewDesignator=R302
+Change Component Designator: OldDesignator=R4 NewDesignator=R301
+Change Component Designator: OldDesignator=R5 NewDesignator=R300
+Change Component Designator: OldDesignator=U1 NewDesignator=U300
+Added Component: Designator=C200(RAD-0.3  PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C201(RAD-0.3  PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C202(RAD-0.3  PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C500(Cap-0)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C501(Cap-0)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C502(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C503(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C504(Cap-0)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C505(Cap-0)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C506(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C507(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=D500(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D501(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D502(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=J200(Header 1x3)
+Added Component: Designator=J201(Header 1x3)
+Added Component: Designator=J202(Header 1x3)
+Added Component: Designator=J400(Header 1x7)
+Added Component: Designator=LED400(SMD L0805)
+Added Component: Designator=LED401(SMD L0805)
+Added Component: Designator=LED402(SMD L0805)
+Added Component: Designator=LED403(SMD L0805)
+Added Component: Designator=LED404(SMD L0805)
+Added Component: Designator=LED405(SMD L0805)
+Added Component: Designator=Pot500(Pot Trim Long)
+Add component (AddParameter): Name = "Resistance"; Value = "2k"; VariantName = "[No Variations]"
+Added Component: Designator=R400(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R401(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R402(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R403(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R404(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R405(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R406(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R407(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R408(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R409(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R410(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R411(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R412(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R500(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "240"; VariantName = "[No Variations]"
+Added Component: Designator=R501(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "48"; VariantName = "[No Variations]"
+Added Component: Designator=R502(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "120"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES SMD 0201)
+Add component (AddParameter): Name = "Ohm"; Value = "1K"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found JUMPER PCBK
+Added Component: Designator=U400(N0016A)
+Add component (AddParameter): Name = "3-State Output"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Bits"; Value = "8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "SCLS041H"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "F @ Nom Voltage(Max)(Mhz)"; Value = "28"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Generic Part Number"; Value = "SN74HC595"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ICC @ Nom Voltage(Max)(mA)"; Value = "0.08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range(C)"; Value = "-40 to 85"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Drive (IOL/IOH)(Max)(mA)"; Value = "7.8/-7.8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "N0016A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "http://www.ti.com/lit/ml/mpdi002c/mpdi002c.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rating"; Value = "Military"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology Family"; Value = "HC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "tpd @ Nom Voltage(Max)(ns)"; Value = "34"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Max)(V)"; Value = "6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Min)(V)"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage(Nom)(V)"; Value = "6"; VariantName = "[No Variations]"
+Added Component: Designator=U401(N0016A)
+Add component (AddParameter): Name = "3-State Output"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Bits"; Value = "8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "SCLS041H"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "F @ Nom Voltage(Max)(Mhz)"; Value = "28"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Generic Part Number"; Value = "SN74HC595"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ICC @ Nom Voltage(Max)(mA)"; Value = "0.08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range(C)"; Value = "-40 to 85"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Drive (IOL/IOH)(Max)(mA)"; Value = "7.8/-7.8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "N0016A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "http://www.ti.com/lit/ml/mpdi002c/mpdi002c.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rating"; Value = "Military"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology Family"; Value = "HC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "tpd @ Nom Voltage(Max)(ns)"; Value = "34"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Max)(V)"; Value = "6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Min)(V)"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage(Nom)(V)"; Value = "6"; VariantName = "[No Variations]"
+Added Component: Designator=U500(TO-220)
+Added Component: Designator=U501(TO-92_straight)
+Added Component: Designator=U502(NDE0003A)
+Add component (AddParameter): Name = "Code_IPC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEDEC"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEITA"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM7905&fileType=pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CompType"; Value = "LDO IC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "High-Reliability"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "TO-220, Molded, 3 Lead, Straight"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "NDE0003A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageTopMarking"; Value = "NSUZXYTTE#*LM7905CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PinCount"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PowerWise"; Value = "N"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Y"; VariantName = "[No Variations]"
+Added Component: Designator=U503(TO220)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00000468.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/PACKAGE_INFORMATION/CD00004649.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "1/10/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "TO, Thru-Hole, Vertical, Heatsink Mounted; 3 In-Line Leads; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "TO220"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "ver3.0"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GPAIN0 Pin=C200-2
+Added Pin To Net: NetName=GPAIN1 Pin=C201-2
+Added Pin To Net: NetName=GPAIN2 Pin=C202-2
+Added Pin To Net: NetName=+5V Pin=C501-2
+Added Pin To Net: NetName=+5V Pin=C502-1
+Added Pin To Net: NetName=-5V Pin=C505-1
+Added Pin To Net: NetName=+5V Pin=D500-2
+Added Pin To Net: NetName=-5V Pin=D502-1
+Added Pin To Net: NetName=GPAIN0 Pin=J200-2
+Added Pin To Net: NetName=GPAIN1 Pin=J201-2
+Added Pin To Net: NetName=GPAIN2 Pin=J202-2
+Added Pin To Net: NetName=GPIO16 Pin=R?-2
+Add Pin To Net: Unknown Pin: Pin S?-1
+Added Pin To Net: NetName=GPIO12 Pin=U400-10
+Added Pin To Net: NetName=GPIO14 Pin=U400-11
+Added Pin To Net: NetName=GPIO13 Pin=U400-12
+Added Pin To Net: NetName=GPIO15 Pin=U400-14
+Added Pin To Net: NetName=GPIO10 Pin=U401-10
+Added Pin To Net: NetName=GPIO5 Pin=U401-11
+Added Pin To Net: NetName=GPIO11 Pin=U401-12
+Added Pin To Net: NetName=GPIO4 Pin=U401-14
+Added Pin To Net: NetName=+5V Pin=U500-3
+Added Pin To Net: NetName=+5V Pin=U501-3
+Added Pin To Net: NetName=-5V Pin=U502-3
+Added Pin To Net: NetName=-5V Pin=U503-2
+Change Net Name : Old Net Name=NetC1_2 New Net Name=NetC301_2
+Change Net Name : Old Net Name=NetC2_2 New Net Name=NetC300_2
+Change Net Name : Old Net Name=NetD1_1 New Net Name=NetD300_1
+Change Net Name : Old Net Name=NetJ7_3 New Net Name=NetJ300_3
+Change Net Name : Old Net Name=NetR1_1 New Net Name=NetR303_1
+Change Net Name : Old Net Name=NetR3_2 New Net Name=NetR301_1
+Change Net Name : Old Net Name=NetR4_2 New Net Name=NetR300_1
+Added Pin To Net: NetName=+1V75 Pin=C503-1
+Added Pin To Net: NetName=+1V75 Pin=D300-2
+Added Pin To Net: NetName=+1V75 Pin=D500-1
+Added Pin To Net: NetName=+1V75 Pin=R500-2
+Added Pin To Net: NetName=+1V75 Pin=U501-2
+Added Net: Name=+1V75
+Added Pin To Net: NetName=+3V3 Pin=J200-3
+Added Pin To Net: NetName=+3V3 Pin=J201-3
+Added Pin To Net: NetName=+3V3 Pin=J202-3
+Added Net: Name=+3V3
+Added Pin To Net: NetName=-1V75 Pin=C507-2
+Added Pin To Net: NetName=-1V75 Pin=D301-1
+Added Pin To Net: NetName=-1V75 Pin=D501-1
+Added Pin To Net: NetName=-1V75 Pin=D502-2
+Added Pin To Net: NetName=-1V75 Pin=R502-1
+Added Pin To Net: NetName=-1V75 Pin=U503-3
+Added Net: Name=-1V75
+Add Net: Net with name "GND" already exists
+Added Pin To Net: NetName=NetC500_2 Pin=C500-2
+Added Pin To Net: NetName=NetC500_2 Pin=U500-1
+Added Net: Name=NetC500_2
+Added Pin To Net: NetName=NetC504_1 Pin=C504-1
+Added Pin To Net: NetName=NetC504_1 Pin=U502-2
+Added Net: Name=NetC504_1
+Added Pin To Net: NetName=NetC506_2 Pin=C506-2
+Added Pin To Net: NetName=NetC506_2 Pin=D501-2
+Added Pin To Net: NetName=NetC506_2 Pin=R501-1
+Added Pin To Net: NetName=NetC506_2 Pin=R502-2
+Added Pin To Net: NetName=NetC506_2 Pin=U503-1
+Added Net: Name=NetC506_2
+Added Pin To Net: NetName=NetJ400_1 Pin=J400-1
+Added Pin To Net: NetName=NetJ400_1 Pin=R406-1
+Added Pin To Net: NetName=NetJ400_1 Pin=U400-6
+Added Net: Name=NetJ400_1
+Added Pin To Net: NetName=NetJ400_2 Pin=J400-2
+Added Pin To Net: NetName=NetJ400_2 Pin=R405-1
+Added Pin To Net: NetName=NetJ400_2 Pin=U400-5
+Added Net: Name=NetJ400_2
+Added Pin To Net: NetName=NetJ400_3 Pin=J400-3
+Added Pin To Net: NetName=NetJ400_3 Pin=R404-1
+Added Pin To Net: NetName=NetJ400_3 Pin=U400-4
+Added Net: Name=NetJ400_3
+Added Pin To Net: NetName=NetJ400_4 Pin=J400-4
+Added Pin To Net: NetName=NetJ400_4 Pin=R403-1
+Added Pin To Net: NetName=NetJ400_4 Pin=U400-3
+Added Net: Name=NetJ400_4
+Added Pin To Net: NetName=NetJ400_5 Pin=J400-5
+Added Pin To Net: NetName=NetJ400_5 Pin=R402-1
+Added Pin To Net: NetName=NetJ400_5 Pin=U400-2
+Added Net: Name=NetJ400_5
+Added Pin To Net: NetName=NetJ400_6 Pin=J400-6
+Added Pin To Net: NetName=NetJ400_6 Pin=R401-1
+Added Pin To Net: NetName=NetJ400_6 Pin=U400-1
+Added Net: Name=NetJ400_6
+Added Pin To Net: NetName=NetJ400_7 Pin=J400-7
+Added Pin To Net: NetName=NetJ400_7 Pin=R400-1
+Added Pin To Net: NetName=NetJ400_7 Pin=U400-15
+Added Net: Name=NetJ400_7
+Added Pin To Net: NetName=NetLED400_1 Pin=LED400-1
+Added Pin To Net: NetName=NetLED400_1 Pin=U401-5
+Added Net: Name=NetLED400_1
+Added Pin To Net: NetName=NetLED400_2 Pin=LED400-2
+Added Pin To Net: NetName=NetLED400_2 Pin=R407-1
+Added Net: Name=NetLED400_2
+Added Pin To Net: NetName=NetLED401_1 Pin=LED401-1
+Added Pin To Net: NetName=NetLED401_1 Pin=U401-4
+Added Net: Name=NetLED401_1
+Added Pin To Net: NetName=NetLED401_2 Pin=LED401-2
+Added Pin To Net: NetName=NetLED401_2 Pin=R408-1
+Added Net: Name=NetLED401_2
+Added Pin To Net: NetName=NetLED402_1 Pin=LED402-1
+Added Pin To Net: NetName=NetLED402_1 Pin=U401-3
+Added Net: Name=NetLED402_1
+Added Pin To Net: NetName=NetLED402_2 Pin=LED402-2
+Added Pin To Net: NetName=NetLED402_2 Pin=R409-1
+Added Net: Name=NetLED402_2
+Added Pin To Net: NetName=NetLED403_1 Pin=LED403-1
+Added Pin To Net: NetName=NetLED403_1 Pin=U401-2
+Added Net: Name=NetLED403_1
+Added Pin To Net: NetName=NetLED403_2 Pin=LED403-2
+Added Pin To Net: NetName=NetLED403_2 Pin=R410-1
+Added Net: Name=NetLED403_2
+Added Pin To Net: NetName=NetLED404_1 Pin=LED404-1
+Added Pin To Net: NetName=NetLED404_1 Pin=U401-1
+Added Net: Name=NetLED404_1
+Added Pin To Net: NetName=NetLED404_2 Pin=LED404-2
+Added Pin To Net: NetName=NetLED404_2 Pin=R411-1
+Added Net: Name=NetLED404_2
+Added Pin To Net: NetName=NetLED405_1 Pin=LED405-1
+Added Pin To Net: NetName=NetLED405_1 Pin=U401-15
+Added Net: Name=NetLED405_1
+Added Pin To Net: NetName=NetLED405_2 Pin=LED405-2
+Added Pin To Net: NetName=NetLED405_2 Pin=R412-1
+Added Net: Name=NetLED405_2
+Added Pin To Net: NetName=NetPot500_1 Pin=Pot500-1
+Added Pin To Net: NetName=NetPot500_1 Pin=Pot500-3
+Added Pin To Net: NetName=NetPot500_1 Pin=R500-1
+Added Pin To Net: NetName=NetPot500_1 Pin=U501-1
+Added Net: Name=NetPot500_1
+Added Pin To Net: NetName=VCC Pin=U400-16
+Added Pin To Net: NetName=VCC Pin=U401-16
+Added Net: Name=VCC
+Added Class: Name=power_supply
+Added Class: Name=shift_registers
+Added Class: Name=switches_connectors
+Added Member To Class: ClassName=amplifier_stage Member=Component J302 NMJ4HFD2
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_4
+Added Rule: Name=Schematic Supply Nets_7
+Added Rule: Name=Schematic Supply Nets_8

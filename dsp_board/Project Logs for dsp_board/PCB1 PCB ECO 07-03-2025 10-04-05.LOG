@@ -1,0 +1,37 @@
+Removed Member From Class: ClassName=power_supply Member=R?
+Change Component Designator: OldDesignator=R? NewDesignator=R400
+Change Component Designator: OldDesignator=R? NewDesignator=R401
+Change Component Designator: OldDesignator=R? NewDesignator=R402
+Change Component Designator: OldDesignator=R? NewDesignator=R403
+Change Component Designator: OldDesignator=R? NewDesignator=R404
+Change Component Designator: OldDesignator=R? NewDesignator=R405
+Change Component Designator: OldDesignator=R? NewDesignator=R406
+Change Component Designator: OldDesignator=R? NewDesignator=R407
+Change Component Designator: OldDesignator=R? NewDesignator=R408
+Change Component Designator: OldDesignator=R? NewDesignator=R409
+Change Component Designator: OldDesignator=R? NewDesignator=R410
+Change Component Designator: OldDesignator=R? NewDesignator=R411
+Change Component Designator: OldDesignator=R? NewDesignator=R412
+Change Component Designator: OldDesignator=R? NewDesignator=R500
+Change Component Designator: OldDesignator=R? NewDesignator=R501
+Change Component Designator: OldDesignator=R? NewDesignator=R502
+Change Component Designator: OldDesignator=Rs? NewDesignator=Rs200
+Add Component: Footprint Not Found JUMPER PCBK
+Add Pin To Net: Unknown Pin: Pin S200-1
+Add Net: Net with name "GND" already exists
+Added Member To Class: ClassName=shift_registers Member=Component R400 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R401 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R402 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R403 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R404 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R405 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R406 Res2
+Added Member To Class: ClassName=shift_registers Member=Component R407
+Added Member To Class: ClassName=shift_registers Member=Component R408
+Added Member To Class: ClassName=shift_registers Member=Component R409
+Added Member To Class: ClassName=shift_registers Member=Component R410
+Added Member To Class: ClassName=shift_registers Member=Component R412
+Added Member To Class: ClassName=power_supply Member=Component R500
+Added Member To Class: ClassName=power_supply Member=Component R501
+Added Member To Class: ClassName=power_supply Member=Component R502
+Add Class Member: Failed to add class member : Component S200 SW

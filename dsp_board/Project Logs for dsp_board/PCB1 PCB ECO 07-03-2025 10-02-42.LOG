@@ -1,0 +1,232 @@
+Removed Pin From Net: NetName=NetJ400_7 Pin=R400-1
+Removed Pin From Net: NetName=NetJ400_6 Pin=R401-1
+Removed Pin From Net: NetName=NetJ400_5 Pin=R402-1
+Removed Pin From Net: NetName=NetJ400_4 Pin=R403-1
+Removed Pin From Net: NetName=NetJ400_3 Pin=R404-1
+Removed Pin From Net: NetName=NetJ400_2 Pin=R405-1
+Removed Pin From Net: NetName=NetJ400_1 Pin=R406-1
+Removed Pin From Net: NetName=NetLED400_2 Pin=R407-1
+Removed Pin From Net: NetName=NetLED401_2 Pin=R408-1
+Removed Pin From Net: NetName=NetLED402_2 Pin=R409-1
+Removed Pin From Net: NetName=NetLED403_2 Pin=R410-1
+Removed Pin From Net: NetName=NetLED404_2 Pin=R411-1
+Removed Pin From Net: NetName=NetLED405_2 Pin=R412-1
+Removed Pin From Net: NetName=NetPot500_1 Pin=R500-1
+Removed Pin From Net: NetName=+1V75 Pin=R500-2
+Removed Pin From Net: NetName=NetC506_2 Pin=R501-1
+Removed Pin From Net: NetName=-1V75 Pin=R502-1
+Removed Pin From Net: NetName=NetC506_2 Pin=R502-2
+Removed Pin From Net: NetName=GPIO16 Pin=R?-2
+Removed Member From Class: ClassName=switches_connectors Member=C200
+Removed Member From Class: ClassName=switches_connectors Member=C201
+Removed Member From Class: ClassName=switches_connectors Member=C202
+Removed Member From Class: ClassName=switches_connectors Member=J200
+Removed Member From Class: ClassName=switches_connectors Member=J201
+Removed Member From Class: ClassName=switches_connectors Member=J202
+Removed Member From Class: ClassName=power_supply Member=R500
+Removed Member From Class: ClassName=power_supply Member=R501
+Removed Member From Class: ClassName=power_supply Member=R502
+Change Component Footprint: Designator=R? Old Footprint=RES SMD 0201 New Footprint=AXIAL-0.4 PCBK
+Change Component Comment : Designator=R? Old Comment=Resistor New Comment=
+Change component parameters: Designator = "C300" ("C300"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\PDKGMRAM" ("\PDKGMRAM")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "5n5"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C301" ("C301"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\GCRCWJOD" ("\GCRCWJOD")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "5n5"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R300" ("R300"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\NUHHIWMP" ("\NUHHIWMP")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k47"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R301" ("R301"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\DHCCCNAR" ("\DHCCCNAR")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "14k7"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R303" ("R303"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\UMRJAWWF" ("\UMRJAWWF")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k47"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R?" ("R?"); Footprint = "RES SMD 0201"; UniqueID = "\OCAYLYJZ" ("\OCAYLYJZ")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "240"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "48"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "120"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=Rs?(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found JUMPER PCBK
+Added Pin To Net: NetName=-1V75 Pin=R?-1
+Added Pin To Net: NetName=NetC506_2 Pin=R?-1
+Added Pin To Net: NetName=NetPot500_1 Pin=R?-1
+Added Pin To Net: NetName=+1V75 Pin=R?-2
+Added Pin To Net: NetName=NetC506_2 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_1 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_2 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_3 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_4 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_5 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_6 Pin=R?-2
+Added Pin To Net: NetName=NetJ400_7 Pin=R?-2
+Added Pin To Net: NetName=NetLED400_2 Pin=R?-2
+Added Pin To Net: NetName=NetLED401_2 Pin=R?-2
+Added Pin To Net: NetName=NetLED402_2 Pin=R?-2
+Added Pin To Net: NetName=NetLED403_2 Pin=R?-2
+Added Pin To Net: NetName=NetLED404_2 Pin=R?-2
+Added Pin To Net: NetName=NetLED405_2 Pin=R?-2
+Added Pin To Net: NetName=GPIO16 Pin=Rs?-2
+Add Pin To Net: Unknown Pin: Pin S?-1
+Add Net: Net with name "GND" already exists
+Change Class Name : Old Net Name=switches_connectors New Net Name=shift_registers
+Added Class: Name=switches_connectors
+Added Member To Class: ClassName=shift_registers Member=Component J400 Header 1x7
+Added Member To Class: ClassName=shift_registers Member=Component LED400 LED
+Added Member To Class: ClassName=shift_registers Member=Component LED401 LED
+Added Member To Class: ClassName=shift_registers Member=Component LED402 LED
+Added Member To Class: ClassName=shift_registers Member=Component LED403 LED
+Added Member To Class: ClassName=shift_registers Member=Component LED404 LED
+Added Member To Class: ClassName=shift_registers Member=Component LED405 LED
+Added Member To Class: ClassName=power_supply Member=Component R?
+Added Member To Class: ClassName=power_supply Member=Component R?
+Added Member To Class: ClassName=power_supply Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component R? Res2
+Added Member To Class: ClassName=shift_registers Member=Component R?
+Added Member To Class: ClassName=shift_registers Member=Component U400 SN74HC595N
+Added Member To Class: ClassName=shift_registers Member=Component U401 SN74HC595N

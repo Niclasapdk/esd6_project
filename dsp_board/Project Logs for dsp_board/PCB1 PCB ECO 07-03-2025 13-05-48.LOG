@@ -1,0 +1,58 @@
+Removed Pin From Net: NetName=+5V Pin=C501-2
+Removed Pin From Net: NetName=-1V75 Pin=D501-1
+Removed Pin From Net: NetName=NetC506_2 Pin=D501-2
+Removed Pin From Net: NetName=-5V Pin=D502-1
+Removed Pin From Net: NetName=GPIO16 Pin=Rs?-2
+Removed Pin From Net: NetName=+5V Pin=U300-8
+Removed Pin From Net: NetName=GPIO12 Pin=U400-10
+Removed Pin From Net: NetName=GPIO14 Pin=U400-11
+Removed Pin From Net: NetName=GPIO13 Pin=U400-12
+Removed Pin From Net: NetName=GPIO15 Pin=U400-14
+Removed Pin From Net: NetName=+5V Pin=U500-3
+Removed Pin From Net: NetName=-5V Pin=U503-2
+Removed Member From Class: ClassName=power_supply Member=D501
+Change Component Designator: OldDesignator=J200 NewDesignator=POT1
+Change Component Designator: OldDesignator=J201 NewDesignator=POT2
+Change Component Designator: OldDesignator=J202 NewDesignator=POT3
+Change Component Designator: OldDesignator=J400 NewDesignator=FX Switches
+Change Component Designator: OldDesignator=Rs? NewDesignator=Rs200
+Added Component: Designator=5V FX Switches(MicroFit 1x7)
+Added Component: Designator=MENU_CTRL(Header 1x3)
+Added Component: Designator=POT_WAH200(Header 1x3)
+Added Pin To Net: NetName=GPIO17 Pin=MENU_CTRL-2
+Added Pin To Net: NetName=+3V3 Pin=MENU_CTRL-3
+Added Pin To Net: NetName=GND Pin=POT_WAH200-1
+Added Pin To Net: NetName=GPAIN3 Pin=POT_WAH200-2
+Added Pin To Net: NetName=+3V3 Pin=POT_WAH200-3
+Added Pin To Net: NetName=GPIO17 Pin=Rs200-2
+Added Pin To Net: NetName=GPIO14 Pin=U400-10
+Added Pin To Net: NetName=GPIO15 Pin=U400-11
+Added Pin To Net: NetName=GPIO12 Pin=U400-12
+Added Pin To Net: NetName=GPIO16 Pin=U400-14
+Change Net Name : Old Net Name=+5V New Net Name=+6V
+Change Net Name : Old Net Name=NetJ400_1 New Net Name=NetFX Switches_1
+Change Net Name : Old Net Name=NetJ400_2 New Net Name=NetFX Switches_2
+Change Net Name : Old Net Name=NetJ400_3 New Net Name=NetFX Switches_3
+Change Net Name : Old Net Name=NetJ400_4 New Net Name=NetFX Switches_4
+Change Net Name : Old Net Name=NetJ400_5 New Net Name=NetFX Switches_5
+Change Net Name : Old Net Name=NetJ400_6 New Net Name=NetFX Switches_6
+Change Net Name : Old Net Name=NetJ400_7 New Net Name=NetFX Switches_7
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-1
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-2
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-3
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-4
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-5
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-6
+Added Pin To Net: NetName=+5V Pin=5V FX Switches-7
+Added Pin To Net: NetName=+5V Pin=C501-2
+Added Pin To Net: NetName=+5V Pin=U300-8
+Added Pin To Net: NetName=+5V Pin=U500-3
+Added Net: Name=+5V
+Added Pin To Net: NetName=-6V Pin=D502-1
+Added Pin To Net: NetName=-6V Pin=U503-2
+Added Net: Name=-6V
+Added Member To Class: ClassName=switches_connectors Member=Component 5V FX Switches MicroFit 1x7
+Added Member To Class: ClassName=switches_connectors Member=Component MENU_CTRL Header 1x3
+Added Member To Class: ClassName=switches_connectors Member=Component POT_WAH200 Header 1x3
+Added Rule: Name=Schematic Supply Nets_5
+Added Rule: Name=Schematic Supply Nets_9
