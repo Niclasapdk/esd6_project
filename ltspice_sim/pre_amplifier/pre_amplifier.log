@@ -1,0 +1,11 @@
+LTspice 24.0.9 for Windows
+Circuit: * C:\Users\nicla\Documents\GitHub\esd6_project\ltspice_sim\pre_amplifier\pre_amplifier.asc
+Start Time: Fri Mar  7 13:31:22 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.037 seconds.
+

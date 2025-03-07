@@ -1,0 +1,12 @@
+* C:\Users\nicla\Documents\GitHub\esd6_project\ltspice_sim\pre_amplifier\pre_amplifier.asc
+XU1 In N001 +5V -5V N001 level1 Avol=1Meg GBW=10Meg Vos=0 En=0 Enk=0 In=0 Ink=0 Rin=500Meg
+V1 +5V 0 5
+V2 0 -5V 5
+R1 Out N001 1.47k
+R2 0 Out 1k
+C1 Out 0 12n
+V3 In 0 AC 1
+.ac dec 100 10 100k
+.lib UniversalOpAmp1.lib
+.backanno
+.end
