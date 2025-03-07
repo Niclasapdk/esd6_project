@@ -1,1 +1,5 @@
-Record=TopLevelDocument|FileName=main.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=amplifier_stage.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=main.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=power_supply.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=shift_registers.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=switches_connectors.SchDoc|SheetNumber=2

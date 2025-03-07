@@ -1,0 +1,208 @@
+/* Include files */
+#include "EfectoWahWah.h"
+#include "EfectoWahWah_emxutil.h"
+#include "EfectoWahWah_types.h"
+#include "abs.h"
+#include "colon.h"
+#include "minOrMax.h"
+#include "rt_nonfinite.h"
+#include "rt_nonfinite.h"
+#include <emmintrin.h>
+#include <math.h>
+#include <stdio.h>
+#include <unistd.h>
+                                                            /*Parameters*/
+                                                            /*dampning factor, usually small for smaller bandpass*/
+                                                            /*Minimum frequency for center frequency*/
+                                                            /*Maximum frequency for center frequency*/
+                                                            /*Sampling frequency usually 44100 Hz*/
+                                                            /*Fw used for creating step size Fw/Fs=step*/
+                                                            /*x is the input*/
+                                                            /*Wah type, choosing the bandpass type*/
+                                                            /*  Wah type = 1, is the triangle wave */
+                                                            /*  Wah type = 2, is the constant Fc */
+
+
+/*Made to create the array for every center frequency posible based on the step size*/
+double* FrequencyArray(double minf, double maxf, double Fw, double Fs){
+    /*Basic parameteres set*/
+    double y;
+    emxArray_real_T *freq;                                      /*Creates our frequency struct*/
+    emxInit_real_T(&freq);                                      /*Creates empty 2D array */
+    double *freq_data;                                          /*Pointer to data of frequency array*/
+    int i;                                                      /*Full array elements*/
+    int loop_ub;                                                /*The amount of frequencies*/
+    y = Fw / Fs;                                                /*Stepsize*/
+    /*Creates our 2D array for our frequencies*/                /*MAYBE MAKE IT TO 1D ARRAY LATER IF MONO AUDIO IS USED*/
+    freq->size[0] = 1;                                          /*set the size of 1st dim to 2*/
+    loop_ub = (int)round((maxf - minf) / y);                    /* steps, eksample (2250-350)/100 the amount of steps, and round to full int*/
+    freq->size[1] = loop_ub + 1;                                /*Set the size of 2nd dim to (loop_ub+1) meaning the full size is 1x(loop_ub+1)**/
+    i = freq->size[0] * freq->size[1];                          /*Total amount of elements in the array*/
+    emxEnsureCapacity_real_T(freq, i);                          /*Creates the array*/
+    freq_data = freq->data;                                     /*Creates pointer to the data of the frequency array*/
+    for (i = 0; i <= loop_ub; i++) {                            /*Creates all the frequencies posible for steps*/
+    freq_data[i] =(int)round(minf + y * (double)i);             /* 1st row here the array frequency made and round to nearest int*/
+    }
+    return freq_data;
+}
+
+#define ADC_MAX_VALUE 65536  // Example: 16-bit ADC (0-65536)
+#define V_REF 5.0           // Example: 5V reference voltage
+
+// function to reading an ADC value and port
+int readADC(int port) {
+    return analogRead(port);  // Example for Arduino
+}
+// Function to convert ADC value to voltage - REMOVE LATER WHEN VOLTAGE FITS WHAT READ
+double readSignalVoltage(double minf, double maxf, double Fw, double Fs, int port) {
+    int i;
+    int loop_adc;
+    int adcValue = readADC(port);                                              // Read ADC value, from 0-65536
+    double voltage = (adcValue / (double)ADC_MAX_VALUE) * V_REF;           // Convert to the ADC value to voltage   MAYBE REMOVE THIS LATER
+    double* freq_data = FrequencyArray(minf,maxf,Fw,Fs);                             // Minf,Maxf,Fw,Fs,ADC_Max
+    y = Fw / Fs;
+    loop_adc = (int)round((maxf - minf) / y)+1;
+    /*Here to allocate which value the adc should fit to */
+    double mappedFrequency = 350 + ((voltage / V_REF) * (2250 - 350));     // Map the voltage to a corresponding frequency range
+    double closestValue = freq_data[0];                                    // Set minf to closest value
+    double minDiff = fabs(mappedFrequency - freq_data[0]);                 // set the distanst from minf to frequency of voltage
+    /*Look through the array to find the nearest frequency in the array*/
+    for (int i = 1; i <= loop_adc; i++) {
+        double diff = fabs(mappedFrequency - freq_data[i]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            closestValue = freq_data[i];
+        }
+    }
+    return closestValue;
+    /* return voltage; */
+
+    //NEED TO DEFINE THE SAMPLERATE LIKE SO
+        /*
+            #include <unistd.h>  // For usleep()
+
+                void loop() {
+            while (1) {
+                readSignalVoltage();
+                usleep(100);  // Sleep for 100 microseconds (10 kHz)
+            }
+        }
+        */
+}
+
+/* The WahWah effect, which should change Fc based on the pedal adjustments*/
+double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
+                    double x, double Fc, int portPot, int portInput, int SAMPLE_RATE)
+{
+  /*emxArray_real_T *b_freq;
+  emxArray_real_T *freq;
+  emxArray_real_T *r;
+  */
+  double y;
+  // double *b_freq_data;
+  // double *freq_data;
+  double Q1 = damp * 2;                                                    // set Q factor based on damp factor
+  double closestvalue = readSignalVoltage(minf,maxf,Fw,Fs,portPot);        // get closest Fc for filter
+  double Fc = closestvalue;                                                // Set it to Fc
+  int x = readADC(portInput);                                              // check input signal
+
+  /*  Fc needs to be in the range if not then end */
+  /*
+  emxInit_real_T(&freq);
+  freq_data = freq->data;
+  emxInit_real_T(&b_freq);
+  emxInit_real_T(&r);
+  */
+ /* The 3 if statements here determine when and error is happening and when value is just set to maxf and minf */
+  if((Fc > maxf+1000) || (Fc < 0)) {                                          /*If negative or way larger then maxf*/
+    printf("Error: Fc (%.2f) is out of range [%.2f, %.2f]\n", Fc, minf, maxf);  /*Print error*/
+    exit(EXIT_FAILURE);                                                         /*Stop the program */
+  } else {
+    /*Can matbe remove the and statement as the if statement before should remove to large or negative frequencies*/
+    if((Fc > maxf) && (Fc <= maxf+1000)){                                         /*When the frequency is higher then maxf and still reachable*/
+        Fc=maxf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
+      } if((Fc<minf) && (Fc >= 0)) {                                                /*When the frequency is less then minf and positive*/
+        Fc=minf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
+      }
+      /*Difference equentions*/
+      double F1 = 2 * sin((3.1415926535897931 * Fc)/Fs);       // calculate tunning coefficient
+      double y = F1 * x;                                       // calculate the output of 1st element
+      double yl = F1 * y;                                      // calculate the 1st element lowpass     
+      double yaux = y;  
+      return yaux;                                             // output                           
+      usleep(1000000 / SAMPLE_RATE);                           // in micro seconds, should pause for 1 sample
+      // this while statement just need to be a BUTTON PRESS.
+      while (y <= 10000)                                          // After 1st element then start cycling in this while loop
+      {
+        double closestvalue = readSignalVoltage(minf,maxf,Fw,Fs,portPot);
+        double Fc = closestvalue;
+        int x = readADC(portInput);
+        /*  Fc needs to be in the range if not then end */
+        /* The 3 if statements here determine when and error is happening and when value is just set to maxf and minf */
+        if((Fc > maxf+1000) || (Fc < 0)) {                                          /*If negative or way larger then maxf*/
+            printf("Error: Fc (%.2f) is out of range [%.2f, %.2f]\n", Fc, minf, maxf);  /*Print error*/
+            exit(EXIT_FAILURE);                                                         /*Stop the program */
+        } else {
+        /*Can matbe remove the and statement as the if statement before should remove to large or negative frequencies*/
+        if((Fc > maxf) && (Fc <= maxf+1000)){                                         /*When the frequency is higher then maxf and still reachable*/
+          Fc=maxf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
+        } if((Fc<minf) && (Fc >= 0)) {                                                /*When the frequency is less then minf and positive*/
+          Fc=minf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
+        }
+        double F1 = 2 * sin((3.1415926535897931 * Fc)/Fs);      // calculate tunning coefficient
+        double yh = x - yl - Q1 - yaux;                         // calculate the higher pass filter 
+        y = F1 * yh + yaux;                                     // calculate output
+        yl = F1 * y + yl;                                       // lowpass filter
+        yaux = y;
+        return yaux;                                            // output
+      }
+      /*  triangle wave / wahwah effect, making the wah wah sound */
+      /*  tunning coeffiecients and start Fc */
+      /*  first element in the vector */
+      /*y = 2.0 * sin(3.1415926535897931 * minf / Fs) * x; */
+      /*  step size */
+      /*
+      int scalarLB;
+      int vectorUB;
+      */
+      /*Maybe call the Frequency array function here*/
+
+      /*  find the closest frequency to Fc - makes same array as for freq*/
+      /* A more efficient way of finding the Fc as it looks at 2 values in the array at once cause __m128d
+      i = b_freq->size[0] * b_freq->size[1];
+      b_freq->size[0] = 1;
+      loop_ub = freq->size[1];
+      b_freq->size[1] = freq->size[1];
+      emxEnsureCapacity_real_T(b_freq, i);
+      b_freq_data = b_freq->data;
+      scalarLB = (freq->size[1] / 2) << 1;
+      vectorUB = scalarLB - 2;
+      for (i = 0; i <= vectorUB; i += 2) {
+        __m128d r1;
+        r1 = _mm_loadu_pd(&freq_data[i]);
+        _mm_storeu_pd(&b_freq_data[i], _mm_sub_pd(r1, _mm_set1_pd(Fc)));
+      }
+      for (i = scalarLB; i < loop_ub; i++) {
+        b_freq_data[i] = freq_data[i] - Fc;
+      }
+     // finds the absolut value and the lowest difference, meaning the closest Fc
+      b_abs(b_freq, r);
+      minimum(r, &loop_ub);
+      */
+
+      /* y = 2.0 * sin(3.1415926535897931 * freq_data[loop_ub - 1] / Fs) * x; */
+    }
+    }
+    }
+
+    /*  needs to do both */
+    /*  normalize the values in the vector of y */
+    //y /= fabs(y);
+  //}
+  //emxFree_real_T(&r);
+  //emxFree_real_T(&b_freq);
+  //emxFree_real_T(&freq);
+  //return y;
+//}
+
+/* End of code generation (EfectoWahWah.c) */

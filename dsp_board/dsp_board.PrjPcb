@@ -38,8 +38,8 @@ OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
-CrossRefSheetStyle=0
-CrossRefLocationStyle=0
+CrossRefSheetStyle=1
+CrossRefLocationStyle=1
 CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
@@ -84,6 +84,23 @@ GenerateClassCluster=0
 DocumentUniqueId=CTIHLKZR
 
 [Document3]
+DocumentPath=amplifier_stage.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=2
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=HGHMVKZD
+
+[Document4]
 DocumentPath=dsp_board.Annotation
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -99,6 +116,74 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document5]
+DocumentPath=shift_registers.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UZMWNGLO
+
+[Document6]
+DocumentPath=PCB1.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KJXKLSKW
+
+[Document7]
+DocumentPath=..\..\..\4. Semester\Projekt\pcb_kursus_lib2020 (1)\Pcb_5.3MMJACK.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=QPBYGLSM
+
+[Document8]
+DocumentPath=..\..\..\4. Semester\Projekt\pcb_kursus_lib2020 (1)\Sch_5.3MMJACK.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=MOHVDHNN
 
 [Configuration1]
 Name=Sources
@@ -754,7 +839,6 @@ Type147=1
 Type148=1
 Type149=1
 Type150=1
-Type151=1
 
 [Difference Levels]
 Type1=1
@@ -838,7 +922,6 @@ Type78=1
 Type79=1
 Type80=1
 Type81=1
-Type82=1
 
 [Electrical Rules Check]
 Type1=1
@@ -995,13 +1078,6 @@ Type151=2
 Type152=1
 Type153=1
 Type154=0
-Type155=0
-Type156=0
-Type157=0
-Type158=0
-Type159=0
-Type160=0
-Type161=0
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW

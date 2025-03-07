@@ -1,0 +1,57 @@
+Removed Pin From Net: NetName=NetR4_2 Pin=U?-1
+Removed Pin From Net: NetName=NetJ_T Pin=U?-3
+Change Component Footprint: Designator=U? Old Footprint=ADI-R-8_L New Footprint=ADI-N-8
+Change Component Footprint: Designator=U? Old Footprint=ADI-R-8_L New Footprint=ADI-N-8
+Change Component Comment : Designator=U? Old Comment=OP275GSZ New Comment=OP275GPZ
+Change Component Comment : Designator=U? Old Comment=OP275GSZ New Comment=OP275GPZ
+Change Managed Component Library Link : Designator=U? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=361C4FE9-AF38-4931-8E89-276B3EB8C9A0 New ItemGUID=0C1C0A83-A2BB-4538-BF0C-3353AF60881A Old RevisionGUID=3906C6CE-5080-4396-8961-75DF3C555219 New RevisionGUID=14266290-F63B-431C-8C56-D8576E3FFE11
+Change Managed Component Library Link : Designator=U? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=361C4FE9-AF38-4931-8E89-276B3EB8C9A0 New ItemGUID=0C1C0A83-A2BB-4538-BF0C-3353AF60881A Old RevisionGUID=3906C6CE-5080-4396-8961-75DF3C555219 New RevisionGUID=14266290-F63B-431C-8C56-D8576E3FFE11
+Change component parameters: Designator = "U?" ("U?"); Footprint = "ADI-R-8_L"; UniqueID = "\RPQCEKFZ" ("\RPQCEKFZ")
+Change component parameters (AddParameter): Name = "Amplifiers Per Package"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.analog.com/en/index.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.analog.com/static/imported-files/data_sheets/OP275.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http:/www.analog.com/static/imported-files/packages/PKG_PDF/PDIP(N)/N_8.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "Rev. C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Generic Part Number"; Value = "OP275"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Bias Current"; Value = "100nA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Offset Voltage"; Value = "1mV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Iq/Amp"; Value = "2.5mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Analog Devices"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "8-Pin Plastic Dual In-Line Package, Row spacing 7.62 mm, Pitch 2.54 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "N-8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "070606-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "OP275GPZ"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Slew Rate"; Value = "22V/us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Small Signal Bandwidth"; Value = "9MHz"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "V Span Max"; Value = "44V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "V Span Min"; Value = "9V"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U?" ("U?"); Footprint = "ADI-R-8_L"; UniqueID = "\AGYSBVSZ" ("\AGYSBVSZ")
+Change component parameters (AddParameter): Name = "Amplifiers Per Package"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.analog.com/en/index.html"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.analog.com/static/imported-files/data_sheets/OP275.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http:/www.analog.com/static/imported-files/packages/PKG_PDF/PDIP(N)/N_8.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "Rev. C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Generic Part Number"; Value = "OP275"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Bias Current"; Value = "100nA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Input Offset Voltage"; Value = "1mV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Iq/Amp"; Value = "2.5mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Analog Devices"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "8-Pin Plastic Dual In-Line Package, Row spacing 7.62 mm, Pitch 2.54 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "N-8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "070606-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "OP275GPZ"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Slew Rate"; Value = "22V/us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Small Signal Bandwidth"; Value = "9MHz"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "V Span Max"; Value = "44V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "V Span Min"; Value = "9V"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=amplifier_stage Member=Component U? OP275GPZ

@@ -6,3 +6,4 @@ EfectoWaHWah_types define the structure for the data used.
 abs calculates the absolut value for every value in the input array X and stores in output array Y
 EfectoWahWah_emxutil has 3 functions resize array, free data, and create initial 2D array structure
 minOrMax findes the minimum value for x array
+virkdingling er den jeg kommer til at bruge

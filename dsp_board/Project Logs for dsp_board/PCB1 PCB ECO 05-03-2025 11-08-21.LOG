@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=NetJ_T Pin=U1-3
+Added Pin To Net: NetName=NetR4_2 Pin=U1-7
+Added Pin To Net: NetName=+5V Pin=U1-8
+Added Net: Name=+5V
+Added Pin To Net: NetName=-5 Pin=U1-4
+Added Net: Name=-5
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-2
+Added Net: Name=NetR1_1
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
