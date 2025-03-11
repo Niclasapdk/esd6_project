@@ -92,7 +92,7 @@ double readSignalVoltage(double minf, double maxf, double Fw, double Fs, int por
 
 /* The WahWah effect, which should change Fc based on the pedal adjustments*/
 double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
-                    double x, double Fc, int portPot, int portInput, int SAMPLE_RATE)
+                    double x, double Fc, int portPot, int portInput,)
 {
   /*emxArray_real_T *b_freq;
   emxArray_real_T *freq;
@@ -130,7 +130,7 @@ double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
       double yl = F1 * y;                                      // calculate the 1st element lowpass     
       double yaux = y;  
       return yaux;                                             // output                           
-      usleep(1000000 / SAMPLE_RATE);                           // in micro seconds, should pause for 1 sample
+      usleep(1000000 / Fs);                           // in micro seconds, should pause for 1 sample
       // this while statement just need to be a BUTTON PRESS.
       while (y <= 10000)                                          // After 1st element then start cycling in this while loop
       {
