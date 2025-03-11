@@ -22,7 +22,7 @@ ylabel('Phase [deg]','FontSize',12);
 s1(1).LineWidth = 1.8;
 grid on;
 hold on
-legend([p1 p],{'-7.85dB' '-10.85dB'},'Location','southwest');
+legend([p1 p],{'-7.85dB, 1kHz' '-10.85dB, 22kHz'},'Location','southwest');
 title('Frequency Response')
 saveFolder = fullfile(pwd,'..','..','gitfigures/system_design/analog_frontend');
 filePath = fullfile(saveFolder, sprintf('%s.png', 'freqresp_frontend'));
