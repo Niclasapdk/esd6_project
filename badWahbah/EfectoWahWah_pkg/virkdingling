@@ -60,7 +60,7 @@ double readSignalVoltage(double minf, double maxf, double Fw, double Fs, int por
     int adcValue = readADC(port);                                              // Read ADC value, from 0-65536
     double voltage = (adcValue / (double)ADC_MAX_VALUE) * V_REF;           // Convert to the ADC value to voltage   MAYBE REMOVE THIS LATER
     double* freq_data = FrequencyArray(minf,maxf,Fw,Fs);                             // Minf,Maxf,Fw,Fs,ADC_Max
-    y = Fw / Fs;
+    double y = Fw / Fs;
     loop_adc = (int)round((maxf - minf) / y)+1;
     /*Here to allocate which value the adc should fit to */
     double mappedFrequency = 350 + ((voltage / V_REF) * (2250 - 350));     // Map the voltage to a corresponding frequency range
@@ -92,19 +92,21 @@ double readSignalVoltage(double minf, double maxf, double Fw, double Fs, int por
 
 /* The WahWah effect, which should change Fc based on the pedal adjustments*/
 double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
-                    double x, double Fc, int portPot, int portInput,)
+                    double x, double Fc, int portPot, int portInput)
 {
   /*emxArray_real_T *b_freq;
   emxArray_real_T *freq;
   emxArray_real_T *r;
   */
-  double y;
   // double *b_freq_data;
   // double *freq_data;
   double Q1 = damp * 2;                                                    // set Q factor based on damp factor
   double closestvalue = readSignalVoltage(minf,maxf,Fw,Fs,portPot);        // get closest Fc for filter
   double Fc = closestvalue;                                                // Set it to Fc
   int x = readADC(portInput);                                              // check input signal
+  double yl;
+  double yaux;
+  // IF i Remove the If statements then it should be possible to just type the difference equation up here
 
   /*  Fc needs to be in the range if not then end */
   /*
@@ -124,36 +126,13 @@ double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
       } if((Fc<minf) && (Fc >= 0)) {                                                /*When the frequency is less then minf and positive*/
         Fc=minf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
       }
-      /*Difference equentions*/
-      double F1 = 2 * sin((3.1415926535897931 * Fc)/Fs);       // calculate tunning coefficient
-      double y = F1 * x;                                       // calculate the output of 1st element
-      double yl = F1 * y;                                      // calculate the 1st element lowpass     
-      double yaux = y;  
-      return yaux;                                             // output                           
-      usleep(1000000 / Fs);                           // in micro seconds, should pause for 1 sample
-      // this while statement just need to be a BUTTON PRESS.
-      while (y <= 10000)                                          // After 1st element then start cycling in this while loop
-      {
-        double closestvalue = readSignalVoltage(minf,maxf,Fw,Fs,portPot);
-        double Fc = closestvalue;
-        int x = readADC(portInput);
         /*  Fc needs to be in the range if not then end */
         /* The 3 if statements here determine when and error is happening and when value is just set to maxf and minf */
-        if((Fc > maxf+1000) || (Fc < 0)) {                                          /*If negative or way larger then maxf*/
-            printf("Error: Fc (%.2f) is out of range [%.2f, %.2f]\n", Fc, minf, maxf);  /*Print error*/
-            exit(EXIT_FAILURE);                                                         /*Stop the program */
-        } else {
-        /*Can matbe remove the and statement as the if statement before should remove to large or negative frequencies*/
-        if((Fc > maxf) && (Fc <= maxf+1000)){                                         /*When the frequency is higher then maxf and still reachable*/
-          Fc=maxf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
-        } if((Fc<minf) && (Fc >= 0)) {                                                /*When the frequency is less then minf and positive*/
-          Fc=minf;                                                                    /*Done for small inaccuracies in the pedal adjustment*/
-        }
         double F1 = 2 * sin((3.1415926535897931 * Fc)/Fs);      // calculate tunning coefficient
-        double yh = x - yl - Q1 - yaux;                         // calculate the higher pass filter 
-        y = F1 * yh + yaux;                                     // calculate output
-        yl = F1 * y + yl;                                       // lowpass filter
-        yaux = y;
+        double yh = x - yl - Q1 - yaux;                         // calculate the higher pass filter, should be x in first iteration
+        double y = F1 * yh + yaux;                              // calculate output, should be F1 * x in first iteration
+        yl = F1 * y + yl;                                       // lowpass filter, should be F1 * F1* x in first iteration
+        yaux = y;                                               // Saves last output
         return yaux;                                            // output
       }
       /*  triangle wave / wahwah effect, making the wah wah sound */
@@ -191,8 +170,6 @@ double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
       */
 
       /* y = 2.0 * sin(3.1415926535897931 * freq_data[loop_ub - 1] / Fs) * x; */
-    }
-    }
     }
 
     /*  needs to do both */
