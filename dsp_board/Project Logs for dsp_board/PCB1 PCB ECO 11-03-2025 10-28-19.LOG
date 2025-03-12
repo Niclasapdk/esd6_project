@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=NetLED404_1 Pin=U401-1
+Removed Pin From Net: NetName=NetLED403_1 Pin=U401-2
+Removed Pin From Net: NetName=NetLED402_1 Pin=U401-3
+Removed Pin From Net: NetName=NetLED401_1 Pin=U401-4
+Removed Pin From Net: NetName=NetLED400_1 Pin=U401-5
+Removed Pin From Net: NetName=NetLED405_1 Pin=U401-15
+Added Pin To Net: NetName=NetLED405_1 Pin=U401-1
+Added Pin To Net: NetName=NetLED404_1 Pin=U401-2
+Added Pin To Net: NetName=NetLED403_1 Pin=U401-3
+Added Pin To Net: NetName=NetLED402_1 Pin=U401-4
+Added Pin To Net: NetName=NetLED401_1 Pin=U401-5
+Added Pin To Net: NetName=NetLED400_1 Pin=U401-6

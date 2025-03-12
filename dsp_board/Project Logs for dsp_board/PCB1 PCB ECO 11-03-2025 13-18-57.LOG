@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetC506_2 Pin=R501-1
+Removed Pin From Net: NetName=GND Pin=R501-2
+Removed Member From Class: ClassName=power_supply Member=R501
+Added Component: Designator=Pot501(Pot trim slim high)
+Add component (AddParameter): Name = "Resistance"; Value = "2k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=Pot501-1
+Added Pin To Net: NetName=NetC506_2 Pin=Pot501-2
+Added Pin To Net: NetName=GND Pin=Pot501-3
+Added Member To Class: ClassName=power_supply Member=Component Pot501 Pot Trim

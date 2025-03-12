@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C202 Old Footprint=Cap-0 New Footprint=Cap Ø8
+Change component parameters: Designator = "C202" ("C202"); Footprint = "Cap-0"; UniqueID = "\IUUPBMXZ" ("\IUUPBMXZ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"

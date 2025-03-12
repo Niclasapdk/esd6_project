@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=+3V3 Pin=J101-5
+Added Pin To Net: NetName=+3V3 Pin=J101-6
+Added Pin To Net: NetName=+3V3 Pin=J101-13
+Added Pin To Net: NetName=+3V3 Pin=J101-14
+Change Net Name : Old Net Name=+3V3 New Net Name=VCC_3V3
+Added Member To Class: ClassName=switches_connectors Member=Component C200 Cap
+Added Member To Class: ClassName=switches_connectors Member=Component C201 Cap
+Added Rule: Name=Schematic Supply Nets_9

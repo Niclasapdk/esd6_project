@@ -1,0 +1,62 @@
+Change Component Designator: OldDesignator=5V FX Switches NewDesignator=200
+Change Component Designator: OldDesignator=D502 NewDesignator=D501
+Change Component Designator: OldDesignator=FX Switches NewDesignator=FX Switches400
+Change Component Designator: OldDesignator=MENU_CTRL NewDesignator=MENU_CTRL200
+Change Component Designator: OldDesignator=POT1 NewDesignator=POT200
+Change Component Designator: OldDesignator=POT2 NewDesignator=POT201
+Change Component Designator: OldDesignator=POT3 NewDesignator=POT202
+Added Component: Designator=J400(Header 1x3)
+Added Component: Designator=J401(Header 1x3)
+Added Component: Designator=J402(Header 1x3)
+Added Component: Designator=J403(Header 1x3)
+Added Component: Designator=J404(Header 1x3)
+Added Component: Designator=J405(Header 1x3)
+Change Net Name : Old Net Name=NetFX Switches_1 New Net Name=NetFX Switches400_1
+Change Net Name : Old Net Name=NetFX Switches_2 New Net Name=NetFX Switches400_2
+Change Net Name : Old Net Name=NetFX Switches_3 New Net Name=NetFX Switches400_3
+Change Net Name : Old Net Name=NetFX Switches_4 New Net Name=NetFX Switches400_4
+Change Net Name : Old Net Name=NetFX Switches_5 New Net Name=NetFX Switches400_5
+Change Net Name : Old Net Name=NetFX Switches_6 New Net Name=NetFX Switches400_6
+Change Net Name : Old Net Name=NetFX Switches_7 New Net Name=NetFX Switches400_7
+Added Pin To Net: NetName=NetJ400_1 Pin=J400-1
+Added Pin To Net: NetName=NetJ400_1 Pin=R407-2
+Added Net: Name=NetJ400_1
+Added Pin To Net: NetName=NetJ400_3 Pin=J400-3
+Added Pin To Net: NetName=NetJ400_3 Pin=U401-6
+Added Net: Name=NetJ400_3
+Added Pin To Net: NetName=NetJ401_1 Pin=J401-1
+Added Pin To Net: NetName=NetJ401_1 Pin=R408-2
+Added Net: Name=NetJ401_1
+Added Pin To Net: NetName=NetJ401_3 Pin=J401-3
+Added Pin To Net: NetName=NetJ401_3 Pin=U401-5
+Added Net: Name=NetJ401_3
+Added Pin To Net: NetName=NetJ402_1 Pin=J402-1
+Added Pin To Net: NetName=NetJ402_1 Pin=R409-2
+Added Net: Name=NetJ402_1
+Added Pin To Net: NetName=NetJ402_3 Pin=J402-3
+Added Pin To Net: NetName=NetJ402_3 Pin=U401-4
+Added Net: Name=NetJ402_3
+Added Pin To Net: NetName=NetJ403_1 Pin=J403-1
+Added Pin To Net: NetName=NetJ403_1 Pin=R410-2
+Added Net: Name=NetJ403_1
+Added Pin To Net: NetName=NetJ403_3 Pin=J403-3
+Added Pin To Net: NetName=NetJ403_3 Pin=U401-3
+Added Net: Name=NetJ403_3
+Added Pin To Net: NetName=NetJ404_1 Pin=J404-1
+Added Pin To Net: NetName=NetJ404_1 Pin=R411-2
+Added Net: Name=NetJ404_1
+Added Pin To Net: NetName=NetJ404_3 Pin=J404-3
+Added Pin To Net: NetName=NetJ404_3 Pin=U401-2
+Added Net: Name=NetJ404_3
+Added Pin To Net: NetName=NetJ405_1 Pin=J405-1
+Added Pin To Net: NetName=NetJ405_1 Pin=R412-2
+Added Net: Name=NetJ405_1
+Added Pin To Net: NetName=NetJ405_3 Pin=J405-3
+Added Pin To Net: NetName=NetJ405_3 Pin=U401-1
+Added Net: Name=NetJ405_3
+Added Member To Class: ClassName=shift_registers Member=Component J400 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J401 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J402 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J403 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J404 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J405 Header 1x3

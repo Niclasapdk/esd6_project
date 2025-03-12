@@ -1,0 +1,14 @@
+Change Component Footprint: Designator=C200 Old Footprint=RAD-0.3  PCBK New Footprint=Cap-0
+Change Component Footprint: Designator=C201 Old Footprint=RAD-0.3  PCBK New Footprint=Cap-0
+Change Component Footprint: Designator=C202 Old Footprint=RAD-0.3  PCBK New Footprint=Cap-0
+Change component parameters: Designator = "C200" ("C200"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\CJVAIVZW" ("\CJVAIVZW")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C201" ("C201"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\SHTEJAIA" ("\SHTEJAIA")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C202" ("C202"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\FEKPVSLA" ("\FEKPVSLA")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C203(Cap-0)
+Add component (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C203-1
+Added Pin To Net: NetName=GPAIN3 Pin=C203-2
+Added Member To Class: ClassName=switches_connectors Member=Component C203 Cap

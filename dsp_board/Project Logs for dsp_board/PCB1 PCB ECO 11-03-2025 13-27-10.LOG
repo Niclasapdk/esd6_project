@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=+6V Pin=C502-1
+Removed Pin From Net: NetName=GND Pin=C502-2
+Removed Pin From Net: NetName=+1V75 Pin=C503-1
+Removed Pin From Net: NetName=GND Pin=C503-2
+Removed Pin From Net: NetName=GND Pin=C506-1
+Removed Pin From Net: NetName=NetC506_2 Pin=C506-2
+Removed Pin From Net: NetName=GND Pin=C507-1
+Removed Pin From Net: NetName=-1V75 Pin=C507-2
+Change Component Footprint: Designator=C503 Old Footprint=Cap Lyt Ø8 New Footprint=Cap 20mm
+Change Component Footprint: Designator=C507 Old Footprint=Cap Lyt Ø8 New Footprint=Cap 20mm
+Change Component Footprint: Designator=C502 Old Footprint=Cap Lyt Ø8 New Footprint=Cap-1
+Change Component Footprint: Designator=C506 Old Footprint=Cap Lyt Ø8 New Footprint=Cap-1
+Change component parameters: Designator = "C506" ("C506"); Footprint = "Cap Lyt Ø8"; UniqueID = "\FALPEUUJ" ("\FALPEUUJ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C502-1
+Added Pin To Net: NetName=+6V Pin=C502-2
+Added Pin To Net: NetName=GND Pin=C503-1
+Added Pin To Net: NetName=+1V75 Pin=C503-2
+Added Pin To Net: NetName=NetC506_2 Pin=C506-1
+Added Pin To Net: NetName=GND Pin=C506-2
+Added Pin To Net: NetName=-1V75 Pin=C507-1
+Added Pin To Net: NetName=GND Pin=C507-2
+Change Net Name : Old Net Name=NetC506_2 New Net Name=NetC506_1

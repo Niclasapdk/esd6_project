@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetFX Switches_6 Pin=U400-1
+Removed Pin From Net: NetName=NetFX Switches_5 Pin=U400-2
+Removed Pin From Net: NetName=NetFX Switches_4 Pin=U400-3
+Removed Pin From Net: NetName=NetFX Switches_3 Pin=U400-4
+Removed Pin From Net: NetName=NetFX Switches_2 Pin=U400-5
+Removed Pin From Net: NetName=NetFX Switches_1 Pin=U400-6
+Removed Pin From Net: NetName=NetFX Switches_7 Pin=U400-15
+Added Pin To Net: NetName=NetFX Switches_7 Pin=U400-1
+Added Pin To Net: NetName=NetFX Switches_6 Pin=U400-2
+Added Pin To Net: NetName=NetFX Switches_5 Pin=U400-3
+Added Pin To Net: NetName=NetFX Switches_4 Pin=U400-4
+Added Pin To Net: NetName=NetFX Switches_3 Pin=U400-5
+Added Pin To Net: NetName=NetFX Switches_2 Pin=U400-6
+Added Pin To Net: NetName=NetFX Switches_1 Pin=U400-7

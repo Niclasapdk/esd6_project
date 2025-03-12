@@ -1,0 +1,12 @@
+Change Component Footprint: Designator=C500 Old Footprint=Cap-0 New Footprint=Cap-1
+Change Component Footprint: Designator=C501 Old Footprint=Cap-0 New Footprint=Cap-1
+Change Component Footprint: Designator=C504 Old Footprint=Cap-0 New Footprint=Cap-1
+Change Component Footprint: Designator=C505 Old Footprint=Cap-0 New Footprint=Cap-1
+Change component parameters: Designator = "C500" ("C500"); Footprint = "Cap-0"; UniqueID = "\IOVYYKNC" ("\IOVYYKNC")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C501" ("C501"); Footprint = "Cap-0"; UniqueID = "\DJLHGBJY" ("\DJLHGBJY")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C504" ("C504"); Footprint = "Cap-0"; UniqueID = "\FPRSXLBO" ("\FPRSXLBO")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C505" ("C505"); Footprint = "Cap-0"; UniqueID = "\IPNSWQKG" ("\IPNSWQKG")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"

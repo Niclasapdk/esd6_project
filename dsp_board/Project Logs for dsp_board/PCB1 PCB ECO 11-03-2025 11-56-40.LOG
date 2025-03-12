@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=C300 Old Footprint=RAD-0.3  PCBK New Footprint=Cap-1
+Change Component Footprint: Designator=C301 Old Footprint=RAD-0.3  PCBK New Footprint=Cap-1
+Change component parameters: Designator = "C300" ("C300"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\JWSWNTOQ" ("\JWSWNTOQ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "5n5F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C301" ("C301"); Footprint = "RAD-0.3  PCBK"; UniqueID = "\UZCZPXUD" ("\UZCZPXUD")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "12nF"; VariantName = "[No Variations]"
