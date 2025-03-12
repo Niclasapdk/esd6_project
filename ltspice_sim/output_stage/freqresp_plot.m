@@ -17,13 +17,13 @@ hold on
 p1 = semilogx(1e3*1E-3,data.Var2(1,1),'o-','MarkerFaceColor','green')
 hold on
 yyaxis right
-s1 = semilogx(data.Var1*1E-3, data.Var3)
+s1 = semilogx(data.Var1*1E-3, data.Var3);
 ylabel('Phase [deg]','FontSize',12);
 s1(1).LineWidth = 1.8;
 grid on;
 hold on
-legend([p1 p],{'-7.85dB, 1kHz' '-10.85dB, 20kHz'},'Location','southwest');
-title('Frontend Frequency Response');
+legend([p1 p],{'7.85dB, 1kHz' '4.85dB, 20kHz'},'Location','southwest');
+title('Output Stage Frequency Response');
 saveFolder = fullfile(pwd,'..','..','gitfigures/system_design/analog_frontend');
-filePath = fullfile(saveFolder, sprintf('%s.png', 'freqresp_frontend'));
+filePath = fullfile(saveFolder, sprintf('%s.png', 'freqresp_outputstage'));
 exportgraphics(figH, filePath, 'Resolution', 300);
