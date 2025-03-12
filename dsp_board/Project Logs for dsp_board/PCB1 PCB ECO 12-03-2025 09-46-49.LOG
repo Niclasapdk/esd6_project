@@ -1,0 +1,52 @@
+Added Component: Designator=C508(Cap Lyt Ø18)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C509(Cap Lyt Ø18)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C510(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C511(Cap Lyt Ø18)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C512(Cap Lyt Ø18)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C513(Cap Lyt Ø8)
+Add component (AddParameter): Name = "Capacity"; Value = "100uF"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Added Component: Designator=S500(Screw-3)
+Added Pin To Net: NetName=+6V Pin=C508-1
+Added Pin To Net: NetName=GND Pin=C508-2
+Added Pin To Net: NetName=+6V Pin=C509-1
+Added Pin To Net: NetName=GND Pin=C509-2
+Added Pin To Net: NetName=+6V Pin=C510-1
+Added Pin To Net: NetName=GND Pin=C510-2
+Added Pin To Net: NetName=GND Pin=C511-1
+Added Pin To Net: NetName=-6V Pin=C511-2
+Added Pin To Net: NetName=GND Pin=C512-1
+Added Pin To Net: NetName=-6V Pin=C512-2
+Added Pin To Net: NetName=GND Pin=C513-1
+Added Pin To Net: NetName=-6V Pin=C513-2
+Added Pin To Net: NetName=-6V Pin=D500-1
+Added Pin To Net: NetName=+6V Pin=D501-2
+Add Pin To Net: Unknown Pin: Pin D502-1
+Add Pin To Net: Unknown Pin: Pin D503-2
+Added Pin To Net: NetName=GND Pin=S500-2
+Added Pin To Net: NetName=GPIO4 Pin=U401-14
+Added Pin To Net: NetName=NetD500_2 Pin=D500-2
+Added Pin To Net: NetName=NetD500_2 Pin=D501-1
+Added Pin To Net: NetName=NetD500_2 Pin=S500-1
+Added Net: Name=NetD500_2
+Added Pin To Net: NetName=NetD502_2 Pin=S500-3
+Added Net: Name=NetD502_2
+Added Member To Class: ClassName=power_supply Member=Component C508 Cap
+Added Member To Class: ClassName=power_supply Member=Component C509 Cap
+Added Member To Class: ClassName=power_supply Member=Component C510 Cap
+Added Member To Class: ClassName=power_supply Member=Component C511 Cap
+Added Member To Class: ClassName=power_supply Member=Component C512 Cap
+Added Member To Class: ClassName=power_supply Member=Component C513 Cap
+Added Member To Class: ClassName=power_supply Member=Component D500 Diode DO-35
+Added Member To Class: ClassName=power_supply Member=Component D501 Diode DO-35
+Add Class Member: Failed to add class member : Component D502 powerdiode
+Add Class Member: Failed to add class member : Component D503 powerdiode
+Added Member To Class: ClassName=power_supply Member=Component S500 Screw 3
