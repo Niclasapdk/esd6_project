@@ -2,7 +2,7 @@
 clc, clear, close all;
 
 %resolution 
-N = 2^12;
+N = 2^11;
 fs = 44100;
 
 % Create an impulse
@@ -13,8 +13,8 @@ impulse(1) = 1;
 ir = zeros(1,N);
 
 % Filter parameters
-delay_ms = 78; 
-gainLP = 0.5; 
+delay_ms = 1; 
+gainLP = 0.7; 
 reverbtime = 1;
 
 

@@ -1,7 +1,7 @@
 %This script takes the magnitude response of the combfilter
 clc, clear, close all;
 fs = 44100; % Sampling frequency
-N = 2^16; % FFT size for frequency resolution
+N = 2^14; % FFT size for frequency resolution
 freqs = linspace(0, fs/2, N/2+1); % Frequency axis
 
 % Generate an impulse signal
@@ -9,7 +9,7 @@ impulse = zeros(N,1);
 impulse(1) = 1;
 
 % Filter parameters
-delay_ms = 10; 
+delay_ms = 1; 
 gainLP = 0.7; 
 reverbtime = 1;
 
@@ -17,7 +17,7 @@ reverbtime = 1;
 %output = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
 
 %to test reverb
-output = reverb(impulse, fs, gainLP, reverbtime);
+%output = reverb(impulse, fs, gainLP, reverbtime);
 
 %to test eaerly dealy
 %output = early_decay(impulse, fs);
@@ -33,4 +33,4 @@ grid on;
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB)');
 title('Magnitude Response of Comb Filter');
-axis([20 fs/2 -50 20]); % Adjust axis for visibility
+axis([20 fs/2 -7 15]); % Adjust axis for visibility
