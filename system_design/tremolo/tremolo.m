@@ -9,9 +9,9 @@ function output=tremolo(Modfreq,depth,fs,input)
 
 %signal modulation
 t = (0:length(input)-1)/fs;                 %create index for lfo
-lfo = 1+depth*sin(2*pi*Modfreq*t);          %creates lfo with freq and depth
-%lfo = 1+depth*sawtooth(2*pi*Modfreq*t,.5)  %Triangle wave
-%lfo = 1+depth*square(2*pi*Modfreq*t)       %Square wave
+lfo = (1 - depth)+depth*sin(2*pi*Modfreq*t);          %creates lfo with freq and depth
+%lfo = (1 - depth)+depth*sawtooth(2*pi*Modfreq*t,.5)  %Triangle wave
+%lfo = (1 - depth)+depth*square(2*pi*Modfreq*t)       %Square wave
 output = input .* lfo;                      %AM modulate input with lfo
 
 % Normalize the output based of max value of in and out
