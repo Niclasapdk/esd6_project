@@ -32,5 +32,3 @@ title('Impulse Response');
 xline(0.0796, '--', {'Last early','reflection'})
 grid on;
 
-% hold on;
-% yline(-60, '--r'); %adds line at -60 db
