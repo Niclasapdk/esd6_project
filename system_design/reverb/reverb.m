@@ -85,6 +85,6 @@ for n = 1:length(input)
     late_offset = mod(late_offset-1,late_M);%updates late deacy offset
     output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line
 end
-output= comb_out;
-%output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
+%output= early_decay_out;
+output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
 end

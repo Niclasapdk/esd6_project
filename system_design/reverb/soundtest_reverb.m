@@ -11,7 +11,7 @@ trimmed_input = input(t:L,:);
 input_sound = trimmed_input / max(abs(trimmed_input));
 
 %reverb parameters
-gain = 0;
+gain = 0.1;
 reverb_time = 1;
 
 %impuuuuuuuuuuuuuuulse test
@@ -29,4 +29,4 @@ toc(start)
 %sound(output_signal, fs);
 
 %save sound
-audiowrite('reverb_test.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('reverb_test_rigtig.wav', output_signal/max(abs(output_signal)), fs);
