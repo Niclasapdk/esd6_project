@@ -2,41 +2,35 @@
 clc, clear, close all;
 
 %resolution 
-N = 2^15;
 fs = 44100;
+N = fs*0.2;
+before_0 = 0.01*fs;
+
 
 % Create an impulse
-impulse = zeros(N,1);
-impulse(1) = 1;
+impulse = zeros(N+before_0,1);
+impulse(before_0+1) = 1;
 
 % Output vector
-ir = zeros(1,N);
+ir = zeros(1,N+before_0);
 
-% Filter parameters
-%delay_ms = 1; 
-gainLP = 1; 
+gain = 1; 
 reverbtime = 1;
 
-
-%ir = combfilter(impulse, fs, delay_ms, gainLP, reverbtime);
-
 %to test reverb
-ir = reverb(impulse, fs, gainLP, reverbtime);
+ir = reverb(impulse, fs, gain, reverbtime);
 
-%to test early decay
-%ir = early_decay(impulse, fs);
 
 % Time vector in seconds
-t = (0:N-1) / fs;
-
-magnitude_dB = 20 * log10(abs(ir) + eps); % Add eps to avoid log(0)
+t = ((0:N+before_0-1)-before_0) / fs;
 
 % Plot the impulse response in dB
-plot(t, magnitude_dB);
+plot(t,ir);
 xlabel('Time (seconds)');
-ylabel('Magnitude (dB)');
-title('Impulse Response in dB');
+ylabel('Magnitude');
+title('Impulse Response');
+xline(0.0796, '--', {'Last early','reflection'})
 grid on;
 
-hold on;
-yline(-60, '--r'); %adds line at -60 db
+% hold on;
+% yline(-60, '--r'); %adds line at -60 db
