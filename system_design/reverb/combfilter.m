@@ -17,7 +17,10 @@ start_input_offset = 0;
 %rememberinput delayline n-m-1 m+1 length
 for n=1:input_length
     %output(n)=input(n)-gain_LP*input_delay+gain_LP*output_delayline(ringbuf_idx(start_output_offset, 1, M))+g2*output_delayline(ringbuf_idx(start_output_offset, M, M));%-1 pga matlab
-    output(n)=input_delayline(ringbuf_idx(start_input_offset,M,M+1))-gain_LP*input_delayline(ringbuf_idx(start_input_offset,M+1,M+1))+gain_LP*output_delayline(ringbuf_idx(start_output_offset, 1, M))+g2*output_delayline(ringbuf_idx(start_output_offset, M, M));
+    output(n)=input_delayline(ringbuf_idx(start_input_offset,M,M+1))-...
+        gain_LP*input_delayline(ringbuf_idx(start_input_offset,M+1,M+1))+...
+        gain_LP*output_delayline(ringbuf_idx(start_output_offset, 1, M))+...
+        g2*output_delayline(ringbuf_idx(start_output_offset, M, M));
     
     start_output_offset = mod(start_output_offset-1,M);%update offset
     output_delayline(start_output_offset+1) = output(n);%+1 kun pgamatalb  and  updates dealyline
