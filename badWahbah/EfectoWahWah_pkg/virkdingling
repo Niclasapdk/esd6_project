@@ -53,6 +53,8 @@ double* FrequencyArray(double minf, double maxf, double Fw, double Fs){
 int readADC(int port) {
     return analogRead(port);  // Example for Arduino
 }
+
+
 // Function to convert ADC value to voltage - REMOVE LATER WHEN VOLTAGE FITS WHAT READ
 double readSignalVoltage(double minf, double maxf, double Fw, double Fs, int port) {
     int i;
@@ -104,8 +106,8 @@ double WahWahBahBah(double damp, double minf, double maxf, double Fs, double Fw,
   double closestvalue = readSignalVoltage(minf,maxf,Fw,Fs,portPot);        // get closest Fc for filter
   double Fc = closestvalue;                                                // Set it to Fc
   int x = readADC(portInput);                                              // check input signal
-  double yl;
-  double yaux;
+  static double yl = 0;
+  static double yaux = 0;
   // IF i Remove the If statements then it should be possible to just type the difference equation up here
 
   /*  Fc needs to be in the range if not then end */

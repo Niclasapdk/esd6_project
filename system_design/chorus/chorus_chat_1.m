@@ -17,8 +17,8 @@ output = zeros(size(input)); % Output buffer
 for v = 1:num_voices                         % Process each voice
     base_delay = randi(delay_range_samples); % Random base delay for this voice (in samples)
     t = (0:length(input)-1)' / fs;           % Create LFO (sinusoidal modulation)
-    %lfo = sawtooth(2*pi*lfo_rate*t,0.5);    % another option for chorus
-    lfo = sin(2 * pi * lfo_rate * t + pi/2 * (v-1)); % Phase shifted 90deg lfo
+    %lfo = sawtooth(2*pi*lfo_rate*t+ pi/2 * (v-1),0.5); % another option for chorus
+    %lfo = sin(2 * pi * lfo_rate * t + pi/2 * (v-1)); % Phase shifted 90deg lfo
     mod_delay = base_delay * mod_depth * (0.5*lfo + 0.5);  % Calculate varying delay in samples
     voice_signal = zeros(size(input));       %Buffer for modulated signal
 
