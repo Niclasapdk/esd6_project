@@ -40,7 +40,7 @@ title('Input (White Noise → Silence) and Reverb Response (dB)');
 grid on;
 
 % Mark when the white noise stops
-xline(duration_white_noise, '--r', 'White Noise Stops', 'LabelVerticalAlignment', 'middle');
-yline(-60, '--r', 'RT60');
+xline(duration_white_noise, '--r', 'White Noise Stops', 'LabelVerticalAlignment', 'middle', 'HandleVisibility', 'off');
+yline(-60, '--r', 'RT60', 'HandleVisibility', 'off');
 
 legend('Location', 'SouthWest');

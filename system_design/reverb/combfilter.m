@@ -24,5 +24,4 @@ for n=1:input_length
     
     start_input_offset = mod(start_input_offset-1,M+1);%update offset
     input_delayline(start_input_offset+1) = input(n);%+1 kun pgamatalb  and  updates dealyline
-    %input_delay = input(n);% updates the input n-1 delay
 end
