@@ -1,0 +1,262 @@
+#include <math.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TYPE float
+#define CAP_R(C, Fs) (1/(2*C*Fs))
+#define Fs (44100)
+#define ACC_MASK (0xffffffffff) // 40-bit accumulator mask
+#define ACC(x) (x&ACC_MASK)
+#define DATADIR "traces/"
+
+#include "diode.h"
+
+// Save n_samples samples from the array to a binary file.
+void save_samples_int64(char *filename, int64_t *samples, size_t n_samples) {
+    FILE *f = fopen(filename, "wb");
+    if (!f) {
+        perror("Failed to open file for writing");
+        return;
+    }
+    // Write the raw data: n_samples elements of type TYPE.
+    if (fwrite(samples, sizeof(int64_t), n_samples, f) != n_samples) {
+        perror("Failed to write all samples");
+    }
+    fclose(f);
+}
+
+// Save n_samples samples from the array to a binary file.
+void save_samples_int16(char *filename, int16_t *samples, size_t n_samples) {
+    FILE *f = fopen(filename, "wb");
+    if (!f) {
+        perror("Failed to open file for writing");
+        return;
+    }
+    // Write the raw data: n_samples elements of type TYPE.
+    if (fwrite(samples, sizeof(int16_t), n_samples, f) != n_samples) {
+        perror("Failed to write all samples");
+    }
+    fclose(f);
+}
+
+// Save n_samples samples from the array to a binary file.
+void save_time_samples(char *filename, double *samples, size_t n_samples) {
+    FILE *f = fopen(filename, "wb");
+    if (!f) {
+        perror("Failed to open file for writing");
+        return;
+    }
+    // Write the raw data: n_samples elements of type TYPE.
+    if (fwrite(samples, sizeof(double), n_samples, f) != n_samples) {
+        perror("Failed to write all samples");
+    }
+    fclose(f);
+}
+
+#define ERR_OPEN_FILE -1
+// Reads a raw PCM file (pcm_s16le mono) into an array of floats in the range [-1, 1].
+// filename: input raw PCM file name.
+// array: destination array to store up to N float samples.
+// N: maximum number of float samples to read.
+// Returns 0 on success, or a negative error code if something fails.
+int read_pcm(char *filename, int16_t *array, size_t N) {
+    FILE *f = fopen(filename, "rb");
+    if (!f)
+        return ERR_OPEN_FILE;
+
+    size_t count = 0;
+    unsigned char sample_bytes[2];
+
+    // Each sample is 2 bytes (16-bit)
+    while (count < N)
+    {
+        size_t nread = fread(sample_bytes, 1, 2, f);
+        if (nread < 2)
+            break; // End-of-file reached
+
+        // Reconstruct a signed 16-bit integer from little-endian bytes.
+        int16_t sample = (int16_t)(sample_bytes[0] | (sample_bytes[1] << 8));
+
+        // Map to float in range [-1, 1]. Note that -32768 maps to -1.
+        array[count++] = sample;
+    }
+
+    fclose(f);
+    return 0;
+}
+
+// Writes a raw PCM file (pcm_s16le mono) from an array of floats in the range [-1, 1].
+// filename: output file name.
+// array: source array of float samples.
+// N: number of samples in the array.
+// Returns 0 on success, or a negative error code if something fails.
+int write_pcm(char *filename, int16_t *array, size_t N) {
+    FILE *f = fopen(filename, "wb");
+    if (!f)
+        return ERR_OPEN_FILE;
+
+    for (size_t i = 0; i < N; i++)
+    {
+        int16_t sample = array[i];
+        // Write sample in little-endian order.
+        unsigned char bytes[2];
+        bytes[0] = sample & 0xFF;
+        bytes[1] = (sample >> 8) & 0xFF;
+        if (fwrite(bytes, 1, 2, f) != 2)
+        {
+            fclose(f);
+            return -2; // error writing file
+        }
+    }
+
+    fclose(f);
+    return 0;
+}
+
+int signum (TYPE val) {
+    return (0 < val) - (val < 0);
+}
+
+/// Processing
+#define C_2_val (CAP_R(1e-6, Fs))
+#define R_A_val (220)
+#define V_bias_res_val (10e3)
+// processes a sample x in part 1 circuit and outputs the voltage
+int64_t part1_process(int16_t x) {
+    static const int16_t inp_inner_ser_reflect = 32768*(V_bias_res_val/(R_A_val+V_bias_res_val));
+    static const int16_t inp_ser_reflect = 32768*(C_2_val/(R_A_val+V_bias_res_val+C_2_val));
+    return -x;
+}
+
+#define R_4_val (4.7e3)
+#define C_3_val (CAP_R(0.047e-6, Fs))
+// processes a sample x in part 2 circuit and outputs the current
+int64_t part2_process(int16_t y1) {
+    static const int16_t r = 32768*(C_3_val)/(C_3_val+R_4_val);
+    int64_t ac0, ac1, ac2, ac3;
+    static int16_t C3_a=0, C3_b;
+    C3_b = C3_a;
+    ac0 = y1*2; // q1.15
+    ac1 = C3_b; // q0.15
+    ac0 += ac1; // q2.15: a
+    ac2 = ac0;  // store a in ac2
+    ac0 += ac1; // q3.15
+    ac0 *= -r;  // q0.30 since r is small
+    ac1 += ac0>>15; // q15: C3_a
+    C3_a = ac1;
+    ac2 += ac1; // q3.15: -y2
+    ac2 = - ac2; // q3.15: y2
+    return ac2;
+}
+
+#define gain ((TYPE)10) // 0-10
+#define C_4_val (CAP_R(51e-12, Fs))
+#define I_f_res_val (51e3+(gain/10)*500e3)
+#define V_T (26e-3)
+#define I_S (1e-12)
+// circuit is parallel(I_f, C_4)
+// processes a sample (current) in part 3 circuit and outputs the voltage
+int16_t part3_process(int16_t x) {
+    // FIXME THIS IS NOT IMPLEMENTED YET AND IS WRONG
+//     static const TYPE par_g = (1/C_4_val + 1/I_f_res_val);
+//     static const int16_t reflect = (1<<13)*(1/I_f_res_val)/par_g; // q13
+//     int64_t ac0=0, ac1=0, ac2=0, ac3=0; // 40-bit accumulator
+//     static int16_t C_4_a = 0, C_4_b = 0;
+//     static const int16_t I_f_scaling = (I_f_res_val/(2*R_4_val));
+//     // get reflected waves for C_4 and I_f and parallel circuit
+//     ac0 = (int32_t)x * (int32_t)I_f_scaling; // q15 * q7.0 => q7.15
+//     // int16_t I_f_b = (int16_t)(ac0>>3); // scale down to q12.3
+//     C_4_b = C_4_a;
+//     ac1 = ((int32_t)C_4_b)<<12; // q28
+//     // TYPE bDiff = C_4_b - I_f_b;
+//     ac2 = ac1 - ac0; // q0.15 - q7.15
+//     // TYPE a = C_4_b - reflect * bDiff; // reflected from circuit (incident to diode)
+//     ac1 += -(int64_t)((int64_t)reflect*ac2); // q0.13 * q7.15 => q7.28
+//     int16_t a = (int16_t)(ac1>>20); // q7.8
+//
+//     // Model diode
+//     int16_t b = diode_lut(a);
+//
+//     // Scatter incident to parallel circuit
+//     // int16_t b2 = a - C_4_b + b; // reflected from circuit - port2->b + x
+//     ac3 = (int32_t)a - (int32_t)C_4_b + (int32_t)b;
+//     int16_t b2 = ac3>>2;
+//     C_4_a = b2;
+// #ifdef DEBUG_PRINT
+//     // printf("ac0 (I_f_b)=%ld, ac1 (a)=%ld, ac2 (bdiff)=%ld, a=%hd, b=%hd, b2=%hd\n", ac0, ac1>>20, ac2, a, b, b2);
+// #endif
+//     return a;
+//     // return (b+a)/2;
+    return 0; // TODO not implemented
+}
+
+#define clock_to_sec(t) (((double)t)/CLOCKS_PER_SEC)
+int main() {
+// #define FUNCTION_GENERATOR
+// #define DEBUG_PRINT
+#ifndef FUNCTION_GENERATOR
+    const int N = 44100*10;
+#else
+    const int N = 100;
+#endif
+    int16_t *input = calloc(sizeof(int16_t), N);
+    int64_t *v_plus = calloc(sizeof(int64_t), N);
+    int64_t *i_f = calloc(sizeof(int64_t), N);
+    int16_t *output = calloc(sizeof(int16_t), N);
+    double *part1_time = calloc(sizeof(double), N);
+    double *part2_time = calloc(sizeof(double), N);
+    double *part3_time = calloc(sizeof(double), N);
+#ifndef FUNCTION_GENERATOR
+    int err = read_pcm("../guitar.pcm", input, N);
+    if (err != 0) {
+        perror("file open failed");
+        exit(ERR_OPEN_FILE);
+    }
+#endif
+    // initialization
+    // for (int i=0; i<100; i++) {
+    //     part3_process(part2_process(part1_process(0)));
+    // }
+    // process loop
+    clock_t t_start = clock();
+    for (int t=0; t<N; t++) {
+#ifdef FUNCTION_GENERATOR
+        int16_t x = 32768*sinf(2*3.14f*1000*t/Fs); // Q15
+#else
+        int16_t x = input[t];
+#endif
+        clock_t t1 = clock();
+        int64_t y1 = part1_process(x);
+        clock_t t2 = clock();
+        int64_t y2 = part2_process(y1);
+        clock_t t3 = clock();
+        int16_t y3 = part3_process(y2);
+        clock_t t4 = clock();
+#ifdef DEBUG_PRINT
+        printf("x=%hd, y1=%ld, y2=%ld, y3=%hd\n", x, y1, y2, y3);
+#endif
+        // Save samples
+#ifdef FUNCTION_GENERATOR
+        input[t] = x;
+#endif
+        v_plus[t] = y1;
+        i_f[t] = y2;
+        output[t] = /* y1 +  */y3;
+        part1_time[t] = clock_to_sec(t2-t1);
+        part2_time[t] = clock_to_sec(t3-t2);
+        part3_time[t] = clock_to_sec(t4-t3);
+    }
+    clock_t t_stop = clock();
+    double t_total = clock_to_sec(t_stop-t_start);
+    printf("Calculated %i seconds (%i samples) in %lf seconds (%lf seconds per second of audio)\n", N/Fs, N, t_total, (t_total/N)*Fs);
+    save_samples_int16(DATADIR"input.bin", input, N);
+    save_samples_int64(DATADIR"v_plus.bin", v_plus, N);
+    save_samples_int64(DATADIR"i_f.bin", i_f, N);
+    save_samples_int16(DATADIR"output.bin", output, N);
+    save_time_samples(DATADIR"part1_time.bin", part1_time, N);
+    save_time_samples(DATADIR"part2_time.bin", part2_time, N);
+    save_time_samples(DATADIR"part3_time.bin", part3_time, N);
+    write_pcm("../output_fixed.pcm", output, N);
+}
