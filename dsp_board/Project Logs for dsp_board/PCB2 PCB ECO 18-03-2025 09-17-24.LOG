@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NetC508_1 Pin=Q500-
+Removed Pin From Net: NetName=NetC509_2 Pin=Q501-1
+Removed Pin From Net: NetName=-6V Pin=Q501-
+Removed Pin From Net: NetName=GND Pin=U500-
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3

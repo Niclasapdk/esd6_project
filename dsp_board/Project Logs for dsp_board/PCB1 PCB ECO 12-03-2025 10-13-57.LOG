@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=-6V Pin=D500-1
+Removed Pin From Net: NetName=+6V Pin=D501-2
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Pin To Net: Unknown Pin: Pin *500-1
+Add Pin To Net: Unknown Pin: Pin *501-2
+Add Pin To Net: Unknown Pin: Pin *502-1
+Add Pin To Net: Unknown Pin: Pin *-2
+Added Pin To Net: NetName=+1V75 Pin=D500-1
+Added Pin To Net: NetName=+6V Pin=D500-2
+Added Pin To Net: NetName=-6V Pin=D501-1
+Added Pin To Net: NetName=-1V75 Pin=D501-2
+Added Pin To Net: NetName=Net*500_2 Pin=S500-1
+Added Net: Name=Net*500_2
+Added Pin To Net: NetName=Net*502_2 Pin=S500-3
+Added Net: Name=Net*502_2
+Add Class Member: Failed to add class member : Component *500 powerdiode
+Add Class Member: Failed to add class member : Component *501 powerdiode
+Add Class Member: Failed to add class member : Component *502 powerdiode
+Add Class Member: Failed to add class member : Component * powerdiode

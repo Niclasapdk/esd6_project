@@ -1,0 +1,60 @@
+Change Physical Footprint: Designator=C200 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C201 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C202 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C203 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C300 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C301 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C500 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C502 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C504 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=C506 Old Footprint=Cap-1 New Footprint=Cap-1
+Change Physical Footprint: Designator=D300 Old Footprint=Diode 2 space New Footprint=Diode 2 space
+Change Physical Footprint: Designator=D301 Old Footprint=Diode 2 space New Footprint=Diode 2 space
+Change Physical Footprint: Designator=D500 Old Footprint=Diode 2 space New Footprint=Diode 2 space
+Change Physical Footprint: Designator=D501 Old Footprint=Diode 2 space New Footprint=Diode 2 space
+Change Physical Footprint: Designator=FX Switches Old Footprint=Header 1x7 New Footprint=Header 1x7
+Change Physical Footprint: Designator=J100 Old Footprint=Header 1x16 New Footprint=Header 1x16
+Change Physical Footprint: Designator=J101 Old Footprint=Header 1x16 New Footprint=Header 1x16
+Change Physical Footprint: Designator=J102 Old Footprint=Header 1x16 New Footprint=Header 1x16
+Change Physical Footprint: Designator=J103 Old Footprint=Header 1x16 New Footprint=Header 1x16
+Change Physical Footprint: Cannot match pads with new footprint in component :J301 Footprint:FP-NMJ4HFD2-MFG
+Change Physical Footprint: Cannot match pads with new footprint in component :J302 Footprint:FP-NMJ4HFD2-MFG
+Change Physical Footprint: Designator=J400 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=J401 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=J402 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=J403 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=J404 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=J405 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=MENU_CTRL200 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=POT200 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=POT201 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=POT202 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=Pot500 Old Footprint=Pot trim slim high New Footprint=Pot trim slim high
+Change Physical Footprint: Designator=Pot501 Old Footprint=Pot trim slim high New Footprint=Pot trim slim high
+Change Physical Footprint: Designator=POT_WAH200 Old Footprint=Header 1x3 New Footprint=Header 1x3
+Change Physical Footprint: Designator=R200 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R300 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R301 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R302 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R303 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R304 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R400 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R401 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R402 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R403 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R404 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R405 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R406 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R407 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R408 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R409 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R410 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R411 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R412 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Designator=R500 Old Footprint=AXIAL-0.4 PCBK New Footprint=AXIAL-0.4 PCBK
+Change Physical Footprint: Cannot match pads with new footprint in component :U300 Footprint:ADI-N-8
+Change Physical Footprint: Cannot match pads with new footprint in component :U400 Footprint:N0016A
+Change Physical Footprint: Designator=U500 Old Footprint=TO-220 New Footprint=TO-220
+Change Physical Footprint: Designator=U501 Old Footprint=TO-92_straight New Footprint=TO-92_straight
+Change Physical Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Physical Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A

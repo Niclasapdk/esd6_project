@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-1
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-2
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-3
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-4
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-5
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-6
+Removed Pin From Net: NetName=+5V Pin=FX Switches 200-7
+Removed Pin From Net: NetName=GND Pin=U500-4
+Removed Member From Class: ClassName=switches_connectors Member=FX Switches 200
+Change Component Footprint: Designator=U502 Old Footprint=NDE0003A New Footprint=TO220
+Change Component Footprint: Designator=U503 Old Footprint=TO220 New Footprint=NDE0003A
+Added Component: Designator=FX Switches(Header 1x7)
+Added Component: Designator=J200(Header 1x4)
+Added Pin To Net: NetName=+5V Pin=FX Switches-1
+Added Pin To Net: NetName=+5V Pin=FX Switches-2
+Added Pin To Net: NetName=+5V Pin=FX Switches-3
+Added Pin To Net: NetName=+5V Pin=FX Switches-4
+Added Pin To Net: NetName=+5V Pin=FX Switches-5
+Added Pin To Net: NetName=+5V Pin=FX Switches-6
+Added Pin To Net: NetName=+5V Pin=FX Switches-7
+Added Pin To Net: NetName=GND Pin=J200-1
+Added Pin To Net: NetName=I2C_SCL Pin=J200-2
+Added Pin To Net: NetName=I2C_SDA Pin=J200-3
+Added Pin To Net: NetName=VCC_3V3 Pin=J200-4
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Added Member To Class: ClassName=switches_connectors Member=Component FX Switches Header 1x7
+Added Member To Class: ClassName=switches_connectors Member=Component J200 Header 1x4

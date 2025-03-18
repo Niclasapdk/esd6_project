@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=GND Pin=J301-1
+Removed Pin From Net: NetName=GND Pin=J301-2
+Removed Pin From Net: NetName=NetC300_2 Pin=J301-3
+Removed Pin From Net: NetName=GND Pin=J301-4
+Removed Pin From Net: NetName=GND Pin=J302-1
+Removed Pin From Net: NetName=GND Pin=J302-2
+Removed Pin From Net: NetName=GND Pin=J302-4
+Removed Member From Class: ClassName=amplifier_stage Member=J301
+Removed Member From Class: ClassName=amplifier_stage Member=J302
+Added Component: Designator=J?(3.5MMJACK - duplicate)
+Added Component: Designator=J?(3.5MMJACK - duplicate)
+Added Pin To Net: NetName=GND Pin=J?-1
+Added Pin To Net: NetName=GND Pin=J?-1
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Pin To Net: NetName=GND Pin=J?-2
+Added Pin To Net: NetName=NetC300_2 Pin=J?-3
+Added Pin To Net: NetName=GND Pin=J?-4
+Added Pin To Net: NetName=GND Pin=J?-4
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Added Pin To Net: NetName=NetJ?_3 Pin=J?-3
+Added Pin To Net: NetName=NetJ?_3 Pin=U300-5
+Added Net: Name=NetJ?_3
+Added Member To Class: ClassName=amplifier_stage Member=Component J? 3.5MMJACK
+Added Member To Class: ClassName=amplifier_stage Member=Component J? 3.5MMJACK

@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=GPIO14 Pin=J102-4
+Removed Pin From Net: NetName=GPIO15 Pin=J102-5
+Removed Pin From Net: NetName=GPIO16 Pin=J102-9
+Removed Pin From Net: NetName=GPIO11 Pin=J102-12
+Removed Pin From Net: NetName=GPIO10 Pin=J102-13
+Removed Pin From Net: NetName=GPIO5 Pin=J102-14
+Added Pin To Net: NetName=GPIO5 Pin=J102-4
+Added Pin To Net: NetName=GPIO10 Pin=J102-5
+Added Pin To Net: NetName=GPIO11 Pin=J102-9
+Added Pin To Net: NetName=GPIO16 Pin=J102-12
+Added Pin To Net: NetName=GPIO15 Pin=J102-13
+Added Pin To Net: NetName=GPIO14 Pin=J102-14
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Change Net Name : Old Net Name=GPIO5 New Net Name=GPIO14
+Change Net Name : Old Net Name=GPIO10 New Net Name=GPIO15
+Change Net Name : Old Net Name=GPIO11 New Net Name=GPIO16
+Change Net Name : Old Net Name=GPIO14 New Net Name=GPIO5
+Change Net Name : Old Net Name=GPIO15 New Net Name=GPIO10
+Change Net Name : Old Net Name=GPIO16 New Net Name=GPIO11

@@ -1,0 +1,4 @@
+Removed Member From Class: ClassName=shift_registers Member=FX Switches 5V
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Added Member To Class: ClassName=shift_registers Member=Component FX Switches Header 1x7

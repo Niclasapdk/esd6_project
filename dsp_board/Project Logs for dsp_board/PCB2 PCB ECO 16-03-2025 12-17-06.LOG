@@ -1,0 +1,26 @@
+Change Component Designator: OldDesignator=C500 NewDesignator=C506
+Change Component Designator: OldDesignator=C501 NewDesignator=C507
+Change Component Designator: OldDesignator=C502 NewDesignator=C500
+Change Component Designator: OldDesignator=C503 NewDesignator=C501
+Change Component Designator: OldDesignator=C506 NewDesignator=C502
+Change Component Designator: OldDesignator=C507 NewDesignator=C503
+Change Component Designator: OldDesignator=C508 NewDesignator=C510
+Change Component Designator: OldDesignator=C509 NewDesignator=C512
+Change Component Designator: OldDesignator=C510 NewDesignator=C514
+Change Component Designator: OldDesignator=C511 NewDesignator=C508
+Change Component Designator: OldDesignator=C512 NewDesignator=C511
+Change Component Designator: OldDesignator=C514 NewDesignator=C515
+Change Component Designator: OldDesignator=C515 NewDesignator=C509
+Change Component Designator: OldDesignator=Pot500 NewDesignator=Pot501
+Change Component Designator: OldDesignator=Pot501 NewDesignator=Pot500
+Change Component Designator: OldDesignator=U501 NewDesignator=U502
+Change Component Designator: OldDesignator=U502 NewDesignator=U503
+Change Component Designator: OldDesignator=U503 NewDesignator=U501
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_1 Pin=Q501-3
+Change Net Name : Old Net Name=NetC500_1 New Net Name=NetC506_1
+Change Net Name : Old Net Name=NetC511_1 New Net Name=NetC508_1
+Change Net Name : Old Net Name=NetC511_2 New Net Name=NetC508_2
+Change Net Name : Old Net Name=NetC515_1 New Net Name=NetC509_1
+Change Net Name : Old Net Name=NetC515_2 New Net Name=NetC509_2
+Change Net Name : Old Net Name=NetPot501_1 New Net Name=NetPot500_1

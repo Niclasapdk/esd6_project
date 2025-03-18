@@ -1,0 +1,10 @@
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Member To Class: ClassName=power_supply Member=Component C506 Cap
+Added Member To Class: ClassName=power_supply Member=Component C507 Cap
+Added Member To Class: ClassName=power_supply Member=Component C509 Cap
+Added Member To Class: ClassName=power_supply Member=Component C512 Cap
+Added Member To Class: ClassName=power_supply Member=Component C514 Cap
+Added Member To Class: ClassName=power_supply Member=Component C515 Cap
+Added Member To Class: ClassName=power_supply Member=Component Pot500 Pot Trim
+Added Member To Class: ClassName=power_supply Member=Component U502 LM317

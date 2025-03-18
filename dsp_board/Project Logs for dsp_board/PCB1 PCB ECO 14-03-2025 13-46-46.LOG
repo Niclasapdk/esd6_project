@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=U?-8
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=U?-16
+Removed Member From Class: ClassName=shift_registers Member=U?
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_1 Pin=Q501-3

@@ -1,0 +1,26 @@
+Change Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A
+Added Component: Designator=D502(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D503(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D504(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D505(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=-6V Pin=D502-1
+Added Pin To Net: NetName=+6V Pin=D503-2
+Added Pin To Net: NetName=-6V Pin=D504-1
+Added Pin To Net: NetName=+6V Pin=D505-2
+Added Pin To Net: NetName=NetD502_2 Pin=D502-2
+Added Pin To Net: NetName=NetD502_2 Pin=D503-1
+Added Pin To Net: NetName=NetD502_2 Pin=S500-1
+Added Net: Name=NetD502_2
+Added Pin To Net: NetName=NetD504_2 Pin=D504-2
+Added Pin To Net: NetName=NetD504_2 Pin=D505-1
+Added Pin To Net: NetName=NetD504_2 Pin=S500-3
+Added Net: Name=NetD504_2
+Added Member To Class: ClassName=power_supply Member=Component D502 Diode
+Added Member To Class: ClassName=power_supply Member=Component D503 Diode
+Added Member To Class: ClassName=power_supply Member=Component D504 Diode
+Added Member To Class: ClassName=power_supply Member=Component D505 Diode

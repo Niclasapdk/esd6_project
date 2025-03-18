@@ -1,0 +1,61 @@
+Removed Pin From Net: NetName=NetFX Switches_7 Pin=U400-1
+Removed Pin From Net: NetName=NetFX Switches_6 Pin=U400-2
+Removed Pin From Net: NetName=NetFX Switches_5 Pin=U400-3
+Removed Pin From Net: NetName=NetFX Switches_4 Pin=U400-4
+Removed Pin From Net: NetName=NetFX Switches_3 Pin=U400-5
+Removed Pin From Net: NetName=NetFX Switches_2 Pin=U400-6
+Removed Pin From Net: NetName=NetFX Switches_1 Pin=U400-7
+Removed Pin From Net: NetName=GND Pin=U400-8
+Removed Pin From Net: NetName=GPIO12 Pin=U400-14
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=U400-16
+Removed Member From Class: ClassName=shift_registers Member=U400
+Added Component: Designator=U?(N0016A)
+Add component (AddParameter): Name = "3-State Output"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Bits"; Value = "8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "MS-001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "SCLS041H"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "F @ Nom Voltage(Max)(Mhz)"; Value = "28"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Generic Part Number"; Value = "SN74HC595"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ICC @ Nom Voltage(Max)(mA)"; Value = "0.08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Input Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range(C)"; Value = "-40 to 85"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Drive (IOL/IOH)(Max)(mA)"; Value = "7.8/-7.8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = "CMOS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "N0016A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "http://www.ti.com/lit/ml/mpdi002c/mpdi002c.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rating"; Value = "Military"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology Family"; Value = "HC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "tpd @ Nom Voltage(Max)(ns)"; Value = "34"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Max)(V)"; Value = "6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VCC(Min)(V)"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage(Nom)(V)"; Value = "6"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetFX Switches_1 Pin=J102-4
+Added Pin To Net: NetName=NetFX Switches_2 Pin=J102-5
+Added Pin To Net: NetName=NetFX Switches_3 Pin=J102-9
+Added Pin To Net: NetName=NetFX Switches_4 Pin=J102-10
+Added Pin To Net: NetName=NetFX Switches_5 Pin=J102-12
+Added Pin To Net: NetName=NetFX Switches_6 Pin=J102-13
+Added Pin To Net: NetName=NetFX Switches_7 Pin=J102-14
+Added Pin To Net: NetName=GPIO4 Pin=MENU_CTRL200-2
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Added Pin To Net: NetName=GPIO4 Pin=R200-2
+Added Pin To Net: NetName=GND Pin=U?-8
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=U?-16
+Change Net Name : Old Net Name=NetFX Switches_1 New Net Name=GPIO14
+Change Net Name : Old Net Name=NetFX Switches_2 New Net Name=GPIO15
+Change Net Name : Old Net Name=NetFX Switches_3 New Net Name=GPIO16
+Change Net Name : Old Net Name=NetFX Switches_4 New Net Name=GPIO17
+Change Net Name : Old Net Name=NetFX Switches_5 New Net Name=GPIO11
+Change Net Name : Old Net Name=NetFX Switches_6 New Net Name=GPIO10
+Change Net Name : Old Net Name=NetFX Switches_7 New Net Name=GPIO5
+Added Pin To Net: NetName=NetU?_10 Pin=U?-10
+Added Net: Name=NetU?_10
+Added Pin To Net: NetName=NetU?_11 Pin=U?-11
+Added Net: Name=NetU?_11
+Added Pin To Net: NetName=NetU?_12 Pin=U?-12
+Added Net: Name=NetU?_12
+Added Pin To Net: NetName=NetU?_14 Pin=U?-14
+Added Net: Name=NetU?_14
+Added Member To Class: ClassName=shift_registers Member=Component U? SN74HC595N

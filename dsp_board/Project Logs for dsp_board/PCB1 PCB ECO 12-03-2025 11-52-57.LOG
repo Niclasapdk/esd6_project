@@ -1,0 +1,6 @@
+Change Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A
+Added Pin To Net: NetName=+6V Pin=C502-2
+Added Pin To Net: NetName=-6V Pin=C506-1
+Added Pin To Net: NetName=+6V Pin=U500-1
+Added Pin To Net: NetName=-6V Pin=U503-2

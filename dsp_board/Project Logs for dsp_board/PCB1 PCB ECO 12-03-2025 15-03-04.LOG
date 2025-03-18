@@ -1,0 +1,119 @@
+Removed Pin From Net: NetName=GND Pin=C509-2
+Removed Pin From Net: NetName=GND Pin=C510-2
+Removed Pin From Net: NetName=GND Pin=C512-1
+Removed Pin From Net: NetName=GND Pin=C513-1
+Removed Pin From Net: NetName=-6V Pin=D502-1
+Removed Pin From Net: NetName=+6V Pin=D503-2
+Removed Pin From Net: NetName=-6V Pin=D504-1
+Removed Pin From Net: NetName=+6V Pin=D505-2
+Change Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A
+Change component parameters: Designator = "C508" ("C508"); Footprint = "Cap Lyt Ø18"; UniqueID = "\OFGHIAEB" ("\OFGHIAEB")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1000uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C509" ("C509"); Footprint = "Cap Lyt Ø18"; UniqueID = "\QVQOTPST" ("\QVQOTPST")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1000F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C510" ("C510"); Footprint = "Cap Lyt Ø8"; UniqueID = "\MIKTSUGC" ("\MIKTSUGC")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "220uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C511" ("C511"); Footprint = "Cap Lyt Ø18"; UniqueID = "\HVHPEXMS" ("\HVHPEXMS")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1000uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C512" ("C512"); Footprint = "Cap Lyt Ø18"; UniqueID = "\TXPJVQPJ" ("\TXPJVQPJ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1000uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C513" ("C513"); Footprint = "Cap Lyt Ø8"; UniqueID = "\LRQUMJYM" ("\LRQUMJYM")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "220uF"; VariantName = "[No Variations]"
+Added Component: Designator=C514(Cap-1)
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C515(Cap-1)
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=Q500(TO-220)
+Add component (AddParameter): Name = "Model"; Value = "ModelNumber"; VariantName = "[No Variations]"
+Added Component: Designator=Q501(TO-220)
+Add component (AddParameter): Name = "Model"; Value = "ModelNumber"; VariantName = "[No Variations]"
+Added Component: Designator=R502(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10"; VariantName = "[No Variations]"
+Added Component: Designator=R503(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "200k"; VariantName = "[No Variations]"
+Added Component: Designator=R504(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R505(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R506(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "200k"; VariantName = "[No Variations]"
+Added Component: Designator=R507(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+6V Pin=Q500-3
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=-6V Pin=Q501-2
+Added Pin To Net: NetName=+6V Pin=R502-1
+Added Pin To Net: NetName=GND Pin=R504-1
+Added Pin To Net: NetName=GND Pin=R505-2
+Added Pin To Net: NetName=-6V Pin=R507-1
+Added Pin To Net: NetName=NetC509_2 Pin=C509-2
+Added Pin To Net: NetName=NetC509_2 Pin=C512-1
+Added Net: Name=NetC509_2
+Added Pin To Net: NetName=NetC510_2 Pin=C510-2
+Added Pin To Net: NetName=NetC510_2 Pin=C513-1
+Added Net: Name=NetC510_2
+Added Pin To Net: NetName=NetC514_1 Pin=C514-1
+Added Pin To Net: NetName=NetC514_1 Pin=Q500-2
+Added Pin To Net: NetName=NetC514_1 Pin=R503-1
+Added Pin To Net: NetName=NetC514_1 Pin=R504-2
+Added Net: Name=NetC514_1
+Added Pin To Net: NetName=NetC514_2 Pin=C514-2
+Added Pin To Net: NetName=NetC514_2 Pin=D503-2
+Added Pin To Net: NetName=NetC514_2 Pin=D505-2
+Added Pin To Net: NetName=NetC514_2 Pin=Q500-1
+Added Pin To Net: NetName=NetC514_2 Pin=R502-2
+Added Pin To Net: NetName=NetC514_2 Pin=R503-2
+Added Net: Name=NetC514_2
+Added Pin To Net: NetName=NetC515_1 Pin=C515-1
+Added Pin To Net: NetName=NetC515_1 Pin=D502-1
+Added Pin To Net: NetName=NetC515_1 Pin=D504-1
+Added Pin To Net: NetName=NetC515_1 Pin=Q501-3
+Added Pin To Net: NetName=NetC515_1 Pin=R506-1
+Added Pin To Net: NetName=NetC515_1 Pin=R507-2
+Added Net: Name=NetC515_1
+Added Pin To Net: NetName=NetC515_2 Pin=C515-2
+Added Pin To Net: NetName=NetC515_2 Pin=R505-1
+Added Pin To Net: NetName=NetC515_2 Pin=R506-2
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Added Net: Name=NetC515_2
+Added Member To Class: ClassName=power_supply Member=Component C514 Cap
+Added Member To Class: ClassName=power_supply Member=Component C515 Cap
+Added Member To Class: ClassName=power_supply Member=Component Q500 ModelNum
+Added Member To Class: ClassName=power_supply Member=Component Q501 ModelNum
+Added Member To Class: ClassName=power_supply Member=Component R502
+Added Member To Class: ClassName=power_supply Member=Component R503
+Added Member To Class: ClassName=power_supply Member=Component R504
+Added Member To Class: ClassName=power_supply Member=Component R505
+Added Member To Class: ClassName=power_supply Member=Component R506
+Added Member To Class: ClassName=power_supply Member=Component R507

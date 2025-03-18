@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=+5V Pin=J100-5
+Added Pin To Net: NetName=+5V Pin=J100-6
+Added Pin To Net: NetName=+5V Pin=J100-8
+Added Pin To Net: NetName=+5V Pin=J100-13
+Added Pin To Net: NetName=+5V Pin=J100-14
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Change Net Name : Old Net Name=+5V New Net Name=VCC_USB_DUAL

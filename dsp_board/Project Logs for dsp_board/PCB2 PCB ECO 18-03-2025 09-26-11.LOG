@@ -1,0 +1,6 @@
+Change Component Designator: OldDesignator=J? NewDesignator=J301
+Change Component Designator: OldDesignator=J? NewDesignator=J302
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Change Net Name : Old Net Name=NetJ?_3 New Net Name=NetJ302_3
+Added Member To Class: ClassName=amplifier_stage Member=Component J301 3.5MMJACK

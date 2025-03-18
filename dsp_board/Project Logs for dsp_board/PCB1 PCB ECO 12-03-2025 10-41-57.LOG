@@ -1,0 +1,144 @@
+Added Component: Designator=J600_U_pull_down_led_subcircuit1(Header 1x3)
+Added Component: Designator=J600_U_pull_down_led_subcircuit2(Header 1x3)
+Added Component: Designator=J600_U_pull_down_led_subcircuit3(Header 1x3)
+Added Component: Designator=J600_U_pull_down_led_subcircuit5(Header 1x3)
+Added Component: Designator=J600_U_pull_down_led_subcircuit6(Header 1x3)
+Added Component: Designator=J600_U_pull_down_led_subcircuit7(Header 1x3)
+Added Component: Designator=R600_U_pull_down_led_subcircuit1(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R600_U_pull_down_led_subcircuit2(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R600_U_pull_down_led_subcircuit3(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R600_U_pull_down_led_subcircuit5(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R600_U_pull_down_led_subcircuit6(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R600_U_pull_down_led_subcircuit7(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit1(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit2(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit3(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit5(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit6(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R601_U_pull_down_led_subcircuit7(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit1-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit1_3 Pin=J600_U_pull_down_led_subcircuit1-3
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit2-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit2_3 Pin=J600_U_pull_down_led_subcircuit2-3
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit3-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit3_3 Pin=J600_U_pull_down_led_subcircuit3-3
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit5-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit5_3 Pin=J600_U_pull_down_led_subcircuit5-3
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit6-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit6_3 Pin=J600_U_pull_down_led_subcircuit6-3
+Added Pin To Net: NetName=GND Pin=J600_U_pull_down_led_subcircuit7-1
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit7_3 Pin=J600_U_pull_down_led_subcircuit7-3
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit1-1
+Added Pin To Net: NetName=NetFX Switches_1 Pin=R600_U_pull_down_led_subcircuit1-2
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit2-1
+Added Pin To Net: NetName=NetFX Switches_2 Pin=R600_U_pull_down_led_subcircuit2-2
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit3-1
+Added Pin To Net: NetName=NetFX Switches_3 Pin=R600_U_pull_down_led_subcircuit3-2
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit5-1
+Added Pin To Net: NetName=NetFX Switches_5 Pin=R600_U_pull_down_led_subcircuit5-2
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit6-1
+Added Pin To Net: NetName=NetFX Switches_6 Pin=R600_U_pull_down_led_subcircuit6-2
+Added Pin To Net: NetName=GND Pin=R600_U_pull_down_led_subcircuit7-1
+Added Pin To Net: NetName=NetFX Switches_7 Pin=R600_U_pull_down_led_subcircuit7-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit1_3 Pin=R601_U_pull_down_led_subcircuit1-1
+Added Pin To Net: NetName=NetFX Switches_1 Pin=R601_U_pull_down_led_subcircuit1-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit2_3 Pin=R601_U_pull_down_led_subcircuit2-1
+Added Pin To Net: NetName=NetFX Switches_2 Pin=R601_U_pull_down_led_subcircuit2-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit3_3 Pin=R601_U_pull_down_led_subcircuit3-1
+Added Pin To Net: NetName=NetFX Switches_3 Pin=R601_U_pull_down_led_subcircuit3-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit5_3 Pin=R601_U_pull_down_led_subcircuit5-1
+Added Pin To Net: NetName=NetFX Switches_5 Pin=R601_U_pull_down_led_subcircuit5-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit6_3 Pin=R601_U_pull_down_led_subcircuit6-1
+Added Pin To Net: NetName=NetFX Switches_6 Pin=R601_U_pull_down_led_subcircuit6-2
+Added Pin To Net: NetName=NetJ600_U_pull_down_led_subcircuit7_3 Pin=R601_U_pull_down_led_subcircuit7-1
+Added Pin To Net: NetName=NetFX Switches_7 Pin=R601_U_pull_down_led_subcircuit7-2
+Added Member To Class: ClassName=U_pull_down_led_subcircuit1 Member=Component J600_U_pull_down_led_subcircuit1 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit2 Member=Component J600_U_pull_down_led_subcircuit2 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit3 Member=Component J600_U_pull_down_led_subcircuit3 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit5 Member=Component J600_U_pull_down_led_subcircuit5 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit6 Member=Component J600_U_pull_down_led_subcircuit6 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit7 Member=Component J600_U_pull_down_led_subcircuit7 (J600) Header 1x3
+Added Member To Class: ClassName=U_pull_down_led_subcircuit1 Member=Component R600_U_pull_down_led_subcircuit1 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit2 Member=Component R600_U_pull_down_led_subcircuit2 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit3 Member=Component R600_U_pull_down_led_subcircuit3 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit5 Member=Component R600_U_pull_down_led_subcircuit5 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit6 Member=Component R600_U_pull_down_led_subcircuit6 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit7 Member=Component R600_U_pull_down_led_subcircuit7 (R600)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit1 Member=Component R601_U_pull_down_led_subcircuit1 (R601)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit2 Member=Component R601_U_pull_down_led_subcircuit2 (R601)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit3 Member=Component R601_U_pull_down_led_subcircuit3 (R601)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit5 Member=Component R601_U_pull_down_led_subcircuit5 (R601)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit6 Member=Component R601_U_pull_down_led_subcircuit6 (R601)
+Added Member To Class: ClassName=U_pull_down_led_subcircuit7 Member=Component R601_U_pull_down_led_subcircuit7 (R601)

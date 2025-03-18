@@ -1,0 +1,350 @@
+Removed Pin From Net: NetName=GND Pin=C500-1
+Removed Pin From Net: NetName=GND Pin=C501-1
+Removed Pin From Net: NetName=+5V Pin=C501-2
+Removed Pin From Net: NetName=+6V Pin=C502-2
+Removed Pin From Net: NetName=+1V75 Pin=C503-2
+Removed Pin From Net: NetName=GND Pin=C504-2
+Removed Pin From Net: NetName=-5V Pin=C505-1
+Removed Pin From Net: NetName=GND Pin=C505-2
+Removed Pin From Net: NetName=-1V75 Pin=C507-1
+Removed Pin From Net: NetName=-6V Pin=D500-1
+Removed Pin From Net: NetName=+6V Pin=D501-2
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-1
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-2
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-3
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-4
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-5
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-6
+Removed Pin From Net: NetName=+5V Pin=FX Switches 5V-7
+Removed Pin From Net: NetName=GND Pin=Pot500-2
+Removed Pin From Net: NetName=GND Pin=Pot501-1
+Removed Pin From Net: NetName=NetC506_1 Pin=Pot501-2
+Removed Pin From Net: NetName=NetC506_1 Pin=Pot501-3
+Removed Pin From Net: NetName=GND Pin=R401-1
+Removed Pin From Net: NetName=GND Pin=R403-1
+Removed Pin From Net: NetName=GND Pin=R405-1
+Removed Pin From Net: NetName=GND Pin=R407-1
+Removed Pin From Net: NetName=GND Pin=R409-1
+Removed Pin From Net: NetName=GND Pin=R411-1
+Removed Pin From Net: NetName=-1V75 Pin=R502-1
+Removed Pin From Net: NetName=NetC506_1 Pin=R502-2
+Removed Pin From Net: NetName=NetJ405_3 Pin=U401-1
+Removed Pin From Net: NetName=NetJ404_3 Pin=U401-2
+Removed Pin From Net: NetName=NetJ403_3 Pin=U401-3
+Removed Pin From Net: NetName=NetJ402_3 Pin=U401-4
+Removed Pin From Net: NetName=NetJ401_3 Pin=U401-5
+Removed Pin From Net: NetName=NetJ400_3 Pin=U401-6
+Removed Pin From Net: NetName=GND Pin=U401-8
+Removed Pin From Net: NetName=GPIO5 Pin=U401-10
+Removed Pin From Net: NetName=GPIO10 Pin=U401-11
+Removed Pin From Net: NetName=GPIO11 Pin=U401-12
+Removed Pin From Net: NetName=GPIO4 Pin=U401-14
+Removed Pin From Net: NetName=VCC Pin=U401-16
+Removed Pin From Net: NetName=GND Pin=U502-1
+Removed Pin From Net: NetName=-5V Pin=U502-3
+Removed Pin From Net: NetName=NetC506_1 Pin=U503-1
+Removed Pin From Net: NetName=-6V Pin=U503-2
+Removed Pin From Net: NetName=-1V75 Pin=U503-3
+Change Component Footprint: Designator=C503 Old Footprint=Cap 20mm New Footprint=Cap-1
+Change Component Footprint: Designator=C507 Old Footprint=Cap 20mm New Footprint=Cap-1
+Change Component Footprint: Designator=C501 Old Footprint=Cap-1 New Footprint=Cap 20mm
+Change Component Footprint: Designator=C505 Old Footprint=Cap-1 New Footprint=Cap 20mm
+Change Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A
+Change Component Comment : Designator=U503 Old Comment=LM337SP New Comment=LM7905CT/NOPB
+Change Component Comment : Designator=U502 Old Comment=LM7905CT/NOPB New Comment=LM337SP
+Change Component Comment : Designator=R400 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R401 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R402 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R403 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R404 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R405 Old Comment=Res2 New Comment=
+Change Component Comment : Designator=R406 Old Comment=Res2 New Comment=
+Change Component Designator: OldDesignator=FX Switches400 NewDesignator=FX Switches
+Change Managed Component Library Link : Designator=U502 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=FC57C389-4FF4-4E89-A203-E73ED0BC29DB New ItemGUID=F3ACEB16-B894-4BD9-A0CA-80C19E345921 Old RevisionGUID=A501FA7B-7791-4805-8038-0A2535B6644E New RevisionGUID=77E51E1D-5BDD-45E8-92E9-3A268760A17B
+Change Managed Component Library Link : Designator=U503 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=F3ACEB16-B894-4BD9-A0CA-80C19E345921 New ItemGUID=FC57C389-4FF4-4E89-A203-E73ED0BC29DB Old RevisionGUID=77E51E1D-5BDD-45E8-92E9-3A268760A17B New RevisionGUID=A501FA7B-7791-4805-8038-0A2535B6644E
+Change component parameters: Designator = "C500" ("C500"); Footprint = "Cap-1"; UniqueID = "\FALPEUUJ" ("\FALPEUUJ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C501" ("C501"); Footprint = "Cap-1"; UniqueID = "\SKLOGFSE" ("\SKLOGFSE")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C502" ("C502"); Footprint = "Cap-1"; UniqueID = "\IOVYYKNC" ("\IOVYYKNC")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C503" ("C503"); Footprint = "Cap 20mm"; UniqueID = "\DJLHGBJY" ("\DJLHGBJY")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C504" ("C504"); Footprint = "Cap-1"; UniqueID = "\GAQVEBYT" ("\GAQVEBYT")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C505" ("C505"); Footprint = "Cap-1"; UniqueID = "\EUJAKOWA" ("\EUJAKOWA")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C506" ("C506"); Footprint = "Cap-1"; UniqueID = "\FPRSXLBO" ("\FPRSXLBO")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C507" ("C507"); Footprint = "Cap 20mm"; UniqueID = "\IPNSWQKG" ("\IPNSWQKG")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "2,2nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R400" ("R400"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\QNBAKXAN" ("\QNBAKXAN")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R401" ("R401"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\HDAULGTX" ("\HDAULGTX")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R402" ("R402"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\UKXBBTHE" ("\UKXBBTHE")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R403" ("R403"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\LIFYHKIM" ("\LIFYHKIM")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R404" ("R404"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\THMFUEHI" ("\THMFUEHI")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R405" ("R405"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\UQINGQIP" ("\UQINGQIP")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R406" ("R406"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\IHSZZJMA" ("\IHSZZJMA")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R407" ("R407"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\GEXZVDPX" ("\GEXZVDPX")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R408" ("R408"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\ZAJKUGOL" ("\ZAJKUGOL")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R409" ("R409"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\CMEZRGZM" ("\CMEZRGZM")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R410" ("R410"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\MRFTSRFV" ("\MRFTSRFV")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R411" ("R411"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\ZDTGAKTW" ("\ZDTGAKTW")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R412" ("R412"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\VSXYPLUC" ("\VSXYPLUC")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U502" ("U502"); Footprint = "NDE0003A"; UniqueID = "\ADAAJXKZ" ("\ADAAJXKZ")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00000468.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/PACKAGE_INFORMATION/CD00004649.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "1/10/2011"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "TO, Thru-Hole, Vertical, Heatsink Mounted; 3 In-Line Leads; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "TO220"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageVersion"; Value = "ver3.0"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U503" ("U503"); Footprint = "TO220"; UniqueID = "\FYTUOURQ" ("\FYTUOURQ")
+Change component parameters (AddParameter): Name = "Code_IPC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEDEC"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Code_JEITA"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=LM7905&fileType=pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "CompType"; Value = "LDO IC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "High-Reliability"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "TO-220, Molded, 3 Lead, Straight"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "NDE0003A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageTopMarking"; Value = "NSUZXYTTE#*LM7905CT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PinCount"; Value = "3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PowerWise"; Value = "N"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "Y"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Add Component: Footprint Not Found BY214-50
+Added Component: Designator=FX Switches 200(Header 1x7)
+Added Component: Designator=J406(Header 1x3)
+Added Component: Designator=R413(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R501(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "120"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin *500-1
+Add Pin To Net: Unknown Pin: Pin *501-2
+Add Pin To Net: Unknown Pin: Pin *502-1
+Add Pin To Net: Unknown Pin: Pin *503-2
+Added Pin To Net: NetName=GND Pin=C500-2
+Added Pin To Net: NetName=-1V75 Pin=C501-1
+Added Pin To Net: NetName=GND Pin=C501-2
+Added Pin To Net: NetName=+5V Pin=C503-2
+Added Pin To Net: NetName=GND Pin=C504-1
+Added Pin To Net: NetName=+6V Pin=C504-2
+Added Pin To Net: NetName=GND Pin=C505-1
+Added Pin To Net: NetName=+1V75 Pin=C505-2
+Added Pin To Net: NetName=-5V Pin=C507-1
+Added Pin To Net: NetName=+1V75 Pin=D500-1
+Added Pin To Net: NetName=+6V Pin=D500-2
+Added Pin To Net: NetName=-6V Pin=D501-1
+Added Pin To Net: NetName=-1V75 Pin=D501-2
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-1
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-2
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-3
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-4
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-5
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-6
+Added Pin To Net: NetName=+5V Pin=FX Switches 200-7
+Added Pin To Net: NetName=GND Pin=J400-1
+Added Pin To Net: NetName=GND Pin=J401-1
+Added Pin To Net: NetName=GND Pin=J402-1
+Added Pin To Net: NetName=GND Pin=J403-1
+Added Pin To Net: NetName=GND Pin=J404-1
+Added Pin To Net: NetName=GND Pin=J405-1
+Added Pin To Net: NetName=GND Pin=J406-1
+Added Pin To Net: NetName=GND Pin=Pot500-1
+Added Pin To Net: NetName=GND Pin=Pot501-2
+Added Pin To Net: NetName=NetJ400_3 Pin=R401-1
+Added Pin To Net: NetName=NetFX Switches400_7 Pin=R401-2
+Added Pin To Net: NetName=NetJ401_3 Pin=R403-1
+Added Pin To Net: NetName=NetJ402_3 Pin=R405-1
+Added Pin To Net: NetName=NetJ403_3 Pin=R407-1
+Added Pin To Net: NetName=NetJ404_3 Pin=R409-1
+Added Pin To Net: NetName=NetJ405_3 Pin=R411-1
+Added Pin To Net: NetName=-1V75 Pin=R501-1
+Added Pin To Net: NetName=-6V Pin=U502-2
+Added Pin To Net: NetName=-1V75 Pin=U502-3
+Added Pin To Net: NetName=GND Pin=U503-1
+Added Pin To Net: NetName=NetC506_1 Pin=U503-2
+Added Pin To Net: NetName=-5V Pin=U503-3
+Change Net Name : Old Net Name=NetFX Switches400_7 New Net Name=NetFX Switches_7
+Added Pin To Net: NetName=Net*500_2 Pin=S500-1
+Added Net: Name=Net*500_2
+Added Pin To Net: NetName=Net*502_2 Pin=S500-3
+Added Net: Name=Net*502_2
+Added Pin To Net: NetName=NetC500_1 Pin=C500-1
+Added Pin To Net: NetName=NetC500_1 Pin=Pot500-2
+Added Pin To Net: NetName=NetC500_1 Pin=Pot500-3
+Added Pin To Net: NetName=NetC500_1 Pin=R501-2
+Added Pin To Net: NetName=NetC500_1 Pin=U502-1
+Added Net: Name=NetC500_1
+Added Pin To Net: NetName=NetC502_2 Pin=C502-2
+Added Pin To Net: NetName=NetC502_2 Pin=U500-1
+Added Net: Name=NetC502_2
+Added Pin To Net: NetName=NetFX Switches_1 Pin=FX Switches-1
+Added Pin To Net: NetName=NetFX Switches_1 Pin=R412-2
+Added Pin To Net: NetName=NetFX Switches_1 Pin=R413-2
+Added Pin To Net: NetName=NetFX Switches_1 Pin=U400-7
+Added Net: Name=NetFX Switches_1
+Added Pin To Net: NetName=NetFX Switches_2 Pin=FX Switches-2
+Added Pin To Net: NetName=NetFX Switches_2 Pin=R410-2
+Added Pin To Net: NetName=NetFX Switches_2 Pin=R411-2
+Added Pin To Net: NetName=NetFX Switches_2 Pin=U400-6
+Added Net: Name=NetFX Switches_2
+Added Pin To Net: NetName=NetFX Switches_3 Pin=FX Switches-3
+Added Pin To Net: NetName=NetFX Switches_3 Pin=R408-2
+Added Pin To Net: NetName=NetFX Switches_3 Pin=R409-2
+Added Pin To Net: NetName=NetFX Switches_3 Pin=U400-5
+Added Net: Name=NetFX Switches_3
+Added Pin To Net: NetName=NetFX Switches_4 Pin=FX Switches-4
+Added Pin To Net: NetName=NetFX Switches_4 Pin=R406-2
+Added Pin To Net: NetName=NetFX Switches_4 Pin=R407-2
+Added Pin To Net: NetName=NetFX Switches_4 Pin=U400-4
+Added Net: Name=NetFX Switches_4
+Added Pin To Net: NetName=NetFX Switches_5 Pin=FX Switches-5
+Added Pin To Net: NetName=NetFX Switches_5 Pin=R404-2
+Added Pin To Net: NetName=NetFX Switches_5 Pin=R405-2
+Added Pin To Net: NetName=NetFX Switches_5 Pin=U400-3
+Added Net: Name=NetFX Switches_5
+Added Pin To Net: NetName=NetFX Switches_6 Pin=FX Switches-6
+Added Pin To Net: NetName=NetFX Switches_6 Pin=R402-2
+Added Pin To Net: NetName=NetFX Switches_6 Pin=R403-2
+Added Pin To Net: NetName=NetFX Switches_6 Pin=U400-2
+Added Net: Name=NetFX Switches_6
+Added Pin To Net: NetName=NetJ406_3 Pin=J406-3
+Added Pin To Net: NetName=NetJ406_3 Pin=R413-1
+Added Net: Name=NetJ406_3
+Added Pin To Net: NetName=NetPot501_1 Pin=Pot501-1
+Added Pin To Net: NetName=NetPot501_1 Pin=Pot501-3
+Added Pin To Net: NetName=NetPot501_1 Pin=R500-1
+Added Pin To Net: NetName=NetPot501_1 Pin=U501-1
+Added Net: Name=NetPot501_1
+Added Class: Name=amplifier_stage
+Added Class: Name=main
+Added Class: Name=power_supply
+Added Class: Name=switches_connectors
+Added Member To Class: ClassName=shift_registers Member=Component FX Switches Header 1x7
+Added Member To Class: ClassName=shift_registers Member=Component J400 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J401 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J402 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J403 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J404 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J405 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component J406 Header 1x3
+Added Member To Class: ClassName=shift_registers Member=Component R400
+Added Member To Class: ClassName=shift_registers Member=Component R401
+Added Member To Class: ClassName=shift_registers Member=Component R402
+Added Member To Class: ClassName=shift_registers Member=Component R403
+Added Member To Class: ClassName=shift_registers Member=Component R404
+Added Member To Class: ClassName=shift_registers Member=Component R405
+Added Member To Class: ClassName=shift_registers Member=Component R406
+Added Member To Class: ClassName=shift_registers Member=Component R407
+Added Member To Class: ClassName=shift_registers Member=Component R408
+Added Member To Class: ClassName=shift_registers Member=Component R409
+Added Member To Class: ClassName=shift_registers Member=Component R410
+Added Member To Class: ClassName=shift_registers Member=Component R411
+Added Member To Class: ClassName=shift_registers Member=Component R412
+Added Member To Class: ClassName=shift_registers Member=Component R413
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2
+Added Rule: Name=Schematic Supply Nets_5
+Added Rule: Name=Schematic Supply Nets_6
+Added Rule: Name=Schematic Supply Nets_7
+Added Rule: Name=Schematic Supply Nets_8

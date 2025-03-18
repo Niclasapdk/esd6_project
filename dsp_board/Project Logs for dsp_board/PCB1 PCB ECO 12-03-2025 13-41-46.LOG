@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=GND Pin=U500-4
+Change Footprint: Cannot match pads with new footprint in component :U502 Footprint:TO220
+Change Footprint: Cannot match pads with new footprint in component :U503 Footprint:NDE0003A
+Added Component: Designator=M200(M3 Hole)
+Added Component: Designator=M201(M3 Hole)
+Added Component: Designator=M202(M3 Hole)
+Added Component: Designator=M203(M3 Hole)
+Added Component: Designator=M204(M3 Hole)
+Added Component: Designator=M205(M3 Hole)
+Added Component: Designator=M206(M3 Hole)
+Added Pin To Net: NetName=GND Pin=M200-1
+Added Pin To Net: NetName=GND Pin=M201-1
+Added Pin To Net: NetName=GND Pin=M202-1
+Added Pin To Net: NetName=GND Pin=M203-1
+Added Pin To Net: NetName=GND Pin=M204-1
+Added Pin To Net: NetName=GND Pin=M205-1
+Added Pin To Net: NetName=GND Pin=M206-1
+Added Member To Class: ClassName=switches_connectors Member=Component M200 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M201 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M202 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M203 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M204 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M205 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M206 Screw Hole

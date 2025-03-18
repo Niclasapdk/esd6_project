@@ -1,0 +1,10 @@
+Change Component Designator: OldDesignator=FX Switches 200 NewDesignator=FX Switches 5V
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_2 Pin=Q501-3
+Added Member To Class: ClassName=amplifier_stage Member=Component C300 Cap
+Added Member To Class: ClassName=power_supply Member=Component C513 Cap
+Added Member To Class: ClassName=power_supply Member=Component C514 Cap
+Added Member To Class: ClassName=amplifier_stage Member=Component J302 3.5MMJACK
+Added Member To Class: ClassName=amplifier_stage Member=Component J303 NMJ4HFD2
+Added Member To Class: ClassName=amplifier_stage Member=Component R303 Res2
+Added Member To Class: ClassName=amplifier_stage Member=Component R304 Res2

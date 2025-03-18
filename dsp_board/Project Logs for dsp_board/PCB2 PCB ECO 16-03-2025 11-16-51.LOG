@@ -1,0 +1,28 @@
+Change Component Designator: OldDesignator=C300 NewDesignator=C301
+Change Component Designator: OldDesignator=C301 NewDesignator=C300
+Change Component Designator: OldDesignator=C511 NewDesignator=C512
+Change Component Designator: OldDesignator=C512 NewDesignator=C513
+Change Component Designator: OldDesignator=C513 NewDesignator=C514
+Change Component Designator: OldDesignator=C514 NewDesignator=C511
+Change Component Designator: OldDesignator=FX Switches 5V NewDesignator=FX Switches 200
+Change Component Designator: OldDesignator=FX Switches NewDesignator=FX Switches400
+Change Component Designator: OldDesignator=J300 NewDesignator=J302
+Change Component Designator: OldDesignator=J301 NewDesignator=J303
+Change Component Designator: OldDesignator=J302 NewDesignator=J300
+Change Component Designator: OldDesignator=J303 NewDesignator=J301
+Change Component Designator: OldDesignator=LCD NewDesignator=LCD200
+Change Component Designator: OldDesignator=R300 NewDesignator=R302
+Change Component Designator: OldDesignator=R301 NewDesignator=R303
+Change Component Designator: OldDesignator=R302 NewDesignator=R304
+Change Component Designator: OldDesignator=R303 NewDesignator=R300
+Change Component Designator: OldDesignator=R304 NewDesignator=R301
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC515_1 Pin=Q501-3
+Change Net Name : Old Net Name=NetC300_2 New Net Name=NetC301_2
+Change Net Name : Old Net Name=NetC301_2 New Net Name=NetC300_2
+Change Net Name : Old Net Name=NetC514_1 New Net Name=NetC511_1
+Change Net Name : Old Net Name=NetC514_2 New Net Name=NetC511_2
+Change Net Name : Old Net Name=NetJ300_3 New Net Name=NetJ302_3
+Change Net Name : Old Net Name=NetR300_1 New Net Name=NetR302_1
+Change Net Name : Old Net Name=NetR301_1 New Net Name=NetR303_1
+Change Net Name : Old Net Name=NetR303_1 New Net Name=NetR300_1
