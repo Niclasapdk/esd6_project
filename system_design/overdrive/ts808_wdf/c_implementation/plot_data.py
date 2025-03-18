@@ -70,6 +70,7 @@ if __name__ == "__main__":
         ("input.bin", "input"),
         ("v_plus.bin", "V+"),
         ("i_f.bin", "I_f"),
+        ("cooktown.bin", "cooktown"),
         ("output.bin", "output"),
     ]
     plot_signals(signals_to_plot)

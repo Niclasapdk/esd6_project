@@ -138,7 +138,7 @@ TYPE part2_process(TYPE x) {
     return b2 / (2*R_4_val);
 }
 
-#define gain ((TYPE)2) // 0-10
+#define gain ((TYPE)4) // 0-10
 #define C_4_val (CAP_R(51e-12, Fs))
 #define I_f_res_val (51e3+(gain/10)*500e3)
 #define V_T (26e-3)
@@ -191,6 +191,7 @@ int main() {
     TYPE *input = calloc(sizeof(TYPE), N);
     TYPE *v_plus = calloc(sizeof(TYPE), N);
     TYPE *i_f = calloc(sizeof(TYPE), N);
+    TYPE *cooktown = calloc(sizeof(TYPE), N);
     TYPE *output = calloc(sizeof(TYPE), N);
     double *part1_time = calloc(sizeof(double), N);
     double *part2_time = calloc(sizeof(double), N);
@@ -230,6 +231,7 @@ int main() {
 #endif
         v_plus[t] = y1;
         i_f[t] = y2;
+        cooktown[t] = y3;
         output[t] = y1 + y3;
         part1_time[t] = clock_to_sec(t2-t1);
         part2_time[t] = clock_to_sec(t3-t2);
@@ -241,6 +243,7 @@ int main() {
     save_samples("v_plus.bin", v_plus, N);
     save_samples("input.bin", input, N);
     save_samples("i_f.bin", i_f, N);
+    save_samples("cooktown.bin", cooktown, N);
     save_samples("output.bin", output, N);
     save_time_samples("part1_time.bin", part1_time, N);
     save_time_samples("part2_time.bin", part2_time, N);

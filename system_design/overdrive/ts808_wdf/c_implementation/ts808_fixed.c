@@ -173,7 +173,7 @@ double fp_diode(double a, int16_t drive_res) {
 // processes a sample (current) in part 3 circuit and outputs the voltage
 int64_t part3_process(int64_t x) {
     // FIXME THIS IS NOT IMPLEMENTED YET AND IS WRONG
-    int16_t drive_resist = 250; // q9.0: 0-500 (k)
+    int16_t drive_resist = 100; // q9.0: 0-500 (k)
     static int32_t C4_b = 0; // q14.15: expensive
     int64_t ac0, ac1, ac2, ac3;
     ac3 = C4_b; // q14.15: load delayed sample
@@ -188,7 +188,7 @@ int64_t part3_process(int64_t x) {
     // calc reflect based on drive
     // TODO implement LUT
     double fuck = (double)(ac1+51)*1000;
-    double lut_replacement = (1/((fuck)*(4.498200e-06 + 1/fuck)));
+    double lut_replacement = -(1/((fuck)*(4.498200e-06 + 1/fuck)));
     ac1 = (int64_t)((1<<8)*lut_replacement); // q8: If_static_res
     // weitergehen
     ac0 *= ac1; // q13.23
