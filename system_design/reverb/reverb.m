@@ -1,10 +1,10 @@
 function [output] = reverb(input,fs,reverb_gain,reverb_time)
 %%%reverb effect
 %%early decay part
-tap_delay = [0 0.0199 0.0354 0.0389 0.0414 0.0699 0.0796]';
-tap_gain = [1 1.02 0.818 0.635 0.719 0.267 0.242]';
-%tap_delay = [0 0.0043 0.0215 0.0225 0.0268 0.0270 0.0298 0.0458 0.0485 0.0572 0.0587 0.0595 0.0612 0.0707 0.0708 0.0726 0.0741 0.0753 0.0797]';
-%tap_gain = [1 0.841 0.504 0.491 0.379 0.380 0.346 0.289 0.272 0.192 0.193 0.217 0.181 0.180 0181 0176 0.142 0.167 0.134]';
+% tap_delay = [0 0.0199 0.0354 0.0389 0.0414 0.0699 0.0796]';
+% tap_gain = [1 1.02 0.818 0.635 0.719 0.267 0.242]';
+tap_delay = [0 0.0043 0.0215 0.0225 0.0268 0.0270 0.0298 0.0458 0.0485 0.0572 0.0587 0.0595 0.0612 0.0707 0.0708 0.0726 0.0741 0.0753 0.0797]';
+tap_gain = [1 0.841 0.504 0.491 0.379 0.380 0.346 0.289 0.272 0.192 0.193 0.217 0.181 0.180 0.181 0.176 0.142 0.167 0.134]';
 
 taps = zeros(length(tap_delay),1);%create taps vector
 
@@ -85,5 +85,6 @@ for n = 1:length(input)
     late_offset = mod(late_offset-1,late_M);%updates late deacy offset
     output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line
 end
+
 output = (1-reverb_gain)*input+reverb_gain*(late_decay_out+early_decay_out);%output mix
 end

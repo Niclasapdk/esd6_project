@@ -26,7 +26,7 @@ output_signal = reverb(input_sound,fs,gain,reverb_time);
 toc(start)
 
 %play sound
-sound(output_signal, fs);
+%sound(output_signal, fs);
 
 %save sound
-%audiowrite('reverb_test_rigtig.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('reverb_test_2_1_7tap.wav', output_signal/max(abs(output_signal)), fs);

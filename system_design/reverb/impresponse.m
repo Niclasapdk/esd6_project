@@ -3,7 +3,7 @@ clc, clear, close all;
 
 %resolution 
 fs = 44100;
-N = fs*0.2;
+N = fs*0.2;%value in seconds
 before_0 = 0.01*fs;
 
 

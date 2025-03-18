@@ -2,7 +2,7 @@ clc, clear, close all;
 
 % Resolution
 fs = 44100;
-N = fs*1.5;
+N = fs*1.5;%value in seconds
 duration_white_noise = 0.5; % White noise duration in seconds
 samples_white_noise = duration_white_noise * fs;
 
@@ -15,7 +15,7 @@ ir = zeros(1,N);
 
 % Filter parameters
 gain = 1; 
-reverbtime = 1;
+reverbtime = 0.5;
 
 % Apply reverb
 ir = reverb(input_signal, fs, gain, reverbtime);
