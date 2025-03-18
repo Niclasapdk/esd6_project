@@ -70,6 +70,7 @@ if __name__ == "__main__":
         ("traces/input.bin", "input", np.int16),
         ("traces/v_plus.bin", "V+", np.int64),
         ("traces/i_f.bin", "I_f", np.int64),
+        ("traces/cooktown.bin", "cooktown", np.int64),
         ("traces/output.bin", "output", np.int16),
     ]
     plot_signals(signals_to_plot)

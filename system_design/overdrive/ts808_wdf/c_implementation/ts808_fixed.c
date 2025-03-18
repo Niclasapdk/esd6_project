@@ -11,6 +11,7 @@
 #define ACC(x) (x&ACC_MASK)
 #define DATADIR "traces/"
 
+#include "omega.h"
 #include "diode.h"
 
 // Save n_samples samples from the array to a binary file.
@@ -151,45 +152,59 @@ int64_t part2_process(int16_t y1) {
     return ac2;
 }
 
-#define gain ((TYPE)10) // 0-10
 #define C_4_val (CAP_R(51e-12, Fs))
-#define I_f_res_val (51e3+(gain/10)*500e3)
+#define I_f_res_val (51e3)
 #define V_T (26e-3)
 #define I_S (1e-12)
+double fp_diode(double a, int16_t drive_res) {
+    TYPE par_g = (1/C_4_val + 1/(I_f_res_val+drive_res*1000.0));
+    TYPE par_r = 1/par_g;
+    TYPE R_Is = par_r * I_S;
+    TYPE R_Is_over_Vt = R_Is / V_T;
+    TYPE log_part = log(R_Is_over_Vt);
+    int lambda = signum(a);
+    TYPE other_part = (lambda * a)/V_T + R_Is_over_Vt;
+    TYPE wright = omega4(log_part + other_part);
+    TYPE b = a + 2 * lambda * (R_Is - V_T * wright);
+    return b;
+}
+
 // circuit is parallel(I_f, C_4)
 // processes a sample (current) in part 3 circuit and outputs the voltage
-int16_t part3_process(int16_t x) {
+int64_t part3_process(int64_t x) {
     // FIXME THIS IS NOT IMPLEMENTED YET AND IS WRONG
-//     static const TYPE par_g = (1/C_4_val + 1/I_f_res_val);
-//     static const int16_t reflect = (1<<13)*(1/I_f_res_val)/par_g; // q13
-//     int64_t ac0=0, ac1=0, ac2=0, ac3=0; // 40-bit accumulator
-//     static int16_t C_4_a = 0, C_4_b = 0;
-//     static const int16_t I_f_scaling = (I_f_res_val/(2*R_4_val));
-//     // get reflected waves for C_4 and I_f and parallel circuit
-//     ac0 = (int32_t)x * (int32_t)I_f_scaling; // q15 * q7.0 => q7.15
-//     // int16_t I_f_b = (int16_t)(ac0>>3); // scale down to q12.3
-//     C_4_b = C_4_a;
-//     ac1 = ((int32_t)C_4_b)<<12; // q28
-//     // TYPE bDiff = C_4_b - I_f_b;
-//     ac2 = ac1 - ac0; // q0.15 - q7.15
-//     // TYPE a = C_4_b - reflect * bDiff; // reflected from circuit (incident to diode)
-//     ac1 += -(int64_t)((int64_t)reflect*ac2); // q0.13 * q7.15 => q7.28
-//     int16_t a = (int16_t)(ac1>>20); // q7.8
-//
-//     // Model diode
-//     int16_t b = diode_lut(a);
-//
-//     // Scatter incident to parallel circuit
-//     // int16_t b2 = a - C_4_b + b; // reflected from circuit - port2->b + x
-//     ac3 = (int32_t)a - (int32_t)C_4_b + (int32_t)b;
-//     int16_t b2 = ac3>>2;
-//     C_4_a = b2;
-// #ifdef DEBUG_PRINT
-//     // printf("ac0 (I_f_b)=%ld, ac1 (a)=%ld, ac2 (bdiff)=%ld, a=%hd, b=%hd, b2=%hd\n", ac0, ac1>>20, ac2, a, b, b2);
-// #endif
-//     return a;
-//     // return (b+a)/2;
-    return 0; // TODO not implemented
+    int16_t drive_resist = 250; // q9.0: 0-500 (k)
+    static int32_t C4_b = 0; // q14.15: expensive
+    int64_t ac0, ac1, ac2, ac3;
+    ac3 = C4_b; // q14.15: load delayed sample
+    ac0 = x;
+    ac0 *= -11; // -If_static_scale = -5.4255 (in q3.1 --> -11)
+    ac1 = drive_resist;
+    ac2 = ac1 * 3486; // q6.15
+    ac2 = ac2 >> 11; // q6.4
+    ac0 *= ac2; // q12.20: -If_b
+    ac0 = ac0 >> 5; // q12.15
+    ac0 += ac3; // q12.15
+    // calc reflect based on drive
+    // TODO implement LUT
+    double fuck = (double)(ac1+51)*1000;
+    double lut_replacement = (1/((fuck)*(4.498200e-06 + 1/fuck)));
+    ac1 = (int64_t)((1<<8)*lut_replacement); // q8: If_static_res
+    // weitergehen
+    ac0 *= ac1; // q13.23
+    ac0 = ac0 >> 8; // q13.15
+    ac3 += ac0; // q15.15: a
+    // model diode
+    /////// FIXME implement LUT
+    double a = (double)ac3/(1<<15);
+    double b = fp_diode(a, drive_resist);
+    ///////
+    ac2 = b*(1<<15); // q8.15
+    ac0 += ac2; // q14.15: C4_a
+    C4_b = ac0; // save for later
+    ac2 += ac3;
+    ac2 /= 2;
+    return ac2;
 }
 
 #define clock_to_sec(t) (((double)t)/CLOCKS_PER_SEC)
@@ -204,6 +219,7 @@ int main() {
     int16_t *input = calloc(sizeof(int16_t), N);
     int64_t *v_plus = calloc(sizeof(int64_t), N);
     int64_t *i_f = calloc(sizeof(int64_t), N);
+    int64_t *cooktown = calloc(sizeof(int64_t), N);
     int16_t *output = calloc(sizeof(int16_t), N);
     double *part1_time = calloc(sizeof(double), N);
     double *part2_time = calloc(sizeof(double), N);
@@ -232,10 +248,10 @@ int main() {
         clock_t t2 = clock();
         int64_t y2 = part2_process(y1);
         clock_t t3 = clock();
-        int16_t y3 = part3_process(y2);
+        int64_t y3 = part3_process(y2);
         clock_t t4 = clock();
 #ifdef DEBUG_PRINT
-        printf("x=%hd, y1=%ld, y2=%ld, y3=%hd\n", x, y1, y2, y3);
+        printf("x=%hd, y1=%ld, y2=%ld, y3=%ld\n", x, y1, y2, y3);
 #endif
         // Save samples
 #ifdef FUNCTION_GENERATOR
@@ -243,7 +259,8 @@ int main() {
 #endif
         v_plus[t] = y1;
         i_f[t] = y2;
-        output[t] = /* y1 +  */y3;
+        cooktown[t] = y3;
+        output[t] = (y1 + y3)>>1; // q15 filter with gain 0.5
         part1_time[t] = clock_to_sec(t2-t1);
         part2_time[t] = clock_to_sec(t3-t2);
         part3_time[t] = clock_to_sec(t4-t3);
@@ -254,6 +271,7 @@ int main() {
     save_samples_int16(DATADIR"input.bin", input, N);
     save_samples_int64(DATADIR"v_plus.bin", v_plus, N);
     save_samples_int64(DATADIR"i_f.bin", i_f, N);
+    save_samples_int64(DATADIR"cooktown.bin", cooktown, N);
     save_samples_int16(DATADIR"output.bin", output, N);
     save_time_samples(DATADIR"part1_time.bin", part1_time, N);
     save_time_samples(DATADIR"part2_time.bin", part2_time, N);
