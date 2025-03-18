@@ -9,7 +9,7 @@ samples_white_noise = duration_white_noise * fs;
 % Create input signal (white noise for 1 second, then silence)
 input_signal = zeros(N,1);
 %input_signal(1:samples_white_noise) = 2 * rand(samples_white_noise, 1) - 1; % White noise in [-1,1]
-%input_signal1(1:samples_white_noise) = randn(samples_white_noise, 1); % White noise in [-1,1]
+%input_signal(1:samples_white_noise) = randn(samples_white_noise, 1); % White noise in [-1,1]
 input_signal(1:samples_white_noise) = wgn(samples_white_noise,1,0);
 
 % Output vector (Impulse Response)
@@ -17,7 +17,7 @@ ir = zeros(1,N);
 
 % Filter parameters
 gain = 1; 
-reverbtime = 1;
+reverbtime = 4;
 
 % Apply reverb
 ir = reverb(input_signal, fs, gain, reverbtime);
@@ -38,7 +38,7 @@ plot(t, input_dB, 'b', 'DisplayName', 'Input (White Noise → Silence)');
 % Labels and grid
 xlabel('Time (seconds)');
 ylabel('Magnitude (dB)');
-title('Input (White Noise → Silence) and Reverb Response (dB)');
+title('Input (White Noise → Silence) and Reverb Response');
 grid on;
 
 % Mark when the white noise stops
