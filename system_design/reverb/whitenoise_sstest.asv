@@ -8,9 +8,9 @@ samples_white_noise = duration_white_noise * fs;
 
 % Create input signal (white noise for 1 second, then silence)
 input_signal = zeros(N,1);
-%input_signal(1:samples_white_noise) = 2 * rand(samples_white_noise, 1) - 1; % White noise in [-1,1]
-%input_signal1(1:samples_white_noise) = randn(samples_white_noise, 1); % White noise in [-1,1]
-input_signal(1:samples_white_noise) = wgn(samples_white_noise,1,0);
+%input_signal(1:samples_white_noise) = 2 * randn(samples_white_noise, 1) - 1; % White noise in [-1,1]
+input_signal(1:samples_white_noise) =randn(samples_white_noise, 1); % White noise in [-1,1]
+%input_signal(1:samples_white_noise) = wgn(samples_white_noise,1,0);
 
 % Output vector (Impulse Response)
 ir = zeros(1,N);
