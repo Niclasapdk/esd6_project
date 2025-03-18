@@ -2,7 +2,7 @@ clc, clear, close all;
 
 % Resolution
 fs = 44100;
-N = fs*5;%value in seconds
+N = fs*7;%value in seconds
 duration_white_noise = 0.5; % White noise duration in seconds
 samples_white_noise = duration_white_noise * fs;
 

@@ -14,7 +14,7 @@ impulse(before_0+1) = 1;
 % Output vector
 ir = zeros(1,N+before_0);
 
-gain = 1; 
+gain = 0; 
 reverbtime = 1;
 
 %to test reverb
