@@ -12,7 +12,7 @@ xlabel('Frequency [kHz]','FontSize',12);
 ylabel('Magnitude [dB]','FontSize',12);
 s(1).LineWidth = 1.8;
 hold on
-p = semilogx(20e3*1E-3,data.Var2(1,1)-3,'o-','MarkerFaceColor','red')
+p = semilogx(22e3*1E-3,data.Var2(1,1)-3,'o-','MarkerFaceColor','red')
 hold on
 p1 = semilogx(1e3*1E-3,data.Var2(1,1),'o-','MarkerFaceColor','green')
 hold on
@@ -22,7 +22,7 @@ ylabel('Phase [deg]','FontSize',12);
 s1(1).LineWidth = 1.8;
 grid on;
 hold on
-legend([p1 p],{'-7.85dB, 1kHz' '-10.85dB, 20kHz'},'Location','southwest');
+legend([p1 p],{'-7.85dB, 1kHz' '-10.85dB, 22kHz'},'Location','southwest');
 title('Frontend Frequency Response');
 saveFolder = fullfile(pwd,'..','..','gitfigures/system_design/analog_frontend');
 filePath = fullfile(saveFolder, sprintf('%s.png', 'freqresp_frontend'));
