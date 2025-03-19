@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "virkdingling": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "math.h": "c"
     }
 }

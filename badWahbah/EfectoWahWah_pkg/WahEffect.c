@@ -1,7 +1,6 @@
 #include <math.h>
 
 #define ADC_MAX_VALUE 65536  // Example: 16-bit ADC (0-65536)
-#define V_REF 5.0            // Example: 5V reference voltage
 //#define Pot_Port 1           // Port reading the pot
 //#define Fs 44100             // Sampling frequency
 //#define portInput 3          // input port for voltage
