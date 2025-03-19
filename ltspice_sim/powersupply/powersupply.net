@@ -1,0 +1,30 @@
+* C:\Users\nicla\Documents\GitHub\esd6_project\ltspice_sim\powersupply\powersupply.asc
+D1 N004 N003 D
+D2 N003 N001 D
+D3 N004 N006 D
+D4 N006 N001 D
+V1 N003 N006 SINE(0 17 50)
+C1 N002 0 1000µ
+C4 N002 0 1000µ
+C5 N002 0 220µ
+R2 N002 N001 10 pwr=1
+M1 N002 N005 N001 N001 PMOS
+R3 N001 N005 200k
+R4 N005 0 10k
+C7 N001 N005 1µ
+M2 N008 N007 N004 N004 NMOS
+C2 0 N008 1000µ
+C3 0 N008 1000µ
+C6 0 N008 220µ
+R1 N008 N004 10 pwr=1
+R5 N007 N004 200k
+R6 0 N007 10k
+C8 N007 N004 1µ
+.model D D
+.lib C:\Users\nicla\AppData\Local\LTspice\lib\cmp\standard.dio
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\nicla\AppData\Local\LTspice\lib\cmp\standard.mos
+.tran 0.3s
+.backanno
+.end
