@@ -15,7 +15,7 @@ double CalcF1(int port, double minf,double maxf, double Fs) {
     // calculate tunning coefficient based on Fc
     double F1 = 2 * sin((3.1415926535897931 * Fc)/Fs);     
     return F1;
-}
+}   
 
 /* The WahWah effect, which should change Fc based on the pedal adjustments*/
 double WahWahBahBah(double damp, double minf, double maxf, double Fs, double x, int Pot_Port, int portInput)
@@ -30,7 +30,7 @@ double WahWahBahBah(double damp, double minf, double maxf, double Fs, double x, 
     // check input signal
     double x = readADC(portInput); 
     // Difference equation
-    double yh = x - yl - Q1 - yaux;                // calculate the higher pass filter, should be x in first iteration
+    double yh = x - yl - Q1 * yaux;                // calculate the higher pass filter, should be x in first iteration
     double y = F1 * yh + yaux;                     // calculate output, should be F1 * x in first iteration
     yl = F1 * y + yl;                              // lowpass filter, should be F1 * F1* x in first iteration
     yaux = y;                                      // Saves last output
