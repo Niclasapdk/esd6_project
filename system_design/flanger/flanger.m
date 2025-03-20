@@ -1,6 +1,6 @@
 %flanger program
 
-[filename,pathname] = uigetfile('*.*','Select input audio file');
+[filename,pathname] = uigetfile('*.*','pen15');
 
 [x, Fs] = audioread(num2str(filename));
 
