@@ -14,8 +14,8 @@ int main() {
 	Int16 fuck;
 	int i;
     EZDSP5535_init( );
-	printf("hello motherfucker");
 	initCODEC();
+	printf("hello motherfucker");
 	fx[0] = wah;
 	fxOn |= 1;
 	
