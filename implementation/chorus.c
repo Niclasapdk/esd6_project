@@ -18,6 +18,7 @@ void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
 
 Int16 Chorus(Int16 x) {
 /*Needs to implemented using potensmeters*/
+/*Needs to be in Q15*/
 static Int16 Fs=44100, Voices = 4, DelayMin = 10, DelayMax = 25, Depth=0.7,Rate=1;
 /*Convert from Delay Max to ms to samples*/
 Int16 Time = (DelayMax + 10)*Fs/1000;                 // Time saved of older samples
