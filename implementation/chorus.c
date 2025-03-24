@@ -18,33 +18,35 @@ void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
 
 Int16 Chorus(Int16 x) {
 /*Needs to implemented using potensmeters*/
-/*Needs to be in Q15*/
-static Int16 Fs=44100, Voices = 4, DelayMin = 10, DelayMax = 25, Depth=0.7,Rate=1;
-/*Convert from Delay Max to ms to samples*/
-Int16 Time = (DelayMax + 10)*Fs/1000;                 // Time saved of older samples
-/*Create array with the random delays */
-ushort Delays[Voices];                                // Array to store delays for each voice
-getRandomDelays(DelayMin, DelayMax, Voices, Delays);  // Get delays for each voice stor in delay[]
+/*Needs to be in Q15 everything*/
 
-/*Make the modulation delays*/
-for (Int16 i=0; i < Voices; i++) {
-    /* Insert LFO here*/
-    Int16 lfo = 0;
-    /*Skal laves om til 2D array så t (tidindex) og voice index(i) begge er der når lfo implementeres*/
-    Delays[i] =  Delays[i] * Depth *(0.5*lfo+0.5);
+/*Parameters declaration*/
+static Int16 Fs=44100, Voices = 4, DelayMin = 10, DelayMax = 25,DelayMin = 10, Depth=0.7, Rate=1;
+static Int16 maxDelaySamp=(((Int32)(DelayMax)*Fs)>>15)/1000; 	   //Convert to ms, then samples
+static Int16 minDelaySamp=(((Int32)(DelayMin)*Fs)>>15)/1000; 	   //Convert to ms, then samples
+static Int16 DelayLine[maxDelaySamp], DelaySize[Voices], DelayBack[Voices];
+static Int16 DelayIndex = 0, ModSignal = 0;
 
-    /*Something seem wrong with Delay[j], dont know if just me, burde være 2D array*/
-    for (Int16 j=0; j < Time; j++) {
-        Int16 DelaySamples=Delays[j];             // declare the delay
-        if (j - DelaySamples >= 0) {
-            ushort ModSignal[j] = input[j - DelaySamples];  // Apply delay
-        } else {
-            ModSignal[j] = 0;                        // Zero padding for out-of-bounds
-        }
-    }
-    /*IDK skal implementeres med tidsindex (t)*/
-    ushort Output = Output + Modsignal[t] /Voices;
+/*Delay calculation for the modulations*/
+DelayLine[DelayIndex] = x;		    /*Store 1st element in the delayline to be input*/
+DelayIndex++;					    /*Increment, so next input is loaded to next index*/
+if(DelayIndex >= maxDelaySamp) {	/*When the MaxDelay is recieved reset */
+    DelayIndex = 0;
 }
-/* Combine the modulation (output) and input signal*/
-Output = Output + Input;
+getRandomDelays(DelayMin, DelayMax, Voices, DelaySize);         // Get delays for each voice stor in delay[]
+for (Int16 Voice=0; Voice < Voices; Voice++) {                   /*Make sure the LFO oscilates in 0 to 1 for this to work*/
+    /*Insert LFO's here*/
+DelaySize[Voice] = (((Int32)DelaySize[Voice] * Depth * (0.5 LFOValue[Voice]+0.5))>>15); // Calculate delay used based on lfo
+DelayBack[Voice] = DelayIndex - DelaySize[Voice];							    // Indicates which index the delay is at
+                                                                                // EX: 0 - 25 then look at -25 sample
+if (DelayBack[Voice] < 0) {															
+    DelayBack[Voice] += maxDelaySamp;											// Wrap around if negative 
+                                                                                // EX: -25 + Max = DelayBack
+}
+/* Combine the modulations (voices)*/
+ModSignal+=(((Int32)Depth * DelayLine[DelayBack[Voice]])>>15)/Voices;
+}
+/* Mix the modulation effect and the input*/
+x = (((Int32)(1-Depth)*x)>>15) + ModSignal;
+return x;
 }
