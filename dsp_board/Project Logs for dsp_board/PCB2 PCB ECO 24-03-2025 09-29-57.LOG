@@ -1,0 +1,60 @@
+Removed Pin From Net: NetName=NetPot500_1 Pin=U502-1
+Removed Pin From Net: NetName=+1V75 Pin=U502-2
+Removed Pin From Net: NetName=+6V Pin=U502-3
+Removed Member From Class: ClassName=power_supply Member=U502
+Change component parameters: Designator = "C200" ("C200"); Footprint = "Cap-1"; UniqueID = "\FRBBLFSZ" ("\FRBBLFSZ")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C201" ("C201"); Footprint = "Cap-1"; UniqueID = "\CAOWBASM" ("\CAOWBASM")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C202" ("C202"); Footprint = "Cap-1"; UniqueID = "\JXRJHPBR" ("\JXRJHPBR")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C203" ("C203"); Footprint = "Cap-1"; UniqueID = "\NHEAHWSS" ("\NHEAHWSS")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C500" ("C500"); Footprint = "Cap-1"; UniqueID = "\IOVYYKNC" ("\IOVYYKNC")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C501" ("C501"); Footprint = "Cap-1"; UniqueID = "\DJLHGBJY" ("\DJLHGBJY")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C502" ("C502"); Footprint = "Cap-1"; UniqueID = "\FPRSXLBO" ("\FPRSXLBO")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "1uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C503" ("C503"); Footprint = "Cap-1"; UniqueID = "\IPNSWQKG" ("\IPNSWQKG")
+Change component parameters (AddParameter): Name = "Capacity"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D300" ("D300"); Footprint = "Diode 2 space"; UniqueID = "\DGDVNBJP" ("\DGDVNBJP")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4148"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D301" ("D301"); Footprint = "Diode 2 space"; UniqueID = "\WKPWFDBG" ("\WKPWFDBG")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4148"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D500" ("D500"); Footprint = "Diode 2 space"; UniqueID = "\DDFOERKJ" ("\DDFOERKJ")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4148"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D501" ("D501"); Footprint = "Diode 2 space"; UniqueID = "\MOPJNNND" ("\MOPJNNND")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4148"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D502" ("D502"); Footprint = "Diode 2 space"; UniqueID = "\UWWYQUWR" ("\UWWYQUWR")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D503" ("D503"); Footprint = "Diode 2 space"; UniqueID = "\TUETLBCP" ("\TUETLBCP")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D504" ("D504"); Footprint = "Diode 2 space"; UniqueID = "\MLWMKWKO" ("\MLWMKWKO")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D505" ("D505"); Footprint = "Diode 2 space"; UniqueID = "\LEYJALCO" ("\LEYJALCO")
+Change component parameters (AddParameter): Name = "Model"; Value = "1N4007"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R200" ("R200"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\KXVPJRMI" ("\KXVPJRMI")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=U?(TO-220)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00000455.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/PACKAGE_INFORMATION/CD00004649.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "1/11/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "TO, Thru-Hole, Vertical, Heatsink Mounted; 3 In-Line Leads; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "TO-220"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "2011"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Pin To Net: NetName=NetPot500_1 Pin=U?-1
+Added Pin To Net: NetName=+1V75 Pin=U?-2
+Added Pin To Net: NetName=+6V Pin=U?-3
+Added Member To Class: ClassName=power_supply Member=Component U? LM317T
