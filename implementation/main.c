@@ -5,6 +5,7 @@
 // FX
 #include "wah.h"
 extern Int16 ts808(Int16);
+extern void setDriveResist(Int16);
 
 #define NUM_FX 6
 Int16 (*fx[NUM_FX])(Int16);
@@ -22,6 +23,9 @@ int main() {
 	fx[0] = wah;
 	fx[1] = ts808;
 	fxOn |= 1;
+	
+	ts808(0x1337);
+	ts808(0x3173);
 	
 	// Infinite loop
 	while (1) {
