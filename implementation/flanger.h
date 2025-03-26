@@ -2,6 +2,7 @@
 #define FLANGER_H_
 
 #include <ezdsp5535.h>
+#include "lfo.h"
 
 Int16 flangerFx(Int16 x);
 

@@ -14,6 +14,37 @@ void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
         Delays[i] = DelayMin + (rand_nums[i] % (DelayMax - DelayMin + 1));  // scale to [10,...,25]
     }
 }
+/* lav til Q15*/
+void DepthSet(Int16 Depth){
+    static Int16 Min = 0.001, Max = 0.999, port = 1;        // min = 0.1 % and Max 99.9 %
+    parameterSet(Min,Max,port,Depth);                       // Map ADC value for port1 to Depth
+    Int16 InvDepth = 1-Depth;                               // Get InvDepth for x (input)
+}
+/* lav til Q15 */
+void RateSet(Int16 Rate){
+    static Int16 Min = 0.1, Max = 20, port = 2;             // Min 0.1 Hz and Max 20 Hz
+    parameterSet(Min,Max,port,Rate);                        // Map ADC value for port2 to Rate
+}
+/* lav til Q15 */
+void DelaySet(Int16 DelayMin){
+    static Int16 Min = 5, Max = 15, port = 3;               // Min 5 Hz and Max 15 Hz for DelayMin
+    parameterSet(Min,Max,port,DelayMin);                    // Map ADC value for port3 to DelayMin
+    Int16 DelayMax = (EPM(DelayMin,-2.5))+ 62.5;            // Linear equation y=mx+b for DelayMax Mapping
+    /*Result in the linear equation for DelayMax
+    DelayMin: 5  -> DelayMax: 50.00
+    DelayMin: 6  -> DelayMax: 47.50
+    DelayMin: 7  -> DelayMax: 45.00
+    DelayMin: 8  -> DelayMax: 42.50
+    DelayMin: 9  -> DelayMax: 40.00
+    DelayMin: 10 -> DelayMax: 37.50
+    DelayMin: 11 -> DelayMax: 35.00
+    DelayMin: 12 -> DelayMax: 32.50
+    DelayMin: 13 -> DelayMax: 30.00
+    DelayMin: 14 -> DelayMax: 27.50
+    DelayMin: 15 -> DelayMax: 25.00
+    */
+   /* Måske for indsat MaxDelaySamp og MinDelaySamp op her, så den kun skal udregne min og max en gang*/
+}
 
 
 Int16 Chorus(Int16 x) {

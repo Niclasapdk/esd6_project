@@ -27,3 +27,25 @@
 // Int16 lfo = EPM(y1,Normalize)>>15;              // mutiply 2 Q15 = Q30 then shift 15, = Q15
 // return lfo;
 // }
+
+/*Skal laves til Q15*/
+void parameterSet(Int16 Min, Int16 Max, Int16 port,Int16 Parametervalue) {
+static Int16 ADCvalue = 0;
+
+/* Read ADC value of port x */
+if (port == 1){
+    ADCvalue = *IOINDATA2;                  //Ved ikke om det sådan her man definere port eller korrekt
+}
+else if (port == 2){
+    ADCvalue = *IOINDATA3;                  //Ved ikke om det sådan her man definere port
+}
+else if (port == 3){
+    ADCvalue = *IOINDATA4;                  //Ved ikke om det sådan her man definere port
+}
+else {
+    printf("Error: Invalid port number %d. Must be 1, 2, or 3.\n", port);
+    return;                                 // Exit function (no return value needed for void)
+}
+/*Map ADC value to the range desired*/
+Parametervalue = Min + (EPM(Max-Min,ADCvalue));   // now it can be min to max in value, depending on ADC val
+}
