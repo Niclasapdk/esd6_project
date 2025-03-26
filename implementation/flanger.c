@@ -1,5 +1,26 @@
 #include "flanger.h"
 
+/* lav til Q15*/
+void DepthSet(Int16 Depth, Int16* InvDepth){
+    static Int16 Min = 0.001, Max = 0.999, port = 1;        // min = 0.1 % and Max 99.9 %
+    parameterSet(Min,Max,port,Depth);                       // Map ADC value for port1 to Depth
+    *InvDepth = 1-Depth;                                    // Get InvDepth for x (input)
+}
+/* lav til Q15 */
+void RateSet(Int16 Rate){
+    static Int16 Min = 0.1, Max = 1, port = 2;             	// Min 0.1 Hz and Max 1 Hz
+    parameterSet(Min,Max,port,Rate);                        // Map ADC value for port2 to Rate
+}
+/* lav til Q15 */
+void DelaySet(Int16 Delay){
+    static Int16 Min = 5, Max = 15, port = 3;               // Min 5 Hz and Max 15 Hz for DelayMin
+    parameterSet(Min,Max,port,Delay);                    	// Map ADC value for port3 to DelayMin
+
+	/* Måske indsætte width her så den justeres sammen med delay */
+   	/* Måske for indsat MaxDelaySamp og MinDelaySamp op her, så den kun skal udregne min og max en gang*/
+}
+
+
 /*Still have to make it into Q15 */
 Int16 flangerFx(Int16 x) {
 	Static Int16 Delay = 10, Width = 2, Depth = 0.5 , Fs=44100, DelayIndex = 0;
