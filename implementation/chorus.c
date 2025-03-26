@@ -15,10 +15,10 @@ void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
     }
 }
 /* lav til Q15*/
-void DepthSet(Int16 Depth){
+void DepthSet(Int16 Depth, Int16* InvDepth){
     static Int16 Min = 0.001, Max = 0.999, port = 1;        // min = 0.1 % and Max 99.9 %
     parameterSet(Min,Max,port,Depth);                       // Map ADC value for port1 to Depth
-    Int16 InvDepth = 1-Depth;                               // Get InvDepth for x (input)
+    *InvDepth = 1-Depth;                               // Get InvDepth for x (input)
 }
 /* lav til Q15 */
 void RateSet(Int16 Rate){
@@ -26,10 +26,10 @@ void RateSet(Int16 Rate){
     parameterSet(Min,Max,port,Rate);                        // Map ADC value for port2 to Rate
 }
 /* lav til Q15 */
-void DelaySet(Int16 DelayMin){
+void DelaySet(Int16 DelayMin, Int16* DelayMax){
     static Int16 Min = 5, Max = 15, port = 3;               // Min 5 Hz and Max 15 Hz for DelayMin
     parameterSet(Min,Max,port,DelayMin);                    // Map ADC value for port3 to DelayMin
-    Int16 DelayMax = (EPM(DelayMin,-2.5))+ 62.5;            // Linear equation y=mx+b for DelayMax Mapping
+    *DelayMax = (EPM(DelayMin,-2.5))+ 62.5;            // Linear equation y=mx+b for DelayMax Mapping
     /*Result in the linear equation for DelayMax
     DelayMin: 5  -> DelayMax: 50.00
     DelayMin: 6  -> DelayMax: 47.50
