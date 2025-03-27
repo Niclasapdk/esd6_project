@@ -31,7 +31,7 @@ return lfo;
 }
 
 /*Skal laves til Q15*/
-void parameterSet(Int16 Min, Int16 Max, Int16 port,Int16 Parametervalue) {
+void parameterSet(Int16 Min, Int16 Max, Int16 port, Int16 ParameterValue) {
 static Int16 ADCvalue = 0;
 
 /* Read ADC value of port x */
@@ -46,7 +46,7 @@ else if (port == 3){
 }
 else {
     printf("Error: Invalid port number %d. Must be 1, 2, or 3.\n", port);
-    return;                                 // Exit function (no return value needed for void)
+    return;                                 // Exit function (return error value)
 }
 // Idk om jeg skal gør det her med at normalize ellers bare 
 // ADCvalue = EPM(ADCvalue,32768) / 65535;      // Normalize to [0,1] in Q15, with 16bit ADC

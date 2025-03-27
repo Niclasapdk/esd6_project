@@ -21,6 +21,7 @@ void DepthSet(Int16 Depth, Int16* InvDepth){
     parameterSet(Min,Max,port,Depth);                       // Map ADC value for port1 to Depth
     *InvDepth = 1-Depth;                                    // Get InvDepth for x (input)
 }
+
 /* lav til Q15 */
 void RateSet(Int16 Rate){
     static Int16 Min = 0.1, Max = 20, port = 2;             // Min 0.1 Hz and Max 20 Hz
