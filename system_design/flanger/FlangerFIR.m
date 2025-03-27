@@ -23,6 +23,6 @@ function [outputSound] = Flanger(inputSound, Fs, gain, delay, width, rate)
     outputSound = y;
 end
 
-y1 = Flanger(x1(:,1), fs, 0.6, 0.015, 0.004, 1);
+y1 = Flanger(x1(:,1), fs, 0.7, 0.015, 0.004, 0.1);
 
-audiowrite('guitar_flanged1.wav', y1, fs);
+audiowrite('guitar_flanged_fir.wav', y1, fs);
