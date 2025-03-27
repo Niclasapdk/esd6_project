@@ -53,12 +53,27 @@ Int16 Chorus(Int16 x) {
 /*Needs to be in Q15 everything*/
 
 /*Parameters declaration*/
-static Int16 Fs=44100, Voices = 4, DelayMin = 10, DelayMax = 25,DelayMin = 10, Depth=0.7, Rate=1;
-static Int16 maxDelaySamp=(((Int32)(DelayMax)*Fs)>>15)/1000; 	   //Convert to ms, then samples
-static Int16 minDelaySamp=(((Int32)(DelayMin)*Fs)>>15)/1000; 	   //Convert to ms, then samples
-static Int16 DelayLine[maxDelaySamp], DelaySize[Voices], DelayBack[Voices];
+static Int16 Fs=44100, Voices = 4;
+static Int16 DelayMin = 10, DelayMax = 25; 
+static Int16 Depth=0.7, Rate=1;
+static Int16 LFOIndex=100,LFOValue=0;
+static Int16 AbsDelayMax = 50;
+
+static Int16 absolutMaxSamp = ((Int32)AbsDelayMax * (Fs / 1000));;
+static Int16 maxDelaySamp = ((Int32)DelayMax * (Fs / 1000));  // Convert ms to samples
+static Int16 minDelaySamp = ((Int32)DelayMin * (Fs / 1000));  // Convert ms to samples
+static Int16 DelayLine[absolutMaxSamp], DelaySize[Voices], DelayBack[Voices];
 static Int16 DelayIndex = 0, ModSignal = 0;
 
+// parameter change insert here
+
+// LFO calculation
+if (LFOIndex >= 9){                 // How many times it runs with the same Rate
+    LFOValue = lfo(Rate);           // When used the same Rate for 9 times read new Rate
+    LFOIndex = 0;
+} else {
+    LFOIndex++;                     // Increment until reach 9 then reset
+}
 /*Delay calculation for the modulations*/
 DelayLine[DelayIndex] = x;		    /*Store 1st element in the delayline to be input*/
 DelayIndex++;					    /*Increment, so next input is loaded to next index*/
@@ -67,8 +82,8 @@ if(DelayIndex >= maxDelaySamp) {	/*When the MaxDelay is recieved reset */
 }
 getRandomDelays(DelayMin, DelayMax, Voices, DelaySize);         // Get delays for each voice stor in delay[]
 for (Int16 Voice=0; Voice < Voices; Voice++) {                   /*Make sure the LFO oscilates in 0 to 1 for this to work*/
-    /*Insert LFO's here*/
-DelaySize[Voice] = (((Int32)DelaySize[Voice] * Depth * (0.5 LFOValue[Voice]+0.5))>>15); // Calculate delay used based on lfo
+    /* This line cant find out how to mulitiply this many numbers with Int32 or (EPM)*/
+DelaySize[Voice] = (((Int32)DelaySize[Voice] * Depth * (0.5 * LFOValue + 0.5))>>15); // Calculate delay used based on lfo
 DelayBack[Voice] = DelayIndex - DelaySize[Voice];							    // Indicates which index the delay is at
                                                                                 // EX: 0 - 25 then look at -25 sample
 if (DelayBack[Voice] < 0) {															
