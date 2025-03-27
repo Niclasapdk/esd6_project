@@ -48,6 +48,8 @@ else {
     printf("Error: Invalid port number %d. Must be 1, 2, or 3.\n", port);
     return;                                 // Exit function (no return value needed for void)
 }
+// Idk om jeg skal gør det her med at normalize ellers bare 
+// ADCvalue = EPM(ADCvalue,32768) / 65535;      // Normalize to [0,1] in Q15, with 16bit ADC
 /*Map ADC value to the range desired*/
-Parametervalue = Min + (EPM(Max-Min,ADCvalue));   // now it can be min to max in value, depending on ADC val
+Parametervalue = Min + ((EPM(Max-Min,ADCvalue)) >> 15);   // now it can be min to max in value, depending on ADC val
 }
