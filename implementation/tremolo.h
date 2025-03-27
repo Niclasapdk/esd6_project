@@ -2,6 +2,7 @@
 #define Tremolo_H_
 
 #include <ezdsp5535.h>
+#include "lfo.h"
 
 Int16 TremoloFx(Int16 x);
 
