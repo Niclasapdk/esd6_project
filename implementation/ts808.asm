@@ -1,7 +1,13 @@
 .data
 
+; Variables
 C3b .word 0 ; Q15
 driveResist .word 100 ; Q9.0 (0-500)
+
+; Constants
+; DO NOT CHANGE ORDER
+part2Reflect .word 1599
+part2ReflectRecip .word 20
 
 .text
 
@@ -17,7 +23,20 @@ _setDriveResist:
 	.global _ts808
 _ts808:
 part1:
-	NEG T0, AC0 ; y1 = -x
+	NEG T0 ; y1 = -x
+part2:
+	MOV T0, HI(AC0) ; AC0 = y1
+	MPYK #3199, AC0 ; AC0 *= 2*r
+	MOV dbl(*(part2Reflect)), pair(T2)
+	MACMR *(C3b), T2, AC0 ; AC0 += r*C3b = a
+	MACMR *(C3b), T2, AC0, AC1 ; AC1 = AC0 + R*C3b
+	NEG AC1 ; AC1 = - AC1
+	ADD *(C3b) << #15, AC1 ; AC1 += C3b (Q30)
+	SFTS AC1, #-15 ; AC1 >>= 15 (get to Q15)
+	MOV AC1, *(C3b) ; store C3b for next call
+	MAC AC0, T3, AC1
+	NEG AC1, T0 ; DUMMY REMOVE THIS SHIT PLS
+	RET
 ; part2:
 ; 	MOV *(C3b), AC1
 ; 	ADD AC0<<#1, AC1 ; y1*2 + C3b
