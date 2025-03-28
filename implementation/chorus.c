@@ -1,9 +1,6 @@
 #include "chorus.h"
 
 /*Get random delay for chorus*/
-
-
-
 extern void rand16init(void);               /* Initialize random number generator PDF 118*/
 extern ushort rand16(DATA *r, ushort nr);   /* Generate a random number generator PDF 116*/
 
@@ -15,20 +12,22 @@ void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
         Delays[i] = DelayMin + (rand_nums[i] % (DelayMax - DelayMin + 1));  // scale to [10,...,25]
     }
 }
+
 /* lav til Q15*/
-void DepthSet(Int16 Depth, Int16* InvDepth){
+void depthChorusSet(Int16 Depth, Int16 *InvDepth){
     static Int16 Min = 0.001, Max = 0.999, port = 1;        // min = 0.1 % and Max 99.9 %
     parameterSet(Min,Max,port,Depth);                       // Map ADC value for port1 to Depth
     *InvDepth = 1-Depth;                                    // Get InvDepth for x (input)
 }
 
 /* lav til Q15 */
-void RateSet(Int16 Rate){
+void rateChorusSet(Int16 Rate){
     static Int16 Min = 0.1, Max = 20, port = 2;             // Min 0.1 Hz and Max 20 Hz
     parameterSet(Min,Max,port,Rate);                        // Map ADC value for port2 to Rate
 }
+
 /* lav til Q15 */
-void DelaySet(Int16 DelayMin, Int16* DelayMax){
+void delayChorusSet(Int16 DelayMin, Int16 *DelayMax){
     static Int16 Min = 5, Max = 15, port = 3;               // Min 5 Hz and Max 15 Hz for DelayMin
     parameterSet(Min,Max,port,DelayMin);                    // Map ADC value for port3 to DelayMin
     *DelayMax = (EPM(DelayMin,-2.5))+ 62.5;                 // Linear equation y=mx+b for DelayMax Mapping
@@ -56,20 +55,23 @@ Int16 Chorus(Int16 x) {
 /*Parameters declaration*/
 static Int16 Fs=44100, Voices = 4;
 static Int16 DelayMin = 10, DelayMax = 25; 
-static Int16 Depth=0.7, Rate=1;
-static Int16 LFOIndex=100,LFOValue=0;
-static Int16 AbsDelayMax = 50;
+static Int16 Depth=0.7, Rate=1, Delay = 10; 
+static Int16 LFOIndex=100, LFOValue=0;
+static Int16 AbsDelayMax = 50;               
 
-static Int16 absolutMaxSamp = ((Int32)AbsDelayMax * (Fs / 1000));;
+static Int16 absolutMaxSamp = ((Int32)AbsDelayMax * (Fs / 1000));
 static Int16 maxDelaySamp = ((Int32)DelayMax * (Fs / 1000));  // Convert ms to samples
 static Int16 minDelaySamp = ((Int32)DelayMin * (Fs / 1000));  // Convert ms to samples
 static Int16 DelayLine[absolutMaxSamp], DelaySize[Voices], DelayBack[Voices];
 static Int16 DelayIndex = 0, ModSignal = 0;
 
-// parameter change insert here
+// parameter update
+depthChorusSet(Depth);
+delayChorusSet(Delay);
 
 // LFO calculation
 if (LFOIndex >= 9){                 // How many times it runs with the same Rate
+    rateChorusSet(Rate);            // Update lfo rate
     LFOValue = lfo(Rate);           // When used the same Rate for 9 times read new Rate
     LFOIndex = 0;
 } else {
