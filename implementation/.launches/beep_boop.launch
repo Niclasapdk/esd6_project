@@ -18,7 +18,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.core.MRU_PROGRAM_NAME" value="C:\Users\marku\uni\esd6_project\implementation\Debug\beep_boop.out"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="beep_boop"/>
 <stringAttribute key="CCEDebugOptions.CPU_NAME" value="Texas Instruments XDS100v2 USB Emulator_0/C55xx"/>
-<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\marku\uni\esd6_project\implementation\Debug\beep_boop.out&quot; time=&quot;Mon Mar 24 13:48:45 CET 2025&quot; time_long=&quot;1742820525694&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
+<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\marku\uni\esd6_project\implementation\Debug\beep_boop.out&quot; time=&quot;Fri Mar 28 14:19:19 CET 2025&quot; time_long=&quot;1743167959712&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/beep_boop.out"/>
 <stringAttribute key="CCEDebugOptions.CPU_ISA" value="TMS320C55XX"/>

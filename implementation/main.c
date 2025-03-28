@@ -16,12 +16,13 @@ int main() {
 	Int16 i;
 	Int16 gpios;
 	Int16 switchFxCtr = 0;
+	
     EZDSP5535_init();
     EZDSP5535_I2C_init();
 	initCODEC();
 	*IODIR1 = 0;
 	
-	fx[0] = wah;
+//	fx[0] = wah;
 	fx[1] = ts808;
 	fxOn = 2;
 
@@ -37,6 +38,14 @@ int main() {
 //			gpios = *IOINDATA1;
 //			fxOn = (gpios>>14)&1; // FIXME dummy
 //		}
+
+		// Read potentiometers and change FX parameters
+		// loop over potentiometers
+		//	read potentiometer
+		//  based on current config, call respective setParameter function
+		//  setParameter[currentFxParamIdx](adcval)
+		
+		// Process sample
 //		EZDSP5535_I2S_readRight(&fuck);
 		EZDSP5535_I2S_readLeft(&fuck);
 		for (i=0; i<NUM_FX; i++) {
