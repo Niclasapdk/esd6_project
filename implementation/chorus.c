@@ -5,7 +5,7 @@ extern void rand16init(void);               /* Initialize random number generato
 extern ushort rand16(DATA *r, ushort nr);   /* Generate a random number generator PDF 116*/
 
 // Function to generate a random delay using rand16()
-void getRandomDelay(Int16 DelayMin, Int16 DelayMax,Int16 Voices,ushort Delays) {
+void getRandomDelay(Int16 DelayMin, Int16 DelayMax, Int16 Voices, ushort Delays) {
     DATA rand_nums[Voices];                 // Store the random number [0,..,65535]
     rand16(rand_num, Voices);               // Generate x(Voices) amount of random numbers from data
     for (Int16 i = 0; i < Voices; i++) {
@@ -55,8 +55,9 @@ Int16 Chorus(Int16 x) {
 /*Parameters declaration*/
 static Int16 Fs=44100, Voices = 4;
 static Int16 DelayMin = 10, DelayMax = 25; 
-static Int16 Depth=0.7, Rate=1, Delay = 10; 
-static Int16 LFOIndex=100, LFOValue=0;
+static Int16 Depth=0.7, Rate=1, Delay = 10;
+static Int16 invDepth = 1 - Depth; 
+static Int16 LFOIndex = 100, LFOValue = 0;
 static Int16 AbsDelayMax = 50;               
 
 static Int16 absolutMaxSamp = ((Int32)AbsDelayMax * (Fs / 1000));
@@ -66,8 +67,8 @@ static Int16 DelayLine[absolutMaxSamp], DelaySize[Voices], DelayBack[Voices];
 static Int16 DelayIndex = 0, ModSignal = 0;
 
 // parameter update
-depthChorusSet(Depth);
-delayChorusSet(Delay);
+depthChorusSet(Depth, invDepth);
+delayChorusSet(DelayMin, DelayMax);
 
 // LFO calculation
 if (LFOIndex >= 9){                 // How many times it runs with the same Rate
