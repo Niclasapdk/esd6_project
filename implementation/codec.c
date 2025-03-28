@@ -47,9 +47,7 @@ Int16 AIC3204_rset( Uint16 regnum, Uint16 regval )
 }
 
 void initCODEC() {
-	Int16 EZDSP5535_I2C_init ( );
-
-    /* Configure AIC3204 */
+	/* Configure AIC3204 */
     AIC3204_rset( 0,  0x00 );  // Select page 0
     AIC3204_rset( 1,  0x01 );  // Reset codec
     EZDSP5535_waitusec(1000);  // Wait 1ms after reset
@@ -106,7 +104,7 @@ void initCODEC() {
     AIC3204_rset( 81, 0xc0 );  // Powerup Left and Right ADC
     AIC3204_rset( 82, 0x00 );  // Unmute Left and Right ADC
     AIC3204_rset( 0,  0x00 );  // Select page 0 
-    EZDSP5535_waitusec(100 );  // Wait
+    EZDSP5535_waitusec(10000);  // Wait
     
     /* Initialize I2S */
     EZDSP5535_I2S_init();
