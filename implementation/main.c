@@ -6,6 +6,7 @@
 #include "wah.h"
 extern Int16 ts808(Int16);
 extern void setDriveResist(Int16);
+#include "distortion.h"
 
 #define NUM_FX 6
 Int16 (*fx[NUM_FX])(Int16);
@@ -23,7 +24,7 @@ int main() {
 	*IODIR1 = 0;
 	
 //	fx[0] = wah;
-	fx[1] = ts808;
+	fx[1] = tanhDistortion;
 	fxOn = 2;
 
 //	ts808(0x1337);
@@ -48,6 +49,7 @@ int main() {
 		// Process sample
 //		EZDSP5535_I2S_readRight(&fuck);
 		EZDSP5535_I2S_readLeft(&fuck);
+		fuck *= 2;
 		for (i=0; i<NUM_FX; i++) {
 			if (fxOn&(1<<i)) {
 				fuck = fx[i](fuck);
