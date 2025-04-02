@@ -23,13 +23,15 @@ setDepthTremolo(adcVal2);
 
 if(lfoIndex >= 9){
 	setRateTremolo(adcVal);
+	fRate(rate);
 	lfoValue = lfo(); //Change to lfo name.	
 	lfoIndex = 0;
 } else {
 	lfoIndex++;
 }
 
-x = x * (initVal + depth * lfoValue);
+Int16 TremoloFx = initVal+(((Int32)depth * lfoValue)>>15);		//Q15 Tremolo value effect
+x = (((Int32)x * TremoloFx)>>15);								//Q15 Modulated signal with tremolo effect
 
 return x;
 
