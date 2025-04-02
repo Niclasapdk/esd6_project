@@ -1,4 +1,6 @@
+#include <ezdsp5535.h>
 #include <ezdsp5535_i2s.h>
+#include <ezdsp5535_i2c.h>
 #include "codec.h"
 #include "gpio.h"
 
