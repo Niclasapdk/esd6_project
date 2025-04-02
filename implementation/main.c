@@ -63,9 +63,6 @@ int main() {
 	fxParam3[FX_OD] = dummyFunc;
 	
 	fxOn = 2;
-
-//	ts808(0x1337);
-//	ts808(0x3173);
 	
 	// Infinite loop
 	while (1) {
