@@ -138,6 +138,11 @@ static const Int16 tanhLUT[tanhLUT_len] = {
     32592,  32594,  32596,  32598,  32600,  32602,  32604,  32606
 };
 
+void distSetDrive(Int16 adcVal) {
+	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
+	drive = adcVal*32;
+}
+
 Int16 distLowpass(Int16 x) {
 	// y[n] = (1 - alpha) * y[n-1] + alpha * x[n]
 	static Int16 yOld = 0;
