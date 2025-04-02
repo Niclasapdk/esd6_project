@@ -1,0 +1,28 @@
+// :)
+#include <stdio.h>
+#include <ezdsp5535.h>
+
+Int16 rate = 1000; //range (100-10000)
+
+void setRateTremolo(Int16 adcVal){
+	rate = 100 + (((Int32)adcVal * (10000-100)) >> 10); //Q15.0
+	
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

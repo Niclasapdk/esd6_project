@@ -1,0 +1,24 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../tremolo.c 
+
+OBJS += \
+./tremolo.obj 
+
+C_DEPS += \
+./tremolo.pp 
+
+OBJS__QTD += \
+".\tremolo.obj" 
+
+C_DEPS__QTD += \
+".\tremolo.pp" 
+
+C_SRCS_QUOTED += \
+"../tremolo.c" 
+
+

@@ -1,0 +1,8 @@
+#ifndef CHORUS_H_
+#define CHORUS_H_
+
+void setRateChorus(Int16 adcVal);
+void setDepthChorus(Int16 adcVal2);
+void setDelayChorus(Int16 adcVal3);
+
+#endif /*CHORUS_H_*/

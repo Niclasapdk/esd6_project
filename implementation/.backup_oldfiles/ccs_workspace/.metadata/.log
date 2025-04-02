@@ -1,0 +1,72 @@
+!SESSION 2025-03-31 09:47:04.886 -----------------------------------------------
+eclipse.buildId=4.2.4.00033
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=da_DK
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2025-03-31 10:08:02.566
+!MESSAGE Fatal Error: C55xx: Error: (Error -150 @ 0x0) This utility failed to operate the adapter for a custom emulator. The adapter returned an error for unknown reasons. (Release 5.0.429.0) 
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2025-03-31 10:10:08.682
+!MESSAGE Fatal Error: C55xx: Error: (Error -150 @ 0x0) This utility failed to operate the adapter for a custom emulator. The adapter returned an error for unknown reasons. (Release 5.0.429.0) 
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 104 2025-03-31 12:37:02.149
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+!SUBENTRY 1 com.ti.ccstudio.debug.core 4 104 2025-03-31 12:37:02.151
+!MESSAGE C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.ti.ccstudio.debug.core 4 104 2025-03-31 13:13:50.485
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$5.run(DebugUIPlugin.java:852)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+!SUBENTRY 1 com.ti.ccstudio.debug.core 4 104 2025-03-31 13:13:50.487
+!MESSAGE C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\mathi\OneDrive\Skrivebord\UNI\6. Semester\ccs_workspace\chorus_project\Debug\chorus_project.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$5.run(DebugUIPlugin.java:852)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2025-03-31 15:51:45.835
+!MESSAGE Fatal Error: C55xx: Error: (Error -150 @ 0x0) This utility failed to operate the adapter for a custom emulator. The adapter returned an error for unknown reasons. (Release 5.0.429.0) 
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2025-03-31 19:51:53.110
+!MESSAGE Fatal Error: C55xx: Trouble Halting Target CPU: (Error -150 @ 0x0) Internal error: Invalid error code. Restart the application. If error persists, please report the error. (Release 5.0.429.0) 
+

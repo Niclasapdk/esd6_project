@@ -53,10 +53,10 @@ Int16 Chorus(Int16 x) {
 /*Needs to be in Q15 everything*/
 
 /*Parameters declaration*/
-static Int16 Fs=44100, Voices = 4;
-static Int16 DelayMin = 10, DelayMax = 25; 
-static Int16 Depth=0.7, Rate=1, Delay = 10;
-static Int16 invDepth = 1 - Depth; 
+static Int16 Fs = 44100, Voices = 4;             
+static Int16 DelayMin = 327680, DelayMax = 819200;          //327680 = 10ms, 819200 = 25ms, Q(15) 
+static Int16 Depth = 22938, Rate = 32767, Delay = 327670;     //22938 = 0.7, 32767 = 1, 327670 = 10, Q(15) 
+static Int16 invDepth = 32767 - Depth;                  //32767 = 1, Q(15)
 static Int16 LFOIndex = 100, LFOValue = 0;
 static Int16 AbsDelayMax = 50;               
 

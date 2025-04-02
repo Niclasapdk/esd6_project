@@ -3,6 +3,7 @@
 
 // Tremolo = Input * (i_val + depth * LFO) 
 
+
 // Rate for LFO
 void rateTremSet(Int16 rate){
     static Int16 min = 100, max = 10000, port = 1; // min = 0.1Hz, max = 10Hz       
@@ -18,6 +19,9 @@ void depthTremSet(Int16 depth){
 // Function for Tremolo
 Int16 tremolo(Int16 xn){
 
+// Initialise Parameters
+Int16 LFOValue = 0;  
+Int16 LFOIndex = 0;
 static int initVal = 32767;         // initialValue = 32767 = 1 Q(15)   
 
 //update rate & depth

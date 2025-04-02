@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+<instance XML_version="1.2" desc="C55xx Rev3.0 CPU Cycle Accurate Simulator" href="configurations\tisim_c55x30_ca.xml" id="C55xx Rev3.0 CPU Cycle Accurate Simulator" xml="tisim_c55x30_ca.xml" xmlpath="configurations"/>
+    <configuration XML_version="1.2" description="Simulates the C55x Rev3.0 core in a cycle accurate manner, models the pipeline effects. Supports a timer and a flat memory system. No other peripherals are modeled.This configuration is suitable for core level alogrithms development and benchmarking.&#10;Note that there is a corresponding functional configuration that is faster than this, but doesn't provide cycle accuracy." id="C55xx Rev3.0 CPU Cycle Accurate Simulator">
+        <connection XML_version="1.2" desc="C55xx Rev3.0 CPU Cycle Accurate Simulator_0" id="C55xx Rev3.0 CPU Cycle Accurate Simulator"/>
+    </configuration>
+</configurations>

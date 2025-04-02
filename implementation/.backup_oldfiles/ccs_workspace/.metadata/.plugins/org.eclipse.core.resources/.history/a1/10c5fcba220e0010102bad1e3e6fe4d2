@@ -1,0 +1,17 @@
+#include "chorus.h"
+
+
+//Get random Int16 number
+extern void rand16init(void);
+extern ushort rand16(DATA *r, ushort nr);
+
+void getRandomDelay(ushort delay){
+	DATA rand_nums;  		 // random delay
+	rand16(rand_nums, 1);
+	Int16 delayMin = 441;    // delayMin/1000 * fs 
+	Int16 delayMax = 1103;   // delayMax/1000 * fs
+	 	
+	delay = delayMin + (rand_nums * (delayMax - delayMin + 1));    
+}
+
+

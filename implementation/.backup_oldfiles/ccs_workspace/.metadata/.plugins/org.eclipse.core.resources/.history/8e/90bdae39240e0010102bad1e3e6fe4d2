@@ -1,0 +1,8 @@
+#ifndef CHORUS_H_
+#define CHORUS_H_
+
+#include <stdio.h>
+#include <ezdsp5535.h>
+#include <ezdsp5535_i2s.h>
+
+#endif /*CHORUS_H_*/

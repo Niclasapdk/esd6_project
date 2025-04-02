@@ -1,0 +1,24 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../chorus.c 
+
+OBJS += \
+./chorus.obj 
+
+C_DEPS += \
+./chorus.pp 
+
+OBJS__QTD += \
+".\chorus.obj" 
+
+C_DEPS__QTD += \
+".\chorus.pp" 
+
+C_SRCS_QUOTED += \
+"../chorus.c" 
+
+
