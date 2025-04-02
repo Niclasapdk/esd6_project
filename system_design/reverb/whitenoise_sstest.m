@@ -17,7 +17,7 @@ ir = zeros(1,N);
 
 % Filter parameters
 gain = 1; 
-reverbtime = 4;
+reverbtime = 1;
 
 % Apply reverb
 ir = reverb(input_signal, fs, gain, reverbtime);
@@ -43,6 +43,10 @@ grid on;
 
 % Mark when the white noise stops
 xline(duration_white_noise, '--r', 'White Noise Stops', 'LabelVerticalAlignment', 'middle', 'HandleVisibility', 'off');
-yline(-60, '--r', 'RT60', 'HandleVisibility', 'off');
+yline(-5, '--r', '-5dB', 'HandleVisibility', 'off');
+yline(-65, '--r', '-65dB', 'HandleVisibility', 'off');
+
+
+
 
 legend('Location', 'SouthWest');
