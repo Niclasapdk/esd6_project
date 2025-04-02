@@ -1,0 +1,11 @@
+#ifndef TREMOLO_H_
+#define TREMOLO_H_
+
+#include <stdio.h>
+#include <ezdsp5535.h>
+
+void setRateTremolo(Int16 adcVal);
+void setDepthTremolo(Int16 adcVal2);
+Int16 tremolo(Int16 x);
+
+#endif /*TREMOLO_H_*/
