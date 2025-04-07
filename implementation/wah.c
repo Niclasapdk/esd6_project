@@ -11,3 +11,11 @@ void setWahPedal(Int16 adcVal) {
 	// actual sizes 12 bit * 3 bit so no need for double precision accumulator
 	F1 = sin_coeff*Fc;
 }
+Int16 wah(Int16 x) {
+	static Int16 yaux = 0, yl = 0, y = 0, yh = 0; // Q15
+	yh = x - yl - (((Int32)Q1*yaux)>>15); // Q15
+	y = (((Int32)F1 * yh)>>15) + yaux;
+	yl = (((Int32)F1*y)>>15) + yl;
+	yaux = y;
+	return y;	
+}
