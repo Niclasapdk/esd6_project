@@ -32,17 +32,8 @@ void chorusSetDelay(Int16 adcvalue){
 }
 
 void chorusSetRate(Int16 adcvalue){
-	Int16 rate; // LFO Rate in mHz
-	if(adcvalue > 1000)
-	{
-		rate = 1000;
-	}
-	else if(adcvalue < 100){
-		rate = 100;
-	}
-	else{
-		rate = adcvalue;
-	}
+	Int16 rate;
+	rate = 100 + (((Int32)adcvalue * (5000-100)) >> 10); //Q15.0
 	chorusFRate(rate);
 }
 
