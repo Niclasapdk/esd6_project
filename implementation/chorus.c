@@ -12,15 +12,17 @@ extern long EPM(long *, long *);
 #define MAP_BY_TWO_PI_FS 1530 //2*pi*mapfactor/fs,fs=4410, mapfactor=0.1*2^15/100
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
 #define CHORUS_DELAYLINE_LEN 2205
+#define ONE_FOURTH 8191 // one fourth in Q15
 
 static long oneMinusKpow2Frac2 = 2147481468;
-static long delaylineLFO[2] = {1518270939,0}; //Q1.31 format for 0.707 and 0 
 static long k = 30596646; // the value is 0.0142 but changed to Q1.31
 
 static Int16 Mix = 10000;        // Wet mix in Q15
 static Int16 invMix = 22767;     // Dry mix in Q15 (1 - wet mix)
 static Int16 Delay = 1102; // Base delay
 static Int16 Width = 221;  // Modulation delay width
+
+void chorusFRate(Int16 r);
 
 // State variables
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
@@ -30,17 +32,18 @@ void chorusSetDelay(Int16 adcvalue){
 }
 
 void chorusSetRate(Int16 adcvalue){
-	static int Rate = 500;          // LFO Rate in mHz
+	Int16 rate; // LFO Rate in mHz
 	if(adcvalue > 1000)
 	{
-		Rate = 1000;
+		rate = 1000;
 	}
 	else if(adcvalue < 100){
-		Rate = 100;
+		rate = 100;
 	}
 	else{
-		Rate = adcvalue;
+		rate = adcvalue;
 	}
+	chorusFRate(rate);
 }
 
 void chorusSetDepth(Int16 adcvalue){
@@ -54,6 +57,7 @@ void chorusFRate(Int16 r)
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31
 }
 Int16 chorusLFO(int *out){
+	static long delaylineLFO[2] = {1518270939,0}; //Q1.31 format for 0.707 and 0 
 	long agc = 1073741824; // 1 for start gain
 	int outtmp[2];
 	long y1 = (EPM(&oneMinusKpow2Frac2, &delaylineLFO[0]) + EPM(&k, &delaylineLFO[1]));
@@ -76,9 +80,8 @@ Int16 chorus(Int16 xn) {
 	Int16 yn, i, mod;
 	static int delayIndex;
 	static int LFOIndex = 100;
-	static int delaySize[4] = {0};
-	static int delayBack[4] = {0};
-	static int delayedSample[4] = {0};
+	int delaySize[4] = {0};
+	int delayBack[4] = {0};
 	static int LFOVal[4];
     // Update LFO value occasionally (as in your original code)
     if (LFOIndex >= 9) {  
@@ -96,15 +99,15 @@ Int16 chorus(Int16 xn) {
 	    if (delayBack[i] < 0) {
 	        delayBack[i] += CHORUS_DELAYLINE_LEN;
 	    }
-	    
-	    // Read the delayed sample from the delay line
-	    delayedSample[i] = cDelayLine[delayBack[i]];
-    	
+
     }
     // Compute the output as a mix of the current input and the delayed sample
     // (invMix and Mix act as the dry and wet mix factors, respectively)
     // For instance, 8192 corresponds to ~0.25
-    mod = (((long)delayedSample[0] * 8191) + ((long)delayedSample[1] * 8191) + ((long)delayedSample[2] * 8191) + ((long)delayedSample[3] * 8191)) >> 15;
+    mod = (((long)cDelayLine[delayBack[0]] * ONE_FOURTH) +
+    	   ((long)cDelayLine[delayBack[1]] * ONE_FOURTH) + 
+    	   ((long)cDelayLine[delayBack[2]] * ONE_FOURTH) + 
+    	   ((long)cDelayLine[delayBack[3]] * ONE_FOURTH)) >> 15;
     yn = (((long)invMix * xn) + ((long)Mix * mod)) >> 15;
     
     // IIR part: update the delay line with the current input plus the feedback of the delayed sample
