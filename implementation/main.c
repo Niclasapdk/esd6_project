@@ -4,6 +4,7 @@
 #include "codec.h"
 #include "gpio.h"
 #include "adc.h"
+#include <stdio.h>
 
 // FX
 #include "wah.h"
@@ -74,13 +75,9 @@ int main() {
 //			fxOn = (gpios>>14)&1; // FIXME dummy
 //		}
 
-		// Read potentiometers and change FX parameters
-		fuck = readAdcBlocking(0);
-		fxParam1[menuCurrentFx](fuck);
-		fuck = readAdcBlocking(1);
-		fxParam2[menuCurrentFx](fuck);
-		fuck = readAdcBlocking(2);
-		fxParam3[menuCurrentFx](fuck);
+		// Read potentiometer and change FX parameters
+		fuck = readAdcBlocking(3);
+		printf("fuck=%d\n", fuck);
 		
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);

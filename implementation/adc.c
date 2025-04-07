@@ -8,10 +8,11 @@ ioport int *SARPINCTRL = (ioport int *)0x7018; // SAR A/D Reference and Pin Cont
 ioport int *SARGPOCTRL = (ioport int *)0x701A; // SAR A/D GPO Control Register Section 3.5
 
 void initAdc() {
-	*SARCTRL = 0x0400;    // single conversion mode
-	*SARCLKCTRL = 8;      // clock division (+1)
-	*SARPINCTRL = 0x3100; // (PWRUPBIAS|SARPWRUP|REFAVDDSEL)
+	*SARGPOCTRL = 0xffff; // set all as output to try to fix this shit adc
 	*SARGPOCTRL = 0;      // all analog inputs as analog inputs (not gpio)
+	*SARPINCTRL = 0x061b; // set all weird values to reset them later to fix this shit adc
+	*SARPINCTRL = 0x3601; // (PWRUPBIAS|SARPWRUP|FUCK)
+	*SARCLKCTRL = 64;     // clock division (+1)
 }
 
 // Performs a blocking adc conversion
@@ -22,9 +23,9 @@ Int16 readAdcBlocking(Uint16 ch) {
 	// set ADCSTRT to start conversion
 	*SARCTRL = 0x8000|(ch<<12)|(0x0400);
 	// wait until ADCBUSY is set
-	while ((*SARDATA)& 0x8000);
-	// wait until ADCBUSY is cleared
+	while (!((*SARDATA)& 0x8000));
+//	while (1);
+	// wait until ADCBUSY is cleared and channel matches requested channel
 	while (result = (*SARDATA), (result & 0x8000) || ((result>>12)&0x7)!=ch);
-	*SARCTRL = 0x0400; // reset SARCTRL
 	return result & 0x03ff; // return 10-bit result
 }
