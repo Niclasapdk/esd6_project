@@ -24,11 +24,12 @@ static Int16 Width = 221;  // Modulation delay width
 
 // State variables
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
-void sDelay(Int16 adcvalue){
+
+void chorusSetDelay(Int16 adcvalue){
 	Delay = 22 + (((Int32)adcvalue*(331-22))>>10); // 1ms + diff
 }
 
-void sRate(Int16 adcvalue){
+void chorusSetRate(Int16 adcvalue){
 	static int Rate = 500;          // LFO Rate in mHz
 	if(adcvalue > 1000)
 	{
@@ -42,7 +43,7 @@ void sRate(Int16 adcvalue){
 	}
 }
 
-void sDepth(Int16 adcvalue){
+void chorusSetDepth(Int16 adcvalue){
 	Mix = 3277 + (((Int32)adcvalue*(32439-3277))>>10);
 }
 

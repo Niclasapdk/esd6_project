@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <ezdsp5535.h>
 //
-//void setRateChorus(Int16 adcVal);
-//void setDepthChorus(Int16 adcVal2);
-//void setDelayChorus(Int16 adcVal3);
+void chorusSetDelay(Int16 adcvalue);
+void chorusSetRate(Int16 adcvalue);
+void chorusSetDepth(Int16 adcvalue);
 Int16 chorus(Int16 x);
 void chorusFRate(Int16 r);
 //
