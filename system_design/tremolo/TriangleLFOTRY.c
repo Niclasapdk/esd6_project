@@ -37,6 +37,38 @@ int triangleLFO(int r){
     return phase;
 }
 
+// Take mHz as input
+int SquareLFO(int r){
+    // The phase deviates in range [-1, 1] Q15
+    int samplesTime; 
+    static int counter = 0;         
+    static int lfostat = RISING;         //Stat if rising or falling set to rise 1st
+    static int phase = 32767;            //Phase of the triangle lfo
+    r = r >> 10;                           // Convert from Mhz to Hz, Around r/1000
+    // Find way to remove divide
+    samplesTime = 44100/r;    // convert to sample r/44100
+
+
+    // when counter exceed rate in samples switch stat between [-1,1]
+    if(counter >= samplesTime){
+        if(lfostat == RISING){
+            phase = 32767;
+            lfostat = FALLING;
+
+        }
+        else {
+            phase = -32767;
+            lfostat = RISING;
+        }
+        counter = 0;
+    }
+    counter++;
+    return phase;
+}
+
+
+
+
 int main() {
     FILE *f = fopen("triangleLFO_output.txt", "w");  // Open file for writing
 
