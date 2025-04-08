@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=NetC508_1 Pin=Q500-1
+Removed Pin From Net: NetName=+6V Pin=Q500-2
+Removed Pin From Net: NetName=NetC508_2 Pin=Q500-3
+Removed Pin From Net: NetName=NetC509_2 Pin=Q501-1
+Removed Pin From Net: NetName=GND Pin=U500-
+Change Component Designator: OldDesignator=B100 NewDesignator=BGND
+Change Component Designator: OldDesignator=B101 NewDesignator=B+6V
+Change Component Designator: OldDesignator=B102 NewDesignator=B-6V
+Change Component Designator: OldDesignator=J200 NewDesignator=WAH_OUT
+Change Component Designator: OldDesignator=J201 NewDesignator=WAH_REF
+Change Component Designator: OldDesignator=J300 NewDesignator=IN
+Change Component Designator: OldDesignator=J301 NewDesignator=DSP_IN
+Change Component Designator: OldDesignator=J302 NewDesignator=DSP_OUT
+Change Component Designator: OldDesignator=J303 NewDesignator=OUT
+Change Component Designator: OldDesignator=TP101 NewDesignator=TPGND
+Change Component Designator: OldDesignator=TP102 NewDesignator=TP5V
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC508_2 Pin=Q500-1
+Added Pin To Net: NetName=NetC508_1 Pin=Q500-2
+Added Pin To Net: NetName=+6V Pin=Q500-3
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Change Net Name : Old Net Name=NetJ302_3 New Net Name=NetDSP_OUT_3
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode

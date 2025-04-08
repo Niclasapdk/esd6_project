@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=+6V Pin=R502-1
+Removed Pin From Net: NetName=NetC508_2 Pin=R502-2
+Removed Pin From Net: NetName=-6V Pin=R507-1
+Removed Pin From Net: NetName=NetC509_1 Pin=R507-2
+Change Component Footprint: Designator=R502 Old Footprint=AXIAL-0.4 PCBK New Footprint=RES SMD 0201
+Change Component Footprint: Designator=R507 Old Footprint=AXIAL-0.4 PCBK New Footprint=RES SMD 0201
+Change Component Comment : Designator=R502 Old Comment= New Comment=Resistor
+Change Component Comment : Designator=R507 Old Comment= New Comment=Resistor
+Change component parameters: Designator = "R502" ("R502"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\JLMFJKXX" ("\JLMFJKXX")
+Change component parameters (AddParameter): Name = "Value"; Value = "10"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R507" ("R507"); Footprint = "AXIAL-0.4 PCBK"; UniqueID = "\NEDWGWXR" ("\NEDWGWXR")
+Change component parameters (AddParameter): Name = "Value"; Value = "10"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Pin To Net: NetName=NetC508_2 Pin=R502-1
+Added Pin To Net: NetName=+6V Pin=R502-2
+Added Pin To Net: NetName=NetC509_1 Pin=R507-1
+Added Pin To Net: NetName=-6V Pin=R507-2

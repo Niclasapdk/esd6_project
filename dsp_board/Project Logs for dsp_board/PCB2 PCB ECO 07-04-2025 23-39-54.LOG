@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=+6V Pin=B500-1
+Removed Pin From Net: NetName=+6V Pin=B500-1
+Removed Pin From Net: NetName=+6V Pin=B500-1
+Removed Pin From Net: NetName=GND Pin=B501-1
+Removed Pin From Net: NetName=GND Pin=B501-1
+Removed Pin From Net: NetName=GND Pin=B501-1
+Removed Pin From Net: NetName=-6V Pin=B502-1
+Removed Pin From Net: NetName=-6V Pin=B502-1
+Removed Pin From Net: NetName=-6V Pin=B502-1
+Removed Member From Class: ClassName=power_supply Member=B500
+Removed Member From Class: ClassName=power_supply Member=B501
+Removed Member From Class: ClassName=power_supply Member=B502
+Added Component: Designator=B100(Banana Plug through)
+Added Component: Designator=B101(Banana Plug through)
+Added Component: Designator=B102(Banana Plug through)
+Added Pin To Net: NetName=GND Pin=B100-1
+Added Pin To Net: NetName=+6V Pin=B101-1
+Added Pin To Net: NetName=-6V Pin=B102-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Added Member To Class: ClassName=main Member=Component B100 Banana Plug
+Added Member To Class: ClassName=main Member=Component B101 Banana Plug
+Added Member To Class: ClassName=main Member=Component B102 Banana Plug

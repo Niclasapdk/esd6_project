@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=NetC508_1 Pin=Q500-1
+Removed Pin From Net: NetName=+6V Pin=Q500-2
+Removed Pin From Net: NetName=NetC508_2 Pin=Q500-3
+Removed Pin From Net: NetName=+6V Pin=Q500-
+Removed Pin From Net: NetName=NetC509_2 Pin=Q501-1
+Removed Pin From Net: NetName=GND Pin=U500-
+Change Component Designator: OldDesignator=TP5V NewDesignator=TP+5V
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=TP+1V75(TP_loop_pin_1249)
+Added Component: Designator=TP+2V(TP_loop_pin_1249)
+Added Component: Designator=TP-1V75(TP_loop_pin_1249)
+Added Component: Designator=TP-5V(TP_loop_pin_1249)
+Added Pin To Net: NetName=NetC508_2 Pin=Q500-1
+Added Pin To Net: NetName=NetC508_1 Pin=Q500-2
+Added Pin To Net: NetName=+6V Pin=Q500-3
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Pin To Net: NetName=+1V75 Pin=TP+1V75-TP
+Added Pin To Net: NetName=+2V Pin=TP+2V-TP
+Added Pin To Net: NetName=-1V75 Pin=TP-1V75-TP
+Added Pin To Net: NetName=-5V Pin=TP-5V-TP
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=main Member=Component TP+1V75 Test Point
+Added Member To Class: ClassName=main Member=Component TP+2V Test Point
+Added Member To Class: ClassName=main Member=Component TP-1V75 Test Point
+Added Member To Class: ClassName=main Member=Component TP-5V Test Point

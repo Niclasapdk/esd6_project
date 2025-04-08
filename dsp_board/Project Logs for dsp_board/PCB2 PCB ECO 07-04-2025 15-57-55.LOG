@@ -1,0 +1,5 @@
+Change Component DesignItemId : Designator=C517 Old DesignItemId=Capacitor big ceramic New DesignItemId=Capacitor 1 space
+Change Component Footprint: Designator=C517 Old Footprint=Cap 20mm New Footprint=Cap-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Added Member To Class: ClassName=power_supply Member=Component Pot500 Pot Trim

@@ -1,0 +1,11 @@
+Change Component Footprint: Designator=D300 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Footprint: Designator=D301 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Footprint: Designator=D500 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Footprint: Designator=D501 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Footprint: Designator=D502 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Footprint: Footprint Not Found Diode
+Change Footprint: Footprint Not Found Diode
+Change Footprint: Footprint Not Found Diode
+Change Footprint: Footprint Not Found Diode
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3

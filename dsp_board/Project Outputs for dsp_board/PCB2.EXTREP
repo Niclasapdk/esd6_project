@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: PCB2.GBR   17-03-2025  11:00:55
+Gerber File Extension Report For: PCB2.GBR   08-04-2025  09:55:12
 ------------------------------------------------------------------------------------------
 
 
@@ -10,10 +10,6 @@ Layer Extension     Layer Description
 .gbr                Bottom Layer                            
 .gbr                Top Overlay                             
 .gbr                Bottom Overlay                          
-.gbr                Top Solder                              
-.gbr                Bottom Solder                           
-.gbr                Top Paste                               
-.gbr                Bottom Paste                            
 .gbr                Profile                                 
 .gbr                Non-plated through-hole drill file      
 .gbr                Plated through-hole drill file          

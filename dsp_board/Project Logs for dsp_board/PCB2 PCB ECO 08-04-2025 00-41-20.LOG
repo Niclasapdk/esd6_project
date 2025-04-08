@@ -1,0 +1,68 @@
+Removed Pin From Net: NetName=+1V75 Pin=*500-1
+Removed Pin From Net: NetName=+6V Pin=*500-2
+Removed Pin From Net: NetName=-6V Pin=*501-1
+Removed Pin From Net: NetName=-1V75 Pin=*501-2
+Removed Pin From Net: NetName=Net*502_1 Pin=*502-1
+Removed Pin From Net: NetName=Net*503_2 Pin=*503-2
+Removed Pin From Net: NetName=Net*502_1 Pin=*504-1
+Removed Pin From Net: NetName=Net*503_2 Pin=*505-2
+Removed Pin From Net: NetName=+2V Pin=*506-1
+Removed Pin From Net: NetName=+6V Pin=*506-2
+Removed Pin From Net: NetName=+1V75 Pin=D302-2
+Removed Pin From Net: NetName=-1V75 Pin=D303-1
+Removed Member From Class: ClassName=power_supply Member=*500
+Removed Member From Class: ClassName=power_supply Member=*501
+Removed Member From Class: ClassName=power_supply Member=*502
+Removed Member From Class: ClassName=power_supply Member=*503
+Removed Member From Class: ClassName=power_supply Member=*504
+Removed Member From Class: ClassName=power_supply Member=*505
+Removed Member From Class: ClassName=power_supply Member=*506
+Removed Member From Class: ClassName=amplifier_stage Member=D302
+Removed Member From Class: ClassName=amplifier_stage Member=D303
+Added Component: Designator=500(1N4007)
+Added Component: Designator=D300(1N4007)
+Added Component: Designator=D301(1N4007)
+Added Component: Designator=D501(1N4007)
+Added Component: Designator=D502(1N4007)
+Added Component: Designator=D503(Diode 1A)
+Added Component: Designator=D504(Diode 1A)
+Added Component: Designator=D505(Diode 1A)
+Added Component: Designator=D506(Diode 1A)
+Added Pin To Net: NetName=+1V75 Pin=500-1
+Added Pin To Net: NetName=+6V Pin=500-2
+Added Pin To Net: NetName=+1V75 Pin=D300-2
+Added Pin To Net: NetName=-1V75 Pin=D301-1
+Added Pin To Net: NetName=-6V Pin=D501-1
+Added Pin To Net: NetName=-1V75 Pin=D501-2
+Added Pin To Net: NetName=+2V Pin=D502-1
+Added Pin To Net: NetName=+6V Pin=D502-2
+Added Pin To Net: NetName=Net*502_1 Pin=D503-1
+Added Pin To Net: NetName=Net*503_2 Pin=D504-2
+Added Pin To Net: NetName=Net*502_1 Pin=D505-1
+Added Pin To Net: NetName=Net*503_2 Pin=D506-2
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Change Net Name : Old Net Name=Net*502_1 New Net Name=NetC509_1
+Change Net Name : Old Net Name=Net*503_2 New Net Name=NetC508_2
+Added Pin To Net: NetName=NetD300_1 Pin=D300-1
+Added Pin To Net: NetName=NetD300_1 Pin=D301-2
+Added Pin To Net: NetName=NetD300_1 Pin=J300-T
+Added Pin To Net: NetName=NetD300_1 Pin=U300-3
+Added Net: Name=NetD300_1
+Added Pin To Net: NetName=NetD503_2 Pin=D503-2
+Added Pin To Net: NetName=NetD503_2 Pin=D504-1
+Added Pin To Net: NetName=NetD503_2 Pin=S500-1
+Added Net: Name=NetD503_2
+Added Pin To Net: NetName=NetD505_2 Pin=D505-2
+Added Pin To Net: NetName=NetD505_2 Pin=D506-1
+Added Pin To Net: NetName=NetD505_2 Pin=S500-3
+Added Net: Name=NetD505_2
+Added Member To Class: ClassName=power_supply Member=Component 500 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=power_supply Member=Component D501 1N4007
+Added Member To Class: ClassName=power_supply Member=Component D502 1N4007
+Added Member To Class: ClassName=power_supply Member=Component D503 Diode
+Added Member To Class: ClassName=power_supply Member=Component D504 Diode
+Added Member To Class: ClassName=power_supply Member=Component D505 Diode
+Added Member To Class: ClassName=power_supply Member=Component D506 Diode

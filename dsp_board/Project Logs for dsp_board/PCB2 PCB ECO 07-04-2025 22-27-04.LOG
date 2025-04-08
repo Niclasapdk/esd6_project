@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetPot500_1 Pin=Pot500-1
+Removed Pin From Net: NetName=GND Pin=Pot500-2
+Removed Pin From Net: NetName=NetC506_1 Pin=Pot501-1
+Removed Pin From Net: NetName=GND Pin=Pot501-2
+Added Pin To Net: NetName=GND Pin=Pot500-1
+Added Pin To Net: NetName=NetPot500_1 Pin=Pot500-2
+Added Pin To Net: NetName=GND Pin=Pot501-1
+Added Pin To Net: NetName=NetC506_1 Pin=Pot501-2
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Change Net Name : Old Net Name=NetPot500_1 New Net Name=NetPot500_2

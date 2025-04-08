@@ -1,0 +1,6 @@
+Change Component DesignItemId : Designator=C505 Old DesignItemId=Capacitor big ceramic New DesignItemId=Capacitor 1 space
+Change Component DesignItemId : Designator=C507 Old DesignItemId=Capacitor big ceramic New DesignItemId=Capacitor 1 space
+Change Component Footprint: Designator=C505 Old Footprint=Cap 20mm New Footprint=Cap-1
+Change Component Footprint: Designator=C507 Old Footprint=Cap 20mm New Footprint=Cap-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3

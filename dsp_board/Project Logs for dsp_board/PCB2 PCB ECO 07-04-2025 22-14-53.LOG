@@ -1,0 +1,5 @@
+Change Component Designator: OldDesignator=TP* NewDesignator=TP101
+Change Component Designator: OldDesignator=TP* NewDesignator=TP102
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Added Member To Class: ClassName=main Member=Component TP101 Test Point

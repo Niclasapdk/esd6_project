@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=D503 Old Footprint=Diode 2 space New Footprint=Diode 1A
+Change Component Footprint: Designator=D504 Old Footprint=Diode 2 space New Footprint=Diode 1A
+Change Component Footprint: Designator=D505 Old Footprint=Diode 2 space New Footprint=Diode 1A
+Change Component Footprint: Designator=D506 Old Footprint=Diode 2 space New Footprint=Diode 1A
+Change Component Comment : Designator=D503 Old Comment= New Comment=Diode
+Change Component Comment : Designator=D504 Old Comment= New Comment=Diode
+Change Component Comment : Designator=D505 Old Comment= New Comment=Diode
+Change Component Comment : Designator=D506 Old Comment= New Comment=Diode
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3

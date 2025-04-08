@@ -1,0 +1,14 @@
+Added Component: Designator=TP*500(TP_loop_pin_1249)
+Added Component: Designator=TP*501(TP_loop_pin_1249)
+Added Component: Designator=TP*(TP_loop_pin_1249)
+Added Component: Designator=TP*(TP_loop_pin_1249)
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Pin To Net: NetName=NetC508_2 Pin=TP*500-TP
+Added Pin To Net: NetName=NetC509_1 Pin=TP*501-TP
+Added Pin To Net: NetName=GND Pin=TP*-TP
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=TP*-TP
+Added Member To Class: ClassName=power_supply Member=Component TP*500 Test Point
+Added Member To Class: ClassName=power_supply Member=Component TP*501 Test Point
+Added Member To Class: ClassName=main Member=Component TP* Test Point
+Added Member To Class: ClassName=main Member=Component TP* Test Point

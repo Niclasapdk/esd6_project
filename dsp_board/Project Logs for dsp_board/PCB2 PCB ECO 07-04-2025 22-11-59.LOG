@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=GND Pin=C505-1
+Removed Pin From Net: NetName=+1V75 Pin=C505-2
+Removed Pin From Net: NetName=-1V75 Pin=C507-1
+Removed Pin From Net: NetName=GND Pin=C507-2
+Change Component Footprint: Designator=C505 Old Footprint=Cap 20mm New Footprint=Cap-1
+Change Component Footprint: Designator=C507 Old Footprint=Cap 20mm New Footprint=Cap-1
+Change Component Footprint: Designator=C517 Old Footprint=Cap 20mm New Footprint=Cap-1
+Add Component: Footprint Not Found TP_SMD_2mm
+Add Component: Footprint Not Found TP_SMD_2mm
+Add Component: Footprint Not Found TP_SMD_2mm
+Add Component: Footprint Not Found TP_SMD_2mm
+Added Pin To Net: NetName=-1V75 Pin=C505-1
+Added Pin To Net: NetName=GND Pin=C505-2
+Added Pin To Net: NetName=GND Pin=C507-1
+Added Pin To Net: NetName=+1V75 Pin=C507-2
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Add Pin To Net: Unknown Pin: Pin TP*100-TP
+Add Pin To Net: Unknown Pin: Pin TP*101-TP
+Add Pin To Net: Unknown Pin: Pin TP*500-TP
+Add Pin To Net: Unknown Pin: Pin TP*501-TP
+Add Class Member: Failed to add class member : Component TP*100 Test Point
+Add Class Member: Failed to add class member : Component TP*101 Test Point
+Add Class Member: Failed to add class member : Component TP*500 Test Point
+Add Class Member: Failed to add class member : Component TP*501 Test Point

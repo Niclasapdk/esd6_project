@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=R502 Old Footprint=RES SMD 0201 New Footprint=POW RES THT 13mm
+Change Component Footprint: Designator=R507 Old Footprint=RES SMD 0201 New Footprint=POW RES THT 13mm
+Change Component Comment : Designator=R502 Old Comment=Resistor New Comment=10
+Change Component Comment : Designator=R507 Old Comment=Resistor New Comment=10
+Change component parameters: Designator = "R502" ("R502"); Footprint = "RES SMD 0201"; UniqueID = "\ZWLSVNEU" ("\ZWLSVNEU")
+Change component parameters: Designator = "R507" ("R507"); Footprint = "RES SMD 0201"; UniqueID = "\QTPQRFPW" ("\QTPQRFPW")
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
