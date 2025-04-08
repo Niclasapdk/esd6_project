@@ -51,6 +51,6 @@ function [outputSound] = IIRFlanger(inputSound, Fs, gain, delay, width, rate)
     outputSound = y;
 end
 
-y1 = IIRFlanger(x1(:,1), fs, 0.7, 0.015, 0.004, 0.5);
+y1 = IIRFlanger(x1(:,1), fs, 0.7, 0.015, 0.004, 1);
 
 audiowrite('guitar_flanged_IIR.wav', y1, fs);
