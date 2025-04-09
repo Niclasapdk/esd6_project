@@ -1,0 +1,23 @@
+Change Component Footprint: Designator=C514 Old Footprint=Cap Lyt Ø18 New Footprint=Cap Lyt Ø8
+Change Component Footprint: Designator=C515 Old Footprint=Cap Lyt Ø18 New Footprint=Cap Lyt Ø8
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found AXIAL-0.4 PCBK
+Add Component: Footprint Not Found AXIAL-0.4 PCBK
+Add Component: Footprint Not Found AXIAL-0.4 PCBK
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Add Pin To Net: Unknown Pin: Pin R203-1
+Add Pin To Net: Unknown Pin: Pin R203-2
+Add Pin To Net: Unknown Pin: Pin R204-1
+Add Pin To Net: Unknown Pin: Pin R204-2
+Add Pin To Net: Unknown Pin: Pin R205-1
+Add Pin To Net: Unknown Pin: Pin R205-2
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Add Class Member: Failed to add class member : Component R203 Res2
+Add Class Member: Failed to add class member : Component R204
+Add Class Member: Failed to add class member : Component R205

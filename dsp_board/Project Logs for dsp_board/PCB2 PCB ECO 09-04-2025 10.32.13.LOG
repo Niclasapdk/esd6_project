@@ -1,0 +1,21 @@
+Removed Member From Class: ClassName=main Member=B103
+Removed Member From Class: ClassName=main Member=B104
+Added Component: Designator=B100(Banana Plug through)
+Added Component: Designator=B101(Banana Plug through)
+Added Component: Designator=B102(Banana Plug through)
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=B100-1
+Added Pin To Net: NetName=+6V Pin=B101-1
+Added Pin To Net: NetName=-6V Pin=B102-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_2 Pin=Q501-3
+Added Member To Class: ClassName=main Member=Component B100 Banana Plug
+Added Member To Class: ClassName=main Member=Component B101 Banana Plug
+Added Member To Class: ClassName=main Member=Component B102 Banana Plug
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
