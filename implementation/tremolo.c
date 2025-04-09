@@ -1,5 +1,4 @@
 #include "tremolo.h"
-#include "lfo.h"
 //range (100-10000mHz)
 
 static Int16 Mix = 16383; //range (3277 - 32439) Q15 (3277 = 0.1, 16383 = 0.5)Q14
@@ -14,23 +13,21 @@ extern long EPM(long *, long *);
 static long oneMinusKpow2Frac2 = 2147481468;
 static long k = 30596646; // the value is 0.0142 but changed to Q1.31
 
-void tremoloFRate(Int16 r);
-
-void tremoloSetRate(Int16 adcvalue){
-	Int16 rate;
-	rate = 100 + (((Int32)adcvalue * (10000-100)) >> 10); //Q15.0
-	fRate(rate); 
-}
-
-void tremoloSetMix(Int16 adcvalue){
-	Mix = 3277 + (((Int32)adcvalue * (16383 - 3277)) >> 10); //Q0.15
-}
-
 void tremoloFRate(Int16 r)
 {
     k = ((long)MAP_BY_TWO_PI_FS * r) << 1; //Q1.31
     oneMinusKpow2Frac2 = (EPM(&k, &k) >> 1); //k^2/2
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31
+}
+
+void tremoloSetRate(Int16 adcvalue){
+	Int16 rate;
+	rate = 100 + (((Int32)adcvalue * (10000-100)) >> 10); //Q15.0
+	tremoloFRate(rate); 
+}
+
+void tremoloSetMix(Int16 adcvalue){
+	Mix = 3277 + (((Int32)adcvalue * (16383 - 3277)) >> 10); //Q0.15
 }
 
 Int16 tremoloLFO(){
@@ -69,5 +66,4 @@ Int16 tremolo(Int16 x){
 	TremoloFx = (initVal+((Int32)Mix * lfoValue)>>15); // Q15 Tremolo value effect
 	y = (((Int32)x * TremoloFx)>>15); // Q15 Modulated signal with tremolo effect
 	return y;
-
 }
