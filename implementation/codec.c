@@ -63,8 +63,8 @@ void initCODEC() {
     AIC3204_rset( 28, 0x00 );  // Data ofset = 0
     AIC3204_rset( 4,  0x03 );  // PLL setting: PLLCLK <- MCLK, CODEC_CLKIN <-PLL CLK
     AIC3204_rset( 6,  0x07 );  // PLL setting: J=7
-    AIC3204_rset( 7,  0x06 );  // PLL setting: HI_BYTE(D=1680)
-    AIC3204_rset( 8,  0x90 );  // PLL setting: LO_BYTE(D=1680)
+    AIC3204_rset( 7,  0x02 );  // PLL setting: HI_BYTE(D=560)
+    AIC3204_rset( 8,  0x30 );  // PLL setting: LO_BYTE(D=560)
     AIC3204_rset( 30, 0x88 );  // For 32 bit clocks per frame in Master mode ONLY
                                // BCLK=DAC_CLK/N =(12288000/8) = 1.536MHz = 32*fs
     AIC3204_rset( 5,  0x91 );  // PLL setting: Power up PLL, P=1 and R=1
@@ -72,10 +72,10 @@ void initCODEC() {
     AIC3204_rset( 13, 0x00 );  // Hi_Byte(DOSR) for DOSR = 128 decimal or 0x0080 DAC oversamppling
     AIC3204_rset( 14, 0x80 );  // Lo_Byte(DOSR) for DOSR = 128 decimal or 0x0080
     AIC3204_rset( 20, 0x80 );  // AOSR for AOSR = 128 decimal or 0x0080 for decimation filters 1 to 6
-    AIC3204_rset( 11, 0x82 );  // Power up NDAC and set NDAC value to 2
-    AIC3204_rset( 12, 0x87 );  // Power up MDAC and set MDAC value to 7
-    AIC3204_rset( 18, 0x87 );  // Power up NADC and set NADC value to 7
-    AIC3204_rset( 19, 0x82 );  // Power up MADC and set MADC value to 2
+    AIC3204_rset( 11, 0x83 );  // Power up NDAC and set NDAC value to 3
+    AIC3204_rset( 12, 0x85 );  // Power up MDAC and set MDAC value to 5
+    AIC3204_rset( 18, 0x85 );  // Power up NADC and set NADC value to 5
+    AIC3204_rset( 19, 0x83 );  // Power up MADC and set MADC value to 3
     
     /* DAC ROUTING and Power Up */
     AIC3204_rset( 0,  0x01 );  // Select page 1
