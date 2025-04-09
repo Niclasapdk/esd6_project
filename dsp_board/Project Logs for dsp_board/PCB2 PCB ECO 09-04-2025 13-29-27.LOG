@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=NetC508_1 Pin=Q500-1
+Removed Pin From Net: NetName=+6V Pin=Q500-2
+Removed Pin From Net: NetName=NetC508_2 Pin=Q500-3
+Removed Pin From Net: NetName=GND Pin=U500-
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC508_2 Pin=Q500-1
+Added Pin To Net: NetName=NetC508_1 Pin=Q500-2
+Added Pin To Net: NetName=+6V Pin=Q500-3
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode

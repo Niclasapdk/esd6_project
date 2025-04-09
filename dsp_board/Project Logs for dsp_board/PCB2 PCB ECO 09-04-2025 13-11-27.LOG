@@ -1,0 +1,57 @@
+Change Component Footprint: Designator=DSP_IN Old Footprint=3.5MMJACK - duplicate New Footprint=3.5MMJACK
+Change Component Footprint: Designator=DSP_OUT Old Footprint=3.5MMJACK - duplicate New Footprint=3.5MMJACK
+Change Component Footprint: Designator=K500 Old Footprint=Wire 0.8mm New Footprint=Wire 1.5mm
+Change Component Footprint: Designator=K501 Old Footprint=Wire 0.8mm New Footprint=Wire 1.5mm
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=K200(Wire 1.5mm)
+Added Component: Designator=K201(Wire 1.5mm)
+Added Component: Designator=K202(Wire 1.5mm)
+Added Component: Designator=K203(Wire 1.5mm)
+Added Component: Designator=R203(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R204(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Added Component: Designator=R205(AXIAL-0.4 PCBK)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=I2C_SDA Pin=K200-1
+Added Pin To Net: NetName=NetLCD200_3 Pin=K201-1
+Added Pin To Net: NetName=NetLCD200_2 Pin=K202-1
+Added Pin To Net: NetName=I2C_SCL Pin=K203-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=GND Pin=R203-1
+Added Pin To Net: NetName=NetMENU_CTRL201_2 Pin=R203-2
+Added Pin To Net: NetName=I2C_SDA Pin=R204-1
+Added Pin To Net: NetName=VCC_3V3 Pin=R204-2
+Added Pin To Net: NetName=I2C_SCL Pin=R205-1
+Added Pin To Net: NetName=VCC_3V3 Pin=R205-2
+Change Net Name : Old Net Name=NetLCD200_2 New Net Name=NetK202_1
+Change Net Name : Old Net Name=NetLCD200_3 New Net Name=NetK201_1
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=switches_connectors Member=Component K200 Wire
+Added Member To Class: ClassName=switches_connectors Member=Component K201 Wire
+Added Member To Class: ClassName=switches_connectors Member=Component K202 Wire
+Added Member To Class: ClassName=switches_connectors Member=Component K203 Wire
+Added Member To Class: ClassName=switches_connectors Member=Component R203 Res2
+Added Member To Class: ClassName=switches_connectors Member=Component R204
+Added Member To Class: ClassName=switches_connectors Member=Component R205

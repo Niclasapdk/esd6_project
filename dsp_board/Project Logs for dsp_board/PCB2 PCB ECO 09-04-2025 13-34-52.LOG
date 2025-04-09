@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=GPIO17 Pin=J102-10
+Removed Pin From Net: NetName=GPIO11 Pin=J102-12
+Removed Pin From Net: NetName=GPIO10 Pin=J102-13
+Removed Pin From Net: NetName=GPIO5 Pin=J102-14
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=FX Switches400-5
+Added Pin To Net: NetName=GPIO17 Pin=J102-9
+Added Pin To Net: NetName=GPIO11 Pin=J102-10
+Added Pin To Net: NetName=GPIO10 Pin=J102-12
+Added Pin To Net: NetName=GPIO5 Pin=J102-13
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=GND Pin=R404-2
+Added Pin To Net: NetName=GND Pin=R405-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Change Net Name : Old Net Name=GPIO5 New Net Name=GPIO10
+Change Net Name : Old Net Name=GPIO10 New Net Name=GPIO11
+Change Net Name : Old Net Name=GPIO11 New Net Name=GPIO17
+Change Net Name : Old Net Name=GPIO17 New Net Name=GPIO16
+Added Pin To Net: NetName=GPIO5 Pin=J102-14
+Added Net: Name=GPIO5
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
