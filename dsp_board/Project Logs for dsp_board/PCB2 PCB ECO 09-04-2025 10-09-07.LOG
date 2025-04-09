@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=+6V Pin=B+6V-1
+Removed Pin From Net: NetName=-6V Pin=B-6V-1
+Removed Pin From Net: NetName=GND Pin=BGND-1
+Removed Member From Class: ClassName=main Member=B+6V
+Removed Member From Class: ClassName=main Member=B-6V
+Removed Member From Class: ClassName=main Member=BGND
+Change Component Designator: OldDesignator=B? NewDesignator=B103
+Change Component Designator: OldDesignator=B? NewDesignator=B104
+Add Component: Footprint Not Found BANANA PLUG THT
+Add Component: Footprint Not Found BANANA PLUG THT
+Add Component: Footprint Not Found BANANA PLUG THT
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin B100-1
+Add Pin To Net: Unknown Pin: Pin B101-1
+Add Pin To Net: Unknown Pin: Pin B102-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetC509_1 Pin=Q501-3
+Change Net Name : Old Net Name=NetB?_1 New Net Name=NetB103_1
+Add Class Member: Failed to add class member : Component B100 Banana Plug
+Add Class Member: Failed to add class member : Component B101 Banana Plug
+Add Class Member: Failed to add class member : Component B102 Banana Plug
+Added Member To Class: ClassName=main Member=Component B103 Banana Plug
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
