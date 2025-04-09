@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=J100-5
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=J100-6
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=J100-8
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=J100-13
+Removed Pin From Net: NetName=VCC_USB_DUAL Pin=J100-14
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J102-6
+Added Pin To Net: NetName=GPIO4 Pin=MENU_CTRL200-2
+Added Pin To Net: NetName=GPIO5 Pin=MENU_CTRL201-2
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=GPIO4 Pin=R200-2
+Added Pin To Net: NetName=GPIO5 Pin=R203-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Change Net Name : Old Net Name=VCC_USB_DUAL New Net Name=+5V
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=J100-5
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=J100-6
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=J100-8
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=J100-13
+Added Pin To Net: NetName=VCC_USB_DUAL Pin=J100-14
+Added Net: Name=VCC_USB_DUAL
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Rule: Name=Schematic Supply Nets_9

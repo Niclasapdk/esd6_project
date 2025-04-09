@@ -1,0 +1,15 @@
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Change Net Name : Old Net Name=VCC_3V3 New Net Name=+3V3
+Change Net Name : Old Net Name=VCC_USB_DUAL New Net Name=+5
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Rule: Name=Schematic Supply Nets_10
+Added Rule: Name=Schematic Supply Nets_11

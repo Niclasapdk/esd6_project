@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=+5V Pin=J200-1
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode

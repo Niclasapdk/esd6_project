@@ -1,0 +1,16 @@
+Added Component: Designator=D300(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=D301(SMB)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Component: Designator=R206(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q500-4
+Added Pin To Net: NetName=NetJ201_3 Pin=R206-1
+Added Pin To Net: NetName=NetJ200_2 Pin=R206-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Add Pin To Net: Unknown Pin: Pin U500-2
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D300 Diode
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 1N4007
+Added Member To Class: ClassName=amplifier_stage Member=Component D301 Diode
+Added Member To Class: ClassName=switches_connectors Member=Component R206 Resistor
