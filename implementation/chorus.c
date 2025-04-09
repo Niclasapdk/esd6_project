@@ -48,7 +48,7 @@ void chorusFRate(Int16 r)
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31
 }
 
-Int16 chorusLFO(int *out){
+void chorusLFO(int *out){
 	static long delaylineLFO[2] = {1518270939,0}; //Q1.31 format for 0.707 and 0 
 	long agc = 1073741824; // 1 for start gain
 	int outtmp[2];
