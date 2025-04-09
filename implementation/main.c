@@ -8,9 +8,13 @@
 
 // FX
 #include "wah.h"
-extern Int16 ts808(Int16);
-extern void setDriveResist(Int16);
+//extern Int16 ts808(Int16);
+//extern void setDriveResist(Int16);
 #include "distortion.h"
+#include "chorus.h"
+#include "flanger.h"
+#include "tremolo.h"
+#include "reverb.h"
 
 // dummy function for the setParam function pointers
 void dummyFunc(Int16 adcVal) {}
@@ -40,7 +44,7 @@ static void (*fxParam2[NUM_FX])(Int16);
 static void (*fxParam3[NUM_FX])(Int16);
 
 int main() {
-	Int16 fuck;
+	Int16 fuck, adcVal;
 	Int16 i;
 	Int16 gpios;
 	Int16 switchFxCtr = 0;
@@ -53,17 +57,19 @@ int main() {
 	
 	//// FX setup
 	// WAH
-	fx[FX_WAH] = dummyFunc; //FIXME should be wah when it is made
-	fxParam1[FX_WAH] = setWahPedal;
-	fxParam2[FX_WAH] = dummyFunc;
-	fxParam3[FX_WAH] = dummyFunc;
+	fx[FX_WAH] = wah;
 	// Overdrive
 	fx[FX_OD] = tanhDistortion;
-	fxParam1[FX_OD] = distSetDrive;
-	fxParam2[FX_OD] = dummyFunc;
-	fxParam3[FX_OD] = dummyFunc;
+	// Flanger
+	fx[FX_FLANGER] = flanger_IIR;
+	// Chorus
+	fx[FX_CHORUS] = chorus;
+	// Tremolo
+	fx[FX_TREMOLO] = tremolo;
+	// Reverb
+	fx[FX_REVERB] = reverb;
 	
-	fxOn = 2;
+	fxOn = 1<<FX_OD;
 	
 	// Infinite loop
 	while (1) {
@@ -76,8 +82,8 @@ int main() {
 //		}
 
 		// Read potentiometer and change FX parameters
-		fuck = readAdcBlocking(3);
-		printf("fuck=%d\n", fuck);
+//		adcVal = readAdcBlocking(3);
+//		printf("adcVal=%d\n", adcVal);
 		
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);

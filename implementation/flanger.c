@@ -14,8 +14,8 @@ extern long EPM(long *, long *);
 #define MAP_BY_TWO_PI_FS 1530 //2*pi*mapfactor/fs,fs=4410, mapfactor=0.1*2^15/100
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
 
-static long oneMinusKpow2Frac2 = 2147481468;
-static long k = 30596646; // the value is 0.0142 but changed to Q1.31
+static long oneMinusKpow2Frac2 = 2147483104;
+static long k = 1530000; // the value is 0.0142 but changed to Q1.31
 
 void flangerFRate(Int16 r);
 
