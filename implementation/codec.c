@@ -95,14 +95,15 @@ void initCODEC() {
     AIC3204_rset( 0,  0x01 );  // Select page 1
     AIC3204_rset( 52, 0x30 );  // STEREO 1 Jack
                                // IN2_L to LADC_P through 40 kohm
-    AIC3204_rset( 55, 0x30 );  // IN2_R to RADC_P through 40 kohmm
+    AIC3204_rset( 55, 0x00 );  // IN2_R not routed to LADC_P
     AIC3204_rset( 54, 0x03 );  // CM_1 (common mode) to LADC_M through 40 kohm
-    AIC3204_rset( 57, 0xc0 );  // CM_1 (common mode) to RADC_M through 40 kohm
-    AIC3204_rset( 59, 0x00 );  // MIC_PGA_L unmute
-    AIC3204_rset( 60, 0x00 );  // MIC_PGA_R unmute
+    AIC3204_rset( 57, 0x00 );  // CM_1 (common mode) not routed to RADC_M
+    // TODO create input gain adjustment mode to
+    // set input gain for example when switching guitars
+    AIC3204_rset( 59, 0x15 );  // MIC_PGA_L unmute and MicPGA left gain to 10.5 dB
     AIC3204_rset( 0,  0x00 );  // Select page 0
-    AIC3204_rset( 81, 0xc0 );  // Powerup Left and Right ADC
-    AIC3204_rset( 82, 0x00 );  // Unmute Left and Right ADC
+    AIC3204_rset( 81, 0x80 );  // Powerup Left ADC
+    AIC3204_rset( 82, 0x08 );  // Unmute Left and mute Right ADC
     AIC3204_rset( 0,  0x00 );  // Select page 0 
     EZDSP5535_waitusec(10000);  // Wait
     

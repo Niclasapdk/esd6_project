@@ -68,9 +68,7 @@ int main() {
 	fx[FX_TREMOLO] = tremolo;
 	// Reverb
 	fx[FX_REVERB] = reverb;
-	
-	fxOn = 1<<FX_OD;
-	
+
 	// Infinite loop
 	while (1) {
 		
@@ -87,7 +85,6 @@ int main() {
 		
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);
-		fuck *= 2;
 		for (i=0; i<NUM_FX; i++) {
 			if (fxOn&(1<<i)) {
 				fuck = fx[i](fuck);
