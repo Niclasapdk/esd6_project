@@ -1,61 +1,75 @@
-clc; clear; close all;
+% Parameters
+f = 1;              % Frequency in Hz
+fs = 44100;         % Sampling frequency
+duration = 2;       % seconds
+N = fs * duration;  % Number of samples
 
-% Define x from 0 to pi/2
-x = linspace(0, pi/2, 100); 
+% Time and angle vectors
+t = (0:N-1)/fs;
+theta = 2 * pi * f * t;
 
-% Normalize x according to Q15 input scaling
-x_norm = x/pi;  % Since input is expected in (-1,1) range
+% True sine wave
+y_sin = sin(theta);
 
-% True sine function
-y_sin = sin(x);
+% === Custom Polynomial Approximation ===
+x_norm = mod(theta+pi, 2*pi); % Wrap angle
+x_norm = (x_norm - pi) / pi;  % Normalize [-1, 1]
 
-% Standard Taylor approximation (5th order)
-%y_taylor = x - (x.^3)/factorial(3) + (x.^5)/factorial(5);
-
-% Given Q15 coefficients (assumed in floating-point)
+% Coefficients
 c1 = 3.140625;
 c2 = 0.02026367;
 c3 = -5.3251;
 c4 = 0.5446778;
 c5 = 1.800293;
 
-% Compute the sine approximation using rescaled coefficients
-y_custom_scaled = c1*x_norm + c2*x_norm.^2 + c3*x_norm.^3 + c4*x_norm.^4 + c5*x_norm.^5;
+y_custom_scaled = c1*x_norm + c2*x_norm.^2 + c3*x_norm.^3 + ...
+                  c4*x_norm.^4 + c5*x_norm.^5;
 
-% Define frequency and sampling rate
-f = 1;          % Example frequency
-fs = 44100;     % Sampling frequency
+% === Matrix-Based Approximation ===
 k = (2 * pi * f) / fs;
 
-% Initialize matrices
-x1 = 1;  % Initial conditions for x1
-x2 = 0;  % Initial conditions for x2
+% Standard matrix oscillator
+x1 = 0; x2 = 1;
+y1 = zeros(1, N);
 
-y1 = zeros(size(x));
-y2 = zeros(size(x));
+% Gain-corrected version
+x1_corr = 1; x2_corr = 0;
+y_corr = zeros(1, N);
 
-for i = 1:length(x)
-    % Matrix computation
-    y1(i) = (1 - (k^2)/2) * x1 + k * x2;
-    y2(i) = -k * x1 + (1 - (k^2)/2) * x2;
-    
-    % Update for next iteration
+for i = 1:N
+    % Basic matrix oscillator
+    y1(i) = (1 - k^2/2) * x1 + k * x2;
+    x2_new = -k * x1 + (1 - k^2/2) * x2;
     x1 = y1(i);
-    x2 = y2(i);
+    x2 = x2_new;
+    
+    % Gain-corrected oscillator
+    y1_corr = (1 - k^2/2) * x1_corr + k * x2_corr;
+    y2_corr = -k * x1_corr + (1 - k^2/2) * x2_corr;
+    
+    % Power & gain
+    P = y1_corr^2 + y2_corr^2;
+    G = 1.5 - P;
+    
+    x1_corr = G * y1_corr;
+    x2_corr = G * y2_corr;
+    
+    y_corr(i) = y1_corr;
 end
 
-% Plot results
+% === Plot All Approximations ===
+plot_range = 1:round(fs/f/4);  % One cycle for clarity
+
 figure;
 hold on;
-plot(x, y_sin, 'k-', 'LineWidth', 2); % True sine wave
-%plot(x, y_taylor, 'r--', 'LineWidth', 2); % Standard Taylor approximation
-plot(x, y_custom_scaled, 'b-.', 'LineWidth', 2); % Rescaled custom approximation
-plot(x, y1, 'g:', 'LineWidth', 2); % Matrix-based approximation
-hold off;
+plot(theta(plot_range), y_sin(plot_range), 'k-', 'LineWidth', 2);
+plot(theta(plot_range), y_custom_scaled(plot_range), 'b-.', 'LineWidth', 1.8);
+plot(theta(plot_range), y1(plot_range), 'g:', 'LineWidth', 1.8);
 
-% Labels and legend
-xlabel('x (radians)');
-ylabel('sin(x) and approximations');
-title('Sine Wave vs. Approximations');
-legend('True sin(x)', 'Custom Approximation', 'Matrix-Based Approximation', 'FontSize', 14);
+xlabel('\theta (radians)');
+ylabel('Amplitude');
+title('Sine Approximations via Matrix Oscillator');
+legend('True sin(x)', 'Custom Approximation', ...
+       'Matrix-Based', 'FontSize', 12);
 grid on;
+hold off;
