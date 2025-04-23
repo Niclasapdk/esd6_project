@@ -17,7 +17,7 @@ ir = zeros(1,N);
 
 % Filter parameters
 gain = 1; 
-reverbtime = 1;
+reverbtime = 4;
 
 % Apply reverb
 ir = reverb(input_signal, fs, gain, reverbtime);
@@ -34,6 +34,8 @@ figure;
 plot(t, output_dB, 'k', 'DisplayName', 'Reverb Response'); hold on;
 plot(t, input_dB, 'b', 'DisplayName', 'Input (White Noise → Silence)');
 
+% Set x-axis tick interval (e.g., every 0.5 seconds)
+xticks(0:0.5:max(t));
 
 % Labels and grid
 xlabel('Time (seconds)');
