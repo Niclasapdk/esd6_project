@@ -52,7 +52,7 @@ Int16 early(Int16 x)
     #define tapN 6//length of early reflection vector
     #define earlyM 3511//0.0796*fs
     static const Int16 tapGain[tapN] = {32767, 26804, 20808, 23560, 8749, 7930};//Q15: signed int = 32767*gain factor--first gain set to 1 instead of 1.02
-    static const Int16 tapDelay[tapN] = {878, 1562, 1716, 1826, 3083, 3511};//tapDelay * fs
+    static const Int16 tapDelay[tapN] = {878, 1562, 1716, 1826, 3083, 3510};//tapDelay * fs
     static Int16 earlyDelayline[earlyM] = {0};
     static Int16 earlyDelayTmp[tapN] = {0};
     static Uint16 idx = 0;
