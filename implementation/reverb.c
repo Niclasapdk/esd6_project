@@ -66,7 +66,7 @@ Int16 early(Int16 x)
     sum = ((Int32)tapGain[0] * earlyDelayline[earlyDelayTmp[0]]);//they divide by 2 ie << 1
     for (i = 1; i < tapN; i++)
     {
-    	sum += ((Int16)tapGain[i] * earlyDelayline[earlyDelayTmp[i]]);
+    	sum += ((Int32)tapGain[i] * earlyDelayline[earlyDelayTmp[i]]);
     }
     
     y = (sum >> 15) + x;
