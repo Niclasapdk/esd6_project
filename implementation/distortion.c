@@ -1,6 +1,7 @@
 #include "distortion.h"
 
 static Int16 drive = 32767; // Q6.9
+static Int16 level = 16384; // Q15
 
 #define tanhLUT_len 1024
 #define tanhFactor 21824 // should be changed if LUT len changes (see implementation of tanh dist)
@@ -143,6 +144,11 @@ void distSetDrive(Int16 adcVal) {
 	drive = adcVal*32;
 }
 
+void distSetLevel(Int16 adcVal) {
+	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
+	level = adcVal*32;
+}
+
 Int16 distLowpass(Int16 x) {
 	// y[n] = (1 - alpha) * y[n-1] + alpha * x[n]
 	static Int16 yOld = 0;
@@ -172,5 +178,6 @@ Int16 tanhDistortion(Int16 x) {
 		y = tanhLUT[idx];
 	}
 	y = distLowpass(y);
+	y = ((Int32)y * (Int32)level)>>15;
 	return y;
 }
