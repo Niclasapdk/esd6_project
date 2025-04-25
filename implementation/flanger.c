@@ -19,38 +19,38 @@ static long k = 1530000; // the value is 0.0142 but changed to Q1.31
 
 void flangerFRate(Int16 r);
 
-void flangerSetDelay(Int16 adcvalue){
-	Delay = 22 + (((Int32)adcvalue*(331-22))>>10); // 0.5ms + diff
+void flangerSetDelay(Int16 adcVal) {
+	Delay = 22 + (((Int32)adcVal*(331-22))>>10); // 0.5ms + diff
 }
 
-void flangerSetRate(Int16 adcvalue){
+void flangerSetRate(Int16 adcVal) {
 	Int16 rate; 	
-    if(adcvalue > 1000)
+    if(adcVal > 1000)
 	{
 		rate = 1000;
 	}
-	else if(adcvalue < 100){
+	else if(adcVal < 100){
 		rate = 100;
 	}
 	else{
-		rate = adcvalue;
+		rate = adcVal;
 	}
 	flangerFRate(rate); // flangerLFO rate in mHz
 }
 
-void flangerSetMix(Int16 adcvalue){
-	Mix = 3277 + (((Int32)adcvalue*(32439-3277))>>10); // 0.1 + diff
+void flangerSetMix(Int16 adcVal) {	
+	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
+	Mix = adcVal*16; // max mix approx. 0.5
     invMix = 32767-Mix;
 }
 
-void flangerFRate(Int16 r)
-{
+void flangerFRate(Int16 r) {
     k = ((long)MAP_BY_TWO_PI_FS * r) << 1; //Q1.31
     oneMinusKpow2Frac2 = (EPM(&k, &k) >> 1); //k^2/2
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31
 }
 
-Int16 flangerLFO(){
+Int16 flangerLFO() {
 	Int16 out = 0;
 	static long delaylineLFO[2] = {1518270939,0}; //Q1.31 format for 0.707 and 0 
 	long agc = 1073741824; // 1 for start gain
@@ -107,6 +107,5 @@ Int16 flanger_FIR(Int16 xn) {
     if (delayIndex >= MAX_DELAY) {
         delayIndex = 0;
     }
-    
     return yn;
 }

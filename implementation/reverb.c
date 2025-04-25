@@ -21,7 +21,7 @@ static const Int16 reverbGainLUT[reverbGainLUTlen] =
     29527,  29612,  29693,  29770
 };
 
-void setReverbTime(Int16 adcVal)//value from adc 10 bit 
+void reverbSetTime(Int16 adcVal)//value from adc 10 bit 
 {
 	Int16 i;
 	//calculate the idx for the LUT
@@ -37,9 +37,9 @@ void setReverbTime(Int16 adcVal)//value from adc 10 bit
     reverbCombGain = reverbGainLUT[idx];
 }
 
-void setReverbMix(Int16 adcVal)//take Q15 value to set mix in reverb
-{
-	reverbMix = adcVal;
+void reverbSetMix(Int16 adcVal) {
+	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
+	reverbMix = adcVal*6; // max mix approx. 0.2
 }
 //**************************************//
 //			Reverb Blocks				//

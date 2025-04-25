@@ -27,18 +27,20 @@ void chorusFRate(Int16 r);
 // State variables
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
-void chorusSetDelay(Int16 adcvalue){
-	Delay = 22 + (((Int32)adcvalue*(331-22))>>10); // 1ms + diff
+void chorusSetDelay(Int16 adcVal){
+	Delay = 22 + (((Int32)adcVal*(331-22))>>10); // 1ms + diff
 }
 
-void chorusSetRate(Int16 adcvalue){
+void chorusSetRate(Int16 adcVal){
 	Int16 rate;
-	rate = 100 + (((Int32)adcvalue * (5000-100)) >> 10); //Q15.0
+	rate = 100 + (((Int32)adcVal * (5000-100)) >> 10); //Q15.0
 	chorusFRate(rate);
 }
 
-void chorusSetDepth(Int16 adcvalue){
-	Mix = 3277 + (((Int32)adcvalue*(32439-3277))>>10);
+void chorusSetMix(Int16 adcVal){
+	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
+	Mix = adcVal*6; // max mix approx. 0.2
+	invMix = 32767 - Mix;
 }
 
 void chorusFRate(Int16 r)

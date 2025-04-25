@@ -7,6 +7,6 @@
 Int16 tremolo(Int16 x);
 void tremoloFRate(Int16 r);
 void tremoloSetRate(Int16 adcVal);
-void tremoloSetMix(Int16 adcVal2);
+void tremoloSetDepth(Int16 adcVal2);
 
 #endif /*TREMOLO_H_*/

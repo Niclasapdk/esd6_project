@@ -17,9 +17,6 @@
 #include "tremolo.h"
 #include "reverb.h"
 
-// dummy function for the setParam function pointers
-void dummyFunc(Int16 adcVal) {}
-
 // Order of effects which gives their indices
 typedef enum {
 	FX_WAH,
@@ -27,22 +24,38 @@ typedef enum {
 	FX_CHORUS,
 	FX_FLANGER,
 	FX_TREMOLO,
-	FX_REVERB
+	FX_REVERB,
+	NUM_FX // Number of FX
 } fxIdx_e;
 
-// Number of FX
-#define NUM_FX 6
+// FX parameters (adjusted by pedal)
+typedef enum {
+	PARAM_WAH_PEDAL,
+	PARAM_OD_DRIVE,
+	PARAM_OD_LEVEL,
+	PARAM_CHORUS_MIX,
+	PARAM_CHORUS_RATE,
+	PARAM_CHORUS_DELAY,
+	PARAM_FLANGER_MIX,
+	PARAM_FLANGER_RATE,
+	PARAM_FLANGER_DELAY,
+	PARAM_TREMOLO_DEPTH,
+	PARAM_TREMOLO_RATE,
+	PARAM_REVERB_MIX,
+	PARAM_REVERB_TIME,
+	NUM_FX_PARAMS // Number of FX parameters
+} fxParamIdx_e;
+
 // FX function pointers
+// these take sample as input and returns result
 static Int16 (*fx[NUM_FX])(Int16);
+// FX parameter function pointers
+// these take adc value from potentiometer and update parameters accordingly
+static void (*fxParam[NUM_FX_PARAMS])(Int16);
 // FX toggling
 static Uint8 fxOn = 0;
 // Current FX being modified by menu
-static Uint8 menuCurrentFx = 0;
-// FX parameter function pointers
-// these take adc value from potentiometer and update parameters accordingly
-static void (*fxParam1[NUM_FX])(Int16);
-static void (*fxParam2[NUM_FX])(Int16);
-static void (*fxParam3[NUM_FX])(Int16);
+static Uint8 menuCurrentFx = PARAM_FLANGER_MIX;
 
 int main() {
 	Int16 fuck, adcVal;
@@ -59,23 +72,35 @@ int main() {
 	*EBSR = (fuck&0xf0ff)|0x0a00;
 	*IODIR1 = 0;
 
-	//// FX setup
-	// WAH
+	// FX function pointer setup
 	fx[FX_WAH] = wah;
-	// Overdrive
 	fx[FX_OD] = tanhDistortion;
-	// Flanger
 	fx[FX_FLANGER] = flanger_FIR;
-	// Chorus
 	fx[FX_CHORUS] = chorus;
-	// Tremolo
 	fx[FX_TREMOLO] = tremolo;
-	// Reverb
 	fx[FX_REVERB] = reverb;
+	
+	// FX param function pointer setup
+	fxParam[PARAM_WAH_PEDAL] = setWahPedal;
+	fxParam[PARAM_OD_DRIVE] = distSetDrive;
+	fxParam[PARAM_OD_LEVEL] = distSetLevel;
+	fxParam[PARAM_CHORUS_MIX] = chorusSetMix;
+	fxParam[PARAM_CHORUS_RATE] = chorusSetRate;
+	fxParam[PARAM_CHORUS_DELAY] = chorusSetDelay;
+	fxParam[PARAM_FLANGER_MIX] = flangerSetMix;
+	fxParam[PARAM_FLANGER_RATE] = flangerSetRate;
+	fxParam[PARAM_FLANGER_DELAY] = flangerSetDelay;
+	fxParam[PARAM_TREMOLO_DEPTH] = tremoloSetDepth;
+	fxParam[PARAM_TREMOLO_RATE] = tremoloSetRate;
+	fxParam[PARAM_REVERB_MIX] = reverbSetMix;
+	fxParam[PARAM_REVERB_TIME] = reverbSetTime;
+	
+	// Initialize by setting all params with pedal half on
+	for (i=0; i<NUM_FX_PARAMS; i++) fxParam[i](512);
 
 	// Infinite loop
 	while (1) {
-		// Read switches and toggle effects
+		// Read switches, toggle fx, and update menu
 		if (switchFxCtr++ == 1000) { // Update once per n samples
 			switchFxCtr = 0;
 			gpios = *IOINDATA1;
@@ -83,10 +108,8 @@ int main() {
 		}
 
 		// Read potentiometer and change FX parameters
-//		
 		adcVal = readAdcBlocking(3);
-		distSetDrive(adcVal);
-//		printf("a=%d\n", adcVal);
+		fxParam[menuCurrentFx](adcVal);
 
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);
