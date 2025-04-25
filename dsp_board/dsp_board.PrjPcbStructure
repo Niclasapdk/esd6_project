@@ -1,5 +1,6 @@
 Record=TopLevelDocument|FileName=amplifier_stage.SchDoc|SheetNumber=3
 Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=main.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=power_supply.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=shift_registers.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=power_supply.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=regulators.SchDoc|SheetNumber=5
 Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=switches_connectors.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=amplifier_stage.SchDoc|FileName=switches_LEDs.SchDoc|SheetNumber=4
