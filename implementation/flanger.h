@@ -3,7 +3,7 @@
 
 #include <ezdsp5535.h>
 
-Int16 flanger_IIR(Int16 xn);
+Int16 flanger_FIR(Int16 xn);
 void flangerFRate(Int16 r);
 void flangerSetDelay(Int16 adcvalue);
 void flangerSetRate(Int16 adcvalue);

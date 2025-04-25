@@ -70,7 +70,7 @@ Int16 flangerLFO(){
 	return out;
 }
 
-Int16 flanger_IIR(Int16 xn) {
+Int16 flanger_FIR(Int16 xn) {
 	static Int16 delayIndex;
 	static Int16 LFOIndex = 10;
 	static Int16 LFOVal = 0;
@@ -100,7 +100,7 @@ Int16 flanger_IIR(Int16 xn) {
     yn = (((long)invMix * xn) + ((long)Mix * delayedSample)) >> 15;
     
     // Update the delay line with the current input plus the feedback of the delayed sample
-    fDelayLine[delayIndex] = yn;
+    fDelayLine[delayIndex] = xn;
     
     // Update the delay line pointer
     delayIndex++;
