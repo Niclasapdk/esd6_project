@@ -11,7 +11,7 @@ void initAdc() {
 	*SARGPOCTRL = 0xffff; // set all as output to try to fix this shit adc
 	*SARGPOCTRL = 0;      // all analog inputs as analog inputs (not gpio)
 	*SARPINCTRL = 0x061b; // set all weird values to reset them later to fix this shit adc
-	*SARPINCTRL = 0x3601; // (PWRUPBIAS|SARPWRUP|FUCK)
+	*SARPINCTRL = 0x3600; // (PWRUPBIAS|SARPWRUP|FUCK)
 	*SARCLKCTRL = 64;     // clock division (+1)
 }
 
