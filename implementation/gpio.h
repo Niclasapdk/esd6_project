@@ -5,6 +5,7 @@
 
 ioport int *IODIR1    = (ioport int *)0x1C06;
 ioport int *IOINDATA1 = (ioport int *)0x1C08;
+ioport int *EBSR      = (ioport int *)0x1C00;
 
 void initGpios();
 

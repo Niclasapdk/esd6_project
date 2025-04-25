@@ -4,6 +4,7 @@
 #include "codec.h"
 #include "gpio.h"
 #include "adc.h"
+#include "lcd.h"
 #include <stdio.h>
 
 // FX
@@ -46,22 +47,25 @@ static void (*fxParam3[NUM_FX])(Int16);
 int main() {
 	Int16 fuck, adcVal;
 	Int16 i;
-	Int16 gpios;
+	Uint16 gpios;
 	Int16 switchFxCtr = 0;
-	
+
     EZDSP5535_init();
     EZDSP5535_I2C_init();
 	initAdc();
 	initCODEC();
+	// Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
+	fuck = *EBSR;
+	*EBSR = (fuck&0xf0ff)|0x0a00;
 	*IODIR1 = 0;
-	
+
 	//// FX setup
 	// WAH
 	fx[FX_WAH] = wah;
 	// Overdrive
 	fx[FX_OD] = tanhDistortion;
 	// Flanger
-	fx[FX_FLANGER] = flanger_IIR;
+	fx[FX_FLANGER] = flanger_FIR;
 	// Chorus
 	fx[FX_CHORUS] = chorus;
 	// Tremolo
@@ -71,18 +75,19 @@ int main() {
 
 	// Infinite loop
 	while (1) {
-		
 		// Read switches and toggle effects
-//		if (switchFxCtr++ == 100) { // Update once per 100 samples
-//			switchFxCtr = 0;
-//			gpios = *IOINDATA1;
-//			fxOn = (gpios>>14)&1; // FIXME dummy
-//		}
+		if (switchFxCtr++ == 1000) { // Update once per n samples
+			switchFxCtr = 0;
+			gpios = *IOINDATA1;
+			fxOn = gpios>>10;
+		}
 
 		// Read potentiometer and change FX parameters
-//		adcVal = readAdcBlocking(3);
-//		printf("adcVal=%d\n", adcVal);
-		
+//		
+		adcVal = readAdcBlocking(3);
+		distSetDrive(adcVal);
+//		printf("a=%d\n", adcVal);
+
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);
 		for (i=0; i<NUM_FX; i++) {
