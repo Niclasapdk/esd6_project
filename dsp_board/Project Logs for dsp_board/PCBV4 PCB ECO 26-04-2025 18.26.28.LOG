@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=D200 Old Footprint=SMB New Footprint=Diode 2 space
+Change Component Comment : Designator=D200 Old Comment=Diode New Comment=Diode DO-35
+Add Pin To Net: Unknown Pin: Pin Q600-4

@@ -1,0 +1,16 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R200
+Change Component Designator: OldDesignator=R? NewDesignator=R201
+Change Component Designator: OldDesignator=R? NewDesignator=R202
+Change Component Designator: OldDesignator=R? NewDesignator=R203
+Change Component Designator: OldDesignator=R? NewDesignator=R204
+Change Component Designator: OldDesignator=R? NewDesignator=R205
+Change Component Designator: OldDesignator=R? NewDesignator=R206
+Change Component Designator: OldDesignator=R? NewDesignator=R207
+Add Pin To Net: Unknown Pin: Pin Q600-4
+Added Member To Class: ClassName=switches_connectors Member=Component R200 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R201 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R202 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R204 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R205 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R206 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R207 Resistor

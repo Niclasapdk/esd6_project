@@ -1,0 +1,32 @@
+Change Component Footprint: Designator=R301 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R303 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R305 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R307 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R310 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R311 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R500 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R501 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R502 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R601 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R602 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R603 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R604 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Added Component: Designator=M200(M3 Hole)
+Added Component: Designator=M201(M3 Hole)
+Added Component: Designator=M202(M3 Hole)
+Added Component: Designator=M203(M3 Hole)
+Added Component: Designator=M204(M3 Hole)
+Added Component: Designator=M205(M3 Hole)
+Added Pin To Net: NetName=GND Pin=M200-1
+Added Pin To Net: NetName=GND Pin=M201-1
+Added Pin To Net: NetName=GND Pin=M202-1
+Added Pin To Net: NetName=GND Pin=M203-1
+Added Pin To Net: NetName=GND Pin=M204-1
+Added Pin To Net: NetName=GND Pin=M205-1
+Add Pin To Net: Unknown Pin: Pin Q600-4
+Added Member To Class: ClassName=switches_connectors Member=Component M200 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M201 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M202 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M203 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M204 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M205 Screw Hole

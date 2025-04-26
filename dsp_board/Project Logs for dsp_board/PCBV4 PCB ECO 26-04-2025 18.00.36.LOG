@@ -1,0 +1,202 @@
+Removed Pin From Net: NetName=GND Pin=R206-1
+Removed Pin From Net: NetName=NetJ200_2 Pin=R206-2
+Removed Pin From Net: NetName=NetJ201_3 Pin=R207-1
+Removed Pin From Net: NetName=NetJ200_2 Pin=R207-2
+Removed Member From Class: ClassName=switches_connectors Member=R206
+Removed Member From Class: ClassName=switches_connectors Member=R207
+Added Component: Designator=R300(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1K47"; VariantName = "[No Variations]"
+Added Component: Designator=R301(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "1k47"; VariantName = "[No Variations]"
+Added Component: Designator=R302(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R303(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R304(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1k47"; VariantName = "[No Variations]"
+Added Component: Designator=R305(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "1k47"; VariantName = "[No Variations]"
+Added Component: Designator=R306(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "14k7"; VariantName = "[No Variations]"
+Added Component: Designator=R307(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "14k7"; VariantName = "[No Variations]"
+Added Component: Designator=R308(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "47k"; VariantName = "[No Variations]"
+Added Component: Designator=R309(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R310(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "47k"; VariantName = "[No Variations]"
+Added Component: Designator=R311(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R400(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R401(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R402(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R403(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R404(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R405(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R406(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R407(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R408(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R409(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R410(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=R411(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "300"; VariantName = "[No Variations]"
+Added Component: Designator=R500(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "240"; VariantName = "[No Variations]"
+Added Component: Designator=R501(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "120"; VariantName = "[No Variations]"
+Added Component: Designator=R502(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "240"; VariantName = "[No Variations]"
+Added Component: Designator=R601(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "200k"; VariantName = "[No Variations]"
+Added Component: Designator=R602(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R603(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "10k"; VariantName = "[No Variations]"
+Added Component: Designator=R604(RES SMD 0201)
+Add component (AddParameter): Name = "Value"; Value = "200k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "400"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "4k"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "1K"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES THT 9mm)
+Add component (AddParameter): Name = "Value"; Value = "4k7"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q600-4
+Added Pin To Net: NetName=NetR300_1 Pin=R300-1
+Added Pin To Net: NetName=NetC300_2 Pin=R300-2
+Added Pin To Net: NetName=NetR301_1 Pin=R301-1
+Added Pin To Net: NetName=FX_DSP_IN Pin=R301-2
+Added Pin To Net: NetName=GND Pin=R302-1
+Added Pin To Net: NetName=NetC300_2 Pin=R302-2
+Added Pin To Net: NetName=GND Pin=R303-1
+Added Pin To Net: NetName=FX_DSP_IN Pin=R303-2
+Added Pin To Net: NetName=NetR304_1 Pin=R304-1
+Added Pin To Net: NetName=NetC302_2 Pin=R304-2
+Added Pin To Net: NetName=NetR305_1 Pin=R305-1
+Added Pin To Net: NetName=NetC303_2 Pin=R305-2
+Added Pin To Net: NetName=NetR306_1 Pin=R306-1
+Added Pin To Net: NetName=NetR304_1 Pin=R306-2
+Added Pin To Net: NetName=NetR307_1 Pin=R307-1
+Added Pin To Net: NetName=NetR305_1 Pin=R307-2
+Added Pin To Net: NetName=GND Pin=R308-1
+Added Pin To Net: NetName=NetDSP_OUT300_3 Pin=R308-2
+Added Pin To Net: NetName=GND Pin=R309-1
+Added Pin To Net: NetName=NetR306_1 Pin=R309-2
+Added Pin To Net: NetName=GND Pin=R310-1
+Added Pin To Net: NetName=FX_DSP_OUT Pin=R310-2
+Added Pin To Net: NetName=GND Pin=R311-1
+Added Pin To Net: NetName=NetR307_1 Pin=R311-2
+Added Pin To Net: NetName=GND Pin=R400-1
+Added Pin To Net: NetName=GPIO15 Pin=R400-2
+Added Pin To Net: NetName=NetJ400_3 Pin=R401-1
+Added Pin To Net: NetName=GPIO15 Pin=R401-2
+Added Pin To Net: NetName=GND Pin=R402-1
+Added Pin To Net: NetName=GPIO14 Pin=R402-2
+Added Pin To Net: NetName=NetJ401_3 Pin=R403-1
+Added Pin To Net: NetName=GPIO14 Pin=R403-2
+Added Pin To Net: NetName=GND Pin=R404-1
+Added Pin To Net: NetName=GPIO12 Pin=R404-2
+Added Pin To Net: NetName=NetJ402_3 Pin=R405-1
+Added Pin To Net: NetName=GPIO12 Pin=R405-2
+Added Pin To Net: NetName=GND Pin=R406-1
+Added Pin To Net: NetName=GPIO13 Pin=R406-2
+Added Pin To Net: NetName=NetJ403_3 Pin=R407-1
+Added Pin To Net: NetName=GPIO13 Pin=R407-2
+Added Pin To Net: NetName=GND Pin=R408-1
+Added Pin To Net: NetName=GPIO11 Pin=R408-2
+Added Pin To Net: NetName=NetJ404_3 Pin=R409-1
+Added Pin To Net: NetName=GPIO11 Pin=R409-2
+Added Pin To Net: NetName=GND Pin=R410-1
+Added Pin To Net: NetName=GPIO10 Pin=R410-2
+Added Pin To Net: NetName=NetJ405_3 Pin=R411-1
+Added Pin To Net: NetName=GPIO10 Pin=R411-2
+Added Pin To Net: NetName=NetPot501_2 Pin=R500-1
+Added Pin To Net: NetName=+1V75 Pin=R500-2
+Added Pin To Net: NetName=-1V75 Pin=R501-1
+Added Pin To Net: NetName=NetC500_1 Pin=R501-2
+Added Pin To Net: NetName=NetPot502_2 Pin=R502-1
+Added Pin To Net: NetName=+2V Pin=R502-2
+Added Pin To Net: NetName=NetC603_1 Pin=R601-1
+Added Pin To Net: NetName=NetC603_2 Pin=R601-2
+Added Pin To Net: NetName=GND Pin=R602-1
+Added Pin To Net: NetName=NetC603_1 Pin=R602-2
+Added Pin To Net: NetName=NetC607_2 Pin=R603-1
+Added Pin To Net: NetName=GND Pin=R603-2
+Added Pin To Net: NetName=NetC607_1 Pin=R604-1
+Added Pin To Net: NetName=NetC607_2 Pin=R604-2
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-1
+Added Pin To Net: NetName=I2C_SCL Pin=R?-1
+Added Pin To Net: NetName=I2C_SDA Pin=R?-1
+Added Pin To Net: NetName=NetJ201_3 Pin=R?-1
+Added Pin To Net: NetName=NetK203_1 Pin=R?-1
+Added Pin To Net: NetName=NetK204_1 Pin=R?-1
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+3V3 Pin=R?-2
+Added Pin To Net: NetName=+5V Pin=R?-2
+Added Pin To Net: NetName=+5V Pin=R?-2
+Added Pin To Net: NetName=GPIO4 Pin=R?-2
+Added Pin To Net: NetName=NetJ200_2 Pin=R?-2
+Added Pin To Net: NetName=NetJ200_2 Pin=R?-2
+Added Pin To Net: NetName=NetMENU_CTRL201_2 Pin=R?-2
+Added Member To Class: ClassName=amplifier_stage Member=Component R300 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R301 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R302 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R303 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R304 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R305 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R306 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R307 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R308 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R309 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R310 Resistor
+Added Member To Class: ClassName=amplifier_stage Member=Component R311 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R400 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R401 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R402 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R403 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R404 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R405 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R406 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R407 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R408 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R409 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R410 Resistor
+Added Member To Class: ClassName=switches_LEDs Member=Component R411 Resistor
+Added Member To Class: ClassName=regulators Member=Component R500 Resistor
+Added Member To Class: ClassName=regulators Member=Component R501 Resistor
+Added Member To Class: ClassName=regulators Member=Component R502 Resistor
+Added Member To Class: ClassName=power_supply Member=Component R601 Resistor
+Added Member To Class: ClassName=power_supply Member=Component R602 Resistor
+Added Member To Class: ClassName=power_supply Member=Component R603 Resistor
+Added Member To Class: ClassName=power_supply Member=Component R604 Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor
+Added Member To Class: ClassName=switches_connectors Member=Component R? Resistor

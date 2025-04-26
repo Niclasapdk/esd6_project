@@ -1,0 +1,6 @@
+Added Component: Designator=D201(Diode 2 space)
+Add component (AddParameter): Name = "Model"; Value = "Model"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD200_1 Pin=D201-1
+Added Pin To Net: NetName=+5V Pin=D201-2
+Add Pin To Net: Unknown Pin: Pin Q600-4
+Added Member To Class: ClassName=switches_connectors Member=Component D201 Diode DO-35

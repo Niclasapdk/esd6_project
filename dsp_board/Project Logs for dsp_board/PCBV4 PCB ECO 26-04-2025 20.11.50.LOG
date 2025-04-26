@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=D200 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Footprint: Designator=D201 Old Footprint=Diode 2 space New Footprint=1N4007
+Change Component Comment : Designator=D200 Old Comment=Diode DO-35 New Comment=1N4007
+Change Component Comment : Designator=D201 Old Comment=Diode DO-35 New Comment=1N4007
+Change component parameters: Designator = "D200" ("D200"); Footprint = "Diode 2 space"; UniqueID = "\AYWDYKBZ" ("\AYWDYKBZ")
+Change component parameters: Designator = "D201" ("D201"); Footprint = "Diode 2 space"; UniqueID = "\FDBXXKEE" ("\FDBXXKEE")
+Add Pin To Net: Unknown Pin: Pin Q600-4

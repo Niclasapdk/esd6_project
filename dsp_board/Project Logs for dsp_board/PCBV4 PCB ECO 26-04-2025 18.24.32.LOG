@@ -1,0 +1,25 @@
+Change Component Footprint: Designator=R400 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R401 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R402 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R403 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R404 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R405 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R406 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R407 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R408 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R409 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R410 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Change Component Footprint: Designator=R411 Old Footprint=RES SMD 0201 New Footprint=RES THT 9mm
+Added Pin To Net: NetName=GND Pin=M200-1
+Added Pin To Net: NetName=GND Pin=M201-1
+Added Pin To Net: NetName=GND Pin=M202-1
+Added Pin To Net: NetName=GND Pin=M203-1
+Added Pin To Net: NetName=GND Pin=M204-1
+Added Pin To Net: NetName=GND Pin=M205-1
+Add Pin To Net: Unknown Pin: Pin Q600-4
+Added Member To Class: ClassName=switches_connectors Member=Component M200 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M201 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M202 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M203 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M204 Screw Hole
+Added Member To Class: ClassName=switches_connectors Member=Component M205 Screw Hole
