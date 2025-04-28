@@ -14,8 +14,8 @@ extern long EPM(long *, long *);
 #define CHORUS_DELAYLINE_LEN 2205
 #define ONE_FOURTH 8191 // one fourth in Q15
 
-static long oneMinusKpow2Frac2 = 2147481468;
-static long k = 30596646; // the value is 0.0142 but changed to Q1.31
+static long oneMinusKpow2Frac2 = 2147474928;
+static long k = 6120000; // Q1.31
 
 static Int16 Mix = 10000;        // Wet mix in Q15
 static Int16 invMix = 22767;     // Dry mix in Q15 (1 - wet mix)
@@ -27,24 +27,33 @@ void chorusFRate(Int16 r);
 // State variables
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
-void chorusSetDelay(Int16 adcVal){
-	Delay = 441 + (((Int32)adcVal*(1102-441))>>10); // 10ms to 25 ms
+void chorusChangeDelay(Int16 dir){
+	const Int16 step = 44;
+	Delay += dir*step;
+	if (Delay > 1102) Delay = 1102;
+	else if (Delay < 441) Delay = 441;
 }
 
-void chorusSetRate(Int16 adcVal){
-	Int16 rate;
-	rate = 100 + (((Int32)adcVal * (5000-100)) >> 10); //Q15.0
+void chorusChangeRate(Int16 dir){
+	static Int16 rate = 2000;
+	const Int16 step = 100;
+	rate += dir*step;
+	// saturate
+	if (rate > 5000) rate = 5000;
+	else if (rate < 100) rate = 100;
 	chorusFRate(rate);
 }
 
-void chorusSetMix(Int16 adcVal){
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	Mix = adcVal*16; // max mix approx. 0.5
+void chorusChangeMix(Int16 dir){
+	const Int16 step = 2000;
+	Mix += dir*step;
+	// saturate (order matters)
+	if (Mix < -20000) Mix = 32767;
+	else if (Mix < 0) Mix = 0;
 	invMix = 32767 - Mix;
 }
 
-void chorusFRate(Int16 r)
-{
+void chorusFRate(Int16 r) {
     k = ((long)MAP_BY_TWO_PI_FS * r) << 1; //Q1.31
     oneMinusKpow2Frac2 = (EPM(&k, &k) >> 1); //k^2/2
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31

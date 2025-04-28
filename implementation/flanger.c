@@ -19,29 +19,30 @@ static long k = 1530000; // the value is 0.0142 but changed to Q1.31
 
 void flangerFRate(Int16 r);
 
-void flangerSetDelay(Int16 adcVal) {
-	Delay = 22 + (((Int32)adcVal*(331-22))>>10); // 0.5ms + diff
+void flangerChangeDelay(Int16 dir) {
+	const Int16 step = 22;
+	Delay += dir*step;
+	if (Delay > 331) Delay = 331;
+	else if (Delay < 22) Delay = 22;
 }
 
-void flangerSetRate(Int16 adcVal) {
-	Int16 rate; 	
-    if(adcVal > 1000)
-	{
-		rate = 1000;
-	}
-	else if(adcVal < 100){
-		rate = 100;
-	}
-	else{
-		rate = adcVal;
-	}
-	flangerFRate(rate); // flangerLFO rate in mHz
+void flangerChangeRate(Int16 dir) {
+	static Int16 rate = 500;
+	const Int16 step = 100;
+	rate += dir*step;
+	// saturate
+	if (rate > 1000) rate = 1000;
+	else if (rate < 100) rate = 100;
+	flangerFRate(rate);
 }
 
-void flangerSetMix(Int16 adcVal) {	
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	Mix = adcVal*16; // max mix approx. 0.5
-    invMix = 32767-Mix;
+void flangerChangeMix(Int16 dir) {
+	const Int16 step = 2000;
+	Mix += dir*step;
+	// saturate (order matters)
+	if (Mix < -20000) Mix = 32767;
+	else if (Mix < 0) Mix = 0;
+	invMix = 32767 - Mix;
 }
 
 void flangerFRate(Int16 r) {

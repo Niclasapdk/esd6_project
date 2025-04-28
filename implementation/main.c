@@ -30,7 +30,6 @@ typedef enum {
 
 // FX parameters (adjusted by pedal)
 typedef enum {
-	PARAM_WAH_PEDAL,
 	PARAM_OD_DRIVE,
 	PARAM_OD_LEVEL,
 	PARAM_CHORUS_MIX,
@@ -50,7 +49,7 @@ typedef enum {
 // these take sample as input and returns result
 static Int16 (*fx[NUM_FX])(Int16);
 // FX parameter function pointers
-// these take adc value from potentiometer and update parameters accordingly
+// these take direction value (1 or -1) and update parameters accordingly
 static void (*fxParam[NUM_FX_PARAMS])(Int16);
 // FX toggling
 static Uint8 fxOn = 0;
@@ -81,22 +80,18 @@ int main() {
 	fx[FX_REVERB] = reverb;
 	
 	// FX param function pointer setup
-	fxParam[PARAM_WAH_PEDAL] = setWahPedal;
-	fxParam[PARAM_OD_DRIVE] = distSetDrive;
-	fxParam[PARAM_OD_LEVEL] = distSetLevel;
-	fxParam[PARAM_CHORUS_MIX] = chorusSetMix;
-	fxParam[PARAM_CHORUS_RATE] = chorusSetRate;
-	fxParam[PARAM_CHORUS_DELAY] = chorusSetDelay;
-	fxParam[PARAM_FLANGER_MIX] = flangerSetMix;
-	fxParam[PARAM_FLANGER_RATE] = flangerSetRate;
-	fxParam[PARAM_FLANGER_DELAY] = flangerSetDelay;
-	fxParam[PARAM_TREMOLO_DEPTH] = tremoloSetDepth;
-	fxParam[PARAM_TREMOLO_RATE] = tremoloSetRate;
-	fxParam[PARAM_REVERB_MIX] = reverbSetMix;
-	fxParam[PARAM_REVERB_TIME] = reverbSetTime;
-	
-	// Initialize by setting all params with pedal half on
-	for (i=0; i<NUM_FX_PARAMS; i++) fxParam[i](512);
+	fxParam[PARAM_OD_DRIVE] = distChangeDrive;
+	fxParam[PARAM_OD_LEVEL] = distChangeLevel;
+	fxParam[PARAM_CHORUS_MIX] = chorusChangeMix;
+	fxParam[PARAM_CHORUS_RATE] = chorusChangeRate;
+	fxParam[PARAM_CHORUS_DELAY] = chorusChangeDelay;
+	fxParam[PARAM_FLANGER_MIX] = flangerChangeMix;
+	fxParam[PARAM_FLANGER_RATE] = flangerChangeRate;
+	fxParam[PARAM_FLANGER_DELAY] = flangerChangeDelay;
+	fxParam[PARAM_TREMOLO_DEPTH] = tremoloChangeDepth;
+	fxParam[PARAM_TREMOLO_RATE] = tremoloChangeRate;
+	fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
+	fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
 
 	// Infinite loop
 	while (1) {
@@ -109,7 +104,7 @@ int main() {
 
 		// Read potentiometer and change FX parameters
 		adcVal = readAdcBlocking(3);
-		fxParam[menuCurrentFx](adcVal);
+		setWahPedal(adcVal);
 
 		// Process sample
 		EZDSP5535_I2S_readLeft(&fuck);

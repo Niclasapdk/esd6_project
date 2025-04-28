@@ -5,8 +5,7 @@
 #include <ezdsp5535.h>
 
 Int16 tremolo(Int16 x);
-void tremoloFRate(Int16 r);
-void tremoloSetRate(Int16 adcVal);
-void tremoloSetDepth(Int16 adcVal2);
+void tremoloChangeRate(Int16 dir);
+void tremoloChangeDepth(Int16 dir);
 
 #endif /*TREMOLO_H_*/

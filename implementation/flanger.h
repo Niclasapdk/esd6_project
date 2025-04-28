@@ -4,9 +4,8 @@
 #include <ezdsp5535.h>
 
 Int16 flanger_FIR(Int16 xn);
-void flangerFRate(Int16 r);
-void flangerSetDelay(Int16 adcvalue);
-void flangerSetRate(Int16 adcvalue);
-void flangerSetMix(Int16 adcvalue);
+void flangerChangeDelay(Int16 dir);
+void flangerChangeRate(Int16 dir);
+void flangerChangeMix(Int16 dir);
 
 #endif /*FLANGER_H_*/

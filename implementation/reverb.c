@@ -6,7 +6,7 @@
 //			setting variables			//
 //			and other stof				//
 //**************************************//
-static Int16 reverbCombGain = 0, reverbMix = 0;
+static Int16 reverbMix = 0;
 static const Int16 reverbG1[] = {15073, 15729, 16384, 17039, 17367, 18022};//moorergain*32767 -- gain Q15
 static Int16 reverbG2[] = {11219, 10803, 10388, 9972, 9764, 9349}; // reverbG2 calc from 1sec reverbtime
 
@@ -21,25 +21,29 @@ static const Int16 reverbGainLUT[reverbGainLUTlen] =
     29527,  29612,  29693,  29770
 };
 
-void reverbSetTime(Int16 adcVal)//value from adc 10 bit 
-{
-	Int16 i;
-	//calculate the idx for the LUT
-	Int16 idx = ((Int32)adcVal * (Int32)(reverbGainLUTlen)) >> 10;//10 divide to approx 1024 and 15 to truncate
-	
+void reverbChangeTime(Int16 dir) {
+	static Int16 idx = reverbGainLUTlen / 2; // start at middle of LUT
+	Int16 i, reverbCombGain;
+	// update LUT idx
+	idx += dir;
+	if (idx >= reverbGainLUTlen) idx = reverbGainLUTlen-1;
+	else if (idx < 0) idx = 0;
+    //set g value
+    reverbCombGain = reverbGainLUT[idx];
+    
 	//calc reverbG2 from g and reverbG1
 	for (i=0; i<6; i++)
 	{
 		reverbG2[i] = (((Int32)reverbCombGain*((Int32)32767-(Int32)reverbG1[i])) >> 15);
 	}
-    
-    //set g value
-    reverbCombGain = reverbGainLUT[idx];
 }
 
-void reverbSetMix(Int16 adcVal) {
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	reverbMix = adcVal*6; // max mix approx. 0.2
+void reverbChangeMix(Int16 dir) {
+	const Int16 step = 2000;
+	reverbMix += dir*step;
+	// saturate (order matters)
+	if (reverbMix < -20000) reverbMix = 32767;
+	else if (reverbMix < 0) reverbMix = 0;
 }
 //**************************************//
 //			Reverb Blocks				//

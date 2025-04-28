@@ -139,14 +139,20 @@ static const Int16 tanhLUT[tanhLUT_len] = {
     32592,  32594,  32596,  32598,  32600,  32602,  32604,  32606
 };
 
-void distSetDrive(Int16 adcVal) {
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	drive = adcVal*32;
+void distChangeDrive(Int16 dir) {
+	const Int16 step = 2000;
+	drive += dir*step;
+	// saturate (order matters)
+	if (drive < -20000) drive = 32767;
+	else if (drive < 0) drive = 0;
 }
 
-void distSetLevel(Int16 adcVal) {
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	level = adcVal*32;
+void distChangeLevel(Int16 dir) {
+	const Int16 step = 2000;
+	level += dir*step;
+	// saturate (order matters)
+	if (level < -20000) level = 32767;
+	else if (level < 0) level = 0;
 }
 
 Int16 distLowpass(Int16 x) {

@@ -10,8 +10,8 @@ extern long EPM(long *, long *);
 #define MAP_BY_TWO_PI_FS 1530 //2*pi*mapfactor/fs,fs=4410, mapfactor=0.1*2^15/100
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
 
-static long oneMinusKpow2Frac2 = 2147430596;
-static long k = 15094980; // the value is 0.0142 but changed to Q1.31
+static long oneMinusKpow2Frac2 = 2147429145;
+static long k = 15300000; // the value is 0.0142 but changed to Q1.31
 
 void tremoloFRate(Int16 r)
 {
@@ -20,15 +20,22 @@ void tremoloFRate(Int16 r)
     oneMinusKpow2Frac2 = (2147483648 - oneMinusKpow2Frac2); //Q1.31
 }
 
-void tremoloSetRate(Int16 adcVal){
-	Int16 rate;
-	rate = 100 + (((Int32)adcVal * (10000-100)) >> 10); //Q15.0
-	tremoloFRate(rate); 
+void tremoloChangeRate(Int16 dir){
+	static Int16 rate = 5000;
+	const Int16 step = 100;
+	rate += dir*step;
+	// saturate
+	if (rate > 10000) rate = 10000;
+	else if (rate < 1000) rate = 1000;
+	tremoloFRate(rate);
 }
 
-void tremoloSetDepth(Int16 adcVal){
-	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	Depth = adcVal*32; //Q15
+void tremoloChangeDepth(Int16 dir){
+	const Int16 step = 2000;
+	Depth += dir*step;
+	// saturate (order matters)
+	if (Depth < -20000) Depth = 32767;
+	else if (Depth < 0) Depth = 0;
 }
 
 Int16 tremoloLFO(){
