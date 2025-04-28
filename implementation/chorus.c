@@ -28,7 +28,7 @@ void chorusFRate(Int16 r);
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
 void chorusSetDelay(Int16 adcVal){
-	Delay = 22 + (((Int32)adcVal*(331-22))>>10); // 1ms + diff
+	Delay = 441 + (((Int32)adcVal*(1102-441))>>10); // 1ms + diff
 }
 
 void chorusSetRate(Int16 adcVal){
