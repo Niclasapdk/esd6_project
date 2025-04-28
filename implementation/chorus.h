@@ -8,6 +8,5 @@ void chorusSetDelay(Int16 adcvalue);
 void chorusSetRate(Int16 adcvalue);
 void chorusSetMix(Int16 adcvalue);
 Int16 chorus(Int16 x);
-//void chorusFRate(Int16 r);
-//
+
 #endif /*CHORUS_H_*/

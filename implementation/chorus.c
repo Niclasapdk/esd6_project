@@ -28,7 +28,7 @@ void chorusFRate(Int16 r);
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
 void chorusSetDelay(Int16 adcVal){
-	Delay = 441 + (((Int32)adcVal*(1102-441))>>10); // 1ms + diff
+	Delay = 441 + (((Int32)adcVal*(1102-441))>>10); // 10ms to 25 ms
 }
 
 void chorusSetRate(Int16 adcVal){
@@ -39,7 +39,7 @@ void chorusSetRate(Int16 adcVal){
 
 void chorusSetMix(Int16 adcVal){
 	// adcVal is 10-bit so result will be 15 bit unsigned (16-bit signed).
-	Mix = adcVal*6; // max mix approx. 0.2
+	Mix = adcVal*16; // max mix approx. 0.5
 	invMix = 32767 - Mix;
 }
 
@@ -71,7 +71,7 @@ void chorusLFO(int *out){
 }
 
 Int16 chorus(Int16 xn) {
-	Int16 yn, i, mod;
+	Int16 yn, i, wet;
 	static int delayIndex;
 	static int LFOIndex = 100;
 	int delaySize[4] = {0};
@@ -98,13 +98,13 @@ Int16 chorus(Int16 xn) {
     // Compute the output as a mix of the current input and the delayed sample
     // (invMix and Mix act as the dry and wet mix factors, respectively)
     // For instance, 8192 corresponds to ~0.25
-    mod = (((long)cDelayLine[delayBack[0]] * ONE_FOURTH) +
+    wet = (((long)cDelayLine[delayBack[0]] * ONE_FOURTH) +
     	   ((long)cDelayLine[delayBack[1]] * ONE_FOURTH) + 
     	   ((long)cDelayLine[delayBack[2]] * ONE_FOURTH) + 
     	   ((long)cDelayLine[delayBack[3]] * ONE_FOURTH)) >> 15;
-    yn = (((long)invMix * xn) + ((long)Mix * mod)) >> 15;
+    yn = (((long)invMix * xn) + ((long)Mix * wet)) >> 15;
     
-    // IIR part: update the delay line with the current input plus the feedback of the delayed sample
+    // FIR part: update the delay line with the current input plus the feedback of the delayed sample
     cDelayLine[delayIndex] = xn;
     
     // Update the delay line pointer

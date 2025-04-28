@@ -55,7 +55,7 @@ static void (*fxParam[NUM_FX_PARAMS])(Int16);
 // FX toggling
 static Uint8 fxOn = 0;
 // Current FX being modified by menu
-static Uint8 menuCurrentFx = PARAM_FLANGER_MIX;
+static Uint8 menuCurrentFx = PARAM_CHORUS_MIX;
 
 int main() {
 	Int16 fuck, adcVal;

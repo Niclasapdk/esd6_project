@@ -11,6 +11,7 @@ void initAdc() {
 	*SARGPOCTRL = 0xffff; // set all as output to try to fix this shit adc
 	*SARGPOCTRL = 0;      // all analog inputs as analog inputs (not gpio)
 	*SARPINCTRL = 0x061b; // set all weird values to reset them later to fix this shit adc
+    EZDSP5535_waitusec(1000); // wait 1 ms??
 	*SARPINCTRL = 0x3601; // (PWRUPBIAS|SARPWRUP|FUCK)
 	*SARCLKCTRL = 64;     // clock division (+1)
 }
