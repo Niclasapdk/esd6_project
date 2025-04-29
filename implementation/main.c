@@ -59,7 +59,7 @@ static Uint8 menuCurrentFx = PARAM_CHORUS_MIX;
 int main() {
 	Int16 fuck, adcVal;
 	Int16 i;
-	Uint16 gpios;
+	Uint16 gpios, menuBtns;
 	Int16 switchFxCtr = 0;
 
     EZDSP5535_init();
@@ -99,10 +99,28 @@ int main() {
 		if (switchFxCtr++ == 1000) { // Update once per n samples
 			switchFxCtr = 0;
 			gpios = *IOINDATA1;
+			// toggle FX
 			fxOn = gpios>>10;
+			// change selected parameter
+			menuBtns = gpios&0x3; // seperate menu buttons from rest of gpios
+			if (menuBtns == 0x1) { // change currently selected param up
+				// increment and check for out-of-bounds index
+				if (++menuCurrentFx == NUM_FX_PARAMS) menuCurrentFx = 0;
+			} else if (menuBtns == 0x2) { // change currently selected param down
+				// decrement and check for overflow
+				// if overflow occurs, menuCurrentFx will be maxInt so larger than NUM_FX_PARAMS
+				if (--menuCurrentFx > NUM_FX_PARAMS) menuCurrentFx = NUM_FX_PARAMS-1;
+			}
+			// change parameter
+			menuBtns = gpios&0xc; // seperate param change buttons from rest of gpios
+			if (menuBtns == 0x4) { // change fx param up
+				fxParam[menuCurrentFx](1);
+			} else if (menuBtns == 0x8) { // change fx param down
+				fxParam[menuCurrentFx](-1);
+			}
 		}
 
-		// Read potentiometer and change FX parameters
+		// Read potentiometer and change wah pedal
 		adcVal = readAdcBlocking(3);
 		setWahPedal(adcVal);
 
