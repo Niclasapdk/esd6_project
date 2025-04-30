@@ -9,9 +9,7 @@
 
 // FX
 #include "wah.h"
-//extern Int16 ts808(Int16);
-//extern void setDriveResist(Int16);
-#include "distortion.h"
+#include "overdrive.h"
 #include "chorus.h"
 #include "flanger.h"
 #include "tremolo.h"
@@ -32,6 +30,8 @@ typedef enum {
 typedef enum {
 	PARAM_OD_DRIVE,
 	PARAM_OD_LEVEL,
+	PARAM_OD_HP,
+	PARAM_OD_LP,
 	PARAM_CHORUS_MIX,
 	PARAM_CHORUS_RATE,
 	PARAM_CHORUS_DELAY,
@@ -54,7 +54,7 @@ static void (*fxParam[NUM_FX_PARAMS])(Int16);
 // FX toggling
 static Uint8 fxOn = 0;
 // Current FX being modified by menu
-static Uint8 menuCurrentFx = PARAM_CHORUS_MIX;
+static Uint8 menuCurrentFx = PARAM_OD_DRIVE;
 
 int main() {
 	Int16 fuck, adcVal;
@@ -73,15 +73,17 @@ int main() {
 
 	// FX function pointer setup
 	fx[FX_WAH] = wah;
-	fx[FX_OD] = tanhDistortion;
+	fx[FX_OD] = overdrive;
 	fx[FX_FLANGER] = flanger_FIR;
 	fx[FX_CHORUS] = chorus;
 	fx[FX_TREMOLO] = tremolo;
 	fx[FX_REVERB] = reverb;
 	
 	// FX param function pointer setup
-	fxParam[PARAM_OD_DRIVE] = distChangeDrive;
-	fxParam[PARAM_OD_LEVEL] = distChangeLevel;
+	fxParam[PARAM_OD_DRIVE] = odChangeDrive;
+	fxParam[PARAM_OD_LEVEL] = odChangeLevel;
+	fxParam[PARAM_OD_HP] = odChangeHpCutoff;
+	fxParam[PARAM_OD_LP] = odChangeLpCutoff;
 	fxParam[PARAM_CHORUS_MIX] = chorusChangeMix;
 	fxParam[PARAM_CHORUS_RATE] = chorusChangeRate;
 	fxParam[PARAM_CHORUS_DELAY] = chorusChangeDelay;
