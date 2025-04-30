@@ -11,8 +11,8 @@ trimmed_input = input(t:L,:);
 input_sound = trimmed_input / max(abs(trimmed_input));
 
 %reverb parameters
-gain = 0.2;
-reverb_time = 0.5;
+gain = 0.3;
+reverb_time = 2;
 
 %impuuuuuuuuuuuuuuulse test
 % N = 2*fs;
@@ -23,10 +23,11 @@ reverb_time = 0.5;
 %add reverb
 start = tic();
 output_signal = reverb(input_sound,fs,gain,reverb_time);
+%output_signal = reverb_with_input_delayline(input_sound,fs,gain,reverb_time);
 toc(start)
 
 %play sound
-sound(output_signal, fs);
+%sound(output_signal, fs);
 
 %save sound
-%audiowrite('reverb_test_2_1_7tap.wav', output_signal/max(abs(output_signal)), fs);
+audiowrite('reverb_no_hair_w_larger_late.wav', output_signal/max(abs(output_signal)), fs);

@@ -6,7 +6,7 @@
 //			setting variables			//
 //			and other stof				//
 //**************************************//
-static Int16 reverbMix = 0;
+static Int16 reverbMix = 10000;
 static const Int16 reverbG1[] = {15073, 15729, 16384, 17039, 17367, 18022};//moorergain*32767 -- gain Q15
 static Int16 reverbG2[] = {11219, 10803, 10388, 9972, 9764, 9349}; // reverbG2 calc from 1sec reverbtime
 
@@ -88,21 +88,25 @@ Int16 combfilters(Int16 x) {
 	#define comb4M 2999
 	#define comb5M 3176
 	#define comb6M 3440
+	#define xDelaylineLength comb6M //added for input delayline
 	const Int16 combMArray[] = {comb1M, comb2M, comb3M, comb4M, comb5M, comb6M};
 	
 	// A bunch of arrayz or smth
 	#define DLINE(name, len) static Int16 name[len]={0} // macro for defining delaylinez
 	// input delaylinez
-	Int16 inpDelayline = 0;//the 1 sample input delay
+	//Int16 inpDelayline = 0;//the 1 sample input delay
+	DLINE(xLine, xDelaylineLength);//added for input delayline
+	
 	// output delaylinez
 	DLINE(yLine1, comb1M); DLINE(yLine2, comb2M); DLINE(yLine3, comb3M);
 	DLINE(yLine4, comb4M); DLINE(yLine5, comb5M); DLINE(yLine6, comb6M);
+	
 	// common shit arrayz of pointerz to the delaycolalinez on the sablez
 	static Int16 *outDelayline[6] = {yLine1, yLine2, yLine3, yLine4, yLine5, yLine6};
 	
 	// Some indicez
-	static Uint16 idxY[6] = {0}, idxY1[6];
-	
+	static Uint16 idxY[6] = {0}, idxY1[6], idxX = 0;//idxX added for input delayline
+	static Int16 idxXTemp = 0, idxXTemp1 = 0;//added for input delayline
 	Int16 y, sum=0, i;
 	
 	// Dab on all them comb filterz
@@ -111,29 +115,51 @@ Int16 combfilters(Int16 x) {
 		// Calculate indices while taking edge cases into account
 		// y[n-m]: y[idxY]
 		// y[n-1]: y[idxY-1]
+		if (idxXTemp+1 >= combMArray[i]+1) {//added for input delayline
+			idxXTemp1 = 0;
+		} else {
+			idxXTemp1 = idxXTemp+1;
+		}
+		
 		if ((Int16)idxY[i]-1 < 0) { // if we reach idx 0 and beyond of delayline
 			idxY1[i] = combMArray[i]-1; // go to end of delayline
 		} else {
 			idxY1[i] = idxY[i]-1; // calculate index normally (linearly)
 		}
 	
+		idxXTemp = (Int16)idxX - combMArray[i];//added for input delayline
+		if (idxXTemp < 0) idxXTemp += xDelaylineLength; //added for input delayline
 		// Calculate output
 		// y[n]=x[n-m]-reverbG1*x[n-m-1]+reverbG1*y[n-1]+reverbG2*y[n-m] this shit big doo doo, use too much brain
 		//y[n] = x[n] - reverbG1 * x[n-1] + reverbG1 * y[n-1] + reverbG2 * y[n-m] this much better use small brain
-		y = x + ((-(Int32)reverbG1[i] * (Int32)inpDelayline + (Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]] + 
+		
+		//y = x + ((-(Int32)reverbG1[i] * (Int32)inpDelayline + (Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]] + 
+		//(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]]) >> 15);
+		
+		//idxXTemp1 = x[n-m-1]
+		y = xLine[idxXTemp] + ((-(Int32)reverbG1[i] * (Int32)xLine[idxXTemp1] + //added for input delayline
+		(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]] + 
 		(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]]) >> 15);
+		
 		sum += ((Int32)y*(Int32)5461 >> 15);//q15 1/6 is 5461 me think this right
 	
 		// Update delaylinez
 		//inpDelayline[i][idx_x[i]] = x;
-		inpDelayline = x;
+		//inpDelayline = x;
 		outDelayline[i][idxY[i]] = y;
+		
+		xLine[idxX] = x;//added for input delayline
 	
 		// Update indiciez
 		//idx_x[i]++;
 		idxY[i]++;
+		
+		
 		//if (idx_x[i] >= combMArray[i]+1) idx_x[i] = 0;
 		if (idxY[i] >= combMArray[i])   idxY[i] = 0;
+		
+		if (i >= 5) idxX++;
+		if (idxX >= comb6M) idxX = 0;
 	}
 	
 	return sum;
