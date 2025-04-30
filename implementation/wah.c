@@ -1,7 +1,7 @@
 #include "wah.h"
 
 Int16 F1 = 4665; // Q15, Fc = 1000
-const Int16 Q1 = 2*3277; // Q15 (0.1) * 2, meaning damp *2 = Q1
+const Int16 Q1 = 2*1704; // Q15 (0.1) * 2, meaning damp *2 = Q1
 
 void setWahPedal(Int16 adcVal) {
 	const Int16 sin_coeff = 5; // 2*sin(pi/fs) = 0.00014247585718515246 (approx 5 in Q15)
