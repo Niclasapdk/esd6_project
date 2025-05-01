@@ -19,7 +19,7 @@ static long k = 6120000; // Q1.31
 
 static Int16 Mix = 10000;       // Wet mix in Q15
 static Int16 invMix = 22767;    // Dry mix in Q15 (1 - wet mix)
-static Int16 Delay = 1102; 		// Base delay, 25 ms
+static Int16 Delay = 882; 		// Base delay, 20 ms
 static Int16 Width = 221;  		// Modulation delay width , 5ms in both dir
 
 void chorusFRate(Int16 r);
@@ -28,10 +28,10 @@ void chorusFRate(Int16 r);
 int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
 void chorusChangeDelay(Int16 dir){
-	const Int16 step = 44;
+	const Int16 step = 44;				// Step size 1 ms
 	Delay += dir*step;
-	if (Delay > 1102) Delay = 1102;
-	else if (Delay < 441) Delay = 441;
+	if (Delay > 882) Delay = 882;	    // 20 ms in samples
+	else if (Delay < 661) Delay = 661;  // 5 ms in samples
 }
 
 void chorusChangeRate(Int16 dir){
