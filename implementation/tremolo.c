@@ -62,7 +62,7 @@ Int16 tremolo(Int16 x){
 	static Int16 lfoIndex = 10;
 	static Int16 lfoValue = 0;
 	Int16 TremoloFx = 0,y = 0;
-	const Int16 initVal = 16383; // 32767 = 1 Q0.15
+	const Int16 initVal = 0; // 32767 = 1 Q0.15
 
 	if(lfoIndex >= 9){
 		lfoValue = tremoloLFO(); //Change to lfo name.	
