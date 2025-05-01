@@ -33,19 +33,19 @@ end
 %%late decay part
 %combfilters
 
-% comb_in = early_decay_out; % input for combfilters
-% 
-% combfilter_delay = [50 56 61 68 72 78];%combfilter delays according to moorer
-% combfilter_gain = [0.46 0.48 0.50 0.52 0.53 0.55]; %combfilter gains according to moorer
-% 
-% comb1 = combfilter(comb_in,fs,combfilter_delay(1),combfilter_gain(1),reverb_time);
-% comb2 = combfilter(comb_in,fs,combfilter_delay(2),combfilter_gain(2),reverb_time);
-% comb3 = combfilter(comb_in,fs,combfilter_delay(3),combfilter_gain(3),reverb_time);
-% comb4 = combfilter(comb_in,fs,combfilter_delay(4),combfilter_gain(4),reverb_time);
-% comb5 = combfilter(comb_in,fs,combfilter_delay(5),combfilter_gain(5),reverb_time);
-% comb6 = combfilter(comb_in,fs,combfilter_delay(6),combfilter_gain(6),reverb_time);
-% 
-% comb_out = (comb1+comb2+comb3+comb4+comb5+comb6)*(1/6);% sum and divide output to avoid overflow
+comb_in = early_decay_out; % input for combfilters
+
+combfilter_delay = [50 56 61 68 72 78];%combfilter delays according to moorer
+combfilter_gain = [0.46 0.48 0.50 0.52 0.53 0.55]; %combfilter gains according to moorer
+
+comb1 = combfilter(comb_in,fs,combfilter_delay(1),combfilter_gain(1),reverb_time);
+comb2 = combfilter(comb_in,fs,combfilter_delay(2),combfilter_gain(2),reverb_time);
+comb3 = combfilter(comb_in,fs,combfilter_delay(3),combfilter_gain(3),reverb_time);
+comb4 = combfilter(comb_in,fs,combfilter_delay(4),combfilter_gain(4),reverb_time);
+comb5 = combfilter(comb_in,fs,combfilter_delay(5),combfilter_gain(5),reverb_time);
+comb6 = combfilter(comb_in,fs,combfilter_delay(6),combfilter_gain(6),reverb_time);
+
+comb_out = (comb1+comb2+comb3+comb4+comb5+comb6)*(1/6);% sum and divide output to avoid overflow
 
 %%allpass filter
 all_delay_ms = 6;% delay in ms according to moorer
@@ -53,7 +53,7 @@ gain = 0.7;%gain according to moorer
 M_all = ceil(all_delay_ms *10^-3 * fs);%convert delay from ms to samples and is the length of allpass filter
 
 %allpass_in = comb_out;%set input for allpass filter
-allpass_in = early_decay_out;%set input for allpass filter
+allpass_in = comb_out;%set input for allpass filter
 
 allpass_out = zeros(size(input)); % set output to 0
 all_output_delayline = zeros(M_all, 1); % mem for delayline output
@@ -83,7 +83,7 @@ late_offset = 0;%late dealy offset for ringbuf
 late_decay_out = zeros(size(input));%vector of late decay output : very impotant:)
 
 for n = 1:length(input)
-    i = ceil(max(tap_delay_samples));%index for ringbuf 3 because sound good
+    i = ceil(max(tap_delay_samples)/3);%index for ringbuf 3 because sound good
     late_decay_out(n) = output_delayline(ringbuf_idx(late_offset,i,late_M));
     late_offset = mod(late_offset-1,late_M);%updates late deacy offset
     output_delayline(late_offset+1) = allpass_out(n);%updates late decay delay line

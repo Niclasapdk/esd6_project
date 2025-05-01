@@ -21,13 +21,12 @@ reverbtime = 1;
 
 % Apply reverb
 ir = reverb(input_signal, fs, gain, reverbtime);
-%ir = reverb_with_input_delayline(input_signal, fs, gain, reverbtime);
 
 % Time vector in seconds
 t = (0:N-1) / fs;
 
 % Convert input and output to dB
-input_dB = 20 * log10(abs(input_signal) + eps);
+input_dB = 20 * log10(abs(input_signal));
 output_dB = 20 * log10(abs(ir) + eps); % Avoid log(0)
 
 % Plot both input and output in dB
