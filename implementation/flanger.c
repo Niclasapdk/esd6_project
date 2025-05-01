@@ -22,7 +22,7 @@ void flangerFRate(Int16 r);
 void flangerChangeDelay(Int16 dir) {
 	const Int16 step = 22;
 	Delay += dir*step;
-	if (Delay > 331) Delay = 331;
+	if (Delay > 330) Delay = 330;
 	else if (Delay < 22) Delay = 22;
 }
 
