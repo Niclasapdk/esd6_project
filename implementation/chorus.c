@@ -95,7 +95,7 @@ Int16 chorus(Int16 xn) {
     } else {
         LFOIndex++;
     }
-    for (i = 0; i < 3; i++){
+    for (i = 0; i <= 3; i++){
     	 // Calculate the current delay size (modulated by the LFO)
 	    delaySize[i] = Delay + (((Int32)Width * LFOVal[i]) >> 15);
 	    delayBack[i] = delayIndex - delaySize[i];
