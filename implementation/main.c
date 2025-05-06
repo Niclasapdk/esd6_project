@@ -108,17 +108,22 @@ int main() {
 			if (menuBtns == 0x1) { // change currently selected param up
 				// increment and check for out-of-bounds index
 				if (++menuCurrentFx == NUM_FX_PARAMS) menuCurrentFx = 0;
+				putc('a', stdout);
 			} else if (menuBtns == 0x2) { // change currently selected param down
 				// decrement and check for overflow
 				// if overflow occurs, menuCurrentFx will be maxInt so larger than NUM_FX_PARAMS
 				if (--menuCurrentFx > NUM_FX_PARAMS) menuCurrentFx = NUM_FX_PARAMS-1;
+				putc('b', stdout);
 			}
+			printf("\nm: %x\n", menuCurrentFx);
 			// change parameter
 			menuBtns = gpios&0xc; // seperate param change buttons from rest of gpios
 			if (menuBtns == 0x4) { // change fx param up
 				fxParam[menuCurrentFx](1);
+				putc('c', stdout);
 			} else if (menuBtns == 0x8) { // change fx param down
 				fxParam[menuCurrentFx](-1);
+				putc('d', stdout);
 			}
 		}
 
