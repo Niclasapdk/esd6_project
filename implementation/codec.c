@@ -54,6 +54,7 @@ void initCODEC() {
     AIC3204_rset( 0,  0x01 );  // Select page 1
     AIC3204_rset( 1,  0x08 );  // Disable crude AVDD generation from DVDD
     AIC3204_rset( 2,  0x01 );  // Enable Analog Blocks, use LDO power
+    AIC3204_rset( 10, 0x40 );  // Set common mode to 0.75 (0.707 max peak)
     AIC3204_rset( 123,0x05 );  // Force reference to power up in 40ms
     EZDSP5535_waitusec(50000); // Wait at least 40ms
     AIC3204_rset( 0,  0x00 );  // Select page 0
@@ -100,7 +101,7 @@ void initCODEC() {
     AIC3204_rset( 57, 0x00 );  // CM_1 (common mode) not routed to RADC_M
     // TODO create input gain adjustment mode to
     // set input gain for example when switching guitars
-    AIC3204_rset( 59, 0x15 );  // MIC_PGA_L unmute and MicPGA left gain to 10.5 dB
+    AIC3204_rset( 59, 0x14 );  // MIC_PGA_L unmute and MicPGA left gain to 0.5*val
     AIC3204_rset( 0,  0x00 );  // Select page 0
     AIC3204_rset( 81, 0x80 );  // Powerup Left ADC
     AIC3204_rset( 82, 0x08 );  // Unmute Left and mute Right ADC
