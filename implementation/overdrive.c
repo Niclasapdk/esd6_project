@@ -22,59 +22,65 @@ static Int16 level = 16384;     // Q15 level
 static Int16 gateThres = 200; // threshold for noise gate
 static Uint16 gateRel = 441; // release time (samples) before noise gate activates
 
-void odChangeGateThres(Int16 dir) {
-	const Int16 step = 50;
-	gateThres += dir*step;
-	if (gateThres > 400) gateThres = 400;
-	else if (gateThres < 0) gateThres = 0;
+Int16 odChangeGateThres(Int16 dir) {
+    const Int16 step = 50;
+    gateThres += dir*step;
+    if (gateThres > 400) gateThres = 400;
+    else if (gateThres < 0) gateThres = 0;
+    return gateThres;
 }
 
-void odChangeGateRel(Int16 dir) {
-	const Int16 step = 4410;
-	gateRel += dir*step;
-	if (gateRel > 50000) gateRel = 1;
-	else if (gateRel > 44100) gateRel = 44100;
+Int16 odChangeGateRel(Int16 dir) {
+    const Int16 step = 4410;
+    gateRel += dir*step;
+    if (gateRel > 50000) gateRel = 1;
+    else if (gateRel > 44100) gateRel = 44100;
+    return gateRel/441;
 }
 
-void odChangeDrive(Int16 dir) {
-	const Int16 step = 5;
-	drive += dir*step;
-	if (drive > 50) drive = 50;
-	else if (drive < 1) drive = 1;
+Int16 odChangeDrive(Int16 dir) {
+    const Int16 step = 5;
+    drive += dir*step;
+    if (drive > 50) drive = 50;
+    else if (drive < 1) drive = 1;
+    return drive;
 }
 
-void odChangeLevel(Int16 dir) {
-	const Int16 step = 2000;
-	level += dir*step;
-	// saturate (order matters)
-	if (level < -20000) level = 32767;
-	else if (level < 0) level = 0;
+Int16 odChangeLevel(Int16 dir) {
+    const Int16 step = 2000;
+    level += dir*step;
+    // saturate (order matters)
+    if (level < -20000) level = 32767;
+    else if (level < 0) level = 0;
+    return level;
 }
 
-void odChangeHpCutoff(Int16 dir) {
-	static Int16 idx = 1;
-	idx += dir;
-	if (idx < 0) idx = OD_HP_LUT_LEN-1;
-	else if (idx >= OD_HP_LUT_LEN) idx = 0;
-	hp_b[0] = hp_b_table[idx][0];
-	hp_b[1] = hp_b_table[idx][1];
-	hp_b[2] = hp_b_table[idx][2];
-	hp_a[0] = hp_a_table[idx][0];
-	hp_a[1] = hp_a_table[idx][1];
-	hp_a[2] = hp_a_table[idx][2];
+Int16 odChangeHpCutoff(Int16 dir) {
+    static Int16 idx = 1;
+    idx += dir;
+    if (idx < 0) idx = 0;
+    else if (idx >= OD_HP_LUT_LEN) idx = OD_HP_LUT_LEN-1;
+    hp_b[0] = hp_b_table[idx][0];
+    hp_b[1] = hp_b_table[idx][1];
+    hp_b[2] = hp_b_table[idx][2];
+    hp_a[0] = hp_a_table[idx][0];
+    hp_a[1] = hp_a_table[idx][1];
+    hp_a[2] = hp_a_table[idx][2];
+    return hp_fc_list[idx];
 }
 
-void odChangeLpCutoff(Int16 dir) {
-	static Int16 idx = 4;
-	idx += dir;
-	if (idx < 0) idx = OD_LP_LUT_LEN-1;
-	else if (idx >= OD_LP_LUT_LEN) idx = 0;
-	lp_b[0] = lp_b_table[idx][0];
-	lp_b[1] = lp_b_table[idx][1];
-	lp_b[2] = lp_b_table[idx][2];
-	lp_a[0] = lp_a_table[idx][0];
-	lp_a[1] = lp_a_table[idx][1];
-	lp_a[2] = lp_a_table[idx][2];
+Int16 odChangeLpCutoff(Int16 dir) {
+    static Int16 idx = 4;
+    idx += dir;
+    if (idx < 0) idx = 0;
+    else if (idx >= OD_LP_LUT_LEN) idx = OD_LP_LUT_LEN-1;
+    lp_b[0] = lp_b_table[idx][0];
+    lp_b[1] = lp_b_table[idx][1];
+    lp_b[2] = lp_b_table[idx][2];
+    lp_a[0] = lp_a_table[idx][0];
+    lp_a[1] = lp_a_table[idx][1];
+    lp_a[2] = lp_a_table[idx][2];
+    return lp_fc_list[idx];
 }
 
 static inline Int16 sat_q15(Int32 x)
@@ -87,32 +93,32 @@ static inline Int16 sat_q15(Int32 x)
 }
 
 Int16 odNoiseGate(Int16 x) {
-	static Uint16 cnt = 0;
-	if (x < gateThres && x > -gateThres) {
-		// signal smaller than threshold
-		if (cnt == gateRel) {
-			return 0;
-		} else {
-			cnt++;
-		}
-	} else {
-		cnt = 0;
-	}
-	return x;
+    static Uint16 cnt = 0;
+    if (x < gateThres && x > -gateThres) {
+        // signal smaller than threshold
+        if (cnt == gateRel) {
+            return 0;
+        } else {
+            cnt++;
+        }
+    } else {
+        cnt = 0;
+    }
+    return x;
 }
 
 // Anti-aliasing FIR filter
 Int16 odFirAA(Int16 x) {
-	return x; // TODO implement fir
+    return x; // TODO implement fir
 }
 
 // 2nd order highpass IIR filter (direct form 1)
 Int16 odIirHp(Int16 x) {
-	Int16 y;
-	static Int16 hp_xz[2] = {0,0};
-	static Int16 hp_yz[2] = {0,0};
-	static Int32 acc;
-	acc  = (Int32)hp_b[0] * x;
+    Int16 y;
+    static Int16 hp_xz[2] = {0,0};
+    static Int16 hp_yz[2] = {0,0};
+    static Int32 acc;
+    acc  = (Int32)hp_b[0] * x;
     acc += (Int32)hp_b[1] * hp_xz[0];
     acc += (Int32)hp_b[2] * hp_xz[1];
     acc -= (Int32)hp_a[1] * hp_yz[0];
@@ -127,10 +133,10 @@ Int16 odIirHp(Int16 x) {
 
 // 2nd order lowpass IIR filter (direct form 1)
 Int16 odIirLp(Int16 x) {
-	Int16 y;
-	static Int16 lp_xz[2] = {0,0};
-	static Int16 lp_yz[2] = {0,0};
-	static Int32 acc;
+    Int16 y;
+    static Int16 lp_xz[2] = {0,0};
+    static Int16 lp_yz[2] = {0,0};
+    static Int32 acc;
     acc  = (Int32)lp_b[0] * x;
     acc += (Int32)lp_b[1] * lp_xz[0];
     acc += (Int32)lp_b[2] * lp_xz[1];
@@ -146,8 +152,8 @@ Int16 odIirLp(Int16 x) {
 
 // Static nonlinear piecewise polygon
 Int16 odNonlinPoly(Int16 x) {
-	Int16 sign, u, v;
-	sign = (x >= 0) ? 1 : -1;
+    Int16 sign, u, v, imm;
+    sign = (x >= 0) ? 1 : -1;
     u    = sign*x;
 
     if (u < TH1) {
@@ -157,12 +163,14 @@ Int16 odNonlinPoly(Int16 x) {
     else if (u < TH2) {
         // v = sign * [ (3 - (2 - 3*u)^2) / 3 ]
         // v = sign * [1 - (2/3 - u)^2]
-        v = 1 - (NUM2DIV3 - u)*(NUM2DIV3 - u);
+        imm = (NUM2DIV3 - u);
+        v = ((Int32)imm*(Int32)imm)>>15;
+        v = 0x7fff-v;
         v = sign * v;
     }
     else {
         // hard-limit to +/-1.0
-        v = (sign > 0) ?  0x7FFF : (Int16)-0x8000;
+        v = (sign > 0) ?  0x7FFF : -32768;
     }
     return v;
 }
@@ -170,7 +178,7 @@ Int16 odNonlinPoly(Int16 x) {
 Int16 overdrive(Int16 x) {
     Int32 acc;
     Int16 y1, y2, y3, y4, y5;
-    
+
     // Noise gate
     y1 = odNoiseGate(x);
 

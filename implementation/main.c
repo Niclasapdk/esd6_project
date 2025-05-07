@@ -17,32 +17,34 @@
 
 // Order of effects which gives their indices
 typedef enum {
-	FX_WAH,
-	FX_OD,
-	FX_CHORUS,
-	FX_FLANGER,
-	FX_TREMOLO,
-	FX_REVERB,
-	NUM_FX // Number of FX
+    FX_WAH,
+    FX_OD,
+    FX_CHORUS,
+    FX_FLANGER,
+    FX_TREMOLO,
+    FX_REVERB,
+    NUM_FX // Number of FX
 } fxIdx_e;
 
 // FX parameters (adjusted by pedal)
 typedef enum {
-	PARAM_OD_DRIVE,
-	PARAM_OD_LEVEL,
-	PARAM_OD_HP,
-	PARAM_OD_LP,
-	PARAM_CHORUS_MIX,
-	PARAM_CHORUS_RATE,
-	PARAM_CHORUS_DELAY,
-	PARAM_FLANGER_MIX,
-	PARAM_FLANGER_RATE,
-	PARAM_FLANGER_DELAY,
-	PARAM_TREMOLO_DEPTH,
-	PARAM_TREMOLO_RATE,
-	PARAM_REVERB_MIX,
-	PARAM_REVERB_TIME,
-	NUM_FX_PARAMS // Number of FX parameters
+    PARAM_OD_DRIVE,
+    PARAM_OD_LEVEL,
+    PARAM_OD_HP,
+    PARAM_OD_LP,
+    PARAM_OD_GATE_THRES,
+    PARAM_OD_GATE_REL,
+    PARAM_CHORUS_MIX,
+    PARAM_CHORUS_RATE,
+    PARAM_CHORUS_DELAY,
+    PARAM_FLANGER_MIX,
+    PARAM_FLANGER_RATE,
+    PARAM_FLANGER_DELAY,
+    PARAM_TREMOLO_DEPTH,
+    PARAM_TREMOLO_RATE,
+    PARAM_REVERB_MIX,
+    PARAM_REVERB_TIME,
+    NUM_FX_PARAMS // Number of FX parameters
 } fxParamIdx_e;
 
 // FX function pointers
@@ -50,94 +52,125 @@ typedef enum {
 static Int16 (*fx[NUM_FX])(Int16);
 // FX parameter function pointers
 // these take direction value (1 or -1) and update parameters accordingly
-static void (*fxParam[NUM_FX_PARAMS])(Int16);
+static Int16 (*fxParam[NUM_FX_PARAMS])(Int16);
 // FX toggling
 static Uint8 fxOn = 0;
 // Current FX being modified by menu
 static Uint8 menuCurrentFx = PARAM_OD_DRIVE;
 
+// Main loop routines
+Uint16 toggleFx();
+void processFx(Int16 x);
+void processUi();
+
 int main() {
-	Int16 fuck, adcVal;
-	Int16 i;
-	Uint16 gpios, menuBtns;
-	Int16 switchFxCtr = 0;
+    Int16 fuck;
 
     EZDSP5535_init();
     EZDSP5535_I2C_init();
-	initAdc();
-	initCODEC();
-	// Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
-	fuck = *EBSR;
-	*EBSR = (fuck&0xf0ff)|0x0a00;
-	*IODIR1 = 0;
+    initAdc();
+    initCODEC();
+    // Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
+    fuck = *EBSR;
+    *EBSR = (fuck&0xf0ff)|0x0a00;
+    *IODIR1 = 0;
 
-	// FX function pointer setup
-	fx[FX_WAH] = wah;
-	fx[FX_OD] = overdrive;
-	fx[FX_FLANGER] = flanger_FIR;
-	fx[FX_CHORUS] = chorus;
-	fx[FX_TREMOLO] = tremolo;
-	fx[FX_REVERB] = reverb;
-	
-	// FX param function pointer setup
-	fxParam[PARAM_OD_DRIVE] = odChangeDrive;
-	fxParam[PARAM_OD_LEVEL] = odChangeLevel;
-	fxParam[PARAM_OD_HP] = odChangeHpCutoff;
-	fxParam[PARAM_OD_LP] = odChangeLpCutoff;
-	fxParam[PARAM_CHORUS_MIX] = chorusChangeMix;
-	fxParam[PARAM_CHORUS_RATE] = chorusChangeRate;
-	fxParam[PARAM_CHORUS_DELAY] = chorusChangeDelay;
-	fxParam[PARAM_FLANGER_MIX] = flangerChangeMix;
-	fxParam[PARAM_FLANGER_RATE] = flangerChangeRate;
-	fxParam[PARAM_FLANGER_DELAY] = flangerChangeDelay;
-	fxParam[PARAM_TREMOLO_DEPTH] = tremoloChangeDepth;
-	fxParam[PARAM_TREMOLO_RATE] = tremoloChangeRate;
-	fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
-	fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
+    // FX function pointer setup
+    fx[FX_WAH] = wah;
+    fx[FX_OD] = overdrive;
+    fx[FX_FLANGER] = flanger_FIR;
+    fx[FX_CHORUS] = chorus;
+    fx[FX_TREMOLO] = tremolo;
+    fx[FX_REVERB] = reverb;
 
-	// Infinite loop
-	while (1) {
-		// Read switches, toggle fx, and update menu
-		if (switchFxCtr++ == 1000) { // Update once per n samples
-			switchFxCtr = 0;
-			gpios = *IOINDATA1;
-			// toggle FX
-			fxOn = gpios>>10;
-			// change selected parameter
-			menuBtns = gpios&0x3; // seperate menu buttons from rest of gpios
-			if (menuBtns == 0x1) { // change currently selected param up
-				// increment and check for out-of-bounds index
-				if (++menuCurrentFx == NUM_FX_PARAMS) menuCurrentFx = 0;
-				putc('a', stdout);
-			} else if (menuBtns == 0x2) { // change currently selected param down
-				// decrement and check for overflow
-				// if overflow occurs, menuCurrentFx will be maxInt so larger than NUM_FX_PARAMS
-				if (--menuCurrentFx > NUM_FX_PARAMS) menuCurrentFx = NUM_FX_PARAMS-1;
-				putc('b', stdout);
-			}
-			printf("\nm: %x\n", menuCurrentFx);
-			// change parameter
-			menuBtns = gpios&0xc; // seperate param change buttons from rest of gpios
-			if (menuBtns == 0x4) { // change fx param up
-				fxParam[menuCurrentFx](1);
-				putc('c', stdout);
-			} else if (menuBtns == 0x8) { // change fx param down
-				fxParam[menuCurrentFx](-1);
-				putc('d', stdout);
-			}
-		}
+    // FX param function pointer setup
+    fxParam[PARAM_OD_DRIVE] = odChangeDrive;
+    fxParam[PARAM_OD_LEVEL] = odChangeLevel;
+    fxParam[PARAM_OD_HP] = odChangeHpCutoff;
+    fxParam[PARAM_OD_LP] = odChangeLpCutoff;
+    fxParam[PARAM_OD_GATE_THRES] = odChangeGateThres;
+    fxParam[PARAM_OD_GATE_REL] = odChangeGateRel;
+    fxParam[PARAM_CHORUS_MIX] = chorusChangeMix;
+    fxParam[PARAM_CHORUS_RATE] = chorusChangeRate;
+    fxParam[PARAM_CHORUS_DELAY] = chorusChangeDelay;
+    fxParam[PARAM_FLANGER_MIX] = flangerChangeMix;
+    fxParam[PARAM_FLANGER_RATE] = flangerChangeRate;
+    fxParam[PARAM_FLANGER_DELAY] = flangerChangeDelay;
+    fxParam[PARAM_TREMOLO_DEPTH] = tremoloChangeDepth;
+    fxParam[PARAM_TREMOLO_RATE] = tremoloChangeRate;
+    fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
+    fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
 
-		// Read potentiometer and change wah pedal
-		adcVal = readAdcBlocking(3);
-		setWahPedal(adcVal);
+    // Infinite loop
+    while (1) {
+        EZDSP5535_I2S_readLeft(&fuck);
+        // Read switches and toggle fx
+        if (toggleFx()) {
+            // bypass is on (handle ui)
+            processUi();
+        } else {
+            // bypass is off (process audio)
+            processFx(fuck);
+        }
+    }
+}
 
-		// Process sample
-		EZDSP5535_I2S_readLeft(&fuck);
-		for (i=0; i<NUM_FX; i++) {
-			if (fxOn&(1<<i)) {
-				fuck = fx[i](fuck);
-			}
-		}
-		EZDSP5535_I2S_writeLeft(fuck);
-	}
+// toggles fxOn, returns true if bypass is on else false
+Uint16 toggleFx() {
+    Uint16 gpios;
+    gpios = *IOINDATA1;
+    // fx stored in gp[10:15]
+    fxOn = gpios>>10;
+    // Return bypass status (to save an indata read)
+    return gpios&0x80; // gp[7] is bypass
+}
+
+void processFx(Int16 x) {
+    Int16 i, adcVal;
+    // Read potentiometer and change wah pedal
+//    adcVal = readAdcBlocking(3);
+//    setWahPedal(adcVal);
+
+    // Process sample
+    for (i=0; i<NUM_FX; i++) {
+        if (fxOn&(1<<i)) {
+            x = fx[i](x);
+        }
+    }
+    EZDSP5535_I2S_writeLeft(x);
+}
+
+void processUi() {
+    static Uint16 debounce = 22050;
+    Uint16 gpios, menuBtns;
+    static Int16 val=0xa;
+    if (debounce == 22050) {
+        gpios = *IOINDATA1;
+        // change selected parameter
+        menuBtns = gpios&0x3; // seperate menu buttons from rest of gpios
+        if (menuBtns == 0x1) { // change currently selected param up
+            // increment and check for out-of-bounds index
+            if (++menuCurrentFx == NUM_FX_PARAMS) menuCurrentFx = 0;
+        	debounce = 0;
+        	val = fxParam[menuCurrentFx](0); // read val for this param
+        } else if (menuBtns == 0x2) { // change currently selected param down
+            // decrement and check for overflow
+            // if overflow occurs, menuCurrentFx will be maxInt so larger than NUM_FX_PARAMS
+            if (--menuCurrentFx > NUM_FX_PARAMS) menuCurrentFx = NUM_FX_PARAMS-1;
+        	debounce = 0;
+        	val = fxParam[menuCurrentFx](0); // read val for this param
+        }
+        // change parameter
+        menuBtns = gpios&0xc; // seperate param change buttons from rest of gpios
+        if (menuBtns == 0x8) { // change fx param up
+            val = fxParam[menuCurrentFx](1);
+        	debounce = 0;
+        } else if (menuBtns == 0x4) { // change fx param down
+            val = fxParam[menuCurrentFx](-1);
+        	debounce = 0;
+        }
+        printf("Param: %x, Value: %x\n", menuCurrentFx, val);
+    } else {
+        debounce++;
+    }
 }
