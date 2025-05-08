@@ -2,13 +2,23 @@
 
 #include "od_LUT.h"
 
+#define OD_AA_FILTER_TAP_NUM 31
+static Int16 odAaFilterTaps[OD_AA_FILTER_TAP_NUM] = {
+   -460,   -610,   -212,    575,    863,    157,   -732,   -466,
+    935,   1620,     91,  -2263,  -1848,   3175,   9993,  13182,
+   9993,   3175,  -1848,  -2263,     91,   1620,    935,   -466,
+   -732,    157,    863,    575,   -212,   -610,   -460
+};
+static Int16 odAaFilterDline[OD_AA_FILTER_TAP_NUM+2] = {0};
+extern Uint16 fir(Int16 *x, Int16 *h, Int16 *r, Int16 *dbuffer, Uint16 nx, Uint16 nh);
+
 // piecewise constants in Q15
-#define TH1   10923        //  1/3 * 32768
+#define TH1   10922        //  1/3 * 32768
 #define TH2   21845        //  2/3 * 32768
 #define C2    (2 << 15)    //  2.0 in Q15
 #define C3    (3 << 15)    //  3.0 in Q15
-#define INV3  10923        //  1/3 in Q15
-#define NUM2DIV3 21845 // 2/3 in Q15
+#define NUM3DIV4 24576 // 3/4 in Q15
+#define INV12 2733 // 1/12 in Q15
 
 // Equaliser filter coefficients
 static Int16 hp_b[3] = {16057, -32114, 16057};
@@ -109,7 +119,9 @@ Int16 odNoiseGate(Int16 x) {
 
 // Anti-aliasing FIR filter
 Int16 odFirAA(Int16 x) {
-    return x; // TODO implement fir
+	Int16 y;
+	fir(&x, odAaFilterTaps, &y, odAaFilterDline, 1, OD_AA_FILTER_TAP_NUM);
+    return y;
 }
 
 // 2nd order highpass IIR filter (direct form 1)
@@ -152,9 +164,11 @@ Int16 odIirLp(Int16 x) {
 
 // Static nonlinear piecewise polygon
 Int16 odNonlinPoly(Int16 x) {
-    Int16 sign, u, v, imm;
+    Int16 sign, u, v, usquare, imm1, imm2;
     sign = (x >= 0) ? 1 : -1;
-    u    = sign*x;
+    // avoid overflow when -32768
+    if (x==-32768) u = 32767;
+    else u = sign*x;
 
     if (u < TH1) {
         // v = 2 * y3
@@ -162,10 +176,11 @@ Int16 odNonlinPoly(Int16 x) {
     }
     else if (u < TH2) {
         // v = sign * [ (3 - (2 - 3*u)^2) / 3 ]
-        // v = sign * [1 - (2/3 - u)^2]
-        imm = (NUM2DIV3 - u);
-        v = ((Int32)imm*(Int32)imm)>>15;
-        v = 0x7fff-v;
+        // v = sign * 4*[-1/12 - 3/4*x^2 + x]
+        usquare = ((Int32)u*(Int32)u)>>15; // u^2
+        imm1 = ((Int32)usquare*NUM3DIV4)>>15; // 3/4*x^2
+        v = (-INV12-imm1)+u;
+        v = 4 * v;
         v = sign * v;
     }
     else {
