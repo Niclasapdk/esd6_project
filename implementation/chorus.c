@@ -15,7 +15,7 @@ extern long EPM(long *, long *);
 #define ONE_FOURTH 8191 // one fourth in Q15
 
 static long oneMinusKpow2Frac2 = 2147474928;
-static long k = 1530000; // Q1.31, 1 Hz
+static long k = 6120000; // Q1.31
 
 static Int16 Mix = 14000;       // Wet mix in Q15
 static Int16 invMix = 18767;    // Dry mix in Q15 (1 - wet mix)
