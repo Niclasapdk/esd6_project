@@ -25,8 +25,26 @@ Int16 readAdcBlocking(Uint16 ch) {
 	*SARCTRL = 0x8000|(ch<<12)|(0x0400);
 	// wait until ADCBUSY is set
 	while (!((*SARDATA)& 0x8000));
-//	while (1);
 	// wait until ADCBUSY is cleared and channel matches requested channel
 	while (result = (*SARDATA), (result & 0x8000) || ((result>>12)&0x7)!=ch);
 	return result & 0x03ff; // return 10-bit result
+}
+
+// Starts ADC conversion on channel 3
+void adcStartConv() {
+	*SARCTRL = 0xb400; // Channel 3, single conversion mode, start conversion
+}
+
+// Read ADC data
+// will not wait so returns -1 if data not ready
+Int16 adcReadDataNowait() {
+	Int16 result;
+	result = *SARDATA;
+	*SARCTRL = 0x3400; // clear ADCSTRT flag to get ready for next conversion
+	if ((result&0xf000)==0x3000) {
+		// ADCBUSY flag is low and channel bitfield is 3
+		return result&0x03ff; // return 10-bit result
+	} else {
+		return -1;
+	}
 }

@@ -127,10 +127,6 @@ Uint16 toggleFx() {
 
 void processFx(Int16 x) {
     Int16 i, adcVal;
-    // Read potentiometer and change wah pedal
-//    adcVal = readAdcBlocking(3);
-//    setWahPedal(adcVal);
-
     // Process sample
     for (i=0; i<NUM_FX; i++) {
         if (fxOn&(1<<i)) {
