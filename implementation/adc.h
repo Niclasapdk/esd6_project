@@ -5,5 +5,7 @@
 
 void initAdc();
 Int16 readAdcBlocking(Uint16 ch);
+void adcStartConv();
+Int16 adcReadDataNowait();
 
 #endif /*ADC_H_*/
