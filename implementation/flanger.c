@@ -15,7 +15,7 @@ extern long EPM(long *, long *);
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
 
 static long oneMinusKpow2Frac2 = 2147483104;
-static long k = 1530000; // the value is 0.0142 but changed to Q1.31
+static long k = 1530000; // the value is 0.0142 but changed to Q1.31, 1 Hz
 
 void flangerFRate(Int16 r);
 

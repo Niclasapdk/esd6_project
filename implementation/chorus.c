@@ -11,14 +11,14 @@ extern long EPM(long *, long *);
 #define LFO_NORMALIZATION 23170 // [-1,1] normalize output
 #define MAP_BY_TWO_PI_FS 1530 //2*pi*mapfactor/fs,fs=4410, mapfactor=0.1*2^15/100
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
-#define CHORUS_DELAYLINE_LEN 2205
+#define CHORUS_DELAYLINE_LEN 1104 // Max Delay = 882, plus width = 221
 #define ONE_FOURTH 8191 // one fourth in Q15
 
 static long oneMinusKpow2Frac2 = 2147474928;
-static long k = 6120000; // Q1.31
+static long k = 1530000; // Q1.31, 1 Hz
 
-static Int16 Mix = 10000;       // Wet mix in Q15
-static Int16 invMix = 22767;    // Dry mix in Q15 (1 - wet mix)
+static Int16 Mix = 14000;       // Wet mix in Q15
+static Int16 invMix = 18767;    // Dry mix in Q15 (1 - wet mix)
 static Int16 Delay = 882; 		// Base delay, 20 ms
 static Int16 Width = 221;  		// Modulation delay width , 5ms in both dir
 
@@ -36,7 +36,7 @@ Int16 chorusChangeDelay(Int16 dir) {
 }
 
 Int16 chorusChangeRate(Int16 dir) {
-    static Int16 rate = 2000;
+    static Int16 rate = 1200;
     const Int16 step = 100;
     rate += dir*step;
     // saturate
