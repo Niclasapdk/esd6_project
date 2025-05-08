@@ -8,7 +8,7 @@ fig_else = figure;
 for i = 1:length(data)
     if i == 1
         figure(fig_if); 
-        semilogx(data{i}.Frequency_Hz_*1E-3,data{i}.Channel2Magnitude_dB_);
+        plot(data{i}.Frequency_Hz_*1E-3,data{i}.Channel2Magnitude_dB_);
         xlabel('Frequency [kHz]');
         ylabel('Magnitude [dB]');
         title('Anti-Aliasing Frequency Response');
