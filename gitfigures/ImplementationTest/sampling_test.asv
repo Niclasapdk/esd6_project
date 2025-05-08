@@ -34,11 +34,10 @@ f = 1 / dt;
 
 % Add legend with time and frequency info
 legendStr = sprintf('\\Deltat = %.2e s, f = %.2f Hz', dt, f);
-legend('Signal', legendStr, 'Location', 'southwest', 'Fontsize', 12);
+legend('Signal', legendStr, 'Location', 'best');
 
-xlim([7e-5 12e-5]);
-xlabel('Time (s)', 'FontSize', 14);
-ylabel('Voltage (V)', 'FontSize', 14);
-
-title('ADC Sampling PIN29', 'FontSize', 16);
+xlim([7 e-4]);
+xlabel('Time (s)');
+ylabel('Voltage (V)');
+title('ADC Sampling with Two Peaks After 0s');
 grid on;
