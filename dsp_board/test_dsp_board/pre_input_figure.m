@@ -29,8 +29,8 @@ xlabel('Frequency (Hz)');
 ylabel('Gain (dB)');
 title('Frequency Response for Output Stage');
 grid on;
-xticks([20 1e3 2e4]);
-xticklabels({'20 Hz', '1 kHz', '20 kHz'});
+%xticks([20 1e3 2e4]);
+%xticklabels({'20 Hz', '1 kHz', '20 kHz'});
 xline(20000, '--r', '20 kHz', ...
     'LabelOrientation', 'horizontal', ...
     'LabelVerticalAlignment', 'bottom', ...
