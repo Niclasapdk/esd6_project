@@ -11,11 +11,14 @@ magnitude_kOhm = magnitudeZ / 1000;
 figure;
 
 %subplot(2,1,1);
-semilogx(frequency, magnitude_kOhm, 'b', 'LineWidth', 1.5);
-xlabel('Frequency (Hz)');
-ylabel('|Z| (k\Omega)');
-title('Impedance Magnitude');
+p = semilogx(frequency, magnitude_kOhm, 'b', 'LineWidth', 1.5);
+xlim([10 50000]);
+xlabel('Frequency (Hz)', 'FontSize', 14);
+ylabel('|Z| (k\Omega)', 'FontSize', 14);
+title('Input Impedance Test', 'FontSize', 16);
 grid on;
+legend(p, 'Input Impedance', 'Location','southwest', 'Fontsize', 12);
+legend show;
 
 %{
 subplot(2,1,2);
