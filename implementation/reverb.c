@@ -185,9 +185,10 @@ Int16 lateDelay(Int16 x)
 Int16 reverb(Int16 x)
 {
     //inzet the functionzz zo zurkuz can be happy
-    Int16 y=0, reverbEffectTmp=0;
-    Int16 earlyTmp = early(x);
-    Int16 lateTmp = combfilters(earlyTmp);
+    Int16 y=0, reverbEffectTmp=0, earlyTmp, lateTmp;
+    return lateDelay(x);
+    earlyTmp = early(x);
+    lateTmp = combfilters(earlyTmp);
     lateTmp = allpass(lateTmp);
     lateTmp = lateDelay(lateTmp);
     reverbEffectTmp = earlyTmp + lateTmp;
