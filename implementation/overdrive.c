@@ -2,12 +2,16 @@
 
 #include "od_LUT.h"
 
-#define OD_AA_FILTER_TAP_NUM 31
+#define OD_AA_FILTER_TAP_NUM 57
 static Int16 odAaFilterTaps[OD_AA_FILTER_TAP_NUM] = {
-   -460,   -610,   -212,    575,    863,    157,   -732,   -466,
-    935,   1620,     91,  -2263,  -1848,   3175,   9993,  13182,
-   9993,   3175,  -1848,  -2263,     91,   1620,    935,   -466,
-   -732,    157,    863,    575,   -212,   -610,   -460
+    31,    32,   -44,  -175,  -224,   -85,   129,   160,
+   -66,  -267,  -119,   254,   343,   -75,  -499,  -272,
+   447,   683,   -83,  -965,  -607,   865,  1514,   -87,
+ -2431, -1937,  3113,  9874, 13019,  9874,  3113, -1937,
+ -2431,   -87,  1514,   865,  -607,  -965,   -83,   683,
+   447,  -272,  -499,   -75,   343,   254,  -119,  -267,
+   -66,   160,   129,   -85,  -224,  -175,   -44,    32,
+    31
 };
 static Int16 odAaFilterDline[OD_AA_FILTER_TAP_NUM+2] = {0};
 extern Uint16 fir(Int16 *x, Int16 *h, Int16 *r, Int16 *dbuffer, Uint16 nx, Uint16 nh);
@@ -164,7 +168,7 @@ Int16 odIirLp(Int16 x) {
 
 // Static nonlinear piecewise polygon
 Int16 odNonlinPoly(Int16 x) {
-    Int16 sign, u, v, usquare, imm1, imm2;
+    Int16 sign, u, v, usquare, imm;
     sign = (x >= 0) ? 1 : -1;
     // avoid overflow when -32768
     if (x==-32768) u = 32767;
@@ -178,8 +182,8 @@ Int16 odNonlinPoly(Int16 x) {
         // v = sign * [ (3 - (2 - 3*u)^2) / 3 ]
         // v = sign * 4*[-1/12 - 3/4*x^2 + x]
         usquare = ((Int32)u*(Int32)u)>>15; // u^2
-        imm1 = ((Int32)usquare*NUM3DIV4)>>15; // 3/4*x^2
-        v = (-INV12-imm1)+u;
+        imm = ((Int32)usquare*NUM3DIV4)>>15; // 3/4*x^2
+        v = (-INV12-imm)+u;
         v = 4 * v;
         v = sign * v;
     }
@@ -198,7 +202,10 @@ Int16 overdrive(Int16 x) {
     y1 = odNoiseGate(x);
 
     // FIR anti-alias LP
-    y2 = odFirAA(y1);
+//    y2 = odFirAA(y1);
+	// FIR filter omitted because real-time feasible FIR filters
+	// did not make significant improvement to sound
+	y2 = y1;
 
     // IIR high-pass (Direct Form I)
     y3 = odIirHp(y2);
