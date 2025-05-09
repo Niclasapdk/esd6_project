@@ -101,11 +101,9 @@ int main() {
     fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
     fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
 
-	odChangeDrive(-1);
 //    while (1) {
 //        EZDSP5535_I2S_readLeft(&fuck);
-////        fuck = overdrive(fuck);
-//        fuck = chorus(fuck);
+//        fuck = odNonlinPoly(fuck);
 //    	EZDSP5535_I2S_writeLeft(fuck);
 //    }
 
