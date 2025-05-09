@@ -1,4 +1,4 @@
-files = {'FIR_AA_measurement.csv','IIR_HP_200_measurement.csv','IIR_HP_500_measurement.csv','IIR_HP_3000_measurement.csv','IIR_LP_4000_measurement.csv','IIR_LP_7000_measurement.csv','IIR_LP_10000_measurement.csv'};
+files = {'fir_60_tap_filter_sweep.csv','IIR_HP_200_measurement.csv','IIR_HP_500_measurement.csv','IIR_HP_3000_measurement.csv','IIR_LP_4000_measurement.csv','IIR_LP_7000_measurement.csv','IIR_LP_10000_measurement.csv'};
 data = cellfun(@readtable, files, 'UniformOutput', false);
 
 folder_path = pwd;
@@ -16,7 +16,7 @@ for i = 1:length(data)
         grid on;
         [M, I] = max(data{i}.Channel2Magnitude_dB_);
         yline(M-3,'--');
-        xlim([0 22]);
+        xlim([0 20]);
     elseif i <= 4
         figure(fig_elseif);
         semilogx(data{i}.Frequency_Hz_*1E-3,data{i}.Channel2Magnitude_dB_);
