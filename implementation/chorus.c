@@ -31,12 +31,12 @@ Int16 chorusChangeDelay(Int16 dir) {
     const Int16 step = 44;				// Step size 1 ms
     Delay += dir*step;
     if (Delay > 882) Delay = 882;	    // 20 ms in samples
-    else if (Delay < 661) Delay = 661;  // 5 ms in samples
+    else if (Delay < 661) Delay = 661;  // 15 ms in samples
     return Delay;
 }
 
 Int16 chorusChangeRate(Int16 dir) {
-    static Int16 rate = 1200;
+    static Int16 rate = 2000;
     const Int16 step = 100;
     rate += dir*step;
     // saturate
@@ -50,7 +50,7 @@ Int16 chorusChangeMix(Int16 dir) {
     const Int16 step = 2000;
     Mix += dir*step;
     // saturate (order matters)
-    if (Mix < -20000) Mix = 32767;
+    if (Mix < -20000) Mix = 32767; // for overflow
     else if (Mix < 0) Mix = 0;
     invMix = 32767 - Mix;
     return Mix;
@@ -84,7 +84,7 @@ void chorusLFO(int *out) {
 
 Int16 chorus(Int16 xn) {
     Int16 yn, i, wet;
-    static int delayIndex;
+    static int delayIndex = 0;
     static int LFOIndex = 100;
     int delaySize[4] = {0};
     int delayBack[4] = {0};
@@ -116,7 +116,7 @@ Int16 chorus(Int16 xn) {
            ((long)cDelayLine[delayBack[3]] * ONE_FOURTH)) >> 15;
     yn = (((long)invMix * xn) + ((long)Mix * wet)) >> 15;
 
-    // FIR part: update the delay line with the current input plus the feedback of the delayed sample
+    // update delayline
     cDelayLine[delayIndex] = xn;
 
     // Update the delay line pointer

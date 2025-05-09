@@ -75,12 +75,12 @@ Int16 flangerLFO() {
 }
 
 Int16 flanger_FIR(Int16 xn) {
-    static Int16 delayIndex;
+    static Int16 delayIndex = 0;
     static Int16 LFOIndex = 10;
     static Int16 LFOVal = 0;
     Int16 delaySize;
     Int16 delayBack;
-    static Int16 delayedSample;
+    Int16 delayedSample;
     Int16 yn;
     // Update flangerLFO value occasionally
     if (LFOIndex >= 9) {
