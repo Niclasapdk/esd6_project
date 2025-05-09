@@ -62,10 +62,10 @@ static Uint8 menuCurrentFx = PARAM_OD_DRIVE;
 Uint16 toggleFx();
 void processFx(Int16 x);
 void processUi();
-
+void setupClock();
 int main() {
     Int16 fuck;
-
+	setupClock();
     EZDSP5535_init();
     EZDSP5535_I2C_init();
     initAdc();
@@ -101,6 +101,14 @@ int main() {
     fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
     fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
 
+	odChangeDrive(-1);
+//    while (1) {
+//        EZDSP5535_I2S_readLeft(&fuck);
+////        fuck = overdrive(fuck);
+//        fuck = chorus(fuck);
+//    	EZDSP5535_I2S_writeLeft(fuck);
+//    }
+
     // Infinite loop
     while (1) {
         EZDSP5535_I2S_readLeft(&fuck);
@@ -113,6 +121,26 @@ int main() {
             processFx(fuck);
         }
     }
+}
+
+void setupClock() {
+	// Steps from section 1.4.3.2.6 Software Steps To Modify Multiplier and Divider Ratios
+	// from TMS320C5505 DSP System User's Guide
+	// since C5535 and C5505 have same PLL
+	ioport int *CCR2  = (ioport int *)0x1C1F;
+	ioport int *CGCR1 = (ioport int *)0x1C20;
+	ioport int *CGCR2 = (ioport int *)0x1C21;
+	ioport int *CGCR3 = (ioport int *)0x1C22;
+	ioport int *CGCR4 = (ioport int *)0x1C23;
+	*CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
+	*CGCR1 &= ~0x8000; // set RSVD=0
+	*CGCR1 = 1000-4; // set M
+	*CGCR2 = 120-4; // set RDRATIO
+	*CGCR4 = 0; // SET OUTDIVEN=0
+	*CGCR3 = 0x0806;
+	*CGCR1 |= 0x8000; // set RSVD=1
+	EZDSP5535_waitusec(5000); // wait minimum 4 ms
+	*CCR2 |= 1; // bypass mode (SYSCLKSEL=0)
 }
 
 // toggles fxOn, returns true if bypass is on else false
