@@ -33,7 +33,7 @@ static Int16 lp_a[3] = {16384, -8335, 3567};
 static Int16 drive = 10;        // Q0 integer 1..50
 static Int16 level = 16384;     // Q15 level
 // noise gate
-static Int16 gateThres = 200; // threshold for noise gate
+static Int16 gateThres = 0; // threshold for noise gate
 static Uint16 gateRel = 441; // release time (samples) before noise gate activates
 
 Int16 odChangeGateThres(Int16 dir) {

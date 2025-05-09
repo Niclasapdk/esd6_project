@@ -17,8 +17,8 @@ extern long EPM(long *, long *);
 static long oneMinusKpow2Frac2 = 2147474928;
 static long k = 6120000; // Q1.31
 
-static Int16 Mix = 14000;       // Wet mix in Q15
-static Int16 invMix = 18767;    // Dry mix in Q15 (1 - wet mix)
+static Int16 Mix = 6000;       // Wet mix in Q15
+static Int16 invMix = 26767;    // Dry mix in Q15 (1 - wet mix)
 static Int16 Delay = 882; 		// Base delay, 20 ms
 static Int16 Width = 221;  		// Modulation delay width , 5ms in both dir
 

@@ -6,7 +6,7 @@
 //			setting variables			//
 //			and other stof				//
 //**************************************//
-static Int16 reverbMix = 0;
+static Int16 reverbMix = 6000;
 static const Int16 reverbG1[] = {15073, 15729, 16384, 17039, 17367, 18022};//moorergain*32767 -- gain Q15
 static Int16 reverbG2[] = {11219, 10803, 10388, 9972, 9764, 9349}; // reverbG2 calc from 1sec reverbtime
 
