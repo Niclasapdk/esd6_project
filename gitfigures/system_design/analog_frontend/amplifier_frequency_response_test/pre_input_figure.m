@@ -25,9 +25,10 @@ hold on;
 p = semilogx(target_freq, target_dB, 'blacko', 'MarkerSize', 8, 'DisplayName', 'Cut-off frequency');
 
 % Axes and labels
-xlabel('Frequency (Hz)');
-ylabel('Gain (dB)');
-title('Frequency Response for Output Stage');
+xlabel('Frequency (Hz)', 'FontSize', 14);
+ylabel('Gain (dB)', 'FontSize', 14);
+title('Frequency Response for Output Stage', 'FontSize', 16);
+xlim([20 100000]);
 grid on;
 %xticks([20 1e3 2e4]);
 %xticklabels({'20 Hz', '1 kHz', '20 kHz'});
@@ -43,7 +44,7 @@ yline(7.85 + 3, '--r', '3 dB', ...
     'LabelOrientation', 'horizontal', ...
     'LabelVerticalAlignment', 'top', ...
     'LabelHorizontalAlignment', 'left');
-legend([g, p], 'Frequency Response', 'Cutoff Frequency', 'Location', 'southwest');
+legend([g, p], 'Frequency Response', 'Cutoff Frequency', 'Location', 'southwest', 'Fontsize', 12);
 legend show;
 
 % Convert target frequency to kHz for labeling
