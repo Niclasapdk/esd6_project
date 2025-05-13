@@ -1,0 +1,18 @@
+close all
+clear
+
+files = {"acope_0wy12.csv","acope_0wy13.csv"};
+
+data = cellfun(@readtable, files, 'UniformOutput', false);
+figH = figure;
+s = plot(data{1}.Var1,data{1}.Var2);
+[pks,locs] = findpeaks(data{1}.Var2,2e9,'NPeaks',2,'MinPeakHeight',3.5);
+
+
+
+legend(s,{['Clock Frequency: ' num2str(1E-6 * 1/(locs(2,:)-locs(1,:))) 'Mhz']});
+figD = figure;
+s = plot(data{2}.Var1,data{2}.Var2);
+
+[pks1,locs1] = findpeaks(data{1}.Var2,'NPeaks',2,'MinPeakHeight',3.5);
+legend(s,{['Clock Frequency: ' num2str(1E-6 * 1/(locs(2,:)-locs(1,:))) 'Mhz']});
