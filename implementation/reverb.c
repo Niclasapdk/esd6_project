@@ -93,12 +93,13 @@ Int16 combfilters(Int16 x) {
 #define comb4M 2999
 #define comb5M 3176
 #define comb6M 3440
+#define xDelaylineLength comb6M
     const Int16 combMArray[] = {comb1M, comb2M, comb3M, comb4M, comb5M, comb6M};
 
     // A bunch of arrayz or smth
 #define DLINE(name, len) static Int16 name[len]={0} // macro for defining delaylinez
     // input delaylinez
-    static Int16 inpDelayline = 0;//the 1 sample input delay
+    DLINE(xLine, xDelaylineLength);
     // output delaylinez
     DLINE(yLine1, comb1M);
     DLINE(yLine2, comb2M);
@@ -110,7 +111,9 @@ Int16 combfilters(Int16 x) {
     static Int16 *outDelayline[6] = {yLine1, yLine2, yLine3, yLine4, yLine5, yLine6};
 
     // Some indicez
-    static Uint16 idxY[6] = {0}, idxY1[6];
+    static Uint16 idxY[6] = {0,0,0,0,0,0}, idxY1[6];
+    static Uint16 idxX = 0;
+    Int16 idxXCurr, idxXCurr1;
 
     Int16 y, sum, i;
     Int32 acc;
@@ -129,20 +132,32 @@ Int16 combfilters(Int16 x) {
         } else {
             idxY1[i] = idxY[i]-1; // calculate index normally (linearly)
         }
+        // update current x index
+        idxXCurr = (Int16)idxX - combMArray[i];
+        if (idxXCurr < 0) idxXCurr += xDelaylineLength;
+        // update current x + 1 index
+        if (idxXCurr+1 >= xDelaylineLength) {
+        	idxXCurr1 = 0;
+        } else {
+        	idxXCurr1 = idxXCurr+1;
+        }
 
         // Calculate output
         // y[n]=x[n-m]-reverbG1*x[n-m-1]+reverbG1*y[n-1]+reverbG2*y[n-m] this shit big doo doo, use too much brain
         //y[n] = x[n] - reverbG1 * x[n-1] + reverbG1 * y[n-1] + reverbG2 * y[n-m] this much better use small brain
         
-        acc = -(Int32)reverbG1[i] * (Int32)inpDelayline;
+//        acc = -(Int32)reverbG1[i] * (Int32)inpDelayline;
+//        acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];
+//        acc +=(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]];
+//        y = x + (acc >> 15);
+
+		acc = -(Int32)reverbG1[i]*xLine[idxXCurr1];
         acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];
         acc +=(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]];
-        y = x + (acc >> 15);
-        
+        y = xLine[idxXCurr] + (acc>>15);
 		sum += ((Int32)y*INV6)>>15;
 		
         // Update delaylinez
-        //inpDelayline[i][idx_x[i]] = x;
         outDelayline[i][idxY[i]] = y;
 
         // Update indiciez
@@ -152,7 +167,9 @@ Int16 combfilters(Int16 x) {
         if (idxY[i] >= combMArray[i])   idxY[i] = 0;
     }
     // Update input delayline
-    inpDelayline = x;
+    xLine[idxX] = x;
+	idxX++;
+	if (idxX >= xDelaylineLength) idxX=0;
 
     return sum;
 }
