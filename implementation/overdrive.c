@@ -206,7 +206,8 @@ Int16 overdrive(Int16 x) {
     y1 = x;
 
     // FIR anti-alias LP
-    y2 = odFirAA(y1);
+//    y2 = odFirAA(y1);
+	y2 = y1;
 
     // IIR high-pass (Direct Form I)
     y3 = odIirHp(y2);
