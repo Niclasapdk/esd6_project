@@ -5,22 +5,20 @@
 #define OD_AA_FILTER_TAP_NUM 57
 static Int16 odAaFilterTaps[OD_AA_FILTER_TAP_NUM] = {
     31,    32,   -44,  -175,  -224,   -85,   129,   160,
-   -66,  -267,  -119,   254,   343,   -75,  -499,  -272,
-   447,   683,   -83,  -965,  -607,   865,  1514,   -87,
- -2431, -1937,  3113,  9874, 13019,  9874,  3113, -1937,
- -2431,   -87,  1514,   865,  -607,  -965,   -83,   683,
-   447,  -272,  -499,   -75,   343,   254,  -119,  -267,
-   -66,   160,   129,   -85,  -224,  -175,   -44,    32,
+    -66,  -267,  -119,   254,   343,   -75,  -499,  -272,
+    447,   683,   -83,  -965,  -607,   865,  1514,   -87,
+    -2431, -1937,  3113,  9874, 13019,  9874,  3113, -1937,
+    -2431,   -87,  1514,   865,  -607,  -965,   -83,   683,
+    447,  -272,  -499,   -75,   343,   254,  -119,  -267,
+    -66,   160,   129,   -85,  -224,  -175,   -44,    32,
     31
 };
-static Int16 odAaFilterDline[OD_AA_FILTER_TAP_NUM+2] = {0};
+static Int16 odAaFilterDline[OD_AA_FILTER_TAP_NUM+2];
 extern Uint16 fir(Int16 *x, Int16 *h, Int16 *r, Int16 *dbuffer, Uint16 nx, Uint16 nh);
 
 // piecewise constants in Q15
 #define TH1   10922        //  1/3 * 32768
 #define TH2   21845        //  2/3 * 32768
-#define C2    (2 << 15)    //  2.0 in Q15
-#define C3    (3 << 15)    //  3.0 in Q15
 #define NUM3DIV4 24576 // 3/4 in Q15
 #define INV12 2733 // 1/12 in Q15
 
@@ -97,6 +95,11 @@ Int16 odChangeLpCutoff(Int16 dir) {
     return lp_fc_list[idx];
 }
 
+void odInit() {
+	int i;
+	for (i=0; i<OD_AA_FILTER_TAP_NUM+2; i++) odAaFilterDline[i] = 0;
+}
+
 static inline Int16 sat_q15(Int32 x)
 {
     if (x >  0x7FFF) return  0x7FFF;
@@ -123,8 +126,8 @@ Int16 odNoiseGate(Int16 x) {
 
 // Anti-aliasing FIR filter
 Int16 odFirAA(Int16 x) {
-	Int16 y;
-	fir(&x, odAaFilterTaps, &y, odAaFilterDline, 1, OD_AA_FILTER_TAP_NUM);
+    Int16 y;
+    fir(&x, odAaFilterTaps, &y, odAaFilterDline, 1, OD_AA_FILTER_TAP_NUM);
     return y;
 }
 
@@ -199,13 +202,11 @@ Int16 overdrive(Int16 x) {
     Int16 y1, y2, y3, y4, y5;
 
     // Noise gate
-    y1 = odNoiseGate(x);
+//    y1 = odNoiseGate(x);
+    y1 = x;
 
     // FIR anti-alias LP
-//    y2 = odFirAA(y1);
-	// FIR filter omitted because real-time feasible FIR filters
-	// did not make significant improvement to sound
-	y2 = y1;
+    y2 = odFirAA(y1);
 
     // IIR high-pass (Direct Form I)
     y3 = odIirHp(y2);

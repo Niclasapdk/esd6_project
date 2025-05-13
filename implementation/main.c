@@ -100,6 +100,8 @@ int main() {
     fxParam[PARAM_TREMOLO_RATE] = tremoloChangeRate;
     fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
     fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
+    
+    odInit();
 
 //    while (1) {
 //        EZDSP5535_I2S_readLeft(&fuck);

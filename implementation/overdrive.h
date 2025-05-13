@@ -7,6 +7,7 @@ Int16 odChangeHpCutoff(Int16 dir);
 Int16 odChangeLpCutoff(Int16 dir);
 Int16 odChangeGateThres(Int16 dir);
 Int16 odChangeGateRel(Int16 dir);
+void odInit();
 Int16 overdrive(Int16 x_in);
 
 #endif /*OVERDRIVE_H_*/
