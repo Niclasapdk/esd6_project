@@ -6,7 +6,7 @@
 //			setting variables			//
 //			and other stof				//
 //**************************************//
-static Int16 reverbMix = 6000;
+static Int16 reverbMix = 20000;
 static const Int16 reverbG1[] = {15073, 15729, 16384, 17039, 17367, 18022};//moorergain*32767 -- gain Q15
 static Int16 reverbG2[] = {11219, 10803, 10388, 9972, 9764, 9349}; // reverbG2 calc from 1sec reverbtime
 
@@ -69,10 +69,10 @@ Int16 early(Int16 x)
         if (earlyDelayTmp[i] < 0) earlyDelayTmp[i] = earlyDelayTmp[i] + (earlyM-1);
     }
 
-    sum = ((Int32)tapGain[0] * earlyDelayline[earlyDelayTmp[0]]);//they divide by 2 ie << 1
+    sum = ((Int32)tapGain[0] * earlyDelayline[earlyDelayTmp[0]]) >> 15;//they divide by 2 ie << 1
     for (i = 1; i < tapN; i++)
     {
-        sum += ((Int32)tapGain[i] * earlyDelayline[earlyDelayTmp[i]]);
+        sum += ((Int32)tapGain[i] * earlyDelayline[earlyDelayTmp[i]]) >> 15;
     }
 
     y = (sum >> 15) + x;
@@ -95,7 +95,7 @@ Int16 combfilters(Int16 x) {
     // A bunch of arrayz or smth
 #define DLINE(name, len) static Int16 name[len]={0} // macro for defining delaylinez
     // input delaylinez
-    Int16 inpDelayline = 0;//the 1 sample input delay
+    static Int16 inpDelayline = 0;//the 1 sample input delay
     // output delaylinez
     DLINE(yLine1, comb1M);
     DLINE(yLine2, comb2M);
@@ -109,8 +109,11 @@ Int16 combfilters(Int16 x) {
     // Some indicez
     static Uint16 idxY[6] = {0}, idxY1[6];
 
-    Int16 y, sum=0, i;
+    Int16 y, sum, i;
+    Int32 acc;
+    Int16 ret;
 
+	//x >>= 3; //##########
     // Dab on all them comb filterz
     for (i=0; i<6; i++)
     {
@@ -126,13 +129,21 @@ Int16 combfilters(Int16 x) {
         // Calculate output
         // y[n]=x[n-m]-reverbG1*x[n-m-1]+reverbG1*y[n-1]+reverbG2*y[n-m] this shit big doo doo, use too much brain
         //y[n] = x[n] - reverbG1 * x[n-1] + reverbG1 * y[n-1] + reverbG2 * y[n-m] this much better use small brain
-        y = x + ((-(Int32)reverbG1[i] * (Int32)inpDelayline + (Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]] +
-                  (Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]]) >> 15);
-        sum += ((Int32)y*(Int32)5461 >> 15);//q15 1/6 is 5461 me think this right
-
+        
+//        y = x + ((-(Int32)reverbG1[i] * (Int32)inpDelayline + 
+//        (Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]] +
+//        (Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]]) >> 15);
+            
+        acc = -(Int32)reverbG1[i] * (Int32)inpDelayline;
+        acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];
+        acc +=(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]];
+        y = x + (acc >> 15);
+        
+        sum += (((Int32)y*(Int32)5461) >> 15);//q15 1/6 is 5461 me think this right
+//        ret = (-(Int32)reverbG1[i] * (Int32)inpDelayline)>>15;
+		
         // Update delaylinez
         //inpDelayline[i][idx_x[i]] = x;
-        inpDelayline = x;
         outDelayline[i][idxY[i]] = y;
 
         // Update indiciez
@@ -141,8 +152,10 @@ Int16 combfilters(Int16 x) {
         //if (idx_x[i] >= combMArray[i]+1) idx_x[i] = 0;
         if (idxY[i] >= combMArray[i])   idxY[i] = 0;
     }
+    // Update input delayline
+    inpDelayline = x;
 
-    return sum;
+    return x;
 }
 
 //Allpazz
@@ -154,16 +167,18 @@ Int16 allpass(Int16 x)
     static Int16 inpDelayline[allM] = {0};
     static Int16 outDelayline[allM] = {0};
     static Uint16 idx = 0;
+    Int16 y;
 
-    Int16 y = inpDelayline[idx] + ((-(Int32)gain*(Int32)x +
-                                    (Int32)gain*(Int32)outDelayline[idx]) >> 15);
+	x >>= 1;//#######
+    y = inpDelayline[idx] + ((-(Int32)gain*(Int32)x + (Int32)gain*(Int32)outDelayline[idx]) >> 16);
+    
     inpDelayline[idx] = x;
     outDelayline[idx] = y;
 
     //update circ buffer idx
     idx++;
     if (idx >= allM) idx = 0;
-    return y;
+    return y << 1;
 }
 
 //late delay reverberator
@@ -185,8 +200,9 @@ Int16 lateDelay(Int16 x)
 Int16 reverb(Int16 x)
 {
     //inzet the functionzz zo zurkuz can be happy
-    Int16 y=0, reverbEffectTmp=0, earlyTmp, lateTmp;
-    return lateDelay(x);
+    Int16 y, reverbEffectTmp=0, earlyTmp, lateTmp;
+    //return lateDelay(x);
+    return combfilters(x);
     earlyTmp = early(x);
     lateTmp = combfilters(earlyTmp);
     lateTmp = allpass(lateTmp);
