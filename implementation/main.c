@@ -1,6 +1,7 @@
 #include <ezdsp5535.h>
 #include <ezdsp5535_i2s.h>
 #include <ezdsp5535_i2c.h>
+#include <ezdsp5535_uart.h>
 #include "codec.h"
 #include "gpio.h"
 #include "adc.h"
@@ -70,6 +71,7 @@ int main() {
     EZDSP5535_I2C_init();
     initAdc();
     initCODEC();
+	EZDSP5535_UART_open();
     // Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
     fuck = *EBSR;
     *EBSR = (fuck&0xf0ff)|0x0a00;
@@ -164,6 +166,19 @@ void processFx(Int16 x) {
     EZDSP5535_I2S_writeLeft(x);
 }
 
+void sendMenuStatus(Uint8 idx, Int16 val) {
+	char buf[5];
+	Int16 i;
+	buf[0] = 0xaa; // start byte
+	buf[1] = idx;
+	*(Int16*)(buf+2) = val;
+	buf[4] = 0xbb;
+	EZDSP5535_UART_open();
+	for (i=0; i<5; i++) {
+		EVM5515_UART_putChar(buf[i]);
+	}
+}
+
 void processUi() {
     static Uint16 debounce = 22050;
     Uint16 gpios, menuBtns;
@@ -193,6 +208,7 @@ void processUi() {
             val = fxParam[menuCurrentFx](-1);
         	debounce = 0;
         }
+        sendMenuStatus(menuCurrentFx, val);
         printf("Param: %x, Value: %x\n", menuCurrentFx, val);
     } else {
         debounce++;
