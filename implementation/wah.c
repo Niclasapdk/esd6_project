@@ -8,7 +8,7 @@ void setWahPedal(Int16 adcVal) {
 	const Int16 sin_coeff = 5; // 2*sin(pi/fs) = 0.00014247585718515246 (approx 5 in Q15)
 	// fmin + adcVal * fdiff / 1024
 	// range = 350 - 2250 Hz, from 4665/1000 * Hz
-	Int16 Fc = 326 + (((Int32)adcVal*(2100-350))>>10); // Q15.0
+	Int16 Fc = 326 + (((Int32)adcVal*(2100-326))>>10); // Q15.0
 	// numberrep Q0.15 * Q15.0 = Q15.15
 	// actual sizes 12 bit * 3 bit so no need for double precision accumulator
 	F1 = sin_coeff*Fc;
