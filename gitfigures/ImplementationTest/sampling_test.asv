@@ -1,7 +1,7 @@
 clc; close all; clear;
 
 % Read data from CSV file
-data = readmatrix('allfx_computationtime.csv');  % Replace with your actual file name
+data = readmatrix('_computationtime.csv');  % Replace with your actual file name
 time = data(:, 1);       % Time (seconds)
 voltage1 = data(:, 3);   % Signal 1
 voltage2 = data(:, 2);   % Signal 2
@@ -38,8 +38,8 @@ t_max = 15.5e-5;
 valid1 = time(risingEdges1) >= t_min & time(fallingEdges1) <= t_max;
 firstIdx1 = find(valid1, 1);
 if ~isempty(firstIdx1)
-    t1_start = time(risingEdges1(firstIdx1));
-    t1_end   = time(fallingEdges1(firstIdx1));
+    t1_start = time(risingEdges1(firstIdx1+2));
+    t1_end   = time(fallingEdges1(firstIdx1+2));
     y_level = 3.6;
     
     % Plot markers at rising and falling edges
@@ -81,11 +81,11 @@ legend([h1, h2,hPulse1, hPulse2],'Computation Time', 'Time for sample read to sa
 xlim([7e-5 15.5e-5]);
 xlabel('Time (s)', 'FontSize', 14);
 ylabel('Voltage (V)', 'FontSize', 14);
-title('Computation Time For All Effect', 'FontSize', 16);
+title('Computation Time For Wah', 'FontSize', 16);
 grid on;
 
-saveFolder = fullfile(pwd,'..','..','gitfigures/ImplementationTest/');
-filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_ALLFx'));
-exportgraphics(figH, filePath, 'Resolution', 300);
+%saveFolder = fullfile(pwd,'..','..','gitfigures/ImplementationTest/');
+%filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_Wah'));
+%exportgraphics(figH, filePath, 'Resolution', 300);
 %filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_noFx'));
 %exportgraphics(figJ, filePath, 'Resolution', 300);
