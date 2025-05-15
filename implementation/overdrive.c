@@ -202,8 +202,7 @@ Int16 overdrive(Int16 x) {
     Int16 y1, y2, y3, y4, y5;
 
     // Noise gate
-//    y1 = odNoiseGate(x);
-    y1 = x;
+    y1 = odNoiseGate(x);
 
     // FIR anti-alias LP
 //    y2 = odFirAA(y1);

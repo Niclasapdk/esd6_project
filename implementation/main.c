@@ -7,6 +7,7 @@
 #include "adc.h"
 #include "lcd.h"
 #include <stdio.h>
+#include "i2s.h"
 
 // FX
 #include "wah.h"
@@ -15,6 +16,8 @@
 #include "flanger.h"
 #include "tremolo.h"
 #include "reverb.h"
+
+#define MEASURE_COMPUTATION_TIME
 
 // Order of effects which gives their indices
 typedef enum {
@@ -61,21 +64,26 @@ static Uint8 menuCurrentFx = PARAM_OD_DRIVE;
 
 // Main loop routines
 Uint16 toggleFx();
-void processFx(Int16 x);
+Int16 processFx(Int16 x);
 void processUi();
+void sendMenuStatus(Uint8 idx, Int16 val);
 void setupClock();
+void bypassClock();
 int main() {
     Int16 fuck;
-	setupClock();
+    bypassClock();
     EZDSP5535_init();
     EZDSP5535_I2C_init();
-    initAdc();
     initCODEC();
-	EZDSP5535_UART_open();
+	EZDSP5535_UART_open(); // must be before initI2S
+    initI2S();
+    initAdc();
+	setupClock();
     // Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
     fuck = *EBSR;
     *EBSR = (fuck&0xf0ff)|0x0a00;
-    *IODIR1 = 0;
+    *IODIR1 = 0x0030; // GPIO 4 and 5 as output, rest as input
+    *IOOUTDATA1 = 0;
 
     // FX function pointer setup
     fx[FX_WAH] = wah;
@@ -104,23 +112,33 @@ int main() {
     fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
     
     odInit();
-
-//    while (1) {
-//        EZDSP5535_I2S_readLeft(&fuck);
-//        fuck = odNonlinPoly(fuck);
-//    	EZDSP5535_I2S_writeLeft(fuck);
-//    }
+    flangerInit();
+    chorusInit();
+    sendMenuStatus(menuCurrentFx, 10);
 
     // Infinite loop
     while (1) {
-        EZDSP5535_I2S_readLeft(&fuck);
+    	#ifdef MEASURE_COMPUTATION_TIME
+       	*IOOUTDATA1 = 0x00;
+       	#endif
+        fuck = i2sReadR();
+        #ifdef MEASURE_COMPUTATION_TIME
+        *IOOUTDATA1 = 0x20;
+        #endif
         // Read switches and toggle fx
         if (toggleFx()) {
             // bypass is on (handle ui)
             processUi();
         } else {
             // bypass is off (process audio)
-            processFx(fuck);
+        	#ifdef MEASURE_COMPUTATION_TIME
+	        *IOOUTDATA1 |= 0x10;
+       		#endif
+            fuck = processFx(fuck);
+        	#ifdef MEASURE_COMPUTATION_TIME
+	        *IOOUTDATA1 &= ~0x10;
+       		#endif
+    		i2sWriteR(fuck);
         }
     }
 }
@@ -145,6 +163,12 @@ void setupClock() {
 	*CCR2 |= 1; // bypass mode (SYSCLKSEL=0)
 }
 
+void bypassClock() {
+	// Bypass PLL
+	ioport int *CCR2  = (ioport int *)0x1C1F;
+	*CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
+}
+
 // toggles fxOn, returns true if bypass is on else false
 Uint16 toggleFx() {
     Uint16 gpios;
@@ -155,15 +179,16 @@ Uint16 toggleFx() {
     return gpios&0x80; // gp[7] is bypass
 }
 
-void processFx(Int16 x) {
-    Int16 i, adcVal;
+Int16 processFx(Int16 x) {
+    Int16 i;
     // Process sample
+    #pragma UNROLL(NUM_FX)
     for (i=0; i<NUM_FX; i++) {
         if (fxOn&(1<<i)) {
             x = fx[i](x);
         }
     }
-    EZDSP5535_I2S_writeLeft(x);
+    return x;
 }
 
 void sendMenuStatus(Uint8 idx, Int16 val) {
@@ -171,19 +196,20 @@ void sendMenuStatus(Uint8 idx, Int16 val) {
 	Int16 i;
 	buf[0] = 0xaa; // start byte
 	buf[1] = idx;
-	*(Int16*)(buf+2) = val;
+	buf[2] = ((Uint16)val)>>8;
+	buf[3] = ((Uint8)val);
 	buf[4] = 0xbb;
-	EZDSP5535_UART_open();
 	for (i=0; i<5; i++) {
 		EVM5515_UART_putChar(buf[i]);
 	}
 }
 
 void processUi() {
-    static Uint16 debounce = 22050;
+	#define UI_DEBOUNCE_LIMIT 8820
+    static Uint16 debounce = UI_DEBOUNCE_LIMIT;
     Uint16 gpios, menuBtns;
     static Int16 val=0xa;
-    if (debounce == 22050) {
+    if (debounce == UI_DEBOUNCE_LIMIT) {
         gpios = *IOINDATA1;
         // change selected parameter
         menuBtns = gpios&0x3; // seperate menu buttons from rest of gpios
@@ -208,8 +234,9 @@ void processUi() {
             val = fxParam[menuCurrentFx](-1);
         	debounce = 0;
         }
-        sendMenuStatus(menuCurrentFx, val);
-        printf("Param: %x, Value: %x\n", menuCurrentFx, val);
+        // send menu status if a change was detected
+        if (debounce == 0) sendMenuStatus(menuCurrentFx, val);
+//        printf("Param: %x, Value: %x\n", menuCurrentFx, val);
     } else {
         debounce++;
     }
