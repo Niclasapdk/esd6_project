@@ -1,7 +1,7 @@
 clc; close all; clear;
 
 % Read data from CSV file
-data = readmatrix('firoverdrive_computationtime.csv');  % Replace with your actual file name
+data = readmatrix('flanger_computationtime.csv');  % Replace with your actual file name
 time = data(:, 1);       % Time (seconds)
 voltage1 = data(:, 3);   % Signal 1
 voltage2 = data(:, 2);   % Signal 2
@@ -85,7 +85,7 @@ title('Computation Time For No Effect', 'FontSize', 16);
 grid on;
 
 saveFolder = fullfile(pwd,'..','..','gitfigures/ImplementationTest/');
-filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_FIROverdrive'));
+filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_Fal'));
 exportgraphics(figH, filePath, 'Resolution', 300);
 %filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_noFx'));
 %exportgraphics(figJ, filePath, 'Resolution', 300);
