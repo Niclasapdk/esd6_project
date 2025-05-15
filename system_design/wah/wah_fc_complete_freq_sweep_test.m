@@ -2,7 +2,7 @@ close all
 clear
 folderPath = pwd;
 % List of CSV filenames
-files = {'wah_fc_350hz_700mV_rightshift_test.csv','wah_fc_1000hz_700mV_rightshift_test','wah_fc_1500hz_700mV_rightshift_test','wah_fc_2250hz_700mV_rightshift_test'};
+files = {'wah_low_frequency_12db.csv','wah_mid_frequency_12db.csv','wah_high_frequency_12db.csv'};
 figH = figure;
 hold on;
 set(gca, 'XScale', 'log');
@@ -12,8 +12,8 @@ for i = 1:length(files)
 
     % Extract x and y from your CSV structure
     x = data(:,1);   % assuming first column is x
-    y = data(:,2);   % assuming second column is y
-    [maxval idx] = max(y.Channel1Magnitude_dB_);
+    y = data(:,3);   % assuming second column is y
+    [maxval idx] = max(y.Channel2Magnitude_dB_);
     
 
     string = ['Frequency: ', num2str(x.Frequency_Hz_(idx),'%.1f'),'Hz'];
@@ -22,7 +22,7 @@ for i = 1:length(files)
     'LabelVerticalAlignment', 'bottom', ...
     'FontWeight', 'bold');
     
-    p(i) = plot(x.Frequency_Hz_, y.Channel1Magnitude_dB_);
+    p(i) = plot(x.Frequency_Hz_, y.Channel2Magnitude_dB_);
     title('Wah Frequency Response With Varying Center Frequency');
     xlabel('Frequency [Hz]');
     ylabel('Magnitude [dB]');
