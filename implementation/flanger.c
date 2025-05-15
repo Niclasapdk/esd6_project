@@ -5,7 +5,7 @@
 static Int16 Mix = 16384;        // Wet mix in Q15 (example: 0.3)
 static Int16 invMix = 16384;    // Dry mix in Q15 (1 - wet mix)
 static long Delay = 221;        // Base delay (5ms*44.1kHz)
-int fDelayLine[MAX_DELAY];      // Delay buffer
+static Int16 fDelayLine[MAX_DELAY];      // Delay buffer
 
 /*Parameters for flangerLFO*/
 extern long EPM(long *, long *);
@@ -112,4 +112,9 @@ Int16 flanger_FIR(Int16 xn) {
         delayIndex = 0;
     }
     return yn;
+}
+
+void flangerInit() {
+	Int i;
+	for (i=0; i<MAX_DELAY; i++) fDelayLine[i] = 0;
 }

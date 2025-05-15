@@ -145,11 +145,6 @@ Int16 combfilters(Int16 x) {
         // Calculate output
         // y[n]=x[n-m]-reverbG1*x[n-m-1]+reverbG1*y[n-1]+reverbG2*y[n-m] this shit big doo doo, use too much brain
         //y[n] = x[n] - reverbG1 * x[n-1] + reverbG1 * y[n-1] + reverbG2 * y[n-m] this much better use small brain
-        
-//        acc = -(Int32)reverbG1[i] * (Int32)inpDelayline;
-//        acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];
-//        acc +=(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]];
-//        y = x + (acc >> 15);
 
 		acc = -(Int32)reverbG1[i]*xLine[idxXCurr1];
         acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];

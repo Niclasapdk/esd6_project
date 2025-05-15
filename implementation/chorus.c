@@ -25,7 +25,7 @@ static Int16 Width = 221;  		// Modulation delay width , 5ms in both dir
 void chorusFRate(Int16 r);
 
 // State variables
-int cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
+static Int16 cDelayLine[CHORUS_DELAYLINE_LEN] = {0};      // Delay buffer
 
 Int16 chorusChangeDelay(Int16 dir) {
     const Int16 step = 44;				// Step size 1 ms
@@ -126,4 +126,9 @@ Int16 chorus(Int16 xn) {
     }
 
     return yn;
+}
+
+void chorusInit() {
+	Int i;
+	for (i=0; i<CHORUS_DELAYLINE_LEN; i++) cDelayLine[i] = 0;
 }

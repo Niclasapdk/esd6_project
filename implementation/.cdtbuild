@@ -70,6 +70,7 @@
 <listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/../../../emulation/boards/ezdsp5535_v1/c55xx_csl/inc&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/../../../emulation/boards/ezdsp5535_v1/include&quot;"/>
 </option>
+<option id="com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.OPT_LEVEL.release.1637469710" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.OPT_LEVEL.release" value="com.ti.ccstudio.buildDefinitions.C5500_4.3.compilerID.OPT_LEVEL.2" valueType="enumerated"/>
 </tool>
 <tool id="com.ti.ccstudio.buildDefinitions.C5500_4.3.exe.linkerRelease.481096636" name="C5500 Linker" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.3.exe.linkerRelease">
 <option id="com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.OUTPUT_FILE.689892846" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.3.linkerID.OUTPUT_FILE" value="&quot;beep_boop.out&quot;" valueType="string"/>
