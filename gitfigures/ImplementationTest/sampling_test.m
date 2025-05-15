@@ -81,11 +81,11 @@ legend([h1, h2,hPulse1, hPulse2],'Computation Time', 'Time for sample read to sa
 xlim([7e-5 15.5e-5]);
 xlabel('Time (s)', 'FontSize', 14);
 ylabel('Voltage (V)', 'FontSize', 14);
-title('Computation Time For All Effect', 'FontSize', 16);
+title('Computation Time For All Effect (Optimization 2)', 'FontSize', 16);
 grid on;
 
 saveFolder = fullfile(pwd,'..','..','gitfigures/ImplementationTest/');
-filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_ALLFx'));
+filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_O2ALLFx'));
 exportgraphics(figH, filePath, 'Resolution', 300);
 %filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_noFx'));
 %exportgraphics(figJ, filePath, 'Resolution', 300);
