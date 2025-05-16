@@ -12,7 +12,6 @@ extern long EPM(long *, long *);
 #define MAP_BY_TWO_PI_FS 1530 //2*pi*mapfactor/fs,fs=4410, mapfactor=0.1*2^15/100
 #define THREE_FRAC_TWO 1610612736 // 1.5 Q2.30
 #define CHORUS_DELAYLINE_LEN 1104 // Max Delay = 882, plus width = 221
-#define INV4 8191 // one fourth in Q15
 
 static long oneMinusKpow2Frac2 = 2147474928;
 static long k = 6120000; // Q1.31
@@ -107,13 +106,12 @@ Int16 chorus(Int16 xn) {
         }
 
     }
-    // Compute the output as a mix of the current input and the delayed sample
-    // (invMix and Mix act as the dry and wet mix factors, respectively)
-    // For instance, 8192 corresponds to ~0.25
-    wet = (((long)cDelayLine[delayBack[0]] * INV4) +
-           ((long)cDelayLine[delayBack[1]] * INV4) +
-           ((long)cDelayLine[delayBack[2]] * INV4) +
-           ((long)cDelayLine[delayBack[3]] * INV4)) >> 15;
+    // Calculate wet fx as sum of delay lines * (1/4)
+    // >>2 instead of *(1/4)
+    wet = ((long)cDelayLine[delayBack[0]] +
+           (long)cDelayLine[delayBack[1]] +
+           (long)cDelayLine[delayBack[2]] +
+           (long)cDelayLine[delayBack[3]]) >> 2;
     yn = (((long)invMix * xn) + ((long)Mix * wet)) >> 15;
 
     // update delayline
