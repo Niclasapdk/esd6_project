@@ -46,7 +46,7 @@ Int16 chorusChangeRate(Int16 dir) {
 }
 
 Int16 chorusChangeMix(Int16 dir) {
-    const Int16 step = 2000;
+    const Int16 step = 6554; // 5% step size
     Mix += dir*step;
     // saturate (order matters)
     if (Mix < -20000) Mix = 32767; // for overflow
@@ -127,6 +127,6 @@ Int16 chorus(Int16 xn) {
 }
 
 void chorusInit() {
-	Int i;
-	for (i=0; i<CHORUS_DELAYLINE_LEN; i++) cDelayLine[i] = 0;
+    Int i;
+    for (i=0; i<CHORUS_DELAYLINE_LEN; i++) cDelayLine[i] = 0;
 }

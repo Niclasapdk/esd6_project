@@ -43,15 +43,15 @@ Int16 odChangeGateThres(Int16 dir) {
 }
 
 Int16 odChangeGateRel(Int16 dir) {
-    const Int16 step = 4410;
+    const Int16 step = 4410; // 100 ms steps
     gateRel += dir*step;
     if (gateRel > 50000) gateRel = 1;
     else if (gateRel > 44100) gateRel = 44100;
-    return gateRel/441;
+    return gateRel; // output time in samples
 }
 
 Int16 odChangeDrive(Int16 dir) {
-    const Int16 step = 5;
+    const Int16 step = 1;
     drive += dir*step;
     if (drive > 50) drive = 50;
     else if (drive < 1) drive = 1;
@@ -59,7 +59,7 @@ Int16 odChangeDrive(Int16 dir) {
 }
 
 Int16 odChangeLevel(Int16 dir) {
-    const Int16 step = 2000;
+    const Int16 step = 3277; // 10% per step
     level += dir*step;
     // saturate (order matters)
     if (level < -20000) level = 32767;
@@ -96,8 +96,8 @@ Int16 odChangeLpCutoff(Int16 dir) {
 }
 
 void odInit() {
-	int i;
-	for (i=0; i<OD_AA_FILTER_TAP_NUM+2; i++) odAaFilterDline[i] = 0;
+    int i;
+    for (i=0; i<OD_AA_FILTER_TAP_NUM+2; i++) odAaFilterDline[i] = 0;
 }
 
 static inline Int16 sat_q15(Int32 x)
@@ -206,7 +206,7 @@ Int16 overdrive(Int16 x) {
 
     // FIR anti-alias LP
 //    y2 = odFirAA(y1);
-	y2 = y1;
+    y2 = y1;
 
     // IIR high-pass (Direct Form I)
     y3 = odIirHp(y2);

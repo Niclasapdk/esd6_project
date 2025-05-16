@@ -39,7 +39,7 @@ Int16 flangerChangeRate(Int16 dir) {
 }
 
 Int16 flangerChangeMix(Int16 dir) {
-    const Int16 step = 2000;
+    const Int16 step = 6554; // 5% step size
     Mix += dir*step;
     // saturate (order matters)
     if (Mix < -20000) Mix = 32767;
@@ -115,6 +115,6 @@ Int16 flanger_FIR(Int16 xn) {
 }
 
 void flangerInit() {
-	Int i;
-	for (i=0; i<MAX_DELAY; i++) fDelayLine[i] = 0;
+    Int i;
+    for (i=0; i<MAX_DELAY; i++) fDelayLine[i] = 0;
 }

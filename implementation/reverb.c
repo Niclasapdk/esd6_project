@@ -36,14 +36,14 @@ Int16 reverbChangeTime(Int16 dir) {
     //calc reverbG2 from g and reverbG1
     for (i=0; i<6; i++)
     {
-    	imm = ((Int32)reverbCombGain*(Int32)(32767-reverbG1[i])) >> 15;
+        imm = ((Int32)reverbCombGain*(Int32)(32767-reverbG1[i])) >> 15;
         reverbG2[i] = imm;
     }
     return idx*100 + 500;
 }
 
 Int16 reverbChangeMix(Int16 dir) {
-    const Int16 step = 2000;
+    const Int16 step = 6554; // 5% step size
     reverbMix += dir*step;
     // saturate (order matters)
     if (reverbMix < -20000) reverbMix = 32767;
@@ -117,7 +117,7 @@ Int16 combfilters(Int16 x) {
 
     Int16 y, sum, i;
     Int32 acc;
-    
+
     x>>=2;
     sum = 0;
 
@@ -137,21 +137,21 @@ Int16 combfilters(Int16 x) {
         if (idxXCurr < 0) idxXCurr += xDelaylineLength;
         // update current x + 1 index
         if (idxXCurr+1 >= xDelaylineLength) {
-        	idxXCurr1 = 0;
+            idxXCurr1 = 0;
         } else {
-        	idxXCurr1 = idxXCurr+1;
+            idxXCurr1 = idxXCurr+1;
         }
 
         // Calculate output
         // y[n]=x[n-m]-reverbG1*x[n-m-1]+reverbG1*y[n-1]+reverbG2*y[n-m] this shit big doo doo, use too much brain
         //y[n] = x[n] - reverbG1 * x[n-1] + reverbG1 * y[n-1] + reverbG2 * y[n-m] this much better use small brain
 
-		acc = -(Int32)reverbG1[i]*xLine[idxXCurr1];
+        acc = -(Int32)reverbG1[i]*xLine[idxXCurr1];
         acc +=(Int32)reverbG1[i] * (Int32)outDelayline[i][idxY1[i]];
         acc +=(Int32)reverbG2[i] * (Int32)outDelayline[i][idxY[i]];
         y = xLine[idxXCurr] + (acc>>15);
-		sum += ((Int32)y*INV6)>>15;
-		
+        sum += ((Int32)y*INV6)>>15;
+
         // Update delaylinez
         outDelayline[i][idxY[i]] = y;
 
@@ -163,8 +163,8 @@ Int16 combfilters(Int16 x) {
     }
     // Update input delayline
     xLine[idxX] = x;
-	idxX++;
-	if (idxX >= xDelaylineLength) idxX=0;
+    idxX++;
+    if (idxX >= xDelaylineLength) idxX=0;
 
     return sum;
 }
@@ -181,8 +181,8 @@ Int16 allpass(Int16 x)
     Int16 y;
 
     y = inpDelayline[idx] +
-    	((-(Int32)gain*(Int32)x + (Int32)gain*(Int32)outDelayline[idx]) >> 15);
-    
+        ((-(Int32)gain*(Int32)x + (Int32)gain*(Int32)outDelayline[idx]) >> 15);
+
     inpDelayline[idx] = x;
     outDelayline[idx] = y;
 
