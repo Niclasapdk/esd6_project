@@ -75,10 +75,10 @@ int main() {
     EZDSP5535_init();
     EZDSP5535_I2C_init();
     initCODEC();
-	EZDSP5535_UART_open(); // must be before initI2S
+    EZDSP5535_UART_open(); // must be before initI2S
     initI2S();
     initAdc();
-	setupClock();
+    setupClock();
     // Setup PIN MUX to in mode 2 for SD0 and SD1 (means all are GPIO)
     fuck = *EBSR;
     *EBSR = (fuck&0xf0ff)|0x0a00;
@@ -110,63 +110,64 @@ int main() {
     fxParam[PARAM_TREMOLO_RATE] = tremoloChangeRate;
     fxParam[PARAM_REVERB_MIX] = reverbChangeMix;
     fxParam[PARAM_REVERB_TIME] = reverbChangeTime;
-    
+
     odInit();
     flangerInit();
     chorusInit();
+    reverbInit();
     sendMenuStatus(menuCurrentFx, 10);
 
     // Infinite loop
     while (1) {
-    	#ifdef MEASURE_COMPUTATION_TIME
-       	*IOOUTDATA1 = 0x00;
-       	#endif
+#ifdef MEASURE_COMPUTATION_TIME
+        *IOOUTDATA1 = 0x00;
+#endif
         fuck = i2sReadR();
-        #ifdef MEASURE_COMPUTATION_TIME
+#ifdef MEASURE_COMPUTATION_TIME
         *IOOUTDATA1 = 0x20;
-        #endif
+#endif
         // Read switches and toggle fx
         if (toggleFx()) {
             // bypass is on (handle ui)
             processUi();
         } else {
             // bypass is off (process audio)
-        	#ifdef MEASURE_COMPUTATION_TIME
-	        *IOOUTDATA1 |= 0x10;
-       		#endif
+#ifdef MEASURE_COMPUTATION_TIME
+            *IOOUTDATA1 |= 0x10;
+#endif
             fuck = processFx(fuck);
-        	#ifdef MEASURE_COMPUTATION_TIME
-	        *IOOUTDATA1 &= ~0x10;
-       		#endif
-    		i2sWriteR(fuck);
+#ifdef MEASURE_COMPUTATION_TIME
+            *IOOUTDATA1 &= ~0x10;
+#endif
+            i2sWriteR(fuck);
         }
     }
 }
 
 void setupClock() {
-	// Steps from section 1.4.3.2.6 Software Steps To Modify Multiplier and Divider Ratios
-	// from TMS320C5505 DSP System User's Guide
-	// since C5535 and C5505 have same PLL
-	ioport int *CCR2  = (ioport int *)0x1C1F;
-	ioport int *CGCR1 = (ioport int *)0x1C20;
-	ioport int *CGCR2 = (ioport int *)0x1C21;
-	ioport int *CGCR3 = (ioport int *)0x1C22;
-	ioport int *CGCR4 = (ioport int *)0x1C23;
-	*CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
-	*CGCR1 &= ~0x8000; // set RSVD=0
-	*CGCR1 = 1000-4; // set M
-	*CGCR2 = 120-4; // set RDRATIO
-	*CGCR4 = 0; // SET OUTDIVEN=0
-	*CGCR3 = 0x0806;
-	*CGCR1 |= 0x8000; // set RSVD=1
-	EZDSP5535_waitusec(5000); // wait minimum 4 ms
-	*CCR2 |= 1; // bypass mode (SYSCLKSEL=0)
+    // Steps from section 1.4.3.2.6 Software Steps To Modify Multiplier and Divider Ratios
+    // from TMS320C5505 DSP System User's Guide
+    // since C5535 and C5505 have same PLL
+    ioport int *CCR2  = (ioport int *)0x1C1F;
+    ioport int *CGCR1 = (ioport int *)0x1C20;
+    ioport int *CGCR2 = (ioport int *)0x1C21;
+    ioport int *CGCR3 = (ioport int *)0x1C22;
+    ioport int *CGCR4 = (ioport int *)0x1C23;
+    *CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
+    *CGCR1 &= ~0x8000; // set RSVD=0
+    *CGCR1 = 1000-4; // set M
+    *CGCR2 = 120-4; // set RDRATIO
+    *CGCR4 = 0; // SET OUTDIVEN=0
+    *CGCR3 = 0x0806;
+    *CGCR1 |= 0x8000; // set RSVD=1
+    EZDSP5535_waitusec(5000); // wait minimum 4 ms
+    *CCR2 |= 1; // bypass mode (SYSCLKSEL=0)
 }
 
 void bypassClock() {
-	// Bypass PLL
-	ioport int *CCR2  = (ioport int *)0x1C1F;
-	*CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
+    // Bypass PLL
+    ioport int *CCR2  = (ioport int *)0x1C1F;
+    *CCR2 &= ~1; // bypass mode (SYSCLKSEL=0)
 }
 
 // toggles fxOn, returns true if bypass is on else false
@@ -182,7 +183,7 @@ Uint16 toggleFx() {
 Int16 processFx(Int16 x) {
     Int16 i;
     // Process sample
-    #pragma UNROLL(NUM_FX)
+#pragma UNROLL(NUM_FX)
     for (i=0; i<NUM_FX; i++) {
         if (fxOn&(1<<i)) {
             x = fx[i](x);
@@ -192,20 +193,20 @@ Int16 processFx(Int16 x) {
 }
 
 void sendMenuStatus(Uint8 idx, Int16 val) {
-	char buf[5];
-	Int16 i;
-	buf[0] = 0xaa; // start byte
-	buf[1] = idx;
-	buf[2] = ((Uint16)val)>>8;
-	buf[3] = ((Uint8)val);
-	buf[4] = 0xbb;
-	for (i=0; i<5; i++) {
-		EVM5515_UART_putChar(buf[i]);
-	}
+    char buf[5];
+    Int16 i;
+    buf[0] = 0xaa; // start byte
+    buf[1] = idx;
+    buf[2] = ((Uint16)val)>>8;
+    buf[3] = ((Uint8)val);
+    buf[4] = 0xbb;
+    for (i=0; i<5; i++) {
+        EVM5515_UART_putChar(buf[i]);
+    }
 }
 
 void processUi() {
-	#define UI_DEBOUNCE_LIMIT 8820
+#define UI_DEBOUNCE_LIMIT 8820
     static Uint16 debounce = UI_DEBOUNCE_LIMIT;
     Uint16 gpios, menuBtns;
     static Int16 val=0xa;
@@ -216,23 +217,23 @@ void processUi() {
         if (menuBtns == 0x1) { // change currently selected param up
             // increment and check for out-of-bounds index
             if (++menuCurrentFx == NUM_FX_PARAMS) menuCurrentFx = 0;
-        	debounce = 0;
-        	val = fxParam[menuCurrentFx](0); // read val for this param
+            debounce = 0;
+            val = fxParam[menuCurrentFx](0); // read val for this param
         } else if (menuBtns == 0x2) { // change currently selected param down
             // decrement and check for overflow
             // if overflow occurs, menuCurrentFx will be maxInt so larger than NUM_FX_PARAMS
             if (--menuCurrentFx > NUM_FX_PARAMS) menuCurrentFx = NUM_FX_PARAMS-1;
-        	debounce = 0;
-        	val = fxParam[menuCurrentFx](0); // read val for this param
+            debounce = 0;
+            val = fxParam[menuCurrentFx](0); // read val for this param
         }
         // change parameter
         menuBtns = gpios&0xc; // seperate param change buttons from rest of gpios
         if (menuBtns == 0x8) { // change fx param up
             val = fxParam[menuCurrentFx](1);
-        	debounce = 0;
+            debounce = 0;
         } else if (menuBtns == 0x4) { // change fx param down
             val = fxParam[menuCurrentFx](-1);
-        	debounce = 0;
+            debounce = 0;
         }
         // send menu status if a change was detected
         if (debounce == 0) sendMenuStatus(menuCurrentFx, val);

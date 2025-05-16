@@ -4,6 +4,7 @@
 
 #include <EZDSP5535.h>
 
+void reverbInit();
 Int16 reverb(Int16 x);
 Int16 reverbChangeTime(Int16 dir);
 Int16 reverbChangeMix(Int16 dir);

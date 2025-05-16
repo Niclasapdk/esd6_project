@@ -43,7 +43,7 @@ Int16 reverbChangeTime(Int16 dir) {
 }
 
 Int16 reverbChangeMix(Int16 dir) {
-    const Int16 step = 6554; // 5% step size
+    const Int16 step = 1638; // 5% step size
     reverbMix += dir*step;
     // saturate (order matters)
     if (reverbMix < -20000) reverbMix = 32767;
@@ -224,3 +224,9 @@ Int16 reverb(Int16 x)
     y = imm>>15;
     return y;
 }
+
+void reverbInit() {
+    Uint16 i;
+    for (i=0; i<0xffff; i++) reverb(0);
+}
+

@@ -32,7 +32,7 @@ Int16 tremoloChangeRate(Int16 dir) {
 }
 
 Int16 tremoloChangeDepth(Int16 dir) {
-    const Int16 step = 6554; // 5% step size
+    const Int16 step = 1638; // 5% step size
     Depth += dir*step;
     // saturate (order matters)
     if (Depth < -20000) Depth = 32767;

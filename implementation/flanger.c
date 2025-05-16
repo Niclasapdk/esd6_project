@@ -2,7 +2,7 @@
 #include "flanger.h"
 #define MAX_DELAY 662           //15ms * 44.1kHz 
 
-static Int16 Mix = 16384;        // Wet mix in Q15 (example: 0.3)
+static Int16 Mix = 16383;        // Wet mix in Q15 (example: 0.3)
 static Int16 invMix = 16384;    // Dry mix in Q15 (1 - wet mix)
 static long Delay = 221;        // Base delay (5ms*44.1kHz)
 static Int16 fDelayLine[MAX_DELAY];      // Delay buffer
@@ -39,7 +39,7 @@ Int16 flangerChangeRate(Int16 dir) {
 }
 
 Int16 flangerChangeMix(Int16 dir) {
-    const Int16 step = 6554; // 5% step size
+    const Int16 step = 1638; // 5% step size
     Mix += dir*step;
     // saturate (order matters)
     if (Mix < -20000) Mix = 32767;
