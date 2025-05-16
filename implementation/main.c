@@ -17,7 +17,7 @@
 #include "tremolo.h"
 #include "reverb.h"
 
-#define MEASURE_COMPUTATION_TIME
+//#define MEASURE_COMPUTATION_TIME
 
 // Order of effects which gives their indices
 typedef enum {
