@@ -23,7 +23,7 @@ const String parameters[16] = {
 };
 
 const String units[16] = {
-  "ABS","","Hz","Hz","","mS","%","Hz","ms","%","Hz",
+  "","","Hz","Hz","","ms","%","Hz","ms","%","Hz",
   "ms","%","Hz","%","s"
 };
 
@@ -69,22 +69,22 @@ float convertQ15ToFloat(int16_t q15, float min, float max) {
 float getFloatFromParam(byte paramIdx, int16_t q15_value) {
   switch (paramIdx) {
     case 1: case 4:
-      return q15_value / 32767.000f;
+      return q15_value / 32767.00f;
 
     case 0: case 2: case 3:
       return static_cast<float>(q15_value);
 
     case 6: case 9: case 12: case 14:
-      return convertQ15ToFloat(q15_value, 0.000f, 100.000f);
+      return convertQ15ToFloat(q15_value, 0.00f, 100.00f);
 
     case 7: case 10: case 13:
-      return q15_value / 1000.000f;  // TREMOLO RATE
+      return q15_value / 1000.00f;  // TREMOLO RATE
 
     case 5:
       return q15_value;
 
     case 8: case 11:
-      return (q15_value / 44100.000f) * 1000.000f;            // ms
+      return (q15_value / 44100.00f) * 1000.00f;            // ms
 
     case 15:
       return q15_value / 1000.000f;                         // ms
@@ -108,5 +108,5 @@ void updateLCD(byte paramIdx, int16_t value) {
 
   lcd.setCursor(0, 0); lcd.print(effect);
   lcd.setCursor(0, 1); lcd.print("Param:" + parameters[paramIdx]);
-  lcd.setCursor(0, 2); lcd.print("Value:" + String(displayValue, 2) + String(units[paramIdx]));
+  lcd.setCursor(0, 2); lcd.print("Value:" + String(displayValue, 1) + " " + String(units[paramIdx]));
 }
