@@ -1,7 +1,7 @@
 clc; close all; clear;
 
 % Read data from CSV file
-data = readmatrix('allfx_computationtime.csv');  % Replace with your actual file name
+data = readmatrix('o3_allfx_computationtime.csv');  % Replace with your actual file name
 time = data(:, 1);       % Time (seconds)
 voltage1 = data(:, 3);   % Signal 1
 voltage2 = data(:, 2);   % Signal 2
@@ -15,7 +15,15 @@ risingEdges1 = find(diff([0; above1]) == 1);
 fallingEdges1 = find(diff([above1; 0]) == -1);
 numPulses1 = min(length(risingEdges1), length(fallingEdges1));
 pulseDurations1 = time(fallingEdges1(1:numPulses1)) - time(risingEdges1(1:numPulses1));
-avgHigh1 = mean(pulseDurations1);
+%avgHigh1 = mean(pulseDurations1);
+
+maxDurationLimit = 5.8e-06;  % seconds
+
+% Filter pulse durations based on the limit
+validDurations = pulseDurations1(pulseDurations1 >= maxDurationLimit);
+minHigh1 = min(validDurations);
+maxHigh1= max(validDurations);
+avgHigh1 = mean(validDurations);
 
 % === Signal 2: Detect high durations ===
 above2 = voltage2 > threshold;
@@ -72,7 +80,7 @@ end
 %    'Color', 'black', 'FontSize', 10, 'HorizontalAlignment', 'center');
 
 % === Add Legend with high time info ===
-legendStr1 = sprintf('Avg high time = %.2f μs, Pulse length = %.2f μs', avgHigh1*1e6, (t1_end - t1_start)*1e6);
+legendStr1 = sprintf('Comp: Avg high time = %.2f μs \n Comp: Max = %.2f μs Min = %.2f μs', avgHigh1*1e6,maxHigh1*1e6,minHigh1*1e6);
 legendStr2 = sprintf('Sample read: Pulse length = %.2f μs', (t2_end - t2_start)*1e6);
 legend([h1, h2,hPulse1, hPulse2],'Computation Time', 'Time for sample read to sample read',legendStr1, legendStr2, ...
        'Location', 'southwest', 'FontSize', 10);
@@ -81,11 +89,11 @@ legend([h1, h2,hPulse1, hPulse2],'Computation Time', 'Time for sample read to sa
 xlim([7e-5 15.5e-5]);
 xlabel('Time (s)', 'FontSize', 14);
 ylabel('Voltage (V)', 'FontSize', 14);
-title('Computation Time For All Effect (Optimization 2)', 'FontSize', 16);
+title('Computation Time For All Effects (Optimization 3)', 'FontSize', 16);
 grid on;
 
 saveFolder = fullfile(pwd,'..','..','gitfigures/ImplementationTest/');
-filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_O2ALLFx'));
+filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_O3ALLFx'));
 exportgraphics(figH, filePath, 'Resolution', 300);
 %filePath = fullfile(saveFolder, sprintf('%s.png','ComputationTime_noFx'));
 %exportgraphics(figJ, filePath, 'Resolution', 300);
