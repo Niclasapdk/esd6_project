@@ -19,7 +19,7 @@ byte buffer[5];  // PARAM_IDX, VAL_HI, VAL_LO, STOP
 byte index = 0;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Wire.begin();
   lcd.begin(&Wire);
   lcd.display();
@@ -66,11 +66,8 @@ void loop() {
           if (stopByte == STOP_BYTE) {
             byte paramIdx = buffer[0];
             int16_t value = ((uint16_t)buffer[1] << 8) | buffer[2];
+            
             updateLCD(paramIdx, value);
-          } else {
-            lcd.clear();
-            lcd.setCursor(0, 0);
-            lcd.print("Invalid STOP byte");
           }
         }
         break;
@@ -82,15 +79,15 @@ void updateLCD(byte paramIdx, int16_t value) {
   lcd.clear();
   String effect = "";
   if (paramIdx < 6) {
-    effect = "FX: Overdrive";
+    effect = "FX: OVERDRIVE";
   } else if (paramIdx < 9) {
-    effect = "FX: Chorus";
+    effect = "FX: CHORUS";
   } else if (paramIdx < 12) {
-    effect = "FX: Flanger";
+    effect = "FX: FLANGER";
   } else if (paramIdx < 15) {
-    effect = "FX: Tremolo";
+    effect = "FX: TREMOLO";
   } else {
-    effect = "FX: Reverb";
+    effect = "FX: REVERB";
   }
   lcd.setCursor(0, 0);
   lcd.print(effect);
