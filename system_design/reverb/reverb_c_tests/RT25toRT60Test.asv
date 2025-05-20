@@ -1,0 +1,58 @@
+close all;
+clear;
+clc;
+
+% Load impulse response
+data = readtable('scope_5_4s.csv');
+t = data.xaxis;
+h = data.ch2;
+h1 = data.ch1;
+
+% Schroeder integration (energy decay curve)
+h_squared = abs(h).^2;
+energy_decay = flip(cumsum(flip(h_squared)));
+energy_decay = energy_decay / max(energy_decay);  % Normalize
+decay_dB = 10 * log10(energy_decay + eps);
+
+h_squared1 = abs(h1).^2;
+energy_decay1 = flip(cumsum(flip(h_squared1)));
+energy_decay1 = energy_decay1 / max(energy_decay1);  % Normalize
+decay_dB1 = 10 * log10(energy_decay1 + eps);
+
+% --- Define usable region before hitting -25 dB ---
+MaxVAL = max(decay_dB);
+upper_dB = MaxVAL - 5;
+lower_dB = MaxVAL - 30;
+
+% Find indices between -5 dB and -25 dB
+valid_idx = decay_dB <= upper_dB & decay_dB >= lower_dB;
+
+t_fit = t(valid_idx);
+decay_fit = decay_dB(valid_idx);
+
+% --- Nonlinear regression model ---
+model = @(x, t) x(1)*(t + x(2)) + x(3)*exp(-x(4)*(t + x(2)));
+x0_init = [-15, 0.01, 1, 1];  % Initial guess
+
+% Fit using lsqcurvefit
+opts = optimoptions('lsqcurvefit', 'Display', 'off');
+x_fit = lsqcurvefit(model, x0_init, t_fit, decay_fit, [], [], opts);
+
+% Calculate RT60
+RT60 = 13.8 / abs(x_fit(1));
+
+% --- Plot ---
+figure;
+plot(t, decay_dB, 'b-', 'DisplayName', 'Schroeder Curve output');
+hold on;
+plot(t, decay_dB1, 'r-', 'DisplayName', 'Schroeder Curve input');
+hold on;
+plot(t_fit, model(x_fit, t_fit), 'r--', 'LineWidth', 2, 'DisplayName', 'Nonlinear Fit Region');
+yline(upper_dB, '--', '-5 dB', 'Color', 'k');
+yline(lower_dB, '--', '-30 dB (Noise Floor)', 'Color', 'k');
+
+title(sprintf('Schroeder Integration with Fit Before Noise Floor (RT60 ≈ %.2f s)', RT60), 'FontSize', 13);
+xlabel('Time (s)');
+ylabel('Decay Level (dB)');
+legend;
+grid on;

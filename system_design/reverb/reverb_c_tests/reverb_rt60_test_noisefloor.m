@@ -37,6 +37,6 @@ legend([s2, s1, noise], {'Output', 'Input', 'Noise Floor'}, 'Location', 'SouthWe
 xlabel('Time (seconds)', FontSize=14);
 ylabel('Magnitude (dB)', FontSize=14);
 
-saveFolder = fullfile(pwd,'..','..','..','gitfigures/system_design/reverb/');
-filePath = fullfile(saveFolder, sprintf('%s.png','reverb_rt60_test_noisefloor'));
-exportgraphics(figc(1), filePath, 'Resolution', 300);
+% saveFolder = fullfile(pwd,'..','..','..','gitfigures/system_design/reverb/');
+% filePath = fullfile(saveFolder, sprintf('%s.png','reverb_rt60_test_noisefloor'));
+% exportgraphics(figc(1), filePath, 'Resolution', 300);
