@@ -115,34 +115,35 @@ semilogx(w, H1_dB, 'r', 'LineWidth', 1.5); hold on;
 semilogx(w, H2_dB, 'b', 'LineWidth', 1.5); hold on;
 semilogx(w, H3_dB, 'g', 'LineWidth', 1.5); hold on;
 semilogx(w, H4_dB, 'm', 'LineWidth', 1.5); 
-xline(Fc1, '--r', ['Fc1 = ' num2str(Fc1) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom'); % Red dashed line
-xline(Fc2, '--b', ['Fc2 = ' num2str(Fc2) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom'); % Blue dashed line
-xline(Fc3, '--g', ['Fc3 = ' num2str(Fc3) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom'); % Red dashed line
-xline(Fc4, '--m', ['Fc4 = ' num2str(Fc4) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom'); % Blue dashed line
+xline(Fc1, '--r', ['Fc1 = ' num2str(Fc1) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom','Fontsize',12); % Red dashed line
+xline(Fc2, '--b', ['Fc2 = ' num2str(Fc2) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom','Fontsize',12); % Blue dashed line
+xline(Fc3, '--g', ['Fc3 = ' num2str(Fc3) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom','Fontsize',12); % Red dashed line
+xline(Fc4, '--m', ['Fc4 = ' num2str(Fc4) ' Hz'], 'LineWidth', 1.2, 'LabelVerticalAlignment', 'bottom','Fontsize',12); % Blue dashed line
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB)');
 title('Bandpass (wah) Filter Magnitude Response');
 legend(['Fc = ' num2str(Fc1) ' Hz, Damping = ' num2str(damp1)], ...
        ['Fc = ' num2str(Fc2) ' Hz, Damping = ' num2str(damp2)],...
        ['Fc = ' num2str(Fc3) ' Hz, Damping = ' num2str(damp3)],....
-       ['Fc = ' num2str(Fc4) ' Hz, Damping = ' num2str(damp4)]);
+       ['Fc = ' num2str(Fc4) ' Hz, Damping = ' num2str(damp4)],'Fontsize',12);
+xlim([20 20000]);
 grid on;
 
-% Plot phase responses
-subplot(2,1,2);
-semilogx(w, angle(H1), 'r', 'LineWidth', 1.5); hold on;
-semilogx(w, angle(H2), 'b', 'LineWidth', 1.5); hold on;
-semilogx(w, angle(H3), 'g', 'LineWidth', 1.5); hold on;
-semilogx(w, angle(H4), 'm', 'LineWidth', 1.5); 
-xline(Fc1, '--r', [num2str(Fc1) ' Hz'], 'LineWidth', 1.2); % Red dashed line
-xline(Fc2, '--b', [num2str(Fc2) ' Hz'], 'LineWidth', 1.2); % Blue dashed line
-xline(Fc3, '--g', [num2str(Fc3) ' Hz'], 'LineWidth', 1.2); % Red dashed line
-xline(Fc4, '--m', [num2str(Fc4) ' Hz'], 'LineWidth', 1.2); % Blue dashed line
-xlabel('Frequency (Hz)');
-ylabel('Phase (radians)');
-title('Bandpass (wah) Filter Phase Response');
-legend(['Fc = ' num2str(Fc1) ' Hz, Damping = ' num2str(damp1)], ...
-       ['Fc = ' num2str(Fc2) ' Hz, Damping = ' num2str(damp2)],...
-       ['Fc = ' num2str(Fc3) ' Hz, Damping = ' num2str(damp3)],....
-       ['Fc = ' num2str(Fc4) ' Hz, Damping = ' num2str(damp4)]);
+% % Plot phase responses
+% subplot(2,1,2);
+% semilogx(w, angle(H1), 'r', 'LineWidth', 1.5); hold on;
+% semilogx(w, angle(H2), 'b', 'LineWidth', 1.5); hold on;
+% semilogx(w, angle(H3), 'g', 'LineWidth', 1.5); hold on;
+% semilogx(w, angle(H4), 'm', 'LineWidth', 1.5); 
+% xline(Fc1, '--r', [num2str(Fc1) ' Hz'], 'LineWidth', 1.2); % Red dashed line
+% xline(Fc2, '--b', [num2str(Fc2) ' Hz'], 'LineWidth', 1.2); % Blue dashed line
+% xline(Fc3, '--g', [num2str(Fc3) ' Hz'], 'LineWidth', 1.2); % Red dashed line
+% xline(Fc4, '--m', [num2str(Fc4) ' Hz'], 'LineWidth', 1.2); % Blue dashed line
+% xlabel('Frequency (Hz)');
+% ylabel('Phase (radians)');
+% title('Bandpass (wah) Filter Phase Response');
+% legend(['Fc = ' num2str(Fc1) ' Hz, Damping = ' num2str(damp1)], ...
+%        ['Fc = ' num2str(Fc2) ' Hz, Damping = ' num2str(damp2)],...
+%        ['Fc = ' num2str(Fc3) ' Hz, Damping = ' num2str(damp3)],....
+%        ['Fc = ' num2str(Fc4) ' Hz, Damping = ' num2str(damp4)]);
 grid on;
