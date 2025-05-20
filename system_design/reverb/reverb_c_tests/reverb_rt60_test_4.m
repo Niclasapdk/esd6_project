@@ -23,15 +23,15 @@ hold on;
 s1 = plot(data.xaxis(idx),ch1_dB(idx),':');
 %hold on;
 %plot(data.xaxis,noise_dB,'-','LineWidth',3);
-title('RT25 Test For 4s Decay', FontSize=14);
+title('RT20 Test For 4s Decay', FontSize=14);
 xlim([0.5 4]);
 ylim([-40 5]);
 
-xline(0.750, '--', '0.750s', 'LineWidth', 1.5, 'Color', 'r');
-xline(2.26, '--', '2.26s', 'LineWidth', 1.5, 'Color', 'r');
+xline(0.75, '--', '0.75s', 'LineWidth', 1.5, 'Color', 'r');
+xline(1.8, '--', '1.8s', 'LineWidth', 1.5, 'Color', 'r');
 
 yline(MaxVAL-5,'--', '-5dB', 'LineWidth',1.5,'color','black');
-yline(MaxVAL-30,'--', '-30dB', 'LineWidth',1.5,'color','black');
+yline(MaxVAL-25,'--', '-25dB', 'LineWidth',1.5,'color','black');
 
 legend([s2, s1], {'Output', 'Input'}, 'Location', 'SouthWest', FontSize=12);
 xlabel('Time (seconds)', FontSize=14);
