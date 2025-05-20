@@ -23,7 +23,7 @@ hold on;
 s1 = plot(data.xaxis(idx),ch1_dB(idx),':');
 hold on;
 noise = plot(data.xaxis,noise_dB,'-','LineWidth',3);
-title('RT20 Test For 4s Decay', FontSize=14);
+title('RT20 Test For 4s Reverb Time', FontSize=14);
 xlim([0.5 4]);
 ylim([-40 5]);
 
@@ -37,6 +37,6 @@ legend([s2, s1, noise], {'Output', 'Input', 'Noise Floor'}, 'Location', 'SouthWe
 xlabel('Time (seconds)', FontSize=14);
 ylabel('Magnitude (dB)', FontSize=14);
 
-% saveFolder = fullfile(pwd,'..','..','..','gitfigures/system_design/reverb/');
-% filePath = fullfile(saveFolder, sprintf('%s.png','reverb_rt60_test_noisefloor'));
-% exportgraphics(figc(1), filePath, 'Resolution', 300);
+saveFolder = fullfile(pwd,'..','..','..','gitfigures/system_design/reverb/');
+filePath = fullfile(saveFolder, sprintf('%s.png','reverb_rt60_test_noisefloor'));
+exportgraphics(figc(1), filePath, 'Resolution', 300);
