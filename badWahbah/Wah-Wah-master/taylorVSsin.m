@@ -60,16 +60,22 @@ end
 % === Plot All Approximations ===
 plot_range = 1:round(fs/f/4);  % One cycle for clarity
 
-figure;
+figH=figure;
 hold on;
 plot(theta(plot_range), y_sin(plot_range), 'k-', 'LineWidth', 2);
-plot(theta(plot_range), y_custom_scaled(plot_range), 'b-.', 'LineWidth', 1.8);
-plot(theta(plot_range), y1(plot_range), 'g:', 'LineWidth', 1.8);
+plot(theta(plot_range), y_custom_scaled(plot_range), 'b-.', 'LineWidth', 4);
+plot(theta(plot_range), y1(plot_range), 'g:', 'LineWidth', 3);
 
-xlabel('\theta (radians)');
-ylabel('Amplitude');
-title('Sine Approximations via Matrix Oscillator');
+xlabel('\theta (radians)','FontSize',14);
+ylabel('Amplitude','FontSize',14);
+title('Sine Approximations via Matrix Oscillator','FontSize',16);
 legend('True sin(x)', 'Custom Approximation', ...
-       'Matrix-Based', 'FontSize', 12);
+       'Matrix-Based', 'FontSize', 14,'Location', 'southeast');
 grid on;
 hold off;
+
+saveFolder = fullfile(pwd,'..','..','gitfigures/system_design/Wah/');
+filePath = fullfile(saveFolder, sprintf('%s.png','SinVsTaylorVsMatrix'));
+exportgraphics(figH, filePath, 'Resolution', 300);
+%filePath = fullfile(saveFolder, sprintf('%s.png','flanger_delay_15ms_test'));
+%exportgraphics(figJ, filePath, 'Resolution', 300);
