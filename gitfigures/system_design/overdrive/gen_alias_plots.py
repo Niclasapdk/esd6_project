@@ -37,16 +37,18 @@ def genplot(freq_str):
     plt.figure(figsize=(10, 5))
     # plt.plot(xf, yf)
     plt.semilogx(xf, yf)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     plt.xlim(1,22050)
     plt.ylim(-100,10)
     plt.plot((freq, freq), (-100, -70), "r--")
-    plt.legend(["FFT", "Fundamental"])
-    plt.title("FFT of Overdrive Output")
-    plt.xlabel("Frequency (Hz)")
-    plt.ylabel("Amplitude (dB)")
+    plt.legend(["FFT", "Fundamental"], fontsize=16)
+    plt.title("FFT of Overdrive Output", fontsize=18)
+    plt.xlabel("Frequency (Hz)", fontsize=16)
+    plt.ylabel("Amplitude (dB)", fontsize=16)
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig(f"fft_overdrive_output_{freq_str}.png")
+    plt.savefig(f"fft_overdrive_output_{freq_str}.png", dpi=300)
 
 freqs = ["0k6", "1k", "2k5", "5k"]
 for f in freqs:
